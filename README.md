@@ -1,40 +1,39 @@
 # UM-MCI
 
-This package supports global planning and meta-control for AI agents tackling complex, long-horizon tasks, reducing costly strategic mistakes and blind trial-and-error search.
+UM-MCI supports global planning and meta-control for agents tackling complex, long-horizon tasks, reducing costly strategic mistakes and blind trial-and-error search.
 
-This repository is part of the broader **Universal Methodology ecosystem**. It brings together a snapshot of **UM-MCI Core Semantic Package** and the evolving **UM-MCI Practical Companion**. The human-readable **UM8** theory is published separately.
+This repository is part of the broader **Universal Methodology ecosystem**. It brings together a snapshot of **UM-MCI Core** and the evolving **UM-MCI Practical Companion**. The UM8 theoretical framework and the released Compass modules are published separately.
 
 ## The Universal Methodology ecosystem
 
-The broader **Universal Methodology ecosystem** currently has three connected layers:
+The broader Universal Methodology ecosystem consists of four connected layers:
 
-- **UM8**, the human-readable theoretical framework
-- **UM-MCI Core Semantic Package**, the stable machine-readable semantic package
-- **UM-MCI Practical Companion**, the practical layer of examples, templates, and workflow guidance
+- the **UM8 theoretical framework**
+- the **Paradigm Compass modules**
+- the **UM-MCI Core Semantic Package**
+- the **UM-MCI Practical Companion**
 
 These layers serve different purposes.
 
 ### UM8 theoretical framework
-UM8 is the human-readable theory layer. It provides the high-level methodology architecture for comparing, combining, and designing high-level methdological routes for complex problem solving before work becomes tied to specific tools, models, or domain defaults.
+UM8 supports higher-level planning and design in complex problem solving. It identifies and consolidates recurrent solution logics abstracted from lower-level methods across disciplines into a compact, stable space for comparison and design.
+
+It organizes complex problem solving into eight recurrent methodological paradigms: **Transformation, Optimization, Probabilistic, Inversion, Rule, Fusion, Simulation, and Evolutionary**. The UM8 overview places these paradigms in a common comparative space and makes their interaction structure visible before work becomes tied to specific tools, models, or domain defaults.
 
 - [UM8 overview DOI](https://doi.org/10.5281/zenodo.18790203)
 
+### Paradigm Compass modules
+The Compass modules open the internal design space of the UM8 paradigms. Each module makes explicit the major axes and design commitments that shape how one paradigm should be configured before implementation begins.
+
+The full set of released Compass modules is linked from the UM8 overview record.
+
 ### UM-MCI Core Semantic Package
-UM-MCI Core operationalizes the UM8 theoretical framework in machine-readable form. It provides the stable semantic contract needed to represent, validate, compare, and reuse methodological routes across runs, systems, and human review.
+UM-MCI Core is the stable machine-readable layer aligned to the UM8 theoretical framework. It provides the shared semantic contract required to represent, validate, compare, and reuse the higher-level organization of complex tasks across runs, systems, and human review.
 
 - [UM-MCI Core Semantic Package DOI](https://doi.org/10.5281/zenodo.19676079)
 
 ### UM-MCI Practical Companion
-UM-MCI Practical Companion is the evolving practical layer built around the released Core package. It provides worked examples, templates, utilities, and contribution workflows that help users learn the core quickly, apply it in real tasks, and extend it through shared practical experience.
-
-## What this repository contains
-
-This repository contains:
-
-- a **snapshot of the Core Semantic Package**
-- the **Practical Companion**
-
-The human-readable UM8 theory is published separately through its Zenodo records.
+The Practical Companion is the evolving practical layer built around the Core. It provides worked examples, templates, utilities, and contribution workflows for practical use and shared experience accumulation.
 
 ## When this repository is useful
 
@@ -46,43 +45,44 @@ It is most useful when:
 - different ways of organizing the work would change the evidence, artifacts, validators, or trade-offs involved
 - the key decision cannot be reduced to a single tool call or an ordinary retrieval step
 - the organization of the method is a material part of success or failure
-- the run should contribute reusable experience for future tasks
+- success and failure should contribute reusable experience for future tasks
 
-Routine work with a clear standard procedure usually does not require this full layer of explicit representation and validation. In such cases, ordinary execution traces are often sufficient.
+Routine work with a clear standard procedure usually requires only ordinary execution traces.
 
 ## Entry paths by purpose
 
-The appropriate entry path depends on the user’s immediate objective. Most users do not need to traverse the whole ecosystem at once.
+Most users do not need to go through the whole ecosystem at once. Choose the smallest entry path that matches your immediate objective.
 
-### 1. Theoretical understanding and high-level route design
-Choose this path when the immediate goal is to understand how UM8 supports complex problem solving before work becomes tied to particular tools, solvers, or domain defaults.
+### 1. Understand how UM8 supports high-level methodological comparison and task design
+Choose this path when the goal is to understand how complex problems can be framed, compared, and designed at a higher methodological level before lower-level implementation choices begin to dominate the work.
 
 Begin with the **UM8 overview** and one relevant **Compass module**.  
 Move to **UM-MCI Core** only when the resulting task structure needs machine-readable representation, validation, or reuse.
 
-### 2. Agent and workflow integration
-Choose this path when the immediate goal is to incorporate route-aware planning, logging, validation, or review into an agentic system, workflow, or evaluation pipeline.
+### 2. Connect an agentic system, workflow, or logger
+Choose this path when the goal is to support long-horizon planning, route diagnosis, policy learning, and reusable experience across runs in an agentic system.
 
 Begin with **UM-MCI Core** and one minimal worked example from the **Practical Companion**.  
 Consult the **UM8 overview** or a relevant **Compass module** whenever the higher-level organization of the task becomes unclear, contested, or in need of redesign.
 
-### 3. Contribution of reusable methodological experience
-Choose this path when the immediate goal is to make experience from different domains, teams, or agents comparable and reusable within a shared public vocabulary.
+### 3. Contribute reusable methodological experience
+Choose this path when the goal is to contribute methodological experience in a form that can be compared, audited, and reused across domains, teams, or agents.
 
 Begin with the **Practical Companion**.  
-Move to **UM-MCI Core** when stable vocabulary, validation boundaries, or canonical machine-readable structure become necessary.  
+Move to **UM-MCI Core** when stable vocabulary, validation boundaries, or canonical machine-readable structure become important.  
 Return to the **UM8 overview** or a relevant **Compass module** when the practical case requires deeper interpretation or redesign.
 
 ## How to cite
 
 Different parts of this repository correspond to different citable artifacts.
 
-- **If you use the human-readable theoretical framework**, cite the [UM8 overview](https://doi.org/10.5281/zenodo.18790203) and the relevant Compass module.
+- **If you use the UM8 theoretical framework**, cite the [UM8 overview](https://doi.org/10.5281/zenodo.18790203).
+- **If you use a Paradigm Compass module**, cite the relevant Compass module DOI. The released Compass modules are linked from the UM8 overview record.
 - **If you use the stable machine-readable layer**, cite the [UM-MCI Core Semantic Package](https://doi.org/10.5281/zenodo.19676079).
 - **If you use worked examples, templates, utilities, or other practical materials from this repository**, cite this GitHub repository or the relevant GitHub release.
 - **If your work depends on both the theoretical framework and the Core package**, cite both.
 
-This repository is an umbrella entry point across these layers. The theory records, the Core package, and the Practical Companion play different roles and may need to be cited separately depending on use.
+This repository serves as an umbrella entry point across these layers. The theory, the Core package, and the Practical Companion play different roles and may need to be cited separately depending on use.
 
 ## License
 
