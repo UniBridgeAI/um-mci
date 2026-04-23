@@ -15,17 +15,17 @@ The broader **Universal Methodology ecosystem** currently has three connected la
 These layers serve different purposes.
 
 ### UM8 theoretical framework
-UM8 is the human-readable theory layer. It provides the high-level methodology architecture for comparing, combining, and designing major ways of solving complex problems before work becomes tied to specific tools, models, or domain defaults.
+UM8 is the human-readable theory layer. It provides the high-level methodology architecture for comparing, combining, and designing high-level methdological routes for complex problem solving before work becomes tied to specific tools, models, or domain defaults.
 
 - [UM8 overview DOI](https://doi.org/10.5281/zenodo.18790203)
 
 ### UM-MCI Core Semantic Package
-UM-MCI Core is the stable machine-readable layer aligned to that theory. It provides the shared semantic contract needed to represent, validate, compare, and reuse the higher-level organization of complex tasks across runs, systems, and reviewers.
+UM-MCI Core operationalizes the UM8 theoretical framework in machine-readable form. It provides the stable semantic contract needed to represent, validate, compare, and reuse methodological routes across runs, systems, and human review.
 
 - [UM-MCI Core Semantic Package DOI](https://doi.org/10.5281/zenodo.19676079)
 
 ### UM-MCI Practical Companion
-The Practical Companion is the practical layer built around the Core. It provides worked examples, templates, utilities, and evolving workflow guidance for real use and contribution.
+UM-MCI Practical Companion is the evolving practical layer built around the released Core package. It provides worked examples, templates, utilities, and contribution workflows that help users learn the core quickly, apply it in real tasks, and extend it through shared practical experience.
 
 ## What this repository contains
 
@@ -38,42 +38,40 @@ The human-readable UM8 theory is published separately through its Zenodo records
 
 ## When this repository is useful
 
-This repository is most useful when a task is not exhausted by a single tool call or a standard procedure.
+Use this repository when a task contains a real methodological decision to learn from.
 
-It matters most when:
+It is most useful when:
 
-- different high-level approaches could organize the same problem in different ways
-- the overall approach changes what evidence matters, how progress is judged, and where revision begins
-- long-horizon work requires explicit planning, revision, and reusable memory across runs
-- success and failure should contribute experience that remains useful for future tasks
+- the task has genuine route ambiguity, not merely an information gap
+- different ways of organizing the work would change the evidence, artifacts, validators, or trade-offs involved
+- the key decision cannot be reduced to a single tool call or an ordinary retrieval step
+- the organization of the method is a material part of success or failure
+- the run should contribute reusable experience for future tasks
 
-Routine tasks with a clear standard workflow usually do not require this full layer of representation and validation.
+Routine work with a clear standard procedure usually does not require this full layer of explicit representation and validation. In such cases, ordinary execution traces are often sufficient.
 
 ## Entry paths by purpose
 
-Most users do not need to go through the whole ecosystem at once. Choose the smallest entry path that matches your immediate goal.
+The appropriate entry path depends on the user’s immediate objective. Most users do not need to traverse the whole ecosystem at once.
 
-### 1. Understand how UM8 helps with complex problem solving and high-level method choice
-Use this path when your goal is to understand how major ways of solving a problem can be compared before work is locked into specific tools, solvers, or domain defaults.
+### 1. Theoretical understanding and high-level route design
+Choose this path when the immediate goal is to understand how UM8 supports complex problem solving before work becomes tied to particular tools, solvers, or domain defaults.
 
-Start with the **UM8 overview** and one relevant **Compass module**.  
-Move to **UM-MCI Core** only when the higher-level task structure needs machine-readable representation, validation, or reuse.
+Begin with the **UM8 overview** and one relevant **Compass module**.  
+Move to **UM-MCI Core** only when the resulting task structure needs machine-readable representation, validation, or reuse.
 
-### 2. Connect an agent, workflow, or logger
-Use this path when your goal is to support long-horizon planning, global planning, diagnosis, and the accumulation of reusable experience across runs.
+### 2. Agent and workflow integration
+Choose this path when the immediate goal is to incorporate route-aware planning, logging, validation, or review into an agentic system, workflow, or evaluation pipeline.
 
 Begin with **UM-MCI Core** and one minimal worked example from the **Practical Companion**.  
 Consult the **UM8 overview** or a relevant **Compass module** whenever the higher-level organization of the task becomes unclear, contested, or in need of redesign.
 
-### 3. Contribute shared methodological experience
-Use this path when your goal is to let experience from different domains, teams, or agents land in the same public vocabulary so that it can be compared, audited, and reused.
+### 3. Contribution of reusable methodological experience
+Choose this path when the immediate goal is to make experience from different domains, teams, or agents comparable and reusable within a shared public vocabulary.
 
 Begin with the **Practical Companion**.  
-Move to **UM-MCI Core** when stable vocabulary, validation boundaries, or canonical machine-readable structure become important.  
-Return to the **UM8 overview** or a **Compass module** when the practical task requires deeper interpretation or redesign.
-
-### 4. Maintain a release or controlled mirror
-This path is for maintainers, release stewards, and downstream integrators. Use it when the goal is to validate, pin, or redistribute a controlled snapshot. Most users can skip this path.
+Move to **UM-MCI Core** when stable vocabulary, validation boundaries, or canonical machine-readable structure become necessary.  
+Return to the **UM8 overview** or a relevant **Compass module** when the practical case requires deeper interpretation or redesign.
 
 ## How to cite
 
