@@ -3,8 +3,8 @@
 This repository provides the stable machine-readable core and the evolving practical layer of the UM8 ecosystem for route-aware planning, logging, validation, and learning in complex tasks.
 
 UM8 is the human-readable methodology framework.  
-UM-MCI Core is the stable semantic layer aligned to that framework.  
-The Practical Companion provides examples, templates, and workflow-facing guidance around the released core.
+UM-MCI Core Semantic Package is the stable semantic layer aligned to that framework.  
+UM-MCI Practical Companion Package provides examples, templates, and workflow-facing guidance around the released core.
 
 The human-readable theoretical framework is published separately.
 
