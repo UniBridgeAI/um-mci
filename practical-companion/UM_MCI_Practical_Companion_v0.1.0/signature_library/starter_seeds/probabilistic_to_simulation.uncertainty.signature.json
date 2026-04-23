@@ -1,0 +1,59 @@
+{
+  "signature_id": "SIG.UNCERTAINTY.PRB_TO_SIM.V0",
+  "edge_family_id": "UM.EDGE_FAMILY.UNCERTAINTY_WEIGHTING_OR_PROPAGATION.PROBABILISTIC__TO__SIMULATION.UNCERTAINTY_PROPAGATION_AND_RISK_BOUNDING",
+  "signature_scope": "diagnostic_seed",
+  "stage_pattern": {
+    "base_paradigm_id": "UM.PARADIGM.SIMULATION",
+    "supporting_paradigm_id": "UM.PARADIGM.PROBABILISTIC",
+    "dimension_hints": [
+      {
+        "dimension_id": "UM.DIM.SIMULATION.EXECUTION_PROTOCOL",
+        "selected_option_paths": [
+          [
+            "uncertainty_propagation"
+          ]
+        ]
+      },
+      {
+        "dimension_id": "UM.DIM.PROBABILISTIC.PURPOSE",
+        "selected_option_paths": [
+          [
+            "predict"
+          ],
+          [
+            "decide"
+          ]
+        ]
+      }
+    ],
+    "notes": "Typical when a simulation stage propagates uncertainty or derives risk summaries under a probabilistic formulation.",
+    "extensions": {}
+  },
+  "required_artifact_hints": [
+    "UM.ART.MODEL.WORLD_MODEL",
+    "UM.ART.MODEL.BELIEF_MODEL",
+    "UM.ART.EVIDENCE.UNCERTAINTY_POSTERIOR"
+  ],
+  "optional_artifact_hints": [
+    "UM.ART.EVIDENCE.EXECUTION_TRACES"
+  ],
+  "required_validation_hints": [
+    "UM.VP.UNCERTAINTY_CALIBRATION_CHECK"
+  ],
+  "minimal_failure_signatures": [
+    "uncertainty_propagated_without_traceable_input_assumptions",
+    "risk_bounds_inconsistent_with_simulation_outputs"
+  ],
+  "local_settings_hints": {
+    "risk_summary_expected": true
+  },
+  "confidence": "medium",
+  "notes": "Useful for recognizing simulation stages whose main added value is uncertainty propagation or risk bounding.",
+  "package_version_pin": {
+    "package_name": "UM_MetaControl_Interface_Core_Semantic_Package",
+    "package_semver": "0.1.0",
+    "layer1_registry_version": "v1",
+    "layer2_seed_version": "v1"
+  },
+  "extensions": {}
+}

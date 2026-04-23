@@ -1,0 +1,269 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://um-mci.local/companion/learned_priors/route_prior_note.schema.v1.json",
+  "title": "UM-MCI Route Prior Note",
+  "type": "object",
+  "required": [
+    "prior_id",
+    "status",
+    "scope",
+    "trigger_pattern",
+    "recommended_commitment",
+    "evidence_refs",
+    "package_version_pin"
+  ],
+  "properties": {
+    "prior_id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "heuristic",
+        "empirical",
+        "learned",
+        "deprecated"
+      ]
+    },
+    "scope": {
+      "type": "string",
+      "enum": [
+        "paradigm",
+        "edge_family",
+        "option_path",
+        "route_pattern"
+      ]
+    },
+    "target_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "trigger_pattern": {
+      "type": "object",
+      "properties": {
+        "active_tensions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^UM\\.OT\\."
+          }
+        },
+        "context_cues": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "task_features": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "recommended_commitment": {
+      "type": "object",
+      "properties": {
+        "base_paradigm_id": {
+          "type": "string",
+          "pattern": "^UM\\.PARADIGM\\."
+        },
+        "selected_option_paths": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "dimension_id",
+              "option_path"
+            ],
+            "properties": {
+              "dimension_id": {
+                "type": "string",
+                "pattern": "^UM\\.DIM\\."
+              },
+              "option_path": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "supporting_edge_families": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^UM\\.EDGE_FAMILY\\."
+          }
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "failure_signals": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "recovery_hints": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "package_version_pin": {
+      "type": "object",
+      "properties": {
+        "package_name": {
+          "type": "string"
+        },
+        "package_semver": {
+          "type": "string"
+        },
+        "layer1_registry_version": {
+          "type": "string"
+        },
+        "layer2_seed_version": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "notes": {
+      "type": "string"
+    },
+    "governance_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "extensions": {
+      "type": "object",
+      "patternProperties": {
+        "^[A-Za-z0-9_.:-]+$": {
+          "type": [
+            "object",
+            "array",
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "evidence_kind": {
+      "type": "string",
+      "enum": [
+        "case_based",
+        "retrospective",
+        "benchmark",
+        "learned_from_logs",
+        "mixed"
+      ]
+    },
+    "support_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "last_reviewed_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "evidence_object_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of evidence objects listed in evidence_refs. This is not necessarily the number of independent cases."
+    },
+    "independent_case_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Estimated number of independent tasks, cases, domains, or teams supporting the prior."
+    }
+  },
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "scope": {
+            "const": "paradigm"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "target_ids": {
+            "items": {
+              "type": "string",
+              "pattern": "^UM\\.PARADIGM\\."
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "scope": {
+            "const": "edge_family"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "target_ids": {
+            "items": {
+              "type": "string",
+              "pattern": "^UM\\.EDGE_FAMILY\\."
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "scope": {
+            "const": "option_path"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "target_ids": {
+            "items": {
+              "type": "string",
+              "pattern": "^UM\\.DIM\\."
+            }
+          }
+        }
+      }
+    }
+  ]
+}

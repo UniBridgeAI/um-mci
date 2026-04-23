@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use the UM-MCI Practical Companion, cite the UM-MCI Core Semantic Package release (DOI: 10.5281/zenodo.19676079) for the stable semantic core. Also cite this companion repository or release when your work depends on its examples, scripts, templates, or contributed practical objects."
+title: "UM-MCI Practical Companion"
+version: 0.1.0
+date-released: 2026-04-23
+authors:
+  - family-names: "Liu"
+    given-names: "Ran"
+license: Apache-2.0
+abstract: >-
+  A practical companion for the Universal Methodology Meta-Control Interface
+  (UM-MCI), providing examples, projection utilities, retrospective extraction
+  templates, signature seeds, candidate route-prior notes, and contribution
+  governance scaffolding aligned to the UM-MCI Core Semantic Package release.

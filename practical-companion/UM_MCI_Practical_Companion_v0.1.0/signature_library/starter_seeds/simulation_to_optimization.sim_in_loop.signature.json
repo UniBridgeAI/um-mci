@@ -1,0 +1,63 @@
+{
+  "signature_id": "SIG.SIM_EVAL.SIMULATION_TO_OPTIMIZATION.V0",
+  "edge_family_id": "UM.EDGE_FAMILY.SCENARIO_EVALUATION.SIMULATION__TO__OPTIMIZATION.SIMULATION_IN_THE_LOOP_EVALUATION_TO_OPTIMIZE_DECISIONS",
+  "signature_scope": "recognizer_seed",
+  "stage_pattern": {
+    "base_paradigm_id": "UM.PARADIGM.OPTIMIZATION",
+    "supporting_paradigm_id": "UM.PARADIGM.SIMULATION",
+    "dimension_hints": [
+      {
+        "dimension_id": "UM.DIM.OPTIMIZATION.EVALUATION_ACCESS",
+        "selected_option_paths": [
+          [
+            "simulation_based"
+          ]
+        ],
+        "notes": "Optimization quality is obtained through simulator-backed evaluation."
+      },
+      {
+        "dimension_id": "UM.DIM.OPTIMIZATION.SOLUTION_LOGIC",
+        "selected_option_paths": [
+          [
+            "lookahead_planning",
+            "forward_rollout"
+          ],
+          [
+            "lookahead_planning",
+            "rolling_replanning"
+          ]
+        ],
+        "notes": "Lookahead choices are evaluated through simulated future consequences."
+      }
+    ],
+    "notes": "Typical when optimization depends on simulator-in-the-loop evaluation over future consequences.",
+    "extensions": {}
+  },
+  "required_artifact_hints": [
+    "UM.ART.DECISION.CANDIDATE_SOLUTION",
+    "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT"
+  ],
+  "optional_artifact_hints": [
+    "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+  ],
+  "required_validation_hints": [
+    "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+    "UM.VP.CONSTRAINT_SATISFACTION"
+  ],
+  "minimal_failure_signatures": [
+    "analytic evaluation is insufficient for policy comparison",
+    "useful policy differences appear only after simulated rollout"
+  ],
+  "local_settings_hints": {
+    "example_scope": "policy evaluation under a moving horizon"
+  },
+  "confidence": "medium",
+  "notes": "Aligned to the worked optimization-with-simulation example chain.",
+  "package_version_pin": {
+    "package_name": "UM_MetaControl_Interface_Core_Semantic_Package",
+    "package_semver": "0.1.0",
+    "layer1_registry_version": "v1",
+    "layer2_seed_version": "v1"
+  },
+  "extensions": {}
+}

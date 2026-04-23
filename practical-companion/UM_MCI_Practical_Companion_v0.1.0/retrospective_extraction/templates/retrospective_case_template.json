@@ -1,0 +1,49 @@
+{
+  "case_id": "CASE_PLACEHOLDER",
+  "source_type": "paper",
+  "source_ref": "citation or local pointer",
+  "domain": "domain placeholder",
+  "task_summary": "What complex task or problem was being solved?",
+  "route_level_hypothesis": "One-paragraph summary of the hypothesized route graph.",
+  "governance_context_hypothesis": {},
+  "affordance_context_hypothesis": {},
+  "stage_hypotheses": [
+    {
+      "stage_label": "stage_01",
+      "base_paradigm_id": "UM.PARADIGM.TRANSFORMATION",
+      "dimension_hypotheses": [
+        {
+          "dimension_id": "UM.DIM.TRANSFORMATION.APPROACH",
+          "confidence": "medium",
+          "evidence": [
+            "quote or trace pointer"
+          ],
+          "notes": "What evidence supports this guess?",
+          "selected_option_paths": [
+            [
+              "representation_rewrite"
+            ]
+          ],
+          "extensions": {}
+        }
+      ],
+      "supporting_edge_family_ids": [],
+      "artifact_hypotheses": [],
+      "validation_hypotheses": [],
+      "tension_hypotheses": [],
+      "notes": "Add uncertainty notes here.",
+      "extensions": {}
+    }
+  ],
+  "unresolved_questions": [
+    "What remains unclear about the route?"
+  ],
+  "review_notes": "",
+  "package_version_pin": {
+    "package_name": "UM_MetaControl_Interface_Core_Semantic_Package",
+    "package_semver": "0.1.0",
+    "layer1_registry_version": "v1",
+    "layer2_seed_version": "v1"
+  },
+  "extensions": {}
+}

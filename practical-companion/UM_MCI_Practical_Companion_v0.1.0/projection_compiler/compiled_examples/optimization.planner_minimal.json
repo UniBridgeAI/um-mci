@@ -1,0 +1,183 @@
+{
+  "projection_profile_id": "planner_minimal",
+  "paradigm_id": "UM.PARADIGM.OPTIMIZATION",
+  "paradigm_label": "Optimization-based Methodology",
+  "paradigm_definition": "Choose or construct high-quality solutions by optimizing explicit objectives under constraints.",
+  "starter_profile_id": "starter_baseline",
+  "dimension_views": [
+    {
+      "dimension_id": "UM.DIM.OPTIMIZATION.DECISION_OBJECT",
+      "label": "Decision Object",
+      "definition": "What is being chosen or optimized.",
+      "selected_values_expanded": [
+        {
+          "value_id": "parameters_configurations",
+          "label": "Parameters / Configurations",
+          "tag": "Internal Settings",
+          "definition": "Scalar coefficients, gains, thresholds, weights, or configuration settings.",
+          "path": [
+            "parameters_configurations"
+          ]
+        }
+      ]
+    },
+    {
+      "dimension_id": "UM.DIM.OPTIMIZATION.EVALUATION_ACCESS",
+      "label": "Evaluation Access",
+      "definition": "How candidate quality can be evaluated.",
+      "selected_values_expanded": [
+        {
+          "value_id": "direct_analytic",
+          "label": "Direct / Analytic",
+          "tag": "Evaluate by Relations",
+          "definition": "Evaluate using explicit mathematical or logical relations.",
+          "path": [
+            "direct_analytic"
+          ]
+        }
+      ]
+    },
+    {
+      "dimension_id": "UM.DIM.OPTIMIZATION.FEASIBILITY_STRUCTURE",
+      "label": "Feasibility Structure",
+      "definition": "How validity or admissibility is encoded.",
+      "selected_values_expanded": [
+        {
+          "value_id": "absolute_bounds",
+          "label": "Absolute Bounds",
+          "tag": "Never Violate",
+          "definition": "Impose hard limits whose violation invalidates the candidate outright.",
+          "path": [
+            "absolute_bounds"
+          ]
+        }
+      ]
+    },
+    {
+      "dimension_id": "UM.DIM.OPTIMIZATION.OPTIMIZATION_STANCE",
+      "label": "Optimization Stance",
+      "definition": "What notion of optimality or admissible success is being sought.",
+      "selected_values_expanded": [
+        {
+          "value_id": "extremum_seeking",
+          "label": "Extremum Seeking",
+          "tag": "Best Attainable Value",
+          "definition": "Drive a criterion toward its best attainable value within the admissible solution space.",
+          "path": [
+            "extremum_seeking"
+          ]
+        }
+      ]
+    },
+    {
+      "dimension_id": "UM.DIM.OPTIMIZATION.ROLE",
+      "label": "Optimization Role",
+      "definition": "What optimization primarily does in the larger route.",
+      "selected_values_expanded": [
+        {
+          "value_id": "design_configure",
+          "label": "Design / Configure",
+          "tag": "System Design",
+          "definition": "Choose the system’s structure, topology, layout, composition, or configuration.",
+          "path": [
+            "design_configure"
+          ]
+        }
+      ]
+    },
+    {
+      "dimension_id": "UM.DIM.OPTIMIZATION.SOLUTION_LOGIC",
+      "label": "Solution Logic",
+      "definition": "How the optimization process advances toward a solution.",
+      "selected_values_expanded": [
+        {
+          "value_id": "directional_stepping",
+          "label": "Directional stepping",
+          "definition": "move along a locally improving direction",
+          "path": [
+            "local_refinement",
+            "directional_stepping"
+          ]
+        }
+      ]
+    },
+    {
+      "dimension_id": "UM.DIM.OPTIMIZATION.TEMPORAL_COMMITMENT",
+      "label": "Temporal Commitment",
+      "definition": "When decisions are committed and revised.",
+      "selected_values_expanded": [
+        {
+          "value_id": "one_shot",
+          "label": "One-Shot",
+          "tag": "Commit Once",
+          "definition": "Solve once for a fixed decision episode.",
+          "path": [
+            "one_shot"
+          ]
+        }
+      ]
+    },
+    {
+      "dimension_id": "UM.DIM.OPTIMIZATION.VARIABLE_TYPE",
+      "label": "Variable Type",
+      "definition": "Continuous/discrete structure of the central decision variable regime.",
+      "selected_values_expanded": [
+        {
+          "value_id": "continuous",
+          "label": "Continuous",
+          "tag": "Continuous",
+          "definition": "Decision variables vary over a continuous range.",
+          "path": [
+            "continuous"
+          ]
+        }
+      ]
+    }
+  ],
+  "machine_controls": [
+    {
+      "control_id": "UM.CTRL.OPTIMIZATION.VALIDATION_STRICTNESS",
+      "selected_value_id": "standard"
+    }
+  ],
+  "artifact_requirements": {
+    "must": [
+      "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS",
+      "UM.ART.DECISION.CANDIDATE_SOLUTION"
+    ],
+    "should": [
+      "UM.ART.SPEC.ASSUMPTIONS_SCOPE",
+      "UM.ART.EVALUATION.TRACTABILITY_REPORT",
+      "UM.ART.PROVENANCE.PROVENANCE_LOG"
+    ]
+  },
+  "validation_requirements": {
+    "must": [
+      "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+      "UM.VP.PROVENANCE_CHECK",
+      "UM.VP.CONSTRAINT_SATISFACTION"
+    ],
+    "should": [
+      "UM.VP.TRACTABILITY_CONDITIONING_CHECK",
+      "UM.VP.SOLVER_STABILITY_SMOKE_TEST"
+    ]
+  },
+  "support_edge_shortlist": [
+    "UM.EDGE_FAMILY.REFORMULATION.TRANSFORMATION__TO__OPTIMIZATION.REPARAMETERIZE_OR_RELAX_CONSTRAINTS_TO_IMPROVE_TRACTABILITY",
+    "UM.EDGE_FAMILY.ADAPTIVE_SEARCH_OR_UPDATE.EVOLUTIONARY__TO__OPTIMIZATION.GLOBAL_GRADIENT_FREE_SEARCH_FOR_NONCONVEX_OBJECTIVES"
+  ],
+  "support_edge_hints": [
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.REFORMULATION.TRANSFORMATION__TO__OPTIMIZATION.REPARAMETERIZE_OR_RELAX_CONSTRAINTS_TO_IMPROVE_TRACTABILITY",
+      "relation_role": "reformulation",
+      "operator_family": "Reparameterize or relax constraints to improve tractability",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: reparameterize or relax constraints to improve tractability. Use when transformation supports optimization through this recurrent interaction pattern."
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.ADAPTIVE_SEARCH_OR_UPDATE.EVOLUTIONARY__TO__OPTIMIZATION.GLOBAL_GRADIENT_FREE_SEARCH_FOR_NONCONVEX_OBJECTIVES",
+      "relation_role": "adaptive_search_or_update",
+      "operator_family": "Global gradient free search for nonconvex objectives",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: global gradient free search for nonconvex objectives. Use when evolutionary supports optimization through this recurrent interaction pattern."
+    }
+  ]
+}

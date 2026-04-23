@@ -1,0 +1,65 @@
+{
+  "signature_id": "SIG.REFORMULATION.TRANSFORMATION_TO_OPTIMIZATION.V0",
+  "edge_family_id": "UM.EDGE_FAMILY.REFORMULATION.TRANSFORMATION__TO__OPTIMIZATION.REPARAMETERIZE_OR_RELAX_CONSTRAINTS_TO_IMPROVE_TRACTABILITY",
+  "signature_scope": "recognizer_seed",
+  "stage_pattern": {
+    "base_paradigm_id": "UM.PARADIGM.OPTIMIZATION",
+    "supporting_paradigm_id": "UM.PARADIGM.TRANSFORMATION",
+    "dimension_hints": [
+      {
+        "dimension_id": "UM.DIM.OPTIMIZATION.EVALUATION_ACCESS",
+        "selected_option_paths": [
+          [
+            "direct_analytic"
+          ],
+          [
+            "proxy_surrogate"
+          ]
+        ]
+      },
+      {
+        "dimension_id": "UM.DIM.TRANSFORMATION.APPROACH",
+        "selected_option_paths": [
+          [
+            "operational_recasting",
+            "constraint_recast"
+          ],
+          [
+            "representation_rewrite",
+            "reparameterization"
+          ]
+        ]
+      }
+    ],
+    "notes": "Typical when an optimization problem is reparameterized, relaxed, or reformulated before solving.",
+    "extensions": {}
+  },
+  "required_artifact_hints": [
+    "UM.ART.MODEL.REPRESENTATION_MAP",
+    "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS",
+    "UM.ART.CLAIM.PRESERVATION_CLAIM"
+  ],
+  "optional_artifact_hints": [
+    "UM.ART.EVALUATION.TRACTABILITY_REPORT"
+  ],
+  "required_validation_hints": [
+    "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS"
+  ],
+  "minimal_failure_signatures": [
+    "reformulation_loses_decision_semantics",
+    "relaxation_not_recoverable",
+    "tractability_not_actually_improved"
+  ],
+  "local_settings_hints": {
+    "preferred_relation_role": "reformulation"
+  },
+  "confidence": "medium",
+  "notes": "Starter recognizer for common transformation-enabled optimization routes.",
+  "package_version_pin": {
+    "package_name": "UM_MetaControl_Interface_Core_Semantic_Package",
+    "package_semver": "0.1.0",
+    "layer1_registry_version": "v1",
+    "layer2_seed_version": "v1"
+  },
+  "extensions": {}
+}

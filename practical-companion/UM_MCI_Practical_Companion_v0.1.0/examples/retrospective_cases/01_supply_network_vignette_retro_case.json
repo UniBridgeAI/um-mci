@@ -1,0 +1,195 @@
+{
+  "case_id": "retro_case_supply_network_vignette_01",
+  "source_type": "manual_case",
+  "source_ref": "examples/meta_runs/01_multi_stage_route_graph.json",
+  "domain": "supply-network decision support",
+  "task_summary": "Design a robust intervention policy under uncertain disruptions and demand shifts.",
+  "route_level_hypothesis": "The task is best represented as a route graph: reformulation -> uncertainty-aware simulation -> simulation-backed optimization.",
+  "governance_context_hypothesis": {
+    "UM.GOV.RISK_STAKES_LEVEL": 2,
+    "UM.GOV.REVERSIBILITY_CLASS": "partially_reversible",
+    "UM.GOV.AUDIT_REQUIREMENT": "strict",
+    "UM.GOV.PERMISSION_FLAGS": {
+      "can_access_internet": false,
+      "can_execute_code": true,
+      "can_write_external_systems": false,
+      "can_spend_money": false,
+      "can_delete_or_modify_external_data": false
+    }
+  },
+  "affordance_context_hypothesis": {
+    "UM.AFF.BUDGET_PROFILE": "UM.AFF.BUDGET_PROFILE.STANDARD",
+    "UM.AFF.BUDGET_PRESSURE": 2,
+    "UM.AFF.NONSTATIONARITY_LEVEL": 2,
+    "UM.AFF.TOOL_ENVIRONMENT": {
+      "tool_profiles": [
+        {
+          "tool_name": "simulator",
+          "availability": "available",
+          "reliability_level": 2,
+          "cost_class": "medium"
+        },
+        {
+          "tool_name": "optimizer",
+          "availability": "available",
+          "reliability_level": 2,
+          "cost_class": "medium"
+        }
+      ]
+    }
+  },
+  "stage_hypotheses": [
+    {
+      "stage_label": "recast formulation",
+      "base_paradigm_id": "UM.PARADIGM.TRANSFORMATION",
+      "dimension_hypotheses": [
+        {
+          "dimension_id": "UM.DIM.TRANSFORMATION.PURPOSE",
+          "confidence": "high",
+          "evidence": [
+            "Problem was reformulated before solving."
+          ],
+          "selected_option_paths": [
+            [
+              "feasibility"
+            ],
+            [
+              "simplicity"
+            ]
+          ],
+          "extensions": {}
+        },
+        {
+          "dimension_id": "UM.DIM.TRANSFORMATION.APPROACH",
+          "confidence": "high",
+          "evidence": [
+            "Constraints were rewritten for tractability."
+          ],
+          "selected_option_paths": [
+            [
+              "operational_recasting",
+              "constraint_recast"
+            ]
+          ],
+          "extensions": {}
+        }
+      ],
+      "supporting_edge_family_ids": [
+        "UM.EDGE_FAMILY.REFORMULATION.TRANSFORMATION__TO__OPTIMIZATION.REPARAMETERIZE_OR_RELAX_CONSTRAINTS_TO_IMPROVE_TRACTABILITY"
+      ],
+      "artifact_hypotheses": [
+        "UM.ART.MODEL.REPRESENTATION_MAP",
+        "UM.ART.CLAIM.PRESERVATION_CLAIM"
+      ],
+      "validation_hypotheses": [
+        "UM.VP.PRESERVATION_CHECK",
+        "UM.VP.TRACTABILITY_CONDITIONING_CHECK"
+      ],
+      "tension_hypotheses": [
+        "UM.OT.AMBIGUITY",
+        "UM.OT.TRACTABILITY"
+      ],
+      "notes": "This stage appears to create the tractable problem contract used downstream.",
+      "extensions": {}
+    },
+    {
+      "stage_label": "simulate with uncertainty propagation",
+      "base_paradigm_id": "UM.PARADIGM.SIMULATION",
+      "dimension_hypotheses": [
+        {
+          "dimension_id": "UM.DIM.SIMULATION.EXECUTION_PROTOCOL",
+          "confidence": "high",
+          "evidence": [
+            "Multiple scenarios and uncertainty summaries were produced."
+          ],
+          "selected_option_paths": [
+            [
+              "uncertainty_propagation"
+            ],
+            [
+              "scenario_runs"
+            ]
+          ],
+          "extensions": {}
+        }
+      ],
+      "supporting_edge_family_ids": [
+        "UM.EDGE_FAMILY.UNCERTAINTY_WEIGHTING_OR_PROPAGATION.PROBABILISTIC__TO__SIMULATION.UNCERTAINTY_PROPAGATION_AND_RISK_BOUNDING"
+      ],
+      "artifact_hypotheses": [
+        "UM.ART.MODEL.WORLD_MODEL",
+        "UM.ART.EVIDENCE.EXECUTION_TRACES",
+        "UM.ART.EVIDENCE.UNCERTAINTY_POSTERIOR"
+      ],
+      "validation_hypotheses": [
+        "UM.VP.UNCERTAINTY_CALIBRATION_CHECK"
+      ],
+      "tension_hypotheses": [
+        "UM.OT.UNCERTAINTY"
+      ],
+      "notes": "The main added value of this stage is making uncertainty explicit enough for later ranking.",
+      "extensions": {}
+    },
+    {
+      "stage_label": "optimize robust policy",
+      "base_paradigm_id": "UM.PARADIGM.OPTIMIZATION",
+      "dimension_hypotheses": [
+        {
+          "dimension_id": "UM.DIM.OPTIMIZATION.EVALUATION_ACCESS",
+          "confidence": "high",
+          "evidence": [
+            "Policy comparison depends on simulator feedback."
+          ],
+          "selected_option_paths": [
+            [
+              "simulation_based"
+            ]
+          ],
+          "extensions": {}
+        },
+        {
+          "dimension_id": "UM.DIM.OPTIMIZATION.SOLUTION_LOGIC",
+          "confidence": "medium",
+          "evidence": [
+            "Future consequences were explicitly compared."
+          ],
+          "selected_option_paths": [
+            [
+              "lookahead_planning",
+              "forward_rollout"
+            ]
+          ],
+          "extensions": {}
+        }
+      ],
+      "supporting_edge_family_ids": [
+        "UM.EDGE_FAMILY.SCENARIO_EVALUATION.SIMULATION__TO__OPTIMIZATION.SIMULATION_IN_THE_LOOP_EVALUATION_TO_OPTIMIZE_DECISIONS"
+      ],
+      "artifact_hypotheses": [
+        "UM.ART.DECISION.CANDIDATE_SOLUTION"
+      ],
+      "validation_hypotheses": [
+        "UM.VP.CONSTRAINT_SATISFACTION",
+        "UM.VP.SOLVER_STABILITY_SMOKE_TEST"
+      ],
+      "tension_hypotheses": [
+        "UM.OT.HORIZON",
+        "UM.OT.EVIDENCE_GAP"
+      ],
+      "notes": "The optimization stage appears to be simulation-backed and horizon-sensitive.",
+      "extensions": {}
+    }
+  ],
+  "unresolved_questions": [
+    "Was the simulation stage purely forward projection or partly calibration?",
+    "How much of the policy search was learned versus explicit rollout?"
+  ],
+  "review_notes": "Companion example for auditing ontology coverage on a multi-stage route graph.",
+  "package_version_pin": {
+    "package_name": "UM_MetaControl_Interface_Core_Semantic_Package",
+    "package_semver": "0.1.0",
+    "layer1_registry_version": "v1",
+    "layer2_seed_version": "v1"
+  },
+  "extensions": {}
+}

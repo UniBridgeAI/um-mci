@@ -1,0 +1,57 @@
+{
+  "signature_id": "SIG.RULE_ARBITRATION.RULE_TO_FUSION.V0",
+  "edge_family_id": "UM.EDGE_FAMILY.GATING_OR_ARBITRATION.RULE__TO__FUSION.RULE_BASED_GATING_OR_ARBITRATION_TO_MANAGE_CONFLICTS",
+  "signature_scope": "retrieval_seed",
+  "stage_pattern": {
+    "base_paradigm_id": "UM.PARADIGM.FUSION",
+    "supporting_paradigm_id": "UM.PARADIGM.RULE",
+    "dimension_hints": [
+      {
+        "dimension_id": "UM.DIM.FUSION.INTEGRATION_LOGIC",
+        "selected_option_paths": [
+          [
+            "constraint_guided_fusion",
+            "rule_based_arbitration"
+          ]
+        ]
+      },
+      {
+        "dimension_id": "UM.DIM.RULE.EXECUTION_PATTERN",
+        "selected_option_paths": [
+          [
+            "conflict_resolution",
+            "priority_resolution"
+          ]
+        ]
+      }
+    ],
+    "notes": "Typical when fusion needs explicit precedence, admissibility, or conflict management logic.",
+    "extensions": {}
+  },
+  "required_artifact_hints": [
+    "UM.ART.POLICY.RULESET",
+    "UM.ART.SPEC.INTERFACE_COMPOSITION_CONTRACT"
+  ],
+  "optional_artifact_hints": [
+    "UM.ART.PROVENANCE.PROVENANCE_LOG"
+  ],
+  "required_validation_hints": [
+    "UM.VP.INTERFACE_COMPATIBILITY_CHECK"
+  ],
+  "minimal_failure_signatures": [
+    "conflict_unresolved_across_sources",
+    "rule_gate_blocks_all_useful_inputs"
+  ],
+  "local_settings_hints": {
+    "precedence_expected": true
+  },
+  "confidence": "medium",
+  "notes": "Useful when explicit rules gate or arbitrate multi-source integration.",
+  "package_version_pin": {
+    "package_name": "UM_MetaControl_Interface_Core_Semantic_Package",
+    "package_semver": "0.1.0",
+    "layer1_registry_version": "v1",
+    "layer2_seed_version": "v1"
+  },
+  "extensions": {}
+}

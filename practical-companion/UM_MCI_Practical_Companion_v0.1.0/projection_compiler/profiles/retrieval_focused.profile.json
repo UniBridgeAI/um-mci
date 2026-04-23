@@ -1,0 +1,15 @@
+{
+  "profile_id": "retrieval_focused",
+  "label": "Retrieval focused",
+  "purpose": "Compile a tag- and definition-rich view that is friendly to indexing and case retrieval.",
+  "include_definitions": true,
+  "include_tags": true,
+  "include_selected_path": true,
+  "selection_expansion": "all_descendants",
+  "include_children_for_selected": true,
+  "include_artifact_requirements": false,
+  "include_validation_requirements": false,
+  "include_support_edges": true,
+  "include_machine_controls": false,
+  "include_failure_hints": false
+}

@@ -1,0 +1,807 @@
+{
+  "run_id": "meta_run_supply_network_vignette_01",
+  "created_utc": "2026-04-16T11:12:38+00:00",
+  "package_version_pin": {
+    "package_name": "UM_MetaControl_Interface_Core_Semantic_Package",
+    "package_semver": "0.1.0",
+    "layer1_registry_version": "v1",
+    "layer2_seed_version": "v1"
+  },
+  "governance_context": {
+    "UM.GOV.RISK_STAKES_LEVEL": 2,
+    "UM.GOV.REVERSIBILITY_CLASS": "partially_reversible",
+    "UM.GOV.AUDIT_REQUIREMENT": "strict",
+    "UM.GOV.PERMISSION_FLAGS": {
+      "can_access_internet": false,
+      "can_execute_code": true,
+      "can_write_external_systems": false,
+      "can_spend_money": false,
+      "can_delete_or_modify_external_data": false
+    }
+  },
+  "affordance_context": {
+    "UM.AFF.BUDGET_PROFILE": "UM.AFF.BUDGET_PROFILE.STANDARD",
+    "UM.AFF.BUDGET_PRESSURE": 2,
+    "UM.AFF.NONSTATIONARITY_LEVEL": 2,
+    "UM.AFF.TOOL_ENVIRONMENT": {
+      "tool_profiles": [
+        {
+          "tool_name": "simulator",
+          "availability": "available",
+          "reliability_level": 2,
+          "cost_class": "medium"
+        },
+        {
+          "tool_name": "optimizer",
+          "availability": "available",
+          "reliability_level": 2,
+          "cost_class": "medium"
+        }
+      ]
+    }
+  },
+  "initial_tension_belief": {
+    "beliefs": [
+      {
+        "dimension_id": "UM.OT.UNCERTAINTY",
+        "level": 3,
+        "confidence": 0.8
+      },
+      {
+        "dimension_id": "UM.OT.HORIZON",
+        "level": 3,
+        "confidence": 0.7
+      },
+      {
+        "dimension_id": "UM.OT.TRACTABILITY",
+        "level": 2,
+        "confidence": 0.8
+      }
+    ],
+    "summary": "The task begins with high uncertainty, moving-horizon pressure, and a formulation that is not yet comfortably tractable.",
+    "assessor_kind": "agent_self",
+    "assessment_basis": "route-level qualitative judgment anchored to current artifacts and validator outcomes"
+  },
+  "route_compilation_policy_id": "default_compilation_order.v0",
+  "stages": [
+    {
+      "stage_id": "stage_01_transform_formulation",
+      "stage_label": "Recast the problem formulation for downstream tractability",
+      "stage_order": 1,
+      "package_version_pin": {
+        "package_name": "UM_MetaControl_Interface_Core_Semantic_Package",
+        "package_semver": "0.1.0",
+        "layer1_registry_version": "v1",
+        "layer2_seed_version": "v1"
+      },
+      "base_paradigm_id": "UM.PARADIGM.TRANSFORMATION",
+      "goal_summary": "Make the task tractable by reformulating constraints and preserving task-relevant semantics.",
+      "route": {
+        "base_profile_id": "starter_baseline",
+        "dimension_selections": [
+          {
+            "dimension_id": "UM.DIM.TRANSFORMATION.PURPOSE",
+            "selected_option_paths": [
+              [
+                "feasibility"
+              ],
+              [
+                "simplicity"
+              ]
+            ]
+          },
+          {
+            "dimension_id": "UM.DIM.TRANSFORMATION.OBJECT",
+            "selected_option_paths": [
+              [
+                "problem_task_formulation"
+              ]
+            ]
+          },
+          {
+            "dimension_id": "UM.DIM.TRANSFORMATION.APPROACH",
+            "selected_option_paths": [
+              [
+                "operational_recasting",
+                "constraint_recast"
+              ],
+              [
+                "representation_rewrite",
+                "reparameterization"
+              ]
+            ]
+          },
+          {
+            "dimension_id": "UM.DIM.TRANSFORMATION.PRESERVATION_COMMITMENT",
+            "selected_option_paths": [
+              [
+                "task_preservation"
+              ],
+              [
+                "constraint_preservation"
+              ],
+              [
+                "controlled_approximation"
+              ]
+            ]
+          }
+        ],
+        "machine_control_settings": [
+          {
+            "control_id": "UM.CTRL.TRANSFORMATION.VALIDATION_STRICTNESS",
+            "selected_value_id": "standard"
+          }
+        ],
+        "supporting_edge_instances": [
+          {
+            "edge_family_id": "UM.EDGE_FAMILY.REFORMULATION.TRANSFORMATION__TO__OPTIMIZATION.REPARAMETERIZE_OR_RELAX_CONSTRAINTS_TO_IMPROVE_TRACTABILITY",
+            "edge_slot_id": "UM.EDGE_SLOT.TRANSFORMATION__TO__OPTIMIZATION",
+            "order": 0,
+            "scope": "prepare downstream optimization stage",
+            "activation_reason": "Current formulation is brittle and too expensive to solve directly.",
+            "edge_role_in_stage": "outgoing_preparation"
+          }
+        ],
+        "route_notes": "This is a Transformation stage that prepares a downstream Optimization route. The Transformation -> Optimization edge is logged as outgoing_preparation; the edge target is the later Optimization stage, not the current stage base."
+      },
+      "artifacts": [
+        {
+          "artifact_id": "art_obj_constraints_recast",
+          "artifact_type_id": "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS",
+          "semantic_label": "recast objective and softened constraints",
+          "role": "stage_output"
+        },
+        {
+          "artifact_id": "art_repr_map",
+          "artifact_type_id": "UM.ART.MODEL.REPRESENTATION_MAP",
+          "semantic_label": "mapping between original and transformed formulations",
+          "role": "traceability"
+        },
+        {
+          "artifact_id": "art_pres_claim",
+          "artifact_type_id": "UM.ART.CLAIM.PRESERVATION_CLAIM",
+          "semantic_label": "task and constraint preservation statement",
+          "role": "validity_claim"
+        },
+        {
+          "artifact_id": "art_tractability_report",
+          "artifact_type_id": "UM.ART.EVALUATION.TRACTABILITY_REPORT",
+          "semantic_label": "tractability comparison before vs after recast",
+          "role": "diagnostic_evidence"
+        }
+      ],
+      "validations": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "result": "pass",
+          "severity": "medium"
+        },
+        {
+          "vp_id": "UM.VP.PRESERVATION_CHECK",
+          "result": "warn",
+          "severity": "medium",
+          "notes": "Controlled approximation accepted under documented adequacy bound."
+        },
+        {
+          "vp_id": "UM.VP.TRACTABILITY_CONDITIONING_CHECK",
+          "result": "pass",
+          "severity": "medium"
+        }
+      ],
+      "validation_plan": {
+        "must": [
+          "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS"
+        ],
+        "should": [
+          "UM.VP.PRESERVATION_CHECK",
+          "UM.VP.TRACTABILITY_CONDITIONING_CHECK"
+        ]
+      },
+      "stop_conditions": [
+        "Recasted formulation is solver-ready and preservation claim is explicit enough for downstream audit."
+      ],
+      "tension_pre": {
+        "beliefs": [
+          {
+            "dimension_id": "UM.OT.AMBIGUITY",
+            "level": 3,
+            "confidence": 0.7
+          },
+          {
+            "dimension_id": "UM.OT.TRACTABILITY",
+            "level": 3,
+            "confidence": 0.8
+          }
+        ],
+        "summary": "Original formulation is ambiguous and not yet computationally manageable.",
+        "assessor_kind": "agent_self",
+        "assessment_basis": "route-level qualitative judgment anchored to current artifacts and validator outcomes"
+      },
+      "tension_post": {
+        "beliefs": [
+          {
+            "dimension_id": "UM.OT.AMBIGUITY",
+            "level": 2,
+            "confidence": 0.7
+          },
+          {
+            "dimension_id": "UM.OT.TRACTABILITY",
+            "level": 1,
+            "confidence": 0.8
+          }
+        ],
+        "summary": "Problem is more clearly specified and more tractable, though approximation debt remains.",
+        "assessor_kind": "agent_self",
+        "assessment_basis": "route-level qualitative judgment anchored to current artifacts and validator outcomes"
+      },
+      "resolution_snapshot": {
+        "source_profile_id": "starter_baseline",
+        "contract_profile": "standard",
+        "artifact_requirements": {
+          "must": [
+            "UM.ART.MODEL.REPRESENTATION_MAP",
+            "UM.ART.CLAIM.PRESERVATION_CLAIM"
+          ],
+          "should": [
+            "UM.ART.EVALUATION.TRACTABILITY_REPORT"
+          ]
+        },
+        "validation_requirements": {
+          "must": [
+            "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS"
+          ],
+          "should": [
+            "UM.VP.PRESERVATION_CHECK",
+            "UM.VP.TRACTABILITY_CONDITIONING_CHECK"
+          ]
+        },
+        "applied_edge_families": [
+          "UM.EDGE_FAMILY.REFORMULATION.TRANSFORMATION__TO__OPTIMIZATION.REPARAMETERIZE_OR_RELAX_CONSTRAINTS_TO_IMPROVE_TRACTABILITY"
+        ],
+        "applied_dimension_selections": [
+          {
+            "dimension_id": "UM.DIM.TRANSFORMATION.PURPOSE",
+            "selected_option_paths": [
+              [
+                "feasibility"
+              ],
+              [
+                "simplicity"
+              ]
+            ]
+          },
+          {
+            "dimension_id": "UM.DIM.TRANSFORMATION.APPROACH",
+            "selected_option_paths": [
+              [
+                "operational_recasting",
+                "constraint_recast"
+              ],
+              [
+                "representation_rewrite",
+                "reparameterization"
+              ]
+            ]
+          }
+        ],
+        "applied_machine_controls": [
+          {
+            "control_id": "UM.CTRL.TRANSFORMATION.VALIDATION_STRICTNESS",
+            "selected_value_id": "standard"
+          }
+        ]
+      },
+      "failure_localization": {
+        "failure_type": "none",
+        "failure_signatures": [],
+        "signals": []
+      },
+      "costs": {
+        "relative_effort": "moderate"
+      },
+      "outcome": {
+        "status": "success",
+        "summary": "Generated a solver-ready formulation with explicit preservation notes.",
+        "utility_estimate": 0.72
+      },
+      "notes": "Example transformation stage that prepares a later optimization stage."
+    },
+    {
+      "stage_id": "stage_02_simulate_under_uncertainty",
+      "stage_label": "Run uncertainty-aware simulation over candidate interventions",
+      "stage_order": 2,
+      "package_version_pin": {
+        "package_name": "UM_MetaControl_Interface_Core_Semantic_Package",
+        "package_semver": "0.1.0",
+        "layer1_registry_version": "v1",
+        "layer2_seed_version": "v1"
+      },
+      "base_paradigm_id": "UM.PARADIGM.SIMULATION",
+      "goal_summary": "Project scenario outcomes under uncertainty so downstream decision stages can compare robust interventions.",
+      "route": {
+        "base_profile_id": "starter_baseline",
+        "dimension_selections": [
+          {
+            "dimension_id": "UM.DIM.SIMULATION.PURPOSE",
+            "selected_option_paths": [
+              [
+                "decide"
+              ]
+            ]
+          },
+          {
+            "dimension_id": "UM.DIM.SIMULATION.PRIMARY_FORMALISMS",
+            "selected_option_paths": [
+              [
+                "equation_based_modeling",
+                "stochastic_dynamics"
+              ]
+            ]
+          },
+          {
+            "dimension_id": "UM.DIM.SIMULATION.EXECUTION_PROTOCOL",
+            "selected_option_paths": [
+              [
+                "uncertainty_propagation"
+              ],
+              [
+                "scenario_runs"
+              ]
+            ]
+          }
+        ],
+        "machine_control_settings": [
+          {
+            "control_id": "UM.CTRL.SIMULATION.VALIDATION_STRICTNESS",
+            "selected_value_id": "standard"
+          }
+        ],
+        "supporting_edge_instances": [
+          {
+            "edge_family_id": "UM.EDGE_FAMILY.UNCERTAINTY_WEIGHTING_OR_PROPAGATION.PROBABILISTIC__TO__SIMULATION.UNCERTAINTY_PROPAGATION_AND_RISK_BOUNDING",
+            "edge_slot_id": "UM.EDGE_SLOT.PROBABILISTIC__TO__SIMULATION",
+            "order": 0,
+            "scope": "uncertainty-aware scenario analysis",
+            "local_settings": {
+              "risk_summary": "tail_risk_and_interval"
+            },
+            "activation_reason": "Decision quality depends on uncertainty propagation rather than point forecasts only.",
+            "edge_role_in_stage": "incoming_support"
+          }
+        ]
+      },
+      "artifacts": [
+        {
+          "artifact_id": "art_world_model",
+          "artifact_type_id": "UM.ART.MODEL.WORLD_MODEL",
+          "semantic_label": "stochastic simulator",
+          "role": "primary_model"
+        },
+        {
+          "artifact_id": "art_belief_model",
+          "artifact_type_id": "UM.ART.MODEL.BELIEF_MODEL",
+          "semantic_label": "input uncertainty model",
+          "role": "support_model"
+        },
+        {
+          "artifact_id": "art_exec_traces",
+          "artifact_type_id": "UM.ART.EVIDENCE.EXECUTION_TRACES",
+          "semantic_label": "scenario traces over sampled uncertainty",
+          "role": "evidence"
+        },
+        {
+          "artifact_id": "art_unc_summary",
+          "artifact_type_id": "UM.ART.EVIDENCE.UNCERTAINTY_POSTERIOR",
+          "semantic_label": "risk bounds and predictive intervals",
+          "role": "decision_support"
+        }
+      ],
+      "validations": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "result": "pass",
+          "severity": "medium"
+        },
+        {
+          "vp_id": "UM.VP.UNCERTAINTY_CALIBRATION_CHECK",
+          "result": "pass",
+          "severity": "medium"
+        },
+        {
+          "vp_id": "UM.VP.CONSISTENCY_CHECK",
+          "result": "pass",
+          "severity": "low"
+        }
+      ],
+      "validation_plan": {
+        "must": [
+          "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS"
+        ],
+        "should": [
+          "UM.VP.UNCERTAINTY_CALIBRATION_CHECK",
+          "UM.VP.CONSISTENCY_CHECK"
+        ]
+      },
+      "stop_conditions": [
+        "Scenario traces and risk summaries are stable enough to support downstream comparison."
+      ],
+      "tension_pre": {
+        "beliefs": [
+          {
+            "dimension_id": "UM.OT.UNCERTAINTY",
+            "level": 3,
+            "confidence": 0.8
+          }
+        ],
+        "summary": "Intervention ranking is unstable under uncertain demand and disruption patterns.",
+        "assessor_kind": "agent_self",
+        "assessment_basis": "route-level qualitative judgment anchored to current artifacts and validator outcomes"
+      },
+      "tension_post": {
+        "beliefs": [
+          {
+            "dimension_id": "UM.OT.UNCERTAINTY",
+            "level": 2,
+            "confidence": 0.8
+          }
+        ],
+        "summary": "Uncertainty remains but is now quantified and comparable across scenarios.",
+        "assessor_kind": "agent_self",
+        "assessment_basis": "route-level qualitative judgment anchored to current artifacts and validator outcomes"
+      },
+      "resolution_snapshot": {
+        "source_profile_id": "starter_baseline",
+        "contract_profile": "standard",
+        "artifact_requirements": {
+          "must": [
+            "UM.ART.MODEL.WORLD_MODEL",
+            "UM.ART.EVIDENCE.EXECUTION_TRACES"
+          ],
+          "should": [
+            "UM.ART.EVIDENCE.UNCERTAINTY_POSTERIOR"
+          ]
+        },
+        "validation_requirements": {
+          "must": [
+            "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS"
+          ],
+          "should": [
+            "UM.VP.UNCERTAINTY_CALIBRATION_CHECK"
+          ]
+        },
+        "applied_edge_families": [
+          "UM.EDGE_FAMILY.UNCERTAINTY_WEIGHTING_OR_PROPAGATION.PROBABILISTIC__TO__SIMULATION.UNCERTAINTY_PROPAGATION_AND_RISK_BOUNDING"
+        ],
+        "applied_dimension_selections": [
+          {
+            "dimension_id": "UM.DIM.SIMULATION.PURPOSE",
+            "selected_option_paths": [
+              [
+                "decide"
+              ]
+            ]
+          },
+          {
+            "dimension_id": "UM.DIM.SIMULATION.EXECUTION_PROTOCOL",
+            "selected_option_paths": [
+              [
+                "uncertainty_propagation"
+              ],
+              [
+                "scenario_runs"
+              ]
+            ]
+          }
+        ],
+        "applied_machine_controls": [
+          {
+            "control_id": "UM.CTRL.SIMULATION.VALIDATION_STRICTNESS",
+            "selected_value_id": "standard"
+          }
+        ]
+      },
+      "failure_localization": {
+        "failure_type": "none",
+        "failure_signatures": [],
+        "signals": []
+      },
+      "costs": {
+        "relative_effort": "high"
+      },
+      "outcome": {
+        "status": "success",
+        "summary": "Produced scenario-ranked interventions with quantified uncertainty.",
+        "utility_estimate": 0.78
+      },
+      "notes": "Example stage with a probabilistic support edge into a simulation base stage."
+    },
+    {
+      "stage_id": "stage_03_optimize_policy",
+      "stage_label": "Choose a robust intervention policy",
+      "stage_order": 3,
+      "package_version_pin": {
+        "package_name": "UM_MetaControl_Interface_Core_Semantic_Package",
+        "package_semver": "0.1.0",
+        "layer1_registry_version": "v1",
+        "layer2_seed_version": "v1"
+      },
+      "base_paradigm_id": "UM.PARADIGM.OPTIMIZATION",
+      "goal_summary": "Optimize policy selection under feasibility and robustness constraints using simulation-backed evaluation.",
+      "route": {
+        "base_profile_id": "starter_baseline",
+        "dimension_selections": [
+          {
+            "dimension_id": "UM.DIM.OPTIMIZATION.ROLE",
+            "selected_option_paths": [
+              [
+                "control_steer"
+              ]
+            ]
+          },
+          {
+            "dimension_id": "UM.DIM.OPTIMIZATION.OPTIMIZATION_STANCE",
+            "selected_option_paths": [
+              [
+                "robustness_hedging"
+              ]
+            ]
+          },
+          {
+            "dimension_id": "UM.DIM.OPTIMIZATION.FEASIBILITY_STRUCTURE",
+            "selected_option_paths": [
+              [
+                "absolute_bounds"
+              ],
+              [
+                "coupled_dynamic_relations"
+              ]
+            ]
+          },
+          {
+            "dimension_id": "UM.DIM.OPTIMIZATION.DECISION_OBJECT",
+            "selected_option_paths": [
+              [
+                "policies_controls_mechanisms"
+              ]
+            ]
+          },
+          {
+            "dimension_id": "UM.DIM.OPTIMIZATION.VARIABLE_TYPE",
+            "selected_option_paths": [
+              [
+                "hybrid"
+              ]
+            ]
+          },
+          {
+            "dimension_id": "UM.DIM.OPTIMIZATION.EVALUATION_ACCESS",
+            "selected_option_paths": [
+              [
+                "simulation_based"
+              ]
+            ]
+          },
+          {
+            "dimension_id": "UM.DIM.OPTIMIZATION.TEMPORAL_COMMITMENT",
+            "selected_option_paths": [
+              [
+                "receding_horizon"
+              ]
+            ]
+          },
+          {
+            "dimension_id": "UM.DIM.OPTIMIZATION.SOLUTION_LOGIC",
+            "selected_option_paths": [
+              [
+                "lookahead_planning",
+                "forward_rollout"
+              ],
+              [
+                "lookahead_planning",
+                "rolling_replanning"
+              ]
+            ]
+          }
+        ],
+        "machine_control_settings": [
+          {
+            "control_id": "UM.CTRL.OPTIMIZATION.VALIDATION_STRICTNESS",
+            "selected_value_id": "strict"
+          }
+        ],
+        "supporting_edge_instances": [
+          {
+            "edge_family_id": "UM.EDGE_FAMILY.SCENARIO_EVALUATION.SIMULATION__TO__OPTIMIZATION.SIMULATION_IN_THE_LOOP_EVALUATION_TO_OPTIMIZE_DECISIONS",
+            "edge_slot_id": "UM.EDGE_SLOT.SIMULATION__TO__OPTIMIZATION",
+            "order": 0,
+            "scope": "evaluate robust policy candidates",
+            "activation_reason": "Objective quality cannot be assessed analytically; simulator is needed in the loop.",
+            "edge_role_in_stage": "incoming_support"
+          }
+        ]
+      },
+      "artifacts": [
+        {
+          "artifact_id": "art_candidate_policy",
+          "artifact_type_id": "UM.ART.DECISION.CANDIDATE_SOLUTION",
+          "semantic_label": "robust policy candidate set",
+          "role": "decision_output"
+        },
+        {
+          "artifact_id": "art_obj_constraints_final",
+          "artifact_type_id": "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS",
+          "semantic_label": "robust objective with hard safety bounds",
+          "role": "optimization_contract"
+        },
+        {
+          "artifact_id": "art_vv_report",
+          "artifact_type_id": "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "semantic_label": "simulation-in-the-loop evaluation report",
+          "role": "quality_evidence"
+        }
+      ],
+      "validations": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "result": "pass",
+          "severity": "high"
+        },
+        {
+          "vp_id": "UM.VP.CONSTRAINT_SATISFACTION",
+          "result": "pass",
+          "severity": "high"
+        },
+        {
+          "vp_id": "UM.VP.SOLVER_STABILITY_SMOKE_TEST",
+          "result": "pass",
+          "severity": "medium"
+        }
+      ],
+      "validation_plan": {
+        "must": [
+          "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "UM.VP.CONSTRAINT_SATISFACTION"
+        ],
+        "should": [
+          "UM.VP.SOLVER_STABILITY_SMOKE_TEST"
+        ]
+      },
+      "stop_conditions": [
+        "A feasible, robust candidate policy has been identified and simulation-based evaluation has converged sufficiently."
+      ],
+      "tension_pre": {
+        "beliefs": [
+          {
+            "dimension_id": "UM.OT.HORIZON",
+            "level": 3,
+            "confidence": 0.7
+          },
+          {
+            "dimension_id": "UM.OT.EVIDENCE_GAP",
+            "level": 2,
+            "confidence": 0.6
+          }
+        ],
+        "summary": "Need a policy that remains acceptable over a moving horizon.",
+        "assessor_kind": "agent_self",
+        "assessment_basis": "route-level qualitative judgment anchored to current artifacts and validator outcomes"
+      },
+      "tension_post": {
+        "beliefs": [
+          {
+            "dimension_id": "UM.OT.HORIZON",
+            "level": 2,
+            "confidence": 0.7
+          }
+        ],
+        "summary": "Policy selected with explicit receding-horizon rationale and simulator support.",
+        "assessor_kind": "agent_self",
+        "assessment_basis": "route-level qualitative judgment anchored to current artifacts and validator outcomes"
+      },
+      "resolution_snapshot": {
+        "source_profile_id": "starter_baseline",
+        "contract_profile": "strict",
+        "artifact_requirements": {
+          "must": [
+            "UM.ART.DECISION.CANDIDATE_SOLUTION",
+            "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+          ],
+          "should": [
+            "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT"
+          ]
+        },
+        "validation_requirements": {
+          "must": [
+            "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+            "UM.VP.CONSTRAINT_SATISFACTION"
+          ],
+          "should": [
+            "UM.VP.SOLVER_STABILITY_SMOKE_TEST"
+          ]
+        },
+        "applied_edge_families": [
+          "UM.EDGE_FAMILY.SCENARIO_EVALUATION.SIMULATION__TO__OPTIMIZATION.SIMULATION_IN_THE_LOOP_EVALUATION_TO_OPTIMIZE_DECISIONS"
+        ],
+        "applied_dimension_selections": [
+          {
+            "dimension_id": "UM.DIM.OPTIMIZATION.EVALUATION_ACCESS",
+            "selected_option_paths": [
+              [
+                "simulation_based"
+              ]
+            ]
+          },
+          {
+            "dimension_id": "UM.DIM.OPTIMIZATION.SOLUTION_LOGIC",
+            "selected_option_paths": [
+              [
+                "lookahead_planning",
+                "forward_rollout"
+              ],
+              [
+                "lookahead_planning",
+                "rolling_replanning"
+              ]
+            ]
+          }
+        ],
+        "applied_machine_controls": [
+          {
+            "control_id": "UM.CTRL.OPTIMIZATION.VALIDATION_STRICTNESS",
+            "selected_value_id": "strict"
+          }
+        ]
+      },
+      "failure_localization": {
+        "failure_type": "none",
+        "failure_signatures": [],
+        "signals": []
+      },
+      "costs": {
+        "relative_effort": "high"
+      },
+      "outcome": {
+        "status": "success",
+        "summary": "Selected a robust policy backed by simulation-in-the-loop evaluation.",
+        "utility_estimate": 0.81
+      },
+      "notes": "Example optimization stage with simulation support."
+    }
+  ],
+  "stage_links": [
+    {
+      "from_stage_id": "stage_01_transform_formulation",
+      "to_stage_id": "stage_02_simulate_under_uncertainty",
+      "relation": "feeds",
+      "notes": "Reformulated problem and assumptions enter the simulator."
+    },
+    {
+      "from_stage_id": "stage_02_simulate_under_uncertainty",
+      "to_stage_id": "stage_03_optimize_policy",
+      "relation": "feeds",
+      "notes": "Scenario outputs and risk summaries feed decision optimization."
+    },
+    {
+      "from_stage_id": "stage_03_optimize_policy",
+      "to_stage_id": "stage_02_simulate_under_uncertainty",
+      "relation": "calls",
+      "notes": "Optimization queries the simulator for policy evaluation in the loop."
+    }
+  ],
+  "final_outputs": [
+    {
+      "artifact_id": "art_candidate_policy",
+      "artifact_type_id": "UM.ART.DECISION.CANDIDATE_SOLUTION",
+      "semantic_label": "selected robust policy",
+      "role": "final_output"
+    }
+  ],
+  "aggregate_costs": {
+    "relative_effort": "high"
+  },
+  "learning_targets": {
+    "target_type": "meta_control_trace",
+    "notes": "Suitable for testing route-graph learning, stage-local diagnosis, and edge-family retrieval."
+  },
+  "notes": "Minimal multi-stage route graph demonstrating chaining plus simulation-in-the-loop calls."
+}

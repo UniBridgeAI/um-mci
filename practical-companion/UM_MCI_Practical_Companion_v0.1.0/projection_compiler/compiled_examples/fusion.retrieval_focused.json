@@ -1,0 +1,75 @@
+{
+  "projection_profile_id": "retrieval_focused",
+  "paradigm_id": "UM.PARADIGM.FUSION",
+  "paradigm_label": "Fusion-based Methodology",
+  "paradigm_definition": "Integrate multiple sources, models, methods, or perspectives into a coherent or explicitly plural whole with managed conflict and provenance.",
+  "starter_profile_id": "starter_baseline",
+  "dimension_views": [
+    {
+      "dimension_id": "UM.DIM.FUSION.INTEGRATION_LOGIC",
+      "label": "Integration Logic",
+      "definition": "How separate sources, models, methods, or stages are integrated.",
+      "selected_values_expanded": [
+        {
+          "value_id": "shared_space_projection",
+          "label": "Shared-space projection",
+          "definition": "align by projecting inputs into a common space",
+          "path": [
+            "alignment_based_fusion",
+            "shared_space_projection"
+          ]
+        }
+      ]
+    },
+    {
+      "dimension_id": "UM.DIM.FUSION.PURPOSE",
+      "label": "Fusion Purpose",
+      "definition": "Why fusion is introduced.",
+      "selected_values_expanded": [
+        {
+          "value_id": "reconcile",
+          "label": "Reconcile",
+          "tag": "Coherence",
+          "definition": "Use fusion to reconcile conflicting or inconsistent sources into a coherent result, while preserving uncertainty and provenance where disagreement remains.",
+          "path": [
+            "reconcile"
+          ]
+        }
+      ]
+    },
+    {
+      "dimension_id": "UM.DIM.FUSION.REPRESENTATION_LAYER",
+      "label": "Representation Layer",
+      "definition": "Fusion at the level of encoded representations or formal models.",
+      "selected_values_expanded": [
+        {
+          "value_id": "representation",
+          "label": "Representation",
+          "tag": "Encoded Forms",
+          "definition": "Fuse encoded or derived representations, e.g., features, embeddings, or latent states.",
+          "path": [
+            "representation"
+          ]
+        }
+      ]
+    }
+  ],
+  "support_edge_shortlist": [
+    "UM.EDGE_FAMILY.ALIGNMENT_OR_MAPPING.TRANSFORMATION__TO__FUSION.ALIGN_NORMALIZE_AND_SEMANTICALLY_MAP_INTO_A_SHARED_SPACE",
+    "UM.EDGE_FAMILY.GATING_OR_ARBITRATION.RULE__TO__FUSION.RULE_BASED_GATING_OR_ARBITRATION_TO_MANAGE_CONFLICTS"
+  ],
+  "support_edge_hints": [
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.ALIGNMENT_OR_MAPPING.TRANSFORMATION__TO__FUSION.ALIGN_NORMALIZE_AND_SEMANTICALLY_MAP_INTO_A_SHARED_SPACE",
+      "relation_role": "alignment_or_mapping",
+      "operator_family": "Align normalize and semantically map into a shared space",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: align normalize and semantically map into a shared space. Use when transformation supports fusion through this recurrent interaction pattern."
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.GATING_OR_ARBITRATION.RULE__TO__FUSION.RULE_BASED_GATING_OR_ARBITRATION_TO_MANAGE_CONFLICTS",
+      "relation_role": "gating_or_arbitration",
+      "operator_family": "Rule based gating or arbitration to manage conflicts",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: rule based gating or arbitration to manage conflicts. Use when rule supports fusion through this recurrent interaction pattern."
+    }
+  ]
+}

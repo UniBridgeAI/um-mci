@@ -1,0 +1,4 @@
+recommended-repo/
+  core_snapshot/              # unpacked UM_MetaControl_Interface_Core_Semantic_Package_v0.1.0
+  companion/                  # this Practical Companion release
+  README.md                   # theory reader / agent builder / contributor entry points

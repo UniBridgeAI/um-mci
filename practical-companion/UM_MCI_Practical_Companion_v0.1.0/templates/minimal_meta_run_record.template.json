@@ -1,0 +1,67 @@
+{
+  "run_id": "meta_run_template_01",
+  "created_utc": "2026-04-18T00:00:00Z",
+  "package_version_pin": {
+    "package_name": "UM_MetaControl_Interface_Core_Semantic_Package",
+    "package_semver": "0.1.0",
+    "layer1_registry_version": "v1",
+    "layer2_seed_version": "v1"
+  },
+  "governance_context": {},
+  "affordance_context": {},
+  "initial_tension_belief": {
+    "beliefs": [],
+    "summary": "optional"
+  },
+  "stages": [
+    {
+      "stage_id": "stage_template_01",
+      "stage_label": "describe the local method episode",
+      "stage_order": 0,
+      "package_version_pin": {
+        "package_name": "UM_MetaControl_Interface_Core_Semantic_Package",
+        "package_semver": "0.1.0",
+        "layer1_registry_version": "v1",
+        "layer2_seed_version": "v1"
+      },
+      "base_paradigm_id": "UM.PARADIGM.OPTIMIZATION",
+      "goal_summary": "state the local goal",
+      "route": {
+        "base_profile_id": "starter_baseline",
+        "dimension_selections": [
+          {
+            "dimension_id": "UM.DIM.OPTIMIZATION.SOLUTION_LOGIC",
+            "selected_option_paths": [
+              [
+                "local_refinement",
+                "directional_stepping"
+              ]
+            ]
+          }
+        ],
+        "machine_control_settings": [],
+        "supporting_edge_instances": []
+      },
+      "artifacts": [],
+      "validations": [],
+      "tension_pre": {
+        "beliefs": [],
+        "summary": "optional"
+      },
+      "tension_post": {
+        "beliefs": [],
+        "summary": "optional"
+      },
+      "outcome": {
+        "status": "partial",
+        "summary": "fill after the stage finishes"
+      },
+      "extensions": {}
+    }
+  ],
+  "stage_links": [],
+  "final_outputs": [],
+  "aggregate_costs": {},
+  "notes": "Use this template when you want the smallest multi-stage scaffold.",
+  "extensions": {}
+}

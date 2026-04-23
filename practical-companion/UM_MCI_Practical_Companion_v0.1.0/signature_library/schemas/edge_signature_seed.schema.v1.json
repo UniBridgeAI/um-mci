@@ -1,0 +1,182 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:um-mci:companion:schemas:edge-signature-seed:v1",
+  "title": "UM-MCI edge signature seed",
+  "type": "object",
+  "required": [
+    "signature_id",
+    "edge_family_id",
+    "stage_pattern",
+    "package_version_pin"
+  ],
+  "properties": {
+    "signature_id": {
+      "type": "string"
+    },
+    "edge_family_id": {
+      "type": "string",
+      "pattern": "^UM\\.EDGE_FAMILY\\."
+    },
+    "signature_scope": {
+      "type": "string",
+      "enum": [
+        "recognizer_seed",
+        "retrieval_seed",
+        "diagnostic_seed"
+      ]
+    },
+    "stage_pattern": {
+      "type": "object",
+      "properties": {
+        "base_paradigm_id": {
+          "type": "string",
+          "pattern": "^UM\\.PARADIGM\\."
+        },
+        "supporting_paradigm_id": {
+          "type": "string",
+          "pattern": "^UM\\.PARADIGM\\."
+        },
+        "dimension_hints": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "dimension_id": {
+                "type": "string",
+                "pattern": "^UM\\.DIM\\."
+              },
+              "selected_option_paths": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "notes": {
+                "type": "string"
+              },
+              "extensions": {
+                "type": "object",
+                "patternProperties": {
+                  "^[A-Za-z0-9_.:-]+$": {
+                    "type": [
+                      "object",
+                      "array",
+                      "string",
+                      "number",
+                      "boolean",
+                      "null"
+                    ]
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "dimension_id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "notes": {
+          "type": "string"
+        },
+        "extensions": {
+          "type": "object",
+          "patternProperties": {
+            "^[A-Za-z0-9_.:-]+$": {
+              "type": [
+                "object",
+                "array",
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "required_artifact_hints": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^UM\\.ART\\."
+      }
+    },
+    "optional_artifact_hints": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^UM\\.ART\\."
+      }
+    },
+    "required_validation_hints": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^UM\\.VP\\."
+      }
+    },
+    "minimal_failure_signatures": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "local_settings_hints": {
+      "type": "object"
+    },
+    "confidence": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    "notes": {
+      "type": "string"
+    },
+    "package_version_pin": {
+      "type": "object",
+      "properties": {
+        "package_name": {
+          "type": "string"
+        },
+        "package_semver": {
+          "type": "string"
+        },
+        "layer1_registry_version": {
+          "type": "string"
+        },
+        "layer2_seed_version": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "extensions": {
+      "type": "object",
+      "patternProperties": {
+        "^[A-Za-z0-9_.:-]+$": {
+          "type": [
+            "object",
+            "array",
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

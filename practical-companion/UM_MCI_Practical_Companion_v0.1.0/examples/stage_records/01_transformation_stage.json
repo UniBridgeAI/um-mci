@@ -1,0 +1,242 @@
+{
+  "stage_id": "stage_01_transform_formulation",
+  "stage_label": "Recast the problem formulation for downstream tractability",
+  "stage_order": 1,
+  "package_version_pin": {
+    "package_name": "UM_MetaControl_Interface_Core_Semantic_Package",
+    "package_semver": "0.1.0",
+    "layer1_registry_version": "v1",
+    "layer2_seed_version": "v1"
+  },
+  "base_paradigm_id": "UM.PARADIGM.TRANSFORMATION",
+  "goal_summary": "Make the task tractable by reformulating constraints and preserving task-relevant semantics.",
+  "route": {
+    "base_profile_id": "starter_baseline",
+    "dimension_selections": [
+      {
+        "dimension_id": "UM.DIM.TRANSFORMATION.PURPOSE",
+        "selected_option_paths": [
+          [
+            "feasibility"
+          ],
+          [
+            "simplicity"
+          ]
+        ]
+      },
+      {
+        "dimension_id": "UM.DIM.TRANSFORMATION.OBJECT",
+        "selected_option_paths": [
+          [
+            "problem_task_formulation"
+          ]
+        ]
+      },
+      {
+        "dimension_id": "UM.DIM.TRANSFORMATION.APPROACH",
+        "selected_option_paths": [
+          [
+            "operational_recasting",
+            "constraint_recast"
+          ],
+          [
+            "representation_rewrite",
+            "reparameterization"
+          ]
+        ]
+      },
+      {
+        "dimension_id": "UM.DIM.TRANSFORMATION.PRESERVATION_COMMITMENT",
+        "selected_option_paths": [
+          [
+            "task_preservation"
+          ],
+          [
+            "constraint_preservation"
+          ],
+          [
+            "controlled_approximation"
+          ]
+        ]
+      }
+    ],
+    "machine_control_settings": [
+      {
+        "control_id": "UM.CTRL.TRANSFORMATION.VALIDATION_STRICTNESS",
+        "selected_value_id": "standard"
+      }
+    ],
+    "supporting_edge_instances": [
+      {
+        "edge_family_id": "UM.EDGE_FAMILY.REFORMULATION.TRANSFORMATION__TO__OPTIMIZATION.REPARAMETERIZE_OR_RELAX_CONSTRAINTS_TO_IMPROVE_TRACTABILITY",
+        "edge_slot_id": "UM.EDGE_SLOT.TRANSFORMATION__TO__OPTIMIZATION",
+        "order": 0,
+        "scope": "prepare downstream optimization stage",
+        "activation_reason": "Current formulation is brittle and too expensive to solve directly.",
+        "edge_role_in_stage": "outgoing_preparation"
+      }
+    ],
+    "route_notes": "This is a Transformation stage that prepares a downstream Optimization route. The Transformation -> Optimization edge is logged as outgoing_preparation; the edge target is the later Optimization stage, not the current stage base."
+  },
+  "artifacts": [
+    {
+      "artifact_id": "art_obj_constraints_recast",
+      "artifact_type_id": "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS",
+      "semantic_label": "recast objective and softened constraints",
+      "role": "stage_output"
+    },
+    {
+      "artifact_id": "art_repr_map",
+      "artifact_type_id": "UM.ART.MODEL.REPRESENTATION_MAP",
+      "semantic_label": "mapping between original and transformed formulations",
+      "role": "traceability"
+    },
+    {
+      "artifact_id": "art_pres_claim",
+      "artifact_type_id": "UM.ART.CLAIM.PRESERVATION_CLAIM",
+      "semantic_label": "task and constraint preservation statement",
+      "role": "validity_claim"
+    },
+    {
+      "artifact_id": "art_tractability_report",
+      "artifact_type_id": "UM.ART.EVALUATION.TRACTABILITY_REPORT",
+      "semantic_label": "tractability comparison before vs after recast",
+      "role": "diagnostic_evidence"
+    }
+  ],
+  "validations": [
+    {
+      "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+      "result": "pass",
+      "severity": "medium"
+    },
+    {
+      "vp_id": "UM.VP.PRESERVATION_CHECK",
+      "result": "warn",
+      "severity": "medium",
+      "notes": "Controlled approximation accepted under documented adequacy bound."
+    },
+    {
+      "vp_id": "UM.VP.TRACTABILITY_CONDITIONING_CHECK",
+      "result": "pass",
+      "severity": "medium"
+    }
+  ],
+  "validation_plan": {
+    "must": [
+      "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS"
+    ],
+    "should": [
+      "UM.VP.PRESERVATION_CHECK",
+      "UM.VP.TRACTABILITY_CONDITIONING_CHECK"
+    ]
+  },
+  "stop_conditions": [
+    "Recasted formulation is solver-ready and preservation claim is explicit enough for downstream audit."
+  ],
+  "tension_pre": {
+    "beliefs": [
+      {
+        "dimension_id": "UM.OT.AMBIGUITY",
+        "level": 3,
+        "confidence": 0.7
+      },
+      {
+        "dimension_id": "UM.OT.TRACTABILITY",
+        "level": 3,
+        "confidence": 0.8
+      }
+    ],
+    "summary": "Original formulation is ambiguous and not yet computationally manageable.",
+    "assessor_kind": "agent_self",
+    "assessment_basis": "route-level qualitative judgment anchored to current artifacts and validator outcomes"
+  },
+  "tension_post": {
+    "beliefs": [
+      {
+        "dimension_id": "UM.OT.AMBIGUITY",
+        "level": 2,
+        "confidence": 0.7
+      },
+      {
+        "dimension_id": "UM.OT.TRACTABILITY",
+        "level": 1,
+        "confidence": 0.8
+      }
+    ],
+    "summary": "Problem is more clearly specified and more tractable, though approximation debt remains.",
+    "assessor_kind": "agent_self",
+    "assessment_basis": "route-level qualitative judgment anchored to current artifacts and validator outcomes"
+  },
+  "resolution_snapshot": {
+    "source_profile_id": "starter_baseline",
+    "contract_profile": "standard",
+    "artifact_requirements": {
+      "must": [
+        "UM.ART.MODEL.REPRESENTATION_MAP",
+        "UM.ART.CLAIM.PRESERVATION_CLAIM"
+      ],
+      "should": [
+        "UM.ART.EVALUATION.TRACTABILITY_REPORT"
+      ]
+    },
+    "validation_requirements": {
+      "must": [
+        "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS"
+      ],
+      "should": [
+        "UM.VP.PRESERVATION_CHECK",
+        "UM.VP.TRACTABILITY_CONDITIONING_CHECK"
+      ]
+    },
+    "applied_edge_families": [
+      "UM.EDGE_FAMILY.REFORMULATION.TRANSFORMATION__TO__OPTIMIZATION.REPARAMETERIZE_OR_RELAX_CONSTRAINTS_TO_IMPROVE_TRACTABILITY"
+    ],
+    "applied_dimension_selections": [
+      {
+        "dimension_id": "UM.DIM.TRANSFORMATION.PURPOSE",
+        "selected_option_paths": [
+          [
+            "feasibility"
+          ],
+          [
+            "simplicity"
+          ]
+        ]
+      },
+      {
+        "dimension_id": "UM.DIM.TRANSFORMATION.APPROACH",
+        "selected_option_paths": [
+          [
+            "operational_recasting",
+            "constraint_recast"
+          ],
+          [
+            "representation_rewrite",
+            "reparameterization"
+          ]
+        ]
+      }
+    ],
+    "applied_machine_controls": [
+      {
+        "control_id": "UM.CTRL.TRANSFORMATION.VALIDATION_STRICTNESS",
+        "selected_value_id": "standard"
+      }
+    ]
+  },
+  "failure_localization": {
+    "failure_type": "none",
+    "failure_signatures": [],
+    "signals": []
+  },
+  "costs": {
+    "relative_effort": "moderate"
+  },
+  "outcome": {
+    "status": "success",
+    "summary": "Generated a solver-ready formulation with explicit preservation notes.",
+    "utility_estimate": 0.72
+  },
+  "notes": "Example transformation stage that prepares a later optimization stage."
+}

@@ -1,0 +1,62 @@
+{
+  "prior_id": "companion.route_prior.template",
+  "status": "heuristic",
+  "scope": "route_pattern",
+  "target_ids": [
+    "UM.DIM.OPTIMIZATION.SOLUTION_LOGIC",
+    "UM.EDGE_FAMILY.SCENARIO_EVALUATION.SIMULATION__TO__OPTIMIZATION.SIMULATION_IN_THE_LOOP_EVALUATION_TO_OPTIMIZE_DECISIONS"
+  ],
+  "trigger_pattern": {
+    "active_tensions": [
+      "UM.OT.TRACTABILITY",
+      "UM.OT.HORIZON"
+    ],
+    "context_cues": [
+      "limited_direct_evaluation_budget"
+    ],
+    "task_features": [
+      "large coupled search space"
+    ],
+    "notes": "Describe the recurring pattern that seems to trigger this route."
+  },
+  "recommended_commitment": {
+    "base_paradigm_id": "UM.PARADIGM.OPTIMIZATION",
+    "selected_option_paths": [
+      {
+        "dimension_id": "UM.DIM.OPTIMIZATION.SOLUTION_LOGIC",
+        "option_path": [
+          "proxy_guided_search",
+          "utility_guided_selection"
+        ]
+      }
+    ],
+    "supporting_edge_families": [
+      "UM.EDGE_FAMILY.SCENARIO_EVALUATION.SIMULATION__TO__OPTIMIZATION.SIMULATION_IN_THE_LOOP_EVALUATION_TO_OPTIMIZE_DECISIONS"
+    ],
+    "notes": "Replace with the route pattern you want to preserve as a soft prior."
+  },
+  "failure_signals": [
+    "search budget explodes before useful feedback arrives"
+  ],
+  "recovery_hints": [
+    "introduce simulator-in-the-loop evaluation",
+    "switch to staged decomposition"
+  ],
+  "confidence": 0.4,
+  "evidence_refs": [
+    "replace_with_local_stage_or_case_ref.json"
+  ],
+  "package_version_pin": {
+    "package_name": "UM_MetaControl_Interface_Core_Semantic_Package",
+    "package_semver": "0.1.0",
+    "layer1_registry_version": "v1",
+    "layer2_seed_version": "v1"
+  },
+  "notes": "Illustrative template only: replace all UM IDs, option paths, trigger cues, evidence refs, and notes before submitting a new shared prior note. External-only evidence must be explicitly marked as not mechanically parsed. Treat confidence as author-assessed unless you document a calibration or learning procedure.",
+  "governance_refs": [],
+  "extensions": {},
+  "evidence_kind": "case_based",
+  "last_reviewed_utc": "2026-04-18T00:00:00Z",
+  "evidence_object_count": 1,
+  "independent_case_count": 1
+}

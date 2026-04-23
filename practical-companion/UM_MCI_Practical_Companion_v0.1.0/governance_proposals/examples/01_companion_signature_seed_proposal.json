@@ -1,0 +1,28 @@
+{
+  "proposal_id": "proposal_signature_seed_simulation_optimization_local_01",
+  "proposal_type": "github_companion_signature_seed_addition",
+  "created_utc": "2026-04-16T11:12:38+00:00",
+  "target_kind": "signature_seed",
+  "targets": [
+    "signature_library/starter_seeds/simulation_to_optimization.sim_in_loop.signature.json"
+  ],
+  "payload": {
+    "edge_family_id": "UM.EDGE_FAMILY.SCENARIO_EVALUATION.SIMULATION__TO__OPTIMIZATION.SIMULATION_IN_THE_LOOP_EVALUATION_TO_OPTIMIZE_DECISIONS",
+    "requested_action": "add_or_refine_companion_signature_seed"
+  },
+  "rationale": "Observed recurring simulation-in-the-loop evaluation inside optimization over a moving horizon; useful to expose as a companion-level recognizer seed.",
+  "evidence_pointers": [
+    "examples/stage_records/03_optimization_stage_with_simulation_support.json",
+    "examples/meta_runs/01_multi_stage_route_graph.json"
+  ],
+  "status": "draft",
+  "package_version_pin": {
+    "package_name": "UM_MetaControl_Interface_Core_Semantic_Package",
+    "package_semver": "0.1.0",
+    "layer1_registry_version": "v1",
+    "layer2_seed_version": "v1"
+  },
+  "review_notes": [
+    "Companion-level addition only; not a request to change the archival core."
+  ]
+}

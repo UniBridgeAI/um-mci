@@ -1,0 +1,88 @@
+{
+  "prior_id": "companion.route_prior.optimization_lookahead_with_simulation_support",
+  "status": "heuristic",
+  "scope": "route_pattern",
+  "target_ids": [
+    "UM.DIM.OPTIMIZATION.SOLUTION_LOGIC",
+    "UM.DIM.OPTIMIZATION.EVALUATION_ACCESS",
+    "UM.DIM.OPTIMIZATION.TEMPORAL_COMMITMENT",
+    "UM.EDGE_FAMILY.SCENARIO_EVALUATION.SIMULATION__TO__OPTIMIZATION.SIMULATION_IN_THE_LOOP_EVALUATION_TO_OPTIMIZE_DECISIONS"
+  ],
+  "trigger_pattern": {
+    "active_tensions": [
+      "UM.OT.HORIZON",
+      "UM.OT.EVIDENCE_GAP"
+    ],
+    "context_cues": [
+      "limited_direct_evaluation_budget",
+      "simulation_available"
+    ],
+    "task_features": [
+      "moving-horizon policy choice",
+      "robust policy selection under scenarios"
+    ],
+    "notes": "When direct analytic evaluation is insufficient, horizon-sensitive policy choice benefits from simulator-backed lookahead."
+  },
+  "recommended_commitment": {
+    "base_paradigm_id": "UM.PARADIGM.OPTIMIZATION",
+    "selected_option_paths": [
+      {
+        "dimension_id": "UM.DIM.OPTIMIZATION.SOLUTION_LOGIC",
+        "option_path": [
+          "lookahead_planning",
+          "forward_rollout"
+        ]
+      },
+      {
+        "dimension_id": "UM.DIM.OPTIMIZATION.SOLUTION_LOGIC",
+        "option_path": [
+          "lookahead_planning",
+          "rolling_replanning"
+        ]
+      },
+      {
+        "dimension_id": "UM.DIM.OPTIMIZATION.EVALUATION_ACCESS",
+        "option_path": [
+          "simulation_based"
+        ]
+      },
+      {
+        "dimension_id": "UM.DIM.OPTIMIZATION.TEMPORAL_COMMITMENT",
+        "option_path": [
+          "receding_horizon"
+        ]
+      }
+    ],
+    "supporting_edge_families": [
+      "UM.EDGE_FAMILY.SCENARIO_EVALUATION.SIMULATION__TO__OPTIMIZATION.SIMULATION_IN_THE_LOOP_EVALUATION_TO_OPTIMIZE_DECISIONS"
+    ],
+    "notes": "Prefer simulator-supported lookahead when policy quality depends on future consequences over a moving horizon."
+  },
+  "failure_signals": [
+    "policy choice quality cannot be judged analytically",
+    "future-coupling remains unresolved without rollout evaluation"
+  ],
+  "recovery_hints": [
+    "introduce simulation-in-the-loop evaluation",
+    "switch to rolling replanning over a shorter horizon"
+  ],
+  "confidence": 0.45,
+  "evidence_refs": [
+    "examples/stage_records/03_optimization_stage_with_simulation_support.json",
+    "examples/meta_runs/01_multi_stage_route_graph.json",
+    "examples/retrospective_cases/01_supply_network_vignette_retro_case.json"
+  ],
+  "package_version_pin": {
+    "package_name": "UM_MetaControl_Interface_Core_Semantic_Package",
+    "package_semver": "0.1.0",
+    "layer1_registry_version": "v1",
+    "layer2_seed_version": "v1"
+  },
+  "notes": "Heuristic starter prior aligned to the worked optimization-with-simulation example chain. Evidence objects currently describe one worked chain; independent_case_count is therefore 1. Confidence is author-assessed and uncalibrated; this note is heuristic, not a verified learned prior.",
+  "governance_refs": [],
+  "extensions": {},
+  "evidence_kind": "case_based",
+  "last_reviewed_utc": "2026-04-18T12:00:00Z",
+  "evidence_object_count": 3,
+  "independent_case_count": 1
+}

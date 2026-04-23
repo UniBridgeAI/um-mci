@@ -1,0 +1,113 @@
+{
+  "projection_profile_id": "diagnosis_focused",
+  "paradigm_id": "UM.PARADIGM.SIMULATION",
+  "paradigm_label": "Simulation-based Methodology",
+  "paradigm_definition": "Construct and execute an explicit model world to explore scenarios, project outcomes, calibrate to evidence, or support decisions when direct experimentation is costly or infeasible.",
+  "starter_profile_id": "starter_baseline",
+  "dimension_views": [
+    {
+      "dimension_id": "UM.DIM.SIMULATION.EXECUTION_PROTOCOL",
+      "label": "Execution Protocol",
+      "definition": "How the model world is interrogated or used operationally.",
+      "selected_values_expanded": [
+        {
+          "value_id": "scenario_runs",
+          "label": "Scenario Runs",
+          "tag": "What-if Comparison",
+          "definition": "Run a small, named set of scenarios to compare outcomes and attribute effects to interventions or assumptions.",
+          "path": [
+            "scenario_runs"
+          ]
+        }
+      ]
+    },
+    {
+      "dimension_id": "UM.DIM.SIMULATION.PRIMARY_FORMALISMS",
+      "label": "Primary Formalisms",
+      "definition": "Primary formalism used to represent the modeled world.",
+      "selected_values_expanded": [
+        {
+          "value_id": "lumped_parameter_dynamics",
+          "label": "Lumped-parameter dynamics",
+          "definition": "few aggregated state variables; no explicit spatial resolution",
+          "path": [
+            "equation_based_modeling",
+            "lumped_parameter_dynamics"
+          ]
+        }
+      ]
+    },
+    {
+      "dimension_id": "UM.DIM.SIMULATION.PURPOSE",
+      "label": "Simulation Purpose",
+      "definition": "Why simulation is introduced.",
+      "selected_values_expanded": [
+        {
+          "value_id": "predict",
+          "label": "Predict",
+          "tag": "Forward Projection",
+          "definition": "Use simulation as a forward model to project outcomes under specified inputs and assumptions, emphasizing fidelity and repeatability.",
+          "path": [
+            "predict"
+          ]
+        }
+      ]
+    }
+  ],
+  "machine_controls": [
+    {
+      "control_id": "UM.CTRL.SIMULATION.VALIDATION_STRICTNESS",
+      "selected_value_id": "standard"
+    }
+  ],
+  "artifact_requirements": {
+    "must": [
+      "UM.ART.MODEL.WORLD_MODEL",
+      "UM.ART.EVIDENCE.EXECUTION_TRACES",
+      "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+    ],
+    "should": [
+      "UM.ART.SPEC.ASSUMPTIONS_SCOPE",
+      "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+      "UM.ART.PROVENANCE.PROVENANCE_LOG"
+    ]
+  },
+  "validation_requirements": {
+    "must": [
+      "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+      "UM.VP.PROVENANCE_CHECK"
+    ],
+    "should": [
+      "UM.VP.SOLVER_STABILITY_SMOKE_TEST",
+      "UM.VP.CONSISTENCY_CHECK"
+    ]
+  },
+  "support_edge_shortlist": [
+    "UM.EDGE_FAMILY.TRACTABILITY_ACCELERATION.TRANSFORMATION__TO__SIMULATION.COARSE_GRAIN_OR_SURROGATE_TO_ACCELERATE_SIMULATION",
+    "UM.EDGE_FAMILY.UNCERTAINTY_WEIGHTING_OR_PROPAGATION.PROBABILISTIC__TO__SIMULATION.UNCERTAINTY_PROPAGATION_AND_RISK_BOUNDING"
+  ],
+  "support_edge_hints": [
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.TRACTABILITY_ACCELERATION.TRANSFORMATION__TO__SIMULATION.COARSE_GRAIN_OR_SURROGATE_TO_ACCELERATE_SIMULATION",
+      "relation_role": "tractability_acceleration",
+      "operator_family": "Coarse grain or surrogate to accelerate simulation",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: coarse grain or surrogate to accelerate simulation. Use when transformation supports simulation through this recurrent interaction pattern.",
+      "typical_failure_modes": [
+        "information_loss_changes_decision",
+        "surrogate_extrapolation_failure",
+        "conditioning_worsens_in_some_regimes"
+      ]
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.UNCERTAINTY_WEIGHTING_OR_PROPAGATION.PROBABILISTIC__TO__SIMULATION.UNCERTAINTY_PROPAGATION_AND_RISK_BOUNDING",
+      "relation_role": "uncertainty_weighting_or_propagation",
+      "operator_family": "Uncertainty propagation and risk bounding",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: uncertainty propagation and risk bounding. Use when probabilistic supports simulation through this recurrent interaction pattern.",
+      "typical_failure_modes": [
+        "miscalibrated_uncertainty",
+        "sampling_bias_or_nonconvergence",
+        "false_confidence_due_to_model_error"
+      ]
+    }
+  ]
+}

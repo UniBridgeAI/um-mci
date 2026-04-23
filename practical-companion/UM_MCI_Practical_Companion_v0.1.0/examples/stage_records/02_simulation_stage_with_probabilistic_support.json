@@ -1,0 +1,209 @@
+{
+  "stage_id": "stage_02_simulate_under_uncertainty",
+  "stage_label": "Run uncertainty-aware simulation over candidate interventions",
+  "stage_order": 2,
+  "package_version_pin": {
+    "package_name": "UM_MetaControl_Interface_Core_Semantic_Package",
+    "package_semver": "0.1.0",
+    "layer1_registry_version": "v1",
+    "layer2_seed_version": "v1"
+  },
+  "base_paradigm_id": "UM.PARADIGM.SIMULATION",
+  "goal_summary": "Project scenario outcomes under uncertainty so downstream decision stages can compare robust interventions.",
+  "route": {
+    "base_profile_id": "starter_baseline",
+    "dimension_selections": [
+      {
+        "dimension_id": "UM.DIM.SIMULATION.PURPOSE",
+        "selected_option_paths": [
+          [
+            "decide"
+          ]
+        ]
+      },
+      {
+        "dimension_id": "UM.DIM.SIMULATION.PRIMARY_FORMALISMS",
+        "selected_option_paths": [
+          [
+            "equation_based_modeling",
+            "stochastic_dynamics"
+          ]
+        ]
+      },
+      {
+        "dimension_id": "UM.DIM.SIMULATION.EXECUTION_PROTOCOL",
+        "selected_option_paths": [
+          [
+            "uncertainty_propagation"
+          ],
+          [
+            "scenario_runs"
+          ]
+        ]
+      }
+    ],
+    "machine_control_settings": [
+      {
+        "control_id": "UM.CTRL.SIMULATION.VALIDATION_STRICTNESS",
+        "selected_value_id": "standard"
+      }
+    ],
+    "supporting_edge_instances": [
+      {
+        "edge_family_id": "UM.EDGE_FAMILY.UNCERTAINTY_WEIGHTING_OR_PROPAGATION.PROBABILISTIC__TO__SIMULATION.UNCERTAINTY_PROPAGATION_AND_RISK_BOUNDING",
+        "edge_slot_id": "UM.EDGE_SLOT.PROBABILISTIC__TO__SIMULATION",
+        "order": 0,
+        "scope": "uncertainty-aware scenario analysis",
+        "local_settings": {
+          "risk_summary": "tail_risk_and_interval"
+        },
+        "activation_reason": "Decision quality depends on uncertainty propagation rather than point forecasts only.",
+        "edge_role_in_stage": "incoming_support"
+      }
+    ]
+  },
+  "artifacts": [
+    {
+      "artifact_id": "art_world_model",
+      "artifact_type_id": "UM.ART.MODEL.WORLD_MODEL",
+      "semantic_label": "stochastic simulator",
+      "role": "primary_model"
+    },
+    {
+      "artifact_id": "art_belief_model",
+      "artifact_type_id": "UM.ART.MODEL.BELIEF_MODEL",
+      "semantic_label": "input uncertainty model",
+      "role": "support_model"
+    },
+    {
+      "artifact_id": "art_exec_traces",
+      "artifact_type_id": "UM.ART.EVIDENCE.EXECUTION_TRACES",
+      "semantic_label": "scenario traces over sampled uncertainty",
+      "role": "evidence"
+    },
+    {
+      "artifact_id": "art_unc_summary",
+      "artifact_type_id": "UM.ART.EVIDENCE.UNCERTAINTY_POSTERIOR",
+      "semantic_label": "risk bounds and predictive intervals",
+      "role": "decision_support"
+    }
+  ],
+  "validations": [
+    {
+      "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+      "result": "pass",
+      "severity": "medium"
+    },
+    {
+      "vp_id": "UM.VP.UNCERTAINTY_CALIBRATION_CHECK",
+      "result": "pass",
+      "severity": "medium"
+    },
+    {
+      "vp_id": "UM.VP.CONSISTENCY_CHECK",
+      "result": "pass",
+      "severity": "low"
+    }
+  ],
+  "validation_plan": {
+    "must": [
+      "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS"
+    ],
+    "should": [
+      "UM.VP.UNCERTAINTY_CALIBRATION_CHECK",
+      "UM.VP.CONSISTENCY_CHECK"
+    ]
+  },
+  "stop_conditions": [
+    "Scenario traces and risk summaries are stable enough to support downstream comparison."
+  ],
+  "tension_pre": {
+    "beliefs": [
+      {
+        "dimension_id": "UM.OT.UNCERTAINTY",
+        "level": 3,
+        "confidence": 0.8
+      }
+    ],
+    "summary": "Intervention ranking is unstable under uncertain demand and disruption patterns.",
+    "assessor_kind": "agent_self",
+    "assessment_basis": "route-level qualitative judgment anchored to current artifacts and validator outcomes"
+  },
+  "tension_post": {
+    "beliefs": [
+      {
+        "dimension_id": "UM.OT.UNCERTAINTY",
+        "level": 2,
+        "confidence": 0.8
+      }
+    ],
+    "summary": "Uncertainty remains but is now quantified and comparable across scenarios.",
+    "assessor_kind": "agent_self",
+    "assessment_basis": "route-level qualitative judgment anchored to current artifacts and validator outcomes"
+  },
+  "resolution_snapshot": {
+    "source_profile_id": "starter_baseline",
+    "contract_profile": "standard",
+    "artifact_requirements": {
+      "must": [
+        "UM.ART.MODEL.WORLD_MODEL",
+        "UM.ART.EVIDENCE.EXECUTION_TRACES"
+      ],
+      "should": [
+        "UM.ART.EVIDENCE.UNCERTAINTY_POSTERIOR"
+      ]
+    },
+    "validation_requirements": {
+      "must": [
+        "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS"
+      ],
+      "should": [
+        "UM.VP.UNCERTAINTY_CALIBRATION_CHECK"
+      ]
+    },
+    "applied_edge_families": [
+      "UM.EDGE_FAMILY.UNCERTAINTY_WEIGHTING_OR_PROPAGATION.PROBABILISTIC__TO__SIMULATION.UNCERTAINTY_PROPAGATION_AND_RISK_BOUNDING"
+    ],
+    "applied_dimension_selections": [
+      {
+        "dimension_id": "UM.DIM.SIMULATION.PURPOSE",
+        "selected_option_paths": [
+          [
+            "decide"
+          ]
+        ]
+      },
+      {
+        "dimension_id": "UM.DIM.SIMULATION.EXECUTION_PROTOCOL",
+        "selected_option_paths": [
+          [
+            "uncertainty_propagation"
+          ],
+          [
+            "scenario_runs"
+          ]
+        ]
+      }
+    ],
+    "applied_machine_controls": [
+      {
+        "control_id": "UM.CTRL.SIMULATION.VALIDATION_STRICTNESS",
+        "selected_value_id": "standard"
+      }
+    ]
+  },
+  "failure_localization": {
+    "failure_type": "none",
+    "failure_signatures": [],
+    "signals": []
+  },
+  "costs": {
+    "relative_effort": "high"
+  },
+  "outcome": {
+    "status": "success",
+    "summary": "Produced scenario-ranked interventions with quantified uncertainty.",
+    "utility_estimate": 0.78
+  },
+  "notes": "Example stage with a probabilistic support edge into a simulation base stage."
+}

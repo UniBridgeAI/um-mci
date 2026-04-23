@@ -1,0 +1,26 @@
+{
+  "signature_id": "SIG.PLACEHOLDER",
+  "edge_family_id": "UM.EDGE_FAMILY.PLACEHOLDER",
+  "signature_scope": "recognizer_seed",
+  "stage_pattern": {
+    "base_paradigm_id": "UM.PARADIGM.PLACEHOLDER",
+    "supporting_paradigm_id": "UM.PARADIGM.PLACEHOLDER",
+    "dimension_hints": [],
+    "notes": "Describe the recurring configuration this signature is trying to recognize.",
+    "extensions": {}
+  },
+  "required_artifact_hints": [],
+  "optional_artifact_hints": [],
+  "required_validation_hints": [],
+  "minimal_failure_signatures": [],
+  "local_settings_hints": {},
+  "confidence": "medium",
+  "notes": "GitHub-level recognizer seed, not archival truth.",
+  "package_version_pin": {
+    "package_name": "UM_MetaControl_Interface_Core_Semantic_Package",
+    "package_semver": "0.1.0",
+    "layer1_registry_version": "v1",
+    "layer2_seed_version": "v1"
+  },
+  "extensions": {}
+}

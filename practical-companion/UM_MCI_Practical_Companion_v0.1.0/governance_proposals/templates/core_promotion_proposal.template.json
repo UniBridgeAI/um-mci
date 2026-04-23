@@ -1,0 +1,36 @@
+{
+  "proposal_id": "companion.proposal.template",
+  "proposal_type": "promotion_or_revision",
+  "created_utc": "2026-04-18T00:00:00Z",
+  "target_kind": "layer2_or_layer1",
+  "targets": [
+    "UM.DIM.OPTIMIZATION.SOLUTION_LOGIC"
+  ],
+  "payload": {
+    "requested_action": "promote_or_refine",
+    "candidate_destination": "layer2",
+    "summary": "Describe the recurrent pattern and the exact change being proposed.",
+    "backward_compatibility_notes": "Explain how current users should interpret the change.",
+    "evidence_summary": "Summarize why the concept now appears stable enough for promotion."
+  },
+  "rationale": "Explain why the pattern deserves promotion and point to directly relevant evidence.",
+  "evidence_pointers": [
+    "examples/retrospective_cases/...",
+    "learned_priors/starter_notes/...",
+    "signature_library/starter_seeds/..."
+  ],
+  "status": "draft",
+  "package_version_pin": {
+    "package_name": "UM_MetaControl_Interface_Core_Semantic_Package",
+    "package_semver": "0.1.0",
+    "layer1_registry_version": "v1",
+    "layer2_seed_version": "v1"
+  },
+  "review_notes": [],
+  "decision_rationale": "",
+  "extensions": {
+    "team.example": {
+      "notes": "Optional local fields belong here until the proposal is reviewed."
+    }
+  }
+}

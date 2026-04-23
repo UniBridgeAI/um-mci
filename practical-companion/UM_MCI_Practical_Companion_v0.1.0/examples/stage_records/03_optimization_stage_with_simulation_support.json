@@ -1,0 +1,252 @@
+{
+  "stage_id": "stage_03_optimize_policy",
+  "stage_label": "Choose a robust intervention policy",
+  "stage_order": 3,
+  "package_version_pin": {
+    "package_name": "UM_MetaControl_Interface_Core_Semantic_Package",
+    "package_semver": "0.1.0",
+    "layer1_registry_version": "v1",
+    "layer2_seed_version": "v1"
+  },
+  "base_paradigm_id": "UM.PARADIGM.OPTIMIZATION",
+  "goal_summary": "Optimize policy selection under feasibility and robustness constraints using simulation-backed evaluation.",
+  "route": {
+    "base_profile_id": "starter_baseline",
+    "dimension_selections": [
+      {
+        "dimension_id": "UM.DIM.OPTIMIZATION.ROLE",
+        "selected_option_paths": [
+          [
+            "control_steer"
+          ]
+        ]
+      },
+      {
+        "dimension_id": "UM.DIM.OPTIMIZATION.OPTIMIZATION_STANCE",
+        "selected_option_paths": [
+          [
+            "robustness_hedging"
+          ]
+        ]
+      },
+      {
+        "dimension_id": "UM.DIM.OPTIMIZATION.FEASIBILITY_STRUCTURE",
+        "selected_option_paths": [
+          [
+            "absolute_bounds"
+          ],
+          [
+            "coupled_dynamic_relations"
+          ]
+        ]
+      },
+      {
+        "dimension_id": "UM.DIM.OPTIMIZATION.DECISION_OBJECT",
+        "selected_option_paths": [
+          [
+            "policies_controls_mechanisms"
+          ]
+        ]
+      },
+      {
+        "dimension_id": "UM.DIM.OPTIMIZATION.VARIABLE_TYPE",
+        "selected_option_paths": [
+          [
+            "hybrid"
+          ]
+        ]
+      },
+      {
+        "dimension_id": "UM.DIM.OPTIMIZATION.EVALUATION_ACCESS",
+        "selected_option_paths": [
+          [
+            "simulation_based"
+          ]
+        ]
+      },
+      {
+        "dimension_id": "UM.DIM.OPTIMIZATION.TEMPORAL_COMMITMENT",
+        "selected_option_paths": [
+          [
+            "receding_horizon"
+          ]
+        ]
+      },
+      {
+        "dimension_id": "UM.DIM.OPTIMIZATION.SOLUTION_LOGIC",
+        "selected_option_paths": [
+          [
+            "lookahead_planning",
+            "forward_rollout"
+          ],
+          [
+            "lookahead_planning",
+            "rolling_replanning"
+          ]
+        ]
+      }
+    ],
+    "machine_control_settings": [
+      {
+        "control_id": "UM.CTRL.OPTIMIZATION.VALIDATION_STRICTNESS",
+        "selected_value_id": "strict"
+      }
+    ],
+    "supporting_edge_instances": [
+      {
+        "edge_family_id": "UM.EDGE_FAMILY.SCENARIO_EVALUATION.SIMULATION__TO__OPTIMIZATION.SIMULATION_IN_THE_LOOP_EVALUATION_TO_OPTIMIZE_DECISIONS",
+        "edge_slot_id": "UM.EDGE_SLOT.SIMULATION__TO__OPTIMIZATION",
+        "order": 0,
+        "scope": "evaluate robust policy candidates",
+        "activation_reason": "Objective quality cannot be assessed analytically; simulator is needed in the loop.",
+        "edge_role_in_stage": "incoming_support"
+      }
+    ]
+  },
+  "artifacts": [
+    {
+      "artifact_id": "art_candidate_policy",
+      "artifact_type_id": "UM.ART.DECISION.CANDIDATE_SOLUTION",
+      "semantic_label": "robust policy candidate set",
+      "role": "decision_output"
+    },
+    {
+      "artifact_id": "art_obj_constraints_final",
+      "artifact_type_id": "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS",
+      "semantic_label": "robust objective with hard safety bounds",
+      "role": "optimization_contract"
+    },
+    {
+      "artifact_id": "art_vv_report",
+      "artifact_type_id": "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+      "semantic_label": "simulation-in-the-loop evaluation report",
+      "role": "quality_evidence"
+    }
+  ],
+  "validations": [
+    {
+      "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+      "result": "pass",
+      "severity": "high"
+    },
+    {
+      "vp_id": "UM.VP.CONSTRAINT_SATISFACTION",
+      "result": "pass",
+      "severity": "high"
+    },
+    {
+      "vp_id": "UM.VP.SOLVER_STABILITY_SMOKE_TEST",
+      "result": "pass",
+      "severity": "medium"
+    }
+  ],
+  "validation_plan": {
+    "must": [
+      "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+      "UM.VP.CONSTRAINT_SATISFACTION"
+    ],
+    "should": [
+      "UM.VP.SOLVER_STABILITY_SMOKE_TEST"
+    ]
+  },
+  "stop_conditions": [
+    "A feasible, robust candidate policy has been identified and simulation-based evaluation has converged sufficiently."
+  ],
+  "tension_pre": {
+    "beliefs": [
+      {
+        "dimension_id": "UM.OT.HORIZON",
+        "level": 3,
+        "confidence": 0.7
+      },
+      {
+        "dimension_id": "UM.OT.EVIDENCE_GAP",
+        "level": 2,
+        "confidence": 0.6
+      }
+    ],
+    "summary": "Need a policy that remains acceptable over a moving horizon.",
+    "assessor_kind": "agent_self",
+    "assessment_basis": "route-level qualitative judgment anchored to current artifacts and validator outcomes"
+  },
+  "tension_post": {
+    "beliefs": [
+      {
+        "dimension_id": "UM.OT.HORIZON",
+        "level": 2,
+        "confidence": 0.7
+      }
+    ],
+    "summary": "Policy selected with explicit receding-horizon rationale and simulator support.",
+    "assessor_kind": "agent_self",
+    "assessment_basis": "route-level qualitative judgment anchored to current artifacts and validator outcomes"
+  },
+  "resolution_snapshot": {
+    "source_profile_id": "starter_baseline",
+    "contract_profile": "strict",
+    "artifact_requirements": {
+      "must": [
+        "UM.ART.DECISION.CANDIDATE_SOLUTION",
+        "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+      ],
+      "should": [
+        "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT"
+      ]
+    },
+    "validation_requirements": {
+      "must": [
+        "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+        "UM.VP.CONSTRAINT_SATISFACTION"
+      ],
+      "should": [
+        "UM.VP.SOLVER_STABILITY_SMOKE_TEST"
+      ]
+    },
+    "applied_edge_families": [
+      "UM.EDGE_FAMILY.SCENARIO_EVALUATION.SIMULATION__TO__OPTIMIZATION.SIMULATION_IN_THE_LOOP_EVALUATION_TO_OPTIMIZE_DECISIONS"
+    ],
+    "applied_dimension_selections": [
+      {
+        "dimension_id": "UM.DIM.OPTIMIZATION.EVALUATION_ACCESS",
+        "selected_option_paths": [
+          [
+            "simulation_based"
+          ]
+        ]
+      },
+      {
+        "dimension_id": "UM.DIM.OPTIMIZATION.SOLUTION_LOGIC",
+        "selected_option_paths": [
+          [
+            "lookahead_planning",
+            "forward_rollout"
+          ],
+          [
+            "lookahead_planning",
+            "rolling_replanning"
+          ]
+        ]
+      }
+    ],
+    "applied_machine_controls": [
+      {
+        "control_id": "UM.CTRL.OPTIMIZATION.VALIDATION_STRICTNESS",
+        "selected_value_id": "strict"
+      }
+    ]
+  },
+  "failure_localization": {
+    "failure_type": "none",
+    "failure_signatures": [],
+    "signals": []
+  },
+  "costs": {
+    "relative_effort": "high"
+  },
+  "outcome": {
+    "status": "success",
+    "summary": "Selected a robust policy backed by simulation-in-the-loop evaluation.",
+    "utility_estimate": 0.81
+  },
+  "notes": "Example optimization stage with simulation support."
+}

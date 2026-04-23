@@ -1,0 +1,7 @@
+{
+  "core_root": "../core_snapshot/UM_MetaControl_Interface_Core_Semantic_Package_v0.1.0",
+  "expected_package_semver": "0.1.0",
+  "notes": "Point this path to the unpacked Zenodo core package or a read-only mirror of it inside the same GitHub repository.",
+  "expected_package_name": "UM_MetaControl_Interface_Core_Semantic_Package",
+  "core_root_hint": "../core_snapshot/UM_MetaControl_Interface_Core_Semantic_Package_v0.1.0"
+}

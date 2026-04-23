@@ -1,0 +1,15 @@
+{
+  "profile_id": "diagnosis_focused",
+  "label": "Diagnosis focused",
+  "purpose": "Compile a validator- and failure-facing view for audit and failure localization.",
+  "include_definitions": true,
+  "include_tags": true,
+  "include_selected_path": true,
+  "selection_expansion": "leaf_descendants",
+  "include_children_for_selected": true,
+  "include_artifact_requirements": true,
+  "include_validation_requirements": true,
+  "include_support_edges": true,
+  "include_machine_controls": true,
+  "include_failure_hints": true
+}

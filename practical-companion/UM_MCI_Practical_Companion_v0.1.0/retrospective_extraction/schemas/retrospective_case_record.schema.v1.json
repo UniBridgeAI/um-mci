@@ -1,0 +1,217 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:um-mci:companion:schemas:retrospective-case-record:v1",
+  "title": "UM-MCI retrospective case record",
+  "type": "object",
+  "required": [
+    "case_id",
+    "source_type",
+    "task_summary",
+    "stage_hypotheses",
+    "package_version_pin"
+  ],
+  "properties": {
+    "case_id": {
+      "type": "string"
+    },
+    "source_type": {
+      "type": "string",
+      "enum": [
+        "paper",
+        "task_trace",
+        "project_postmortem",
+        "manual_case"
+      ]
+    },
+    "source_ref": {
+      "type": "string"
+    },
+    "domain": {
+      "type": "string"
+    },
+    "task_summary": {
+      "type": "string"
+    },
+    "route_level_hypothesis": {
+      "type": "string"
+    },
+    "governance_context_hypothesis": {
+      "type": "object"
+    },
+    "affordance_context_hypothesis": {
+      "type": "object"
+    },
+    "stage_hypotheses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "stage_label",
+          "base_paradigm_id"
+        ],
+        "properties": {
+          "stage_label": {
+            "type": "string"
+          },
+          "base_paradigm_id": {
+            "type": "string",
+            "pattern": "^UM\\.PARADIGM\\."
+          },
+          "dimension_hypotheses": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "dimension_id",
+                "selected_option_paths"
+              ],
+              "properties": {
+                "dimension_id": {
+                  "type": "string",
+                  "pattern": "^UM\\.DIM\\."
+                },
+                "confidence": {
+                  "type": "string",
+                  "enum": [
+                    "low",
+                    "medium",
+                    "high"
+                  ]
+                },
+                "evidence": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "notes": {
+                  "type": "string"
+                },
+                "selected_option_paths": {
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "minItems": 1
+                  },
+                  "minItems": 1
+                },
+                "extensions": {
+                  "type": "object",
+                  "patternProperties": {
+                    "^[A-Za-z0-9_.:-]+$": {
+                      "type": [
+                        "object",
+                        "array",
+                        "string",
+                        "number",
+                        "boolean",
+                        "null"
+                      ]
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "supporting_edge_family_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^UM\\.EDGE_FAMILY\\."
+            }
+          },
+          "artifact_hypotheses": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^UM\\.ART\\."
+            }
+          },
+          "validation_hypotheses": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^UM\\.VP\\."
+            }
+          },
+          "tension_hypotheses": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^UM\\.OT\\."
+            }
+          },
+          "notes": {
+            "type": "string"
+          },
+          "extensions": {
+            "type": "object",
+            "patternProperties": {
+              "^[A-Za-z0-9_.:-]+$": {
+                "type": [
+                  "object",
+                  "array",
+                  "string",
+                  "number",
+                  "boolean",
+                  "null"
+                ]
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "unresolved_questions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "review_notes": {
+      "type": "string"
+    },
+    "extensions": {
+      "type": "object",
+      "patternProperties": {
+        "^[A-Za-z0-9_.:-]+$": {
+          "type": [
+            "object",
+            "array",
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "package_version_pin": {
+      "type": "object",
+      "properties": {
+        "package_name": {
+          "type": "string"
+        },
+        "package_semver": {
+          "type": "string"
+        },
+        "layer1_registry_version": {
+          "type": "string"
+        },
+        "layer2_seed_version": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
