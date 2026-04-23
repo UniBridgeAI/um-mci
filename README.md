@@ -4,7 +4,7 @@ This repository provides the stable machine-readable core and the evolving pract
 
 UM8 is the human-readable methodology framework.  
 UM-MCI Core Semantic Package is the stable semantic layer aligned to that framework.  
-UM-MCI Practical Companion Package provides examples, templates, and workflow-facing guidance around the released core.
+UM-MCI Practical Companion provides examples, templates, and workflow-facing guidance around the released core.
 
 The human-readable theoretical framework is published separately.
 
