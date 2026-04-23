@@ -1,0 +1,137 @@
+{
+  "package": {
+    "name": "Universal Methodology Meta-Control Interface",
+    "short_name": "UM-MCI",
+    "package_semver": "0.1.0",
+    "schema_major_version": 1,
+    "generated_utc": "2026-04-21T09:21:33Z",
+    "package_name": "UM_MetaControl_Interface_Core_Semantic_Package"
+  },
+  "paradigms": [
+    {
+      "paradigm_id": "UM.PARADIGM.TRANSFORMATION",
+      "label": "Transformation-based Methodology",
+      "short_code": "TRANSFORMATION",
+      "thinking_label": "Transformational Thinking",
+      "definition": "Change representation, formulation, or reference frame to make a task more tractable while preserving or controlling what must remain valid.",
+      "trigger_cue": "When an alternative representation or formulation makes the task more tractable.",
+      "summary_tag": "Representation Change",
+      "semantic_tags": [
+        "representation-change",
+        "tractability",
+        "preservation"
+      ],
+      "scope_notes": "Cross-domain; includes representation change, reformulation, recasting, reframing, and preservation-aware approximation."
+    },
+    {
+      "paradigm_id": "UM.PARADIGM.OPTIMIZATION",
+      "label": "Optimization-based Methodology",
+      "short_code": "OPTIMIZATION",
+      "thinking_label": "Goal-Oriented Thinking",
+      "definition": "Choose or construct high-quality solutions by optimizing explicit objectives under constraints.",
+      "trigger_cue": "When an objective can be specified and evaluated.",
+      "summary_tag": "Objective Optimization",
+      "semantic_tags": [
+        "objective",
+        "constraints",
+        "search"
+      ],
+      "scope_notes": "Cross-domain; includes calibration, allocation, design, control, routing, scheduling, and multi-criteria optimization."
+    },
+    {
+      "paradigm_id": "UM.PARADIGM.PROBABILISTIC",
+      "label": "Probabilistic-based Methodology",
+      "short_code": "PROBABILISTIC",
+      "thinking_label": "Probabilistic Thinking",
+      "definition": "Represent uncertainty explicitly and update belief from evidence to estimate, predict, decide, explain, or evaluate under uncertainty.",
+      "trigger_cue": "When uncertainty or risk must be quantified.",
+      "summary_tag": "Uncertainty Modeling",
+      "semantic_tags": [
+        "uncertainty",
+        "belief-update",
+        "risk"
+      ],
+      "scope_notes": "Cross-domain; includes Bayesian, frequentist, information-theoretic, and decision-theoretic reasoning with multiple inference engines."
+    },
+    {
+      "paradigm_id": "UM.PARADIGM.INVERSION",
+      "label": "Inversion-based Methodology",
+      "short_code": "INVERSION",
+      "thinking_label": "Retroductive-Reverse Thinking",
+      "definition": "Infer hidden causes, inputs, states, parameters, or structures from observed effects through an explicit, simulated, or emulated forward relation.",
+      "trigger_cue": "When effects are observed but causes are hidden.",
+      "summary_tag": "Backward Inference",
+      "semantic_tags": [
+        "backward-inference",
+        "identifiability",
+        "stabilization"
+      ],
+      "scope_notes": "Cross-domain; includes inverse problems with explicit forward models, simulators, surrogates, and multiple stabilization regimes."
+    },
+    {
+      "paradigm_id": "UM.PARADIGM.RULE",
+      "label": "Rule-based Methodology",
+      "short_code": "RULE",
+      "thinking_label": "Logical-Heuristic Thinking",
+      "definition": "Encode explicit rules, constraints, and heuristics for auditable judgment, control, coordination, and search guidance.",
+      "trigger_cue": "When non-negotiables and traceability dominate.",
+      "summary_tag": "Codified Knowledge",
+      "semantic_tags": [
+        "rules",
+        "constraints",
+        "traceability"
+      ],
+      "scope_notes": "Cross-domain; includes logical, constraint-based, prescriptive, and temporal rule systems."
+    },
+    {
+      "paradigm_id": "UM.PARADIGM.FUSION",
+      "label": "Fusion-based Methodology",
+      "short_code": "FUSION",
+      "thinking_label": "Integrative Thinking",
+      "definition": "Integrate multiple sources, models, methods, or perspectives into a coherent or explicitly plural whole with managed conflict and provenance.",
+      "trigger_cue": "When evidence is fragmented or conflicting.",
+      "summary_tag": "Coherent Integration",
+      "semantic_tags": [
+        "integration",
+        "coherence",
+        "provenance"
+      ],
+      "scope_notes": "Cross-domain; includes input-, representation-, method-, workflow-, decision-, and conceptual-level fusion."
+    },
+    {
+      "paradigm_id": "UM.PARADIGM.SIMULATION",
+      "label": "Simulation-based Methodology",
+      "short_code": "SIMULATION",
+      "thinking_label": "Model-Based Thinking",
+      "definition": "Construct and execute an explicit model world to explore scenarios, project outcomes, calibrate to evidence, or support decisions when direct experimentation is costly or infeasible.",
+      "trigger_cue": "When real experiments are infeasible or costly.",
+      "summary_tag": "Scenario Exploration",
+      "semantic_tags": [
+        "world-model",
+        "scenario",
+        "counterfactual"
+      ],
+      "scope_notes": "Cross-domain; includes equation-based, discrete-event, agent-based, surrogate, and hybrid coupled simulations."
+    },
+    {
+      "paradigm_id": "UM.PARADIGM.EVOLUTIONARY",
+      "label": "Evolutionary-based Methodology",
+      "short_code": "EVOLUTIONARY",
+      "thinking_label": "Evolutionary-Adaptive Thinking",
+      "definition": "Iterate with feedback through variation, selection, retention, and adaptation to refine, adapt, or explore over time.",
+      "trigger_cue": "When objectives or context keep shifting.",
+      "summary_tag": "Adaptive Iteration",
+      "semantic_tags": [
+        "adaptation",
+        "variation-selection",
+        "carryover"
+      ],
+      "scope_notes": "Cross-domain; includes continual adaptation, transfer, replacement, structural change, and meta-adaptation."
+    }
+  ],
+  "invariants": [
+    "Paradigm identifiers are stable top-level anchors for route design. They name families of primary solution logic, not disciplines or communities.",
+    "Paradigm ordering does not imply ranking or execution order.",
+    "Trigger cues are routing cues, not exhaustive decision rules."
+  ]
+}

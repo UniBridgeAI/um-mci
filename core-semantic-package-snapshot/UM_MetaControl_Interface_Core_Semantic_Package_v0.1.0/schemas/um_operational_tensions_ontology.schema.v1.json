@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UM-MCI operational tensions ontology",
+  "type": "object",
+  "required": [
+    "package",
+    "tension_dimensions"
+  ],
+  "properties": {
+    "package": {
+      "type": "object"
+    },
+    "tension_dimensions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "dimension_id",
+          "label",
+          "description",
+          "scale",
+          "anchors"
+        ],
+        "properties": {
+          "dimension_id": {
+            "type": "string",
+            "pattern": "^UM\\.OT\\."
+          },
+          "label": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "scale": {
+            "type": "object",
+            "required": [
+              "type",
+              "levels"
+            ],
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "levels": {
+                "type": "array",
+                "items": {
+                  "type": [
+                    "integer",
+                    "string"
+                  ]
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "anchors": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "evidence_proxies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "typical_relief_channels": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "record_guidance": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "design_notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

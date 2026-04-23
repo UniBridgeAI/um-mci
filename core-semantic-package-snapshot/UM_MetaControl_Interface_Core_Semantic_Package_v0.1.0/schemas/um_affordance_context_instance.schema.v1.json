@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://um-mci.local/schemas/um_affordance_context_instance.schema.v1.json",
+  "title": "UM Affordance Context Instance",
+  "type": "object",
+  "properties": {
+    "UM.AFF.BUDGET_PROFILE": {
+      "type": "string",
+      "enum": [
+        "UM.AFF.BUDGET_PROFILE.MINIMAL",
+        "UM.AFF.BUDGET_PROFILE.STANDARD",
+        "UM.AFF.BUDGET_PROFILE.EXPANSIVE"
+      ]
+    },
+    "UM.AFF.BUDGET_PRESSURE": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 3
+    },
+    "UM.AFF.NONSTATIONARITY_LEVEL": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 3
+    },
+    "UM.AFF.TOOL_ENVIRONMENT": {
+      "type": "object",
+      "properties": {
+        "tool_profiles": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "tool_name": {
+                "type": "string"
+              },
+              "availability": {
+                "type": "string",
+                "enum": [
+                  "available",
+                  "unavailable",
+                  "rate_limited"
+                ]
+              },
+              "reliability_level": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 3
+              },
+              "cost_class": {
+                "type": "string",
+                "enum": [
+                  "cheap",
+                  "medium",
+                  "expensive"
+                ]
+              }
+            },
+            "required": [
+              "tool_name"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "extensions": {
+      "type": "object",
+      "description": "Optional local/vendor extensions. Place non-core context fields here and namespace them by team, vendor, or project to preserve interoperability.",
+      "patternProperties": {
+        "^[A-Za-z0-9_.:-]+$": {
+          "type": [
+            "object",
+            "array",
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

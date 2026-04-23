@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use UM-MCI, cite the specific version DOI for this package. Use the concept DOI only for family-level references across versions."
+title: "Universal Methodology Meta-Control Interface (UM-MCI) Core Semantic Package"
+version: 0.1.0
+date-released: 2026-04-21
+authors:
+  - family-names: "Liu"
+    given-names: "Ran"
+license: Apache-2.0
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.19676079"
+url: "https://doi.org/10.5281/zenodo.19676079"
+abstract: >-
+  A compact core semantic package for route-level methodological planning and
+  meta-control grounded in the Eight Universal Methodology Paradigms framework,
+  the Paradigm Interaction Matrix, and the eight paradigm Compass modules.

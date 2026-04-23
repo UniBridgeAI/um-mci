@@ -1,0 +1,2755 @@
+{
+  "package": {
+    "name": "Universal Methodology Meta-Control Interface",
+    "short_name": "UM-MCI",
+    "package_semver": "0.1.0",
+    "schema_major_version": 1,
+    "generated_utc": "2026-04-21T09:21:33Z",
+    "package_name": "UM_MetaControl_Interface_Core_Semantic_Package"
+  },
+  "paradigm_compass_seeds": [
+    {
+      "paradigm_id": "UM.PARADIGM.TRANSFORMATION",
+      "aligned_to": "Transformation Compass",
+      "dimensions": [
+        {
+          "dimension_id": "UM.DIM.TRANSFORMATION.PURPOSE",
+          "label": "Transformation Purpose",
+          "kind": "multi_categorical",
+          "tag": "Purpose",
+          "definition": "Why transformation is introduced.",
+          "options": [
+            {
+              "value_id": "simplicity",
+              "label": "Simplicity",
+              "tag": "Complexity Reduction",
+              "definition": "Reduce structural, descriptive, or procedural complexity while preserving the function required for the task."
+            },
+            {
+              "value_id": "efficiency",
+              "label": "Efficiency",
+              "tag": "Resource Economy",
+              "definition": "Reduce time, memory, energy, data, or implementation cost required to carry out the task."
+            },
+            {
+              "value_id": "feasibility",
+              "label": "Feasibility",
+              "tag": "Operational Viability",
+              "definition": "Make the task feasible when it would otherwise be impractical or inoperable."
+            },
+            {
+              "value_id": "alignment",
+              "label": "Alignment",
+              "tag": "Cross-Form Compatibility",
+              "definition": "Make different forms, systems, or domains mutually comparable, connectable, or interoperable."
+            }
+          ],
+          "selection_semantics": "Multiple purposes may coexist; downstream runtimes may choose one primary purpose plus optional secondary purposes.",
+          "stability_level": "stable_core"
+        },
+        {
+          "dimension_id": "UM.DIM.TRANSFORMATION.OBJECT",
+          "label": "Transformation Object",
+          "kind": "multi_categorical",
+          "tag": "Object",
+          "definition": "What aspect of the object or task is being transformed.",
+          "options": [
+            {
+              "value_id": "formal_structure",
+              "label": "Formal Structure",
+              "tag": "Formal Form",
+              "definition": "Change equations, operators, parameterizations, algebraic forms, bases, or other formal structures."
+            },
+            {
+              "value_id": "problem_task_formulation",
+              "label": "Problem / Task Formulation",
+              "tag": "Task Setup",
+              "definition": "Change objectives, variables, constraints, role assignments, or the way the problem or task is formulated."
+            },
+            {
+              "value_id": "data_feature_representation",
+              "label": "Data / Feature Representation",
+              "tag": "Representational Form",
+              "definition": "Change the representational form of observed or latent data, features, embeddings, or states."
+            },
+            {
+              "value_id": "domain_reference_frame",
+              "label": "Domain / Reference Frame",
+              "tag": "Reference System",
+              "definition": "Change the domain, coordinate system, scale, or reference frame in which the object is described, analyzed, or processed."
+            },
+            {
+              "value_id": "conceptual_frame",
+              "label": "Conceptual Frame",
+              "tag": "Interpretive Lens",
+              "definition": "Change the abstraction, analogy, or explanatory frame through which the object or situation is organized and understood."
+            }
+          ],
+          "selection_semantics": "A transformation may operate on more than one object simultaneously, but one object is often primary.",
+          "stability_level": "stable_core"
+        },
+        {
+          "dimension_id": "UM.DIM.TRANSFORMATION.APPROACH",
+          "label": "Transformation Approach",
+          "kind": "multi_categorical",
+          "tag": "Approach",
+          "definition": "How transformation is carried out.",
+          "options": [
+            {
+              "value_id": "representation_rewrite",
+              "label": "Representation Rewrite",
+              "tag": "In-Domain Representation Change",
+              "definition": "Rewrite the same object through different variables, codes, or bases while keeping the underlying domain and reference frame unchanged.",
+              "children": [
+                {
+                  "value_id": "reparameterization",
+                  "label": "Reparameterization",
+                  "definition": "rewrite through a different variable or parameter scheme"
+                },
+                {
+                  "value_id": "recoding",
+                  "label": "Recoding",
+                  "definition": "rewrite in a different code or representational format"
+                },
+                {
+                  "value_id": "canonicalization_normalization",
+                  "label": "Canonicalization / Normalization",
+                  "definition": "rewrite into a standardized or normalized form"
+                },
+                {
+                  "value_id": "basis_change",
+                  "label": "Basis Change",
+                  "definition": "rewrite in a different basis while keeping the same domain and reference frame"
+                }
+              ]
+            },
+            {
+              "value_id": "structural_reorganization",
+              "label": "Structural Reorganization",
+              "tag": "Internal Reorganization",
+              "definition": "Transform an object by splitting, merging, or regrouping its internal organization.",
+              "children": [
+                {
+                  "value_id": "factorization",
+                  "label": "Factorization",
+                  "definition": "express the whole through a set of factors"
+                },
+                {
+                  "value_id": "partitioning",
+                  "label": "Partitioning",
+                  "definition": "divide the whole into modules, regions, or blocks"
+                },
+                {
+                  "value_id": "scale_separation",
+                  "label": "Scale Separation",
+                  "definition": "separate the whole into distinguishable scales or resolutions so they can be handled separately"
+                },
+                {
+                  "value_id": "aggregation_coarse_graining",
+                  "label": "Aggregation / Coarse-Graining",
+                  "definition": "merge fine-grained variables, states, or interactions into coarser units"
+                }
+              ]
+            },
+            {
+              "value_id": "dimension_change",
+              "label": "Dimension Change",
+              "tag": "Degree-of-Freedom Change",
+              "definition": "Change the representational dimensionality by suppressing or introducing degrees of freedom.",
+              "children": [
+                {
+                  "value_id": "projection_reduction",
+                  "label": "Projection / Reduction",
+                  "definition": "retain fewer directions or degrees of freedom"
+                },
+                {
+                  "value_id": "expansion_lifting",
+                  "label": "Expansion / Lifting",
+                  "definition": "introduce additional directions or degrees of freedom"
+                }
+              ]
+            },
+            {
+              "value_id": "domain_frame_conversion",
+              "label": "Domain / Frame Conversion",
+              "tag": "Domain / Frame Change",
+              "definition": "Re-express the same object in a different analysis domain, coordinate system, scale, or reference frame.",
+              "children": [
+                {
+                  "value_id": "coordinate_frame_change",
+                  "label": "Coordinate / Frame Change",
+                  "definition": "rewrite under another coordinate system or reference frame"
+                },
+                {
+                  "value_id": "domain_conversion",
+                  "label": "Domain Conversion",
+                  "definition": "rewrite in a different analysis or computational domain"
+                },
+                {
+                  "value_id": "scale_transformation",
+                  "label": "Scale Transformation",
+                  "definition": "re-express at a different descriptive or analytical scale"
+                }
+              ]
+            },
+            {
+              "value_id": "operational_recasting",
+              "label": "Operational Recasting",
+              "tag": "Procedural Reformulation",
+              "definition": "Rewrite the operational structure of a problem so that a different solver, procedure, or computational route becomes applicable.",
+              "children": [
+                {
+                  "value_id": "objective_recast",
+                  "label": "Objective Recast",
+                  "definition": "restate what is to be optimized, balanced, or pursued"
+                },
+                {
+                  "value_id": "constraint_recast",
+                  "label": "Constraint Recast",
+                  "definition": "rewrite constraints into a more workable form for optimization, inference, or computation"
+                },
+                {
+                  "value_id": "resolution_recast",
+                  "label": "Resolution Recast",
+                  "definition": "rewrite the problem at a different computational granularity or continuity level"
+                },
+                {
+                  "value_id": "surrogate_recast",
+                  "label": "Surrogate Recast",
+                  "definition": "replace the direct object with a functionally adequate surrogate"
+                }
+              ]
+            },
+            {
+              "value_id": "conceptual_reframing",
+              "label": "Conceptual Reframing",
+              "tag": "Conceptual Lens Change",
+              "definition": "Reinterpret the object or situation through a different abstraction, analogy, or explanatory frame.",
+              "children": [
+                {
+                  "value_id": "level_reframing",
+                  "label": "Level Reframing",
+                  "definition": "shift the level of abstraction to make the situation more general or more concrete"
+                },
+                {
+                  "value_id": "analogical_transfer",
+                  "label": "Analogical Transfer",
+                  "definition": "reinterpret through another conceptual source whose pattern guides understanding or design"
+                },
+                {
+                  "value_id": "conceptual_integration",
+                  "label": "Conceptual Integration",
+                  "definition": "combine previously separate explanatory frames into a new conceptual structure"
+                }
+              ]
+            }
+          ],
+          "selection_semantics": "Hybrid transformation routes are common; multiple approach families may be combined within one stage.",
+          "stability_level": "stable_core"
+        },
+        {
+          "dimension_id": "UM.DIM.TRANSFORMATION.PRESERVATION_COMMITMENT",
+          "label": "Preservation Commitment",
+          "kind": "multi_categorical",
+          "tag": "Preservation Commitment",
+          "definition": "What must remain preserved for the transformed route to remain valid.",
+          "options": [
+            {
+              "value_id": "equivalence",
+              "label": "Equivalence",
+              "tag": "Exact Correspondence",
+              "definition": "Preserve full formal or operational interchangeability between the transformed and original forms."
+            },
+            {
+              "value_id": "recoverability",
+              "label": "Recoverability",
+              "tag": "Recoverable Form",
+              "definition": "Preserve enough information or structure for the original form to be recovered from the transformed one."
+            },
+            {
+              "value_id": "structural_preservation",
+              "label": "Structural Preservation",
+              "tag": "Pattern Integrity",
+              "definition": "Preserve relational, topological, or organizational structure across the transformation."
+            },
+            {
+              "value_id": "constraint_preservation",
+              "label": "Constraint Preservation",
+              "tag": "Validity Conditions",
+              "definition": "Preserve required bounds, invariants, admissibility conditions, or other explicit constraints."
+            },
+            {
+              "value_id": "semantic_preservation",
+              "label": "Semantic Preservation",
+              "tag": "Meaning Integrity",
+              "definition": "Preserve the interpretation, intended meaning, or conceptual content of the original form."
+            },
+            {
+              "value_id": "task_preservation",
+              "label": "Task Preservation",
+              "tag": "Functional Sufficiency",
+              "definition": "Preserve what the intended task requires in order to remain effective."
+            },
+            {
+              "value_id": "controlled_approximation",
+              "label": "Controlled Approximation",
+              "tag": "Bounded Loss",
+              "definition": "Allow bounded loss or simplification under an explicit adequacy or error tolerance."
+            }
+          ],
+          "selection_semantics": "Preservation commitments are often cumulative rather than exclusive.",
+          "stability_level": "stable_core"
+        }
+      ],
+      "definition": "Change representation, formulation, or reference frame to make a task more tractable while preserving or controlling what must remain valid.",
+      "label": "Transformation-based Methodology",
+      "short_code": "TRANSFORMATION",
+      "thinking_label": "Transformational Thinking",
+      "trigger_cue": "When an alternative representation or formulation makes the task more tractable.",
+      "summary_tag": "Representation Change",
+      "semantic_tags": [
+        "representation-change",
+        "tractability",
+        "preservation"
+      ],
+      "scope_notes": "Cross-domain; includes representation change, reformulation, recasting, reframing, and preservation-aware approximation."
+    },
+    {
+      "paradigm_id": "UM.PARADIGM.OPTIMIZATION",
+      "aligned_to": "Optimization Compass",
+      "dimensions": [
+        {
+          "dimension_id": "UM.DIM.OPTIMIZATION.ROLE",
+          "label": "Optimization Role",
+          "kind": "categorical",
+          "tag": "Role",
+          "definition": "What optimization primarily does in the larger route.",
+          "options": [
+            {
+              "value_id": "fit_calibrate",
+              "label": "Fit / Calibrate",
+              "tag": "System Match",
+              "definition": "Adjust internal settings so the system matches observations, targets, or desired behavior."
+            },
+            {
+              "value_id": "allocate_distribute",
+              "label": "Allocate / Distribute",
+              "tag": "Resource / Capacity Allocation",
+              "definition": "Assign limited resources, tasks, or capacities across competing recipients."
+            },
+            {
+              "value_id": "route_schedule",
+              "label": "Route / Schedule",
+              "tag": "Sequence Planning",
+              "definition": "Choose an ordered path, schedule, or sequence across space or time."
+            },
+            {
+              "value_id": "design_configure",
+              "label": "Design / Configure",
+              "tag": "System Design",
+              "definition": "Choose the system’s structure, topology, layout, composition, or configuration."
+            },
+            {
+              "value_id": "control_steer",
+              "label": "Control / Steer",
+              "tag": "Feedback Steering",
+              "definition": "Choose actions or policies in response to evolving state and feedback."
+            }
+          ],
+          "selection_semantics": "Usually one primary role is chosen for a stage.",
+          "stability_level": "stable_core"
+        },
+        {
+          "dimension_id": "UM.DIM.OPTIMIZATION.PROBLEM_ARCHITECTURE",
+          "label": "Problem Architecture",
+          "kind": "composite",
+          "tag": "Problem Architecture",
+          "definition": "How the optimization problem is organized before selecting a solver.",
+          "subdimensions": [
+            {
+              "dimension_id": "UM.DIM.OPTIMIZATION.OPTIMIZATION_STANCE",
+              "label": "Optimization Stance",
+              "kind": "categorical",
+              "tag": "Optimization Stance",
+              "options": [
+                {
+                  "value_id": "extremum_seeking",
+                  "label": "Extremum Seeking",
+                  "tag": "Best Attainable Value",
+                  "definition": "Drive a criterion toward its best attainable value within the admissible solution space."
+                },
+                {
+                  "value_id": "trade_off_balancing",
+                  "label": "Trade-Off Balancing",
+                  "tag": "Competing Criteria",
+                  "definition": "Balance competing criteria that cannot be improved simultaneously."
+                },
+                {
+                  "value_id": "equilibrium_seeking",
+                  "label": "Equilibrium Seeking",
+                  "tag": "Stable Balance",
+                  "definition": "Seek a state sustained by reciprocal balance or best-response relations across coupled components."
+                },
+                {
+                  "value_id": "robustness_hedging",
+                  "label": "Robustness Hedging",
+                  "tag": "Downside Protection",
+                  "definition": "Favor solutions that remain acceptable under adverse variation or uncertainty."
+                }
+              ],
+              "stability_level": "stable_core",
+              "definition": "What notion of optimality or admissible success is being sought."
+            },
+            {
+              "dimension_id": "UM.DIM.OPTIMIZATION.FEASIBILITY_STRUCTURE",
+              "label": "Feasibility Structure",
+              "kind": "categorical",
+              "tag": "Feasibility Structure",
+              "options": [
+                {
+                  "value_id": "absolute_bounds",
+                  "label": "Absolute Bounds",
+                  "tag": "Never Violate",
+                  "definition": "Impose hard limits whose violation invalidates the candidate outright."
+                },
+                {
+                  "value_id": "soft_feasibility",
+                  "label": "Soft Feasibility",
+                  "tag": "Violation Has a Price",
+                  "definition": "Allow limited violation at explicit cost, penalty, or slack."
+                },
+                {
+                  "value_id": "conditional_logical_rules",
+                  "label": "Conditional / Logical Rules",
+                  "tag": "Rule-Governed Validity",
+                  "definition": "Enforce validity through discrete, logical, or implication-based rules."
+                },
+                {
+                  "value_id": "coupled_dynamic_relations",
+                  "label": "Coupled / Dynamic Relations",
+                  "tag": "Linked Validity",
+                  "definition": "Require consistency across linked variables, flows, or state transitions."
+                }
+              ],
+              "stability_level": "stable_core",
+              "definition": "How validity or admissibility is encoded."
+            },
+            {
+              "dimension_id": "UM.DIM.OPTIMIZATION.DECISION_OBJECT",
+              "label": "Decision Object",
+              "kind": "categorical",
+              "tag": "Decision Object",
+              "options": [
+                {
+                  "value_id": "parameters_configurations",
+                  "label": "Parameters / Configurations",
+                  "tag": "Internal Settings",
+                  "definition": "Scalar coefficients, gains, thresholds, weights, or configuration settings."
+                },
+                {
+                  "value_id": "allocations_assignments",
+                  "label": "Allocations / Assignments",
+                  "tag": "Resource / Role Assignment",
+                  "definition": "Resource shares, task allocations, capacity placements, role assignments, or location choices."
+                },
+                {
+                  "value_id": "structures_architectures",
+                  "label": "Structures / Architectures",
+                  "tag": "Structural Form",
+                  "definition": "Layouts, topologies, module compositions, connectivity patterns, or architectural designs."
+                },
+                {
+                  "value_id": "sequences_routes_schedules",
+                  "label": "Sequences / Routes / Schedules",
+                  "tag": "Ordered Commitments",
+                  "definition": "Ordered paths, visit sequences, timetables, job orders, or action trajectories."
+                },
+                {
+                  "value_id": "policies_controls_mechanisms",
+                  "label": "Policies / Controls / Mechanisms",
+                  "tag": "Governing Logic",
+                  "definition": "Control laws, decision rules, incentive schemes, pricing rules, or allocation mechanisms."
+                }
+              ],
+              "selection_semantics": "One object family is usually primary, but the associated Variable Type axis jointly characterizes its representation.",
+              "associated_axes": [
+                {
+                  "dimension_id": "UM.DIM.OPTIMIZATION.VARIABLE_TYPE",
+                  "label": "Variable Type",
+                  "kind": "categorical",
+                  "tag": "Variable Type",
+                  "definition": "Continuous/discrete structure of the central decision variable regime.",
+                  "options": [
+                    {
+                      "value_id": "continuous",
+                      "label": "Continuous",
+                      "definition": "Decision variables vary over a continuous range.",
+                      "tag": "Continuous"
+                    },
+                    {
+                      "value_id": "discrete",
+                      "label": "Discrete",
+                      "definition": "Decision variables take values from a discrete or countable set.",
+                      "tag": "Discrete"
+                    },
+                    {
+                      "value_id": "hybrid",
+                      "label": "Hybrid",
+                      "definition": "Decision variables combine coupled continuous and discrete structure in one formulation.",
+                      "tag": "Hybrid"
+                    },
+                    {
+                      "value_id": "mixed",
+                      "label": "Mixed",
+                      "definition": "Different parts of the formulation use different variable regimes across the decision object.",
+                      "tag": "Mixed"
+                    }
+                  ],
+                  "selection_semantics": "Usually singular for a given formulation, though mixed/hybrid values explicitly represent combined regimes.",
+                  "stability_level": "stable_core"
+                }
+              ],
+              "stability_level": "stable_core",
+              "definition": "What is being chosen or optimized."
+            },
+            {
+              "dimension_id": "UM.DIM.OPTIMIZATION.EVALUATION_ACCESS",
+              "label": "Evaluation Access",
+              "kind": "categorical",
+              "tag": "Evaluation Access",
+              "options": [
+                {
+                  "value_id": "sampled_experimental",
+                  "label": "Sampled / Experimental",
+                  "tag": "Evaluate by Sampling",
+                  "definition": "Evaluate through empirical trials or stochastic sampling."
+                },
+                {
+                  "value_id": "direct_analytic",
+                  "label": "Direct / Analytic",
+                  "tag": "Evaluate by Relations",
+                  "definition": "Evaluate using explicit mathematical or logical relations."
+                },
+                {
+                  "value_id": "simulation_based",
+                  "label": "Simulation-Based",
+                  "tag": "Evaluate by Simulation",
+                  "definition": "Evaluate through running mechanistic or dynamic models."
+                },
+                {
+                  "value_id": "proxy_surrogate",
+                  "label": "Proxy / Surrogate",
+                  "tag": "Evaluate by Approximation",
+                  "definition": "Evaluate through a fitted approximation of the target response."
+                },
+                {
+                  "value_id": "judgment_based",
+                  "label": "Judgment-Based",
+                  "tag": "Evaluate by Appraisal",
+                  "definition": "Evaluate through elicited preference or human judgment."
+                }
+              ],
+              "stability_level": "stable_core",
+              "definition": "How candidate quality can be evaluated."
+            },
+            {
+              "dimension_id": "UM.DIM.OPTIMIZATION.TEMPORAL_COMMITMENT",
+              "label": "Temporal Commitment",
+              "kind": "categorical",
+              "tag": "Temporal Commitment",
+              "options": [
+                {
+                  "value_id": "one_shot",
+                  "label": "One-Shot",
+                  "tag": "Commit Once",
+                  "definition": "Solve once for a fixed decision episode."
+                },
+                {
+                  "value_id": "stage_wise",
+                  "label": "Stage-Wise",
+                  "tag": "Commit by Stages",
+                  "definition": "Optimize across explicit stages without continuous replanning."
+                },
+                {
+                  "value_id": "receding_horizon",
+                  "label": "Receding Horizon",
+                  "tag": "Roll the Window",
+                  "definition": "Reoptimize a moving future window as the system advances."
+                },
+                {
+                  "value_id": "online_adaptive",
+                  "label": "Online / Adaptive",
+                  "tag": "Revise Continuously",
+                  "definition": "Update decisions as new information arrives."
+                }
+              ],
+              "stability_level": "stable_core",
+              "definition": "When decisions are committed and revised."
+            }
+          ],
+          "selection_semantics": "This is a grouping node that contains the stable architectural subdimensions of optimization.",
+          "stability_level": "stable_core"
+        },
+        {
+          "dimension_id": "UM.DIM.OPTIMIZATION.SOLUTION_LOGIC",
+          "label": "Solution Logic",
+          "kind": "multi_categorical",
+          "tag": "Solution Logic",
+          "options": [
+            {
+              "value_id": "condition_resolution",
+              "label": "Condition Resolution",
+              "tag": "Solve the Conditions",
+              "definition": "Obtain solutions by resolving optimality, equilibrium, or self-consistency conditions directly.",
+              "children": [
+                {
+                  "value_id": "closed_form_resolution",
+                  "label": "Closed-form resolution",
+                  "definition": "resolve directly via a closed analytic expression"
+                },
+                {
+                  "value_id": "optimality_system_resolution",
+                  "label": "Optimality-system resolution",
+                  "definition": "solve coupled optimality or admissibility conditions"
+                },
+                {
+                  "value_id": "dual_correspondence_resolution",
+                  "label": "Dual-correspondence resolution",
+                  "definition": "solve through a linked dual representation"
+                },
+                {
+                  "value_id": "fixed_point_variational_resolution",
+                  "label": "Fixed-point / variational resolution",
+                  "definition": "solve a self-consistency or variational relation"
+                }
+              ]
+            },
+            {
+              "value_id": "local_refinement",
+              "label": "Local Refinement",
+              "tag": "Improve from Nearby",
+              "definition": "Improve a current candidate by exploiting directional, curvature, or neighborhood information around it.",
+              "children": [
+                {
+                  "value_id": "directional_stepping",
+                  "label": "Directional stepping",
+                  "definition": "move along a locally improving direction"
+                },
+                {
+                  "value_id": "curvature_shaped_update",
+                  "label": "Curvature-shaped update",
+                  "definition": "shape the move using local curvature"
+                },
+                {
+                  "value_id": "regularized_local_update",
+                  "label": "Regularized local update",
+                  "definition": "update within a stabilizing local neighborhood"
+                },
+                {
+                  "value_id": "coordinate_neighborhood_revision",
+                  "label": "Coordinate / Neighborhood revision",
+                  "definition": "revise one local block or coordinate at a time"
+                }
+              ]
+            },
+            {
+              "value_id": "constructive_branching_search",
+              "label": "Constructive / Branching Search",
+              "tag": "Assemble the Solution",
+              "definition": "Construct a solution structurally by extending partial components and pruning unpromising continuations.",
+              "children": [
+                {
+                  "value_id": "greedy_extension",
+                  "label": "Greedy extension",
+                  "definition": "add the locally preferred next component"
+                },
+                {
+                  "value_id": "branch_expansion",
+                  "label": "Branch expansion",
+                  "definition": "generate alternative continuations from a partial state"
+                },
+                {
+                  "value_id": "feasibility_pruning",
+                  "label": "Feasibility pruning",
+                  "definition": "discard partial states that cannot complete validly"
+                },
+                {
+                  "value_id": "priority_guided_expansion",
+                  "label": "Priority-guided expansion",
+                  "definition": "advance the most promising partial states first"
+                }
+              ]
+            },
+            {
+              "value_id": "population_swarm_search",
+              "label": "Population / Swarm Search",
+              "tag": "Search as a Collective",
+              "definition": "Search with multiple candidate states through variation, retention, and interaction.",
+              "children": [
+                {
+                  "value_id": "state_perturbation",
+                  "label": "State perturbation",
+                  "definition": "Diversify the candidate set by applying structured perturbations to current states or solutions."
+                },
+                {
+                  "value_id": "information_recombination",
+                  "label": "Information recombination",
+                  "definition": "combine useful partial traits across candidates"
+                },
+                {
+                  "value_id": "quality_based_retention",
+                  "label": "Quality-based retention",
+                  "definition": "Retain candidates that are comparatively stronger under the active objective or fitness signal."
+                },
+                {
+                  "value_id": "collective_signaling",
+                  "label": "Collective signaling",
+                  "definition": "steer candidates through shared population signals"
+                }
+              ]
+            },
+            {
+              "value_id": "relaxation_recovery",
+              "label": "Relaxation / Recovery",
+              "tag": "Soften and Return",
+              "definition": "Solve in a softened or enlarged problem space, then recover a valid solution for the original problem.",
+              "children": [
+                {
+                  "value_id": "boundary_relaxation",
+                  "label": "Boundary relaxation",
+                  "definition": "replace hard boundaries with a more tractable region"
+                },
+                {
+                  "value_id": "geometry_smoothing",
+                  "label": "Geometry smoothing",
+                  "definition": "replace rough structure with smoother geometry"
+                },
+                {
+                  "value_id": "solution_recovery",
+                  "label": "Solution recovery",
+                  "definition": "map relaxed states back to the original admissible set"
+                },
+                {
+                  "value_id": "restriction_tightening",
+                  "label": "Restriction tightening",
+                  "definition": "add valid restrictions to narrow the relaxation gap"
+                }
+              ]
+            },
+            {
+              "value_id": "decomposition_coordination",
+              "label": "Decomposition / Coordination",
+              "tag": "Split and Reconcile",
+              "definition": "Divide a large problem into smaller subproblems and coordinate them into a coherent whole.",
+              "children": [
+                {
+                  "value_id": "block_partitioning",
+                  "label": "Block partitioning",
+                  "definition": "split variables or constraints into separable blocks"
+                },
+                {
+                  "value_id": "agreement_enforcement",
+                  "label": "Agreement enforcement",
+                  "definition": "force local solutions to match on shared quantities"
+                },
+                {
+                  "value_id": "shared_signal_coordination",
+                  "label": "Shared-signal coordination",
+                  "definition": "Coordinate subproblems through shared multipliers, prices, summaries, or coordination signals."
+                },
+                {
+                  "value_id": "hierarchical_coordination",
+                  "label": "Hierarchical coordination",
+                  "definition": "link upper-level allocation with lower-level response"
+                }
+              ]
+            },
+            {
+              "value_id": "proxy_guided_search",
+              "label": "Proxy-Guided Search",
+              "tag": "Search by Proxy",
+              "definition": "Build and consult an internal proxy of the landscape to decide where real evaluation is most valuable.",
+              "children": [
+                {
+                  "value_id": "proxy_surface_guidance",
+                  "label": "Proxy-surface guidance",
+                  "definition": "rank candidate moves on a fitted proxy landscape"
+                },
+                {
+                  "value_id": "uncertainty_directed_search",
+                  "label": "Uncertainty-directed search",
+                  "definition": "target regions where uncertainty is informative"
+                },
+                {
+                  "value_id": "utility_guided_selection",
+                  "label": "Utility-guided selection",
+                  "definition": "choose moves by balancing value and information"
+                },
+                {
+                  "value_id": "learned_proposal_guidance",
+                  "label": "Learned proposal guidance",
+                  "definition": "generate candidates from a learned proposal rule"
+                }
+              ]
+            },
+            {
+              "value_id": "lookahead_planning",
+              "label": "Lookahead Planning",
+              "tag": "Optimize through Foresight",
+              "definition": "Evaluate current choices by simulating their temporal consequences over future steps or scenarios.",
+              "children": [
+                {
+                  "value_id": "forward_rollout",
+                  "label": "Forward rollout",
+                  "definition": "simulate future consequences from current choices"
+                },
+                {
+                  "value_id": "branch_evaluation",
+                  "label": "Branch evaluation",
+                  "definition": "Compare alternative future continuations by scoring their simulated downstream consequences."
+                },
+                {
+                  "value_id": "backward_value_propagation",
+                  "label": "Backward value propagation",
+                  "definition": "push downstream value back to earlier decisions"
+                },
+                {
+                  "value_id": "rolling_replanning",
+                  "label": "Rolling replanning",
+                  "definition": "replan as the future window moves forward"
+                }
+              ]
+            }
+          ],
+          "selection_semantics": "Hybrid optimization procedures often combine multiple logic families.",
+          "stability_level": "stable_core",
+          "definition": "How the optimization process advances toward a solution."
+        }
+      ],
+      "definition": "Choose or construct high-quality solutions by optimizing explicit objectives under constraints.",
+      "label": "Optimization-based Methodology",
+      "short_code": "OPTIMIZATION",
+      "thinking_label": "Goal-Oriented Thinking",
+      "trigger_cue": "When an objective can be specified and evaluated.",
+      "summary_tag": "Objective Optimization",
+      "semantic_tags": [
+        "objective",
+        "constraints",
+        "search"
+      ],
+      "scope_notes": "Cross-domain; includes calibration, allocation, design, control, routing, scheduling, and multi-criteria optimization."
+    },
+    {
+      "paradigm_id": "UM.PARADIGM.PROBABILISTIC",
+      "aligned_to": "Probabilistic Compass",
+      "dimensions": [
+        {
+          "dimension_id": "UM.DIM.PROBABILISTIC.PURPOSE",
+          "label": "Purpose",
+          "kind": "multi_categorical",
+          "tag": "Purpose",
+          "options": [
+            {
+              "value_id": "estimate",
+              "label": "Estimate",
+              "tag": "Recover Unknowns",
+              "definition": "Infer latent states, parameters, or distributions from available evidence, emphasizing identification of unknown quantities."
+            },
+            {
+              "value_id": "predict",
+              "label": "Predict",
+              "tag": "Forecast Outcomes",
+              "definition": "Predict unobserved or future outcomes from available information, emphasizing forecast calibration."
+            },
+            {
+              "value_id": "decide",
+              "label": "Decide",
+              "tag": "Choose Action",
+              "definition": "Compare actions or policies under uncertainty and risk, emphasizing choice under explicit utility or loss criteria."
+            },
+            {
+              "value_id": "explain",
+              "label": "Explain",
+              "tag": "Explain Mechanism",
+              "definition": "Explain observed patterns through causes, mechanisms, or structural dependencies, emphasizing identifiability and intervention."
+            },
+            {
+              "value_id": "evaluate",
+              "label": "Evaluate",
+              "tag": "Assess Model",
+              "definition": "Assess adequacy, calibration, or mismatch between model and evidence, emphasizing diagnostics and misfit detection."
+            }
+          ],
+          "selection_semantics": "A probabilistic route may estimate, predict, explain, evaluate, and decide in combination.",
+          "stability_level": "stable_core",
+          "definition": "What the probabilistic route is trying to achieve."
+        },
+        {
+          "dimension_id": "UM.DIM.PROBABILISTIC.FORMULATION",
+          "label": "Probabilistic Formulation",
+          "kind": "composite",
+          "tag": "Probabilistic Formulation",
+          "subdimensions": [
+            {
+              "dimension_id": "UM.DIM.PROBABILISTIC.PROBABILITY_REPRESENTATION",
+              "label": "Probability Representation",
+              "kind": "categorical",
+              "tag": "Probability Representation",
+              "options": [
+                {
+                  "value_id": "parametric",
+                  "label": "Parametric",
+                  "tag": "Finite Parameterization",
+                  "definition": "Represent uncertainty with a fixed distribution family specified by a finite number of parameters."
+                },
+                {
+                  "value_id": "process_based",
+                  "label": "Process-Based",
+                  "tag": "Stochastic Process",
+                  "definition": "Represent uncertainty with a stochastic process over functions, trajectories, or fields."
+                },
+                {
+                  "value_id": "structured_compositional",
+                  "label": "Structured-Compositional",
+                  "tag": "Composed Distributions",
+                  "definition": "Represent uncertainty with mixtures, hierarchies, copulas, or other composed distributions."
+                },
+                {
+                  "value_id": "learned_implicit",
+                  "label": "Learned-Implicit",
+                  "tag": "Learned Distribution",
+                  "definition": "Represent uncertainty with learned or implicit distributional forms."
+                },
+                {
+                  "value_id": "nonclassical",
+                  "label": "Nonclassical",
+                  "tag": "Generalized Uncertainty",
+                  "definition": "Represent uncertainty with formalisms beyond standard probability theory."
+                }
+              ],
+              "stability_level": "stable_core",
+              "definition": "How uncertainty is formally represented."
+            },
+            {
+              "dimension_id": "UM.DIM.PROBABILISTIC.DEPENDENCE_STRUCTURE",
+              "label": "Dependence Structure",
+              "kind": "categorical",
+              "tag": "Dependence Structure",
+              "options": [
+                {
+                  "value_id": "independent",
+                  "label": "Independent",
+                  "tag": "Negligible Dependence",
+                  "definition": "Treat variables as independent, with residual dependence taken as negligible."
+                },
+                {
+                  "value_id": "graphical",
+                  "label": "Graphical",
+                  "tag": "Local Dependence",
+                  "definition": "Represent dependence through local conditional structure."
+                },
+                {
+                  "value_id": "spatial_field",
+                  "label": "Spatial-Field",
+                  "tag": "Spatial Structure",
+                  "definition": "Represent dependence through spatial proximity or field structure."
+                },
+                {
+                  "value_id": "sequential_temporal",
+                  "label": "Sequential-Temporal",
+                  "tag": "Temporal Order",
+                  "definition": "Represent dependence through temporal order or trajectories."
+                },
+                {
+                  "value_id": "causal_interventional",
+                  "label": "Causal-Interventional",
+                  "tag": "Cause-Effect Structure",
+                  "definition": "Represent dependence through causal relations, interventions, or counterfactuals."
+                },
+                {
+                  "value_id": "relational_networked",
+                  "label": "Relational-Networked",
+                  "tag": "Linked Entities",
+                  "definition": "Represent dependence through entities, links, or network relations."
+                }
+              ],
+              "stability_level": "stable_core",
+              "definition": "How dependence among uncertain quantities is represented."
+            }
+          ],
+          "stability_level": "stable_core",
+          "definition": "How uncertainty and dependence are represented."
+        },
+        {
+          "dimension_id": "UM.DIM.PROBABILISTIC.INFERENCE_SCHEME",
+          "label": "Inference Scheme",
+          "kind": "composite",
+          "tag": "Inference Scheme",
+          "subdimensions": [
+            {
+              "dimension_id": "UM.DIM.PROBABILISTIC.INFERENCE_APPROACH",
+              "label": "Inference Approach",
+              "kind": "categorical",
+              "tag": "Inference Approach",
+              "options": [
+                {
+                  "value_id": "bayesian",
+                  "label": "Bayesian",
+                  "tag": "Posterior Update",
+                  "definition": "Update uncertainty by combining prior assumptions with evidence.",
+                  "children": [
+                    {
+                      "value_id": "conjugate_bayesian_inference",
+                      "label": "Conjugate Bayesian inference",
+                      "definition": "Use conjugate prior–likelihood pairs so posterior updates remain in a tractable closed-form family."
+                    },
+                    {
+                      "value_id": "hierarchical_bayesian",
+                      "label": "Hierarchical Bayesian",
+                      "definition": "Use hierarchical priors to share statistical strength across related groups or levels."
+                    },
+                    {
+                      "value_id": "nonparametric_bayesian",
+                      "label": "Nonparametric Bayesian",
+                      "definition": "Let effective model complexity grow with the data rather than fixing it in advance."
+                    },
+                    {
+                      "value_id": "likelihood_free_bayesian",
+                      "label": "Likelihood-free Bayesian",
+                      "definition": "Perform Bayesian inference when the simulator is available but a tractable likelihood is not."
+                    }
+                  ]
+                },
+                {
+                  "value_id": "frequentist",
+                  "label": "Frequentist",
+                  "tag": "Repeated-Sample Guarantees",
+                  "definition": "Infer through estimators and tests evaluated by repeated-sample properties.",
+                  "children": [
+                    {
+                      "value_id": "likelihood_based_inference",
+                      "label": "Likelihood-based inference",
+                      "definition": "Infer by optimizing and diagnosing models through their likelihood or log-likelihood."
+                    },
+                    {
+                      "value_id": "estimation_theoretic_inference",
+                      "label": "Estimation-theoretic inference",
+                      "definition": "Focus on point estimators and uncertainty summaries with repeated-sample guarantees."
+                    },
+                    {
+                      "value_id": "testing_based_inference",
+                      "label": "Testing-based inference",
+                      "definition": "Reason through explicit hypothesis tests, error rates, and decision thresholds."
+                    },
+                    {
+                      "value_id": "resampling_or_distribution_free_inference",
+                      "label": "Resampling or distribution-free inference",
+                      "definition": "Use bootstrap, permutation, rank-based, or other distribution-light repeated-sample procedures."
+                    }
+                  ]
+                },
+                {
+                  "value_id": "information_theoretic",
+                  "label": "Information-Theoretic",
+                  "tag": "Information Principles",
+                  "definition": "Infer through information, compression, or divergence principles.",
+                  "children": [
+                    {
+                      "value_id": "maximum_entropy_inference",
+                      "label": "Maximum-entropy inference",
+                      "definition": "Infer distributions by selecting the highest-entropy solution consistent with known constraints."
+                    },
+                    {
+                      "value_id": "divergence_based_inference",
+                      "label": "Divergence-based inference",
+                      "definition": "Infer by minimizing a divergence or discrepancy between model and evidence."
+                    },
+                    {
+                      "value_id": "compression_based_inference",
+                      "label": "Compression-based inference",
+                      "definition": "Infer by favoring models or explanations with shorter effective description length."
+                    },
+                    {
+                      "value_id": "information_bottleneck_inference",
+                      "label": "Information-bottleneck inference",
+                      "definition": "Infer by keeping information that is most relevant to the task while discarding the rest."
+                    }
+                  ]
+                },
+                {
+                  "value_id": "decision_theoretic",
+                  "label": "Decision-Theoretic",
+                  "tag": "Utility and Loss",
+                  "definition": "Infer in order to choose under explicit loss or utility trade-offs.",
+                  "children": [
+                    {
+                      "value_id": "expected_utility_inference",
+                      "label": "Expected-utility inference",
+                      "definition": "choose by expected utility or risk"
+                    },
+                    {
+                      "value_id": "robust_or_minimax_inference",
+                      "label": "Robust or Minimax inference",
+                      "definition": "Choose actions or estimates that guard against worst-case or adversarial loss."
+                    },
+                    {
+                      "value_id": "sequential_decision_inference",
+                      "label": "Sequential decision inference",
+                      "definition": "Choose under uncertainty while evidence arrives over time and actions affect future information."
+                    },
+                    {
+                      "value_id": "constrained_decision_inference",
+                      "label": "Constrained decision inference",
+                      "definition": "Choose under explicit policy, feasibility, or institutional constraints in addition to utility or loss."
+                    }
+                  ]
+                }
+              ],
+              "stability_level": "stable_core",
+              "definition": "What inferential logic governs learning or decision under uncertainty."
+            },
+            {
+              "dimension_id": "UM.DIM.PROBABILISTIC.INFERENCE_ENGINE",
+              "label": "Inference Engine",
+              "kind": "categorical",
+              "tag": "Inference Engine",
+              "options": [
+                {
+                  "value_id": "analytical",
+                  "label": "Analytical",
+                  "tag": "Closed Form",
+                  "definition": "Use exact or approximate closed-form updates or summaries."
+                },
+                {
+                  "value_id": "sampling",
+                  "label": "Sampling",
+                  "tag": "Approximation via Sampling",
+                  "definition": "Approximate inference through sampling from a target or proposal distribution."
+                },
+                {
+                  "value_id": "optimization_based",
+                  "label": "Optimization-Based",
+                  "tag": "Approximation via Optimization",
+                  "definition": "Approximate inference by replacing full probabilistic inference with an optimization problem."
+                },
+                {
+                  "value_id": "message_passing",
+                  "label": "Message Passing",
+                  "tag": "Local Propagation",
+                  "definition": "Compute by propagating local messages over structured factors."
+                },
+                {
+                  "value_id": "learned_amortized",
+                  "label": "Learned-Amortized",
+                  "tag": "Learned Inference",
+                  "definition": "Approximate inference by learning a reusable inference mapping across repeated cases."
+                }
+              ],
+              "stability_level": "stable_core",
+              "definition": "What computational engine is used to realize inference."
+            }
+          ],
+          "stability_level": "stable_core",
+          "definition": "How probabilistic inference is conceptually framed and computationally realized."
+        }
+      ],
+      "definition": "Represent uncertainty explicitly and update belief from evidence to estimate, predict, decide, explain, or evaluate under uncertainty.",
+      "label": "Probabilistic-based Methodology",
+      "short_code": "PROBABILISTIC",
+      "thinking_label": "Probabilistic Thinking",
+      "trigger_cue": "When uncertainty or risk must be quantified.",
+      "summary_tag": "Uncertainty Modeling",
+      "semantic_tags": [
+        "uncertainty",
+        "belief-update",
+        "risk"
+      ],
+      "scope_notes": "Cross-domain; includes Bayesian, frequentist, information-theoretic, and decision-theoretic reasoning with multiple inference engines."
+    },
+    {
+      "paradigm_id": "UM.PARADIGM.INVERSION",
+      "aligned_to": "Inversion Compass",
+      "dimensions": [
+        {
+          "dimension_id": "UM.DIM.INVERSION.OBJECTIVE",
+          "label": "Inversion Objective",
+          "kind": "composite",
+          "tag": "Inversion Objective",
+          "subdimensions": [
+            {
+              "dimension_id": "UM.DIM.INVERSION.TARGET",
+              "label": "Inversion Target",
+              "kind": "categorical",
+              "tag": "Inversion Target",
+              "options": [
+                {
+                  "value_id": "input_forcing",
+                  "label": "Input / Forcing",
+                  "tag": "Driving Signal",
+                  "definition": "Recover external inputs, source terms, or forcing signals that drive the observed system."
+                },
+                {
+                  "value_id": "state_field",
+                  "label": "State / Field",
+                  "tag": "Latent State",
+                  "definition": "Recover latent states or spatial fields that are not directly observed."
+                },
+                {
+                  "value_id": "parameter_property",
+                  "label": "Parameter / Property",
+                  "tag": "Governing Constants",
+                  "definition": "Recover static parameters, properties, or coefficients that govern system behavior."
+                },
+                {
+                  "value_id": "structure",
+                  "label": "Structure",
+                  "tag": "System Form",
+                  "definition": "Recover the equations, operators, graph structure, or topology that define the system."
+                }
+              ],
+              "stability_level": "stable_core",
+              "definition": "What hidden object the inverse route aims to recover."
+            },
+            {
+              "dimension_id": "UM.DIM.INVERSION.SOLUTION_FORM",
+              "label": "Solution Form",
+              "kind": "categorical",
+              "tag": "Solution Form",
+              "options": [
+                {
+                  "value_id": "point",
+                  "label": "Point",
+                  "tag": "Single Estimate",
+                  "definition": "Return one best estimate of the unknown object."
+                },
+                {
+                  "value_id": "set_interval",
+                  "label": "Set / Interval",
+                  "tag": "Admissible Set",
+                  "definition": "Return a feasible set or interval of admissible solutions."
+                },
+                {
+                  "value_id": "distribution",
+                  "label": "Distribution",
+                  "tag": "Uncertainty Law",
+                  "definition": "Return a probability distribution over possible solutions."
+                }
+              ],
+              "stability_level": "stable_core",
+              "definition": "What form the inverse answer takes."
+            }
+          ],
+          "stability_level": "stable_core",
+          "definition": "What unknown is to be recovered and in what solution form."
+        },
+        {
+          "dimension_id": "UM.DIM.INVERSION.FORWARD_MODEL_CLASS",
+          "label": "Forward Model Class",
+          "kind": "composite",
+          "tag": "Forward Model Class",
+          "subdimensions": [
+            {
+              "dimension_id": "UM.DIM.INVERSION.FORWARD_CLASS",
+              "label": "Forward Class",
+              "kind": "categorical",
+              "tag": "Forward Class",
+              "options": [
+                {
+                  "value_id": "linear_operator",
+                  "label": "Linear Operator",
+                  "tag": "Linear Relation",
+                  "definition": "Use a linear forward operator linking the unknown to the observed data."
+                },
+                {
+                  "value_id": "nonlinear_operator",
+                  "label": "Nonlinear Operator",
+                  "tag": "Nonlinear Relation",
+                  "definition": "Use an explicit nonlinear forward relation between the unknown and the observed data."
+                },
+                {
+                  "value_id": "simulator",
+                  "label": "Simulator",
+                  "tag": "Executable Model",
+                  "definition": "Use a runnable simulator when the forward relation is available mainly through execution rather than closed-form evaluation."
+                }
+              ],
+              "stability_level": "stable_core",
+              "definition": "Primary class of forward relation used in the inverse route."
+            },
+            {
+              "dimension_id": "UM.DIM.INVERSION.EMULATION_LAYER",
+              "label": "Emulation Layer",
+              "kind": "activatable_layer",
+              "tag": "Emulation Layer",
+              "options": [
+                {
+                  "value_id": "emulator_surrogate",
+                  "label": "Emulator / Surrogate",
+                  "tag": "Proxy Model",
+                  "definition": "Approximate the forward model with a cheaper or more tractable proxy while preserving behavior relevant to inversion.",
+                  "children": [
+                    {
+                      "value_id": "emulator_surrogate",
+                      "label": "Emulator / Surrogate",
+                      "definition": "approximate the forward model with a cheaper or more tractable proxy while preserving inversion-relevant behavior"
+                    }
+                  ]
+                }
+              ],
+              "selection_semantics": "Activate only when a surrogate or emulator is explicitly introduced into the inverse route.",
+              "activation_mode": "optional_module",
+              "stability_level": "stable_core",
+              "definition": "Optional proxy model layer used when the forward model is expensive or difficult to query directly."
+            }
+          ],
+          "stability_level": "stable_core",
+          "definition": "Container axis for the forward relation family and any optional emulation layer used in inversion."
+        },
+        {
+          "dimension_id": "UM.DIM.INVERSION.STABILIZATION",
+          "label": "Inversion Stabilization",
+          "kind": "multi_categorical",
+          "tag": "Inversion Stabilization",
+          "options": [
+            {
+              "value_id": "evidence_enrichment",
+              "label": "Evidence Enrichment",
+              "tag": "Informative Evidence",
+              "definition": "Stabilize inversion by expanding, diversifying, or adaptively selecting observations.",
+              "children": [
+                {
+                  "value_id": "view_condition_diversity",
+                  "label": "View/condition diversity",
+                  "definition": "reobserve under new angles or conditions"
+                },
+                {
+                  "value_id": "sampling_density",
+                  "label": "Sampling density",
+                  "definition": "Reduce instability by adding denser, repeated, or more informative measurements."
+                },
+                {
+                  "value_id": "complementary_modalities",
+                  "label": "Complementary modalities",
+                  "definition": "Reduce ambiguity by combining evidence from different observation types or sensing channels."
+                },
+                {
+                  "value_id": "adaptive_acquisition",
+                  "label": "Adaptive acquisition",
+                  "definition": "choose the next measurement to maximize information gain"
+                }
+              ]
+            },
+            {
+              "value_id": "structural_restriction",
+              "label": "Structural Restriction",
+              "tag": "Structure Bias",
+              "definition": "Stabilize inversion by imposing domain-agnostic structural assumptions on admissible solutions.",
+              "children": [
+                {
+                  "value_id": "smoothness_regularization",
+                  "label": "Smoothness regularization",
+                  "definition": "Favor solutions that vary smoothly instead of changing abruptly from point to point."
+                },
+                {
+                  "value_id": "sparsity_regularization",
+                  "label": "Sparsity regularization",
+                  "definition": "favor solutions with few active components"
+                },
+                {
+                  "value_id": "piecewise_regularization",
+                  "label": "Piecewise regularization",
+                  "definition": "favor region-wise simplicity with sharp boundaries"
+                },
+                {
+                  "value_id": "manifold_restriction",
+                  "label": "Manifold restriction",
+                  "definition": "restrict solutions to a prescribed low-dimensional manifold"
+                }
+              ]
+            },
+            {
+              "value_id": "domain_constraints",
+              "label": "Domain Constraints",
+              "tag": "Domain Knowledge",
+              "definition": "Stabilize inversion by enforcing rules and conditions tied to the domain or task.",
+              "children": [
+                {
+                  "value_id": "process_rules",
+                  "label": "Process rules",
+                  "definition": "Enforce mechanism, transition, or process relations that admissible solutions must satisfy."
+                },
+                {
+                  "value_id": "balance_rules",
+                  "label": "Balance rules",
+                  "definition": "preserve totals, budgets, or conserved quantities"
+                },
+                {
+                  "value_id": "context_conditions",
+                  "label": "Context conditions",
+                  "definition": "anchor the solution to known external conditions or setups"
+                },
+                {
+                  "value_id": "validity_rules",
+                  "label": "Validity rules",
+                  "definition": "Exclude states, structures, or reconstructions that violate domain-validity conditions."
+                }
+              ]
+            },
+            {
+              "value_id": "learned_constraints",
+              "label": "Learned Constraints",
+              "tag": "Data-Trained Priors",
+              "definition": "Stabilize inversion by restricting or guiding solutions using information learned from data.",
+              "children": [
+                {
+                  "value_id": "generative_priors",
+                  "label": "Generative priors",
+                  "definition": "constrain solutions to a learned data manifold"
+                },
+                {
+                  "value_id": "score_based_guidance",
+                  "label": "Score-based guidance",
+                  "definition": "guide solutions using learned gradients of plausibility"
+                },
+                {
+                  "value_id": "learned_regularization",
+                  "label": "Learned regularization",
+                  "definition": "penalize implausible solutions with a learned prior or penalty"
+                },
+                {
+                  "value_id": "retrieval_guidance",
+                  "label": "Retrieval guidance",
+                  "definition": "anchor reconstruction to similar examples or cases"
+                }
+              ]
+            }
+          ],
+          "selection_semantics": "Multiple stabilization families may be combined.",
+          "stability_level": "stable_core",
+          "definition": "What stabilization burdens are introduced to make inversion well-posed enough for use."
+        },
+        {
+          "dimension_id": "UM.DIM.INVERSION.APPROACH",
+          "label": "Inversion Approach",
+          "kind": "comparison_table",
+          "tag": "Inversion Approach",
+          "options": [
+            {
+              "value_id": "direct_analytic",
+              "label": "Direct Analytic",
+              "comparison_cells": {
+                "Core Logic": "Explicit inverse or transform",
+                "Best When": "Forward map is analytically invertible",
+                "Limitation": "Narrow scope; model mismatch"
+              },
+              "definition": "Recover the unknown through an explicit inverse map or transform.",
+              "tag": "Explicit inverse or transform"
+            },
+            {
+              "value_id": "optimization_based",
+              "label": "Optimization-Based",
+              "comparison_cells": {
+                "Core Logic": "Optimize an inverse objective",
+                "Best When": "Objective and priors are explicit",
+                "Limitation": "Local minima; formulation sensitivity"
+              },
+              "definition": "Recover the unknown by optimizing an inverse objective under priors or regularization.",
+              "tag": "Optimize an inverse objective"
+            },
+            {
+              "value_id": "probabilistic_inference",
+              "label": "Probabilistic Inference",
+              "comparison_cells": {
+                "Core Logic": "Uncertainty-aware inference",
+                "Best When": "Uncertainty must be quantified",
+                "Limitation": "Prior sensitivity; high inference cost"
+              },
+              "definition": "Recover the unknown through uncertainty-aware inference over a posterior or related belief state.",
+              "tag": "Uncertainty-aware inference"
+            },
+            {
+              "value_id": "learned_inverse",
+              "label": "Learned Inverse",
+              "comparison_cells": {
+                "Core Logic": "Learned inverse map",
+                "Best When": "Similar tasks repeat with data",
+                "Limitation": "Train-test shift; weak extrapolation"
+              },
+              "definition": "Recover the unknown through a learned inverse mapping trained on repeated tasks or examples.",
+              "tag": "Learned inverse map"
+            }
+          ],
+          "comparison_axes": [
+            "Core Logic",
+            "Best When",
+            "Limitation"
+          ],
+          "selection_semantics": "Choose the approach whose best-when conditions and limitations fit the current inverse problem.",
+          "stability_level": "stable_core",
+          "definition": "How inversion is solved, represented as a comparison table rather than a simple taxonomy."
+        }
+      ],
+      "definition": "Infer hidden causes, inputs, states, parameters, or structures from observed effects through an explicit, simulated, or emulated forward relation.",
+      "label": "Inversion-based Methodology",
+      "short_code": "INVERSION",
+      "thinking_label": "Retroductive-Reverse Thinking",
+      "trigger_cue": "When effects are observed but causes are hidden.",
+      "summary_tag": "Backward Inference",
+      "semantic_tags": [
+        "backward-inference",
+        "identifiability",
+        "stabilization"
+      ],
+      "scope_notes": "Cross-domain; includes inverse problems with explicit forward models, simulators, surrogates, and multiple stabilization regimes."
+    },
+    {
+      "paradigm_id": "UM.PARADIGM.RULE",
+      "aligned_to": "Rule Compass",
+      "dimensions": [
+        {
+          "dimension_id": "UM.DIM.RULE.FUNCTION",
+          "label": "Rule Function",
+          "kind": "categorical",
+          "tag": "Rule Function",
+          "options": [
+            {
+              "value_id": "judge",
+              "label": "Judge",
+              "tag": "Rule Verdicts",
+              "definition": "Derive classifications, diagnoses, or eligibility outcomes from stated conditions."
+            },
+            {
+              "value_id": "constrain",
+              "label": "Constrain",
+              "tag": "Boundary Setting",
+              "definition": "Define and check what is allowed, forbidden, required, or feasible."
+            },
+            {
+              "value_id": "control",
+              "label": "Control",
+              "tag": "Action Governance",
+              "definition": "Trigger or govern actions, state transitions, or workflow branches under stated conditions."
+            },
+            {
+              "value_id": "coordinate",
+              "label": "Coordinate",
+              "tag": "Arbitration & Routing",
+              "definition": "Prioritize, gate, reconcile, or route among competing rules, modules, candidates, or paths."
+            }
+          ],
+          "stability_level": "stable_core",
+          "definition": "What rules primarily do in the larger route."
+        },
+        {
+          "dimension_id": "UM.DIM.RULE.TYPE",
+          "label": "Rule Type",
+          "kind": "categorical",
+          "tag": "Rule Type",
+          "options": [
+            {
+              "value_id": "strict",
+              "label": "Strict",
+              "tag": "Categorical Validity",
+              "definition": "A rule applies in categorical form and is not ordinarily graded, weighted, or overridden."
+            },
+            {
+              "value_id": "defeasible",
+              "label": "Defeasible",
+              "tag": "Overridable Validity",
+              "definition": "A rule applies by default, but it may be overridden by stronger, more specific, or exceptional rules."
+            },
+            {
+              "value_id": "graded",
+              "label": "Graded",
+              "tag": "Degree-Based Validity",
+              "definition": "A rule conclusion holds by degree rather than in pure yes/no form."
+            },
+            {
+              "value_id": "uncertain",
+              "label": "Uncertain",
+              "tag": "Confidence-Bearing Validity",
+              "definition": "A rule conclusion is qualified by explicit weight, confidence, probability, or reliability."
+            }
+          ],
+          "stability_level": "stable_core",
+          "definition": "What validity mode a rule carries."
+        },
+        {
+          "dimension_id": "UM.DIM.RULE.REPRESENTATION",
+          "label": "Rule Representation",
+          "kind": "multi_categorical",
+          "tag": "Rule Representation",
+          "options": [
+            {
+              "value_id": "dependency_encoding",
+              "label": "Dependency Encoding",
+              "tag": "Logical / Relational",
+              "definition": "Encode knowledge by making support, implication, or dependency structure explicit.",
+              "children": [
+                {
+                  "value_id": "clausal_casting",
+                  "label": "Clausal casting",
+                  "definition": "Cast dependencies into explicit antecedent–consequent style units or clauses."
+                },
+                {
+                  "value_id": "typed_schema_anchoring",
+                  "label": "Typed-schema anchoring",
+                  "definition": "bind rule conditions and conclusions to typed roles, schemas, or slots"
+                },
+                {
+                  "value_id": "relational_graph_structuring",
+                  "label": "Relational-graph structuring",
+                  "definition": "externalize dependencies through relation paths or graph structure"
+                }
+              ]
+            },
+            {
+              "value_id": "constraint_encoding",
+              "label": "Constraint Encoding",
+              "tag": "Constraint-Based",
+              "definition": "Encode knowledge by explicitly restricting the admissible space.",
+              "children": [
+                {
+                  "value_id": "bound_imposition",
+                  "label": "Bound imposition",
+                  "definition": "cast limits or admissible ranges as explicit bounds"
+                },
+                {
+                  "value_id": "consistency_formulation",
+                  "label": "Consistency formulation",
+                  "definition": "encode coherence or integrity as co-satisfaction conditions"
+                },
+                {
+                  "value_id": "balance_formulation",
+                  "label": "Balance formulation",
+                  "definition": "cast budgets, capacities, or conserved totals as balance constraints"
+                },
+                {
+                  "value_id": "configuration_restriction",
+                  "label": "Configuration restriction",
+                  "definition": "cast allowable structure, topology, or order as explicit constraints"
+                }
+              ]
+            },
+            {
+              "value_id": "prescriptive_encoding",
+              "label": "Prescriptive Encoding",
+              "tag": "Production / Policy",
+              "definition": "Encode knowledge by mapping conditions to prescribed actions, decisions, norms, or preferences.",
+              "children": [
+                {
+                  "value_id": "action_prescription",
+                  "label": "Action prescription",
+                  "definition": "Encode condition-triggered actions, operations, or policy responses directly in rule form."
+                },
+                {
+                  "value_id": "decision_partitioning",
+                  "label": "Decision partitioning",
+                  "definition": "partition condition space into explicit outcomes or choices"
+                },
+                {
+                  "value_id": "norm_codification",
+                  "label": "Norm codification",
+                  "definition": "write obligations, permissions, or prohibitions into explicit rules"
+                },
+                {
+                  "value_id": "preference_externalization",
+                  "label": "Preference externalization",
+                  "definition": "make ranking or scoring criteria explicit in rule form"
+                }
+              ]
+            },
+            {
+              "value_id": "temporal_transition_encoding",
+              "label": "Temporal-Transition Encoding",
+              "tag": "Temporal / State",
+              "definition": "Encode knowledge by formalizing change, sequence, and persistence explicitly.",
+              "children": [
+                {
+                  "value_id": "event_qualification",
+                  "label": "Event qualification",
+                  "definition": "Qualify which events or occurrences count as rule-relevant triggers."
+                },
+                {
+                  "value_id": "transition_specification",
+                  "label": "Transition specification",
+                  "definition": "write how one state may, must, or must not become another"
+                },
+                {
+                  "value_id": "sequence_structuring",
+                  "label": "Sequence structuring",
+                  "definition": "encode order, timing, deadlines, or windows explicitly"
+                },
+                {
+                  "value_id": "persistence_specification",
+                  "label": "Persistence specification",
+                  "definition": "write continuation, expiry, or carry-over conditions into rule form"
+                }
+              ]
+            }
+          ],
+          "selection_semantics": "Hybrid rule encodings are common in real systems.",
+          "stability_level": "stable_core",
+          "definition": "How knowledge is encoded into rules."
+        },
+        {
+          "dimension_id": "UM.DIM.RULE.EXECUTION_PATTERN",
+          "label": "Execution Pattern",
+          "kind": "multi_categorical",
+          "tag": "Execution Pattern",
+          "options": [
+            {
+              "value_id": "forward_propagation",
+              "label": "Forward Propagation",
+              "tag": "Consequence Flow",
+              "definition": "Run rules by propagating consequences outward from active facts, events, or state changes.",
+              "children": [
+                {
+                  "value_id": "match_and_fire_propagation",
+                  "label": "Match-and-fire propagation",
+                  "definition": "match current conditions, then fire consequences"
+                },
+                {
+                  "value_id": "change_propagation",
+                  "label": "Change propagation",
+                  "definition": "propagate through local updates or events"
+                },
+                {
+                  "value_id": "agenda_controlled_firing",
+                  "label": "Agenda-controlled firing",
+                  "definition": "control which applicable rules fire and when"
+                },
+                {
+                  "value_id": "closure_propagation",
+                  "label": "Closure propagation",
+                  "definition": "continue until no further consequences can be derived"
+                }
+              ]
+            },
+            {
+              "value_id": "backward_query",
+              "label": "Backward Query",
+              "tag": "Goal-Driven Support",
+              "definition": "Run rules by starting from a query, target, or hypothesis and tracing backward to required support.",
+              "children": [
+                {
+                  "value_id": "goal_decomposition",
+                  "label": "Goal decomposition",
+                  "definition": "break the target into rule-relevant subgoals"
+                },
+                {
+                  "value_id": "support_retrieval",
+                  "label": "Support retrieval",
+                  "definition": "retrieve the rules and facts needed for the current target"
+                },
+                {
+                  "value_id": "dependency_tracing",
+                  "label": "Dependency tracing",
+                  "definition": "Trace backward along support chains to find the facts or rules that justify a target."
+                },
+                {
+                  "value_id": "justification_assembly",
+                  "label": "Justification assembly",
+                  "definition": "construct explicit proof, diagnosis, or explanation paths"
+                }
+              ]
+            },
+            {
+              "value_id": "conflict_resolution",
+              "label": "Conflict Resolution",
+              "tag": "Runtime Arbitration",
+              "definition": "Run rules by settling competition among simultaneously applicable rules.",
+              "children": [
+                {
+                  "value_id": "priority_resolution",
+                  "label": "Priority resolution",
+                  "definition": "prefer rules with higher rank or authority"
+                },
+                {
+                  "value_id": "exception_override_resolution",
+                  "label": "Exception / override resolution",
+                  "definition": "let exceptions block or replace defaults"
+                },
+                {
+                  "value_id": "specificity_context_resolution",
+                  "label": "Specificity / context resolution",
+                  "definition": "prefer rules that are more specific or better matched"
+                },
+                {
+                  "value_id": "confidence_based_resolution",
+                  "label": "Confidence-based resolution",
+                  "definition": "settle competing outcomes by certainty, trust, or weight"
+                }
+              ]
+            },
+            {
+              "value_id": "rule_guided_search",
+              "label": "Rule-Guided Search",
+              "tag": "Search Steering",
+              "definition": "Use rules to constrain, rank, gate, or structure exploration of candidate states, actions, plans, or explanations.",
+              "children": [
+                {
+                  "value_id": "feasibility_pruning",
+                  "label": "Feasibility pruning",
+                  "definition": "eliminate candidates that violate explicit rules"
+                },
+                {
+                  "value_id": "gatekeeping",
+                  "label": "Gatekeeping",
+                  "definition": "Screen candidates before deeper expansion so invalid or low-priority options do not consume search effort."
+                },
+                {
+                  "value_id": "candidate_ordering",
+                  "label": "Candidate ordering",
+                  "definition": "rank alternatives by rule-based relevance or preference"
+                },
+                {
+                  "value_id": "expansion_control",
+                  "label": "Expansion control",
+                  "definition": "choose which branch or subproblem to expand next"
+                }
+              ]
+            }
+          ],
+          "selection_semantics": "A rule system may combine multiple execution patterns.",
+          "stability_level": "stable_core",
+          "definition": "How rules are executed or consulted at runtime."
+        }
+      ],
+      "definition": "Encode explicit rules, constraints, and heuristics for auditable judgment, control, coordination, and search guidance.",
+      "label": "Rule-based Methodology",
+      "short_code": "RULE",
+      "thinking_label": "Logical-Heuristic Thinking",
+      "trigger_cue": "When non-negotiables and traceability dominate.",
+      "summary_tag": "Codified Knowledge",
+      "semantic_tags": [
+        "rules",
+        "constraints",
+        "traceability"
+      ],
+      "scope_notes": "Cross-domain; includes logical, constraint-based, prescriptive, and temporal rule systems."
+    },
+    {
+      "paradigm_id": "UM.PARADIGM.FUSION",
+      "aligned_to": "Fusion Compass",
+      "dimensions": [
+        {
+          "dimension_id": "UM.DIM.FUSION.PURPOSE",
+          "label": "Fusion Purpose",
+          "kind": "multi_categorical",
+          "tag": "Fusion Purpose",
+          "options": [
+            {
+              "value_id": "complete",
+              "label": "Complete",
+              "tag": "Coverage",
+              "definition": "Use fusion to combine complementary partial sources into a more complete view of the target, reducing coverage gaps and blind spots."
+            },
+            {
+              "value_id": "stabilize",
+              "label": "Stabilize",
+              "tag": "Robustness",
+              "definition": "Use fusion to reduce noise, variance, and source-specific fragility, improving reliability under perturbation and partial source failure."
+            },
+            {
+              "value_id": "reconcile",
+              "label": "Reconcile",
+              "tag": "Coherence",
+              "definition": "Use fusion to reconcile conflicting or inconsistent sources into a coherent result, while preserving uncertainty and provenance where disagreement remains."
+            },
+            {
+              "value_id": "extend",
+              "label": "Extend",
+              "tag": "Expansion",
+              "definition": "Use fusion to expand what can be inferred, explained, or achieved by combining sources, models, or methods in ways that no single component can support alone."
+            }
+          ],
+          "selection_semantics": "Fusion can simultaneously complete, stabilize, reconcile, and extend.",
+          "stability_level": "stable_core",
+          "definition": "Why fusion is introduced."
+        },
+        {
+          "dimension_id": "UM.DIM.FUSION.LOCUS",
+          "label": "Fusion Locus",
+          "kind": "composite",
+          "tag": "Fusion Locus",
+          "subdimensions": [
+            {
+              "dimension_id": "UM.DIM.FUSION.INPUT_LAYER",
+              "label": "Input Layer",
+              "kind": "categorical",
+              "tag": "Input Layer",
+              "options": [
+                {
+                  "value_id": "data",
+                  "label": "Data",
+                  "tag": "Raw Sources",
+                  "definition": "Fuse raw data, observations, or measurements before higher-level interpretation."
+                },
+                {
+                  "value_id": "constituent_units",
+                  "label": "Constituent Units",
+                  "tag": "Building Units",
+                  "definition": "Fuse physical, material, or other discrete constituents into an integrated whole."
+                }
+              ],
+              "selection_semantics": "Optional locus; activate only if fusion occurs at the raw-source or constituent level.",
+              "activation_mode": "optional_module",
+              "stability_level": "stable_core",
+              "definition": "Fusion at the level of raw inputs or constituents."
+            },
+            {
+              "dimension_id": "UM.DIM.FUSION.REPRESENTATION_LAYER",
+              "label": "Representation Layer",
+              "kind": "categorical",
+              "tag": "Representation Layer",
+              "options": [
+                {
+                  "value_id": "representation",
+                  "label": "Representation",
+                  "tag": "Encoded Forms",
+                  "definition": "Fuse encoded or derived representations, e.g., features, embeddings, or latent states."
+                },
+                {
+                  "value_id": "model",
+                  "label": "Model",
+                  "tag": "Formal Models",
+                  "definition": "Fuse formalized models that represent a target system, phenomenon, or domain."
+                }
+              ],
+              "selection_semantics": "Optional locus; activate only if fusion occurs on representations or models.",
+              "activation_mode": "optional_module",
+              "stability_level": "stable_core",
+              "definition": "Fusion at the level of encoded representations or formal models."
+            },
+            {
+              "dimension_id": "UM.DIM.FUSION.OPERATIONAL_LAYER",
+              "label": "Operational Layer",
+              "kind": "categorical",
+              "tag": "Operational Layer",
+              "options": [
+                {
+                  "value_id": "method",
+                  "label": "Method",
+                  "tag": "Solution Means",
+                  "definition": "Fuse distinct methods or techniques into one integrated approach."
+                },
+                {
+                  "value_id": "workflow",
+                  "label": "Workflow",
+                  "tag": "Composite Process",
+                  "definition": "Fuse stages, pipelines, or workflows into a coordinated process."
+                }
+              ],
+              "selection_semantics": "Optional locus; activate only if methods or workflows are being fused.",
+              "activation_mode": "optional_module",
+              "stability_level": "stable_core",
+              "definition": "Fusion at the level of methods or workflows."
+            },
+            {
+              "dimension_id": "UM.DIM.FUSION.RESOLUTION_LAYER",
+              "label": "Resolution Layer",
+              "kind": "categorical",
+              "tag": "Resolution Layer",
+              "options": [
+                {
+                  "value_id": "decision",
+                  "label": "Decision",
+                  "tag": "Actionable Outputs",
+                  "definition": "Fuse scores, rankings, or candidate actions into final decision outputs."
+                },
+                {
+                  "value_id": "conceptual_frame",
+                  "label": "Conceptual Frame",
+                  "tag": "Unified Explanations",
+                  "definition": "Fuse theories, concepts, or perspectives into a broader explanatory frame."
+                }
+              ],
+              "selection_semantics": "Optional locus; activate only if outputs or explanatory frames are fused.",
+              "activation_mode": "optional_module",
+              "stability_level": "stable_core",
+              "definition": "Fusion at the level of decisions or conceptual resolution."
+            }
+          ],
+          "selection_semantics": "One or more locus layers may be active; at least one locus layer must be selected in any valid fusion route.",
+          "stability_level": "stable_core",
+          "definition": "Where fusion operates in the larger route.",
+          "selection_constraints": [
+            {
+              "constraint_type": "at_least_one_subdimension_selected",
+              "subdimension_ids": [
+                "UM.DIM.FUSION.INPUT_LAYER",
+                "UM.DIM.FUSION.REPRESENTATION_LAYER",
+                "UM.DIM.FUSION.OPERATIONAL_LAYER",
+                "UM.DIM.FUSION.RESOLUTION_LAYER"
+              ],
+              "definition": "At least one fusion locus layer must be active in any valid fusion route."
+            }
+          ]
+        },
+        {
+          "dimension_id": "UM.DIM.FUSION.INTEGRATION_LOGIC",
+          "label": "Integration Logic",
+          "kind": "multi_categorical",
+          "tag": "Integration Logic",
+          "options": [
+            {
+              "value_id": "aggregative_fusion",
+              "label": "Aggregative Fusion",
+              "tag": "Direct Combination",
+              "definition": "Fuse by directly aggregating inputs into a combined result.",
+              "children": [
+                {
+                  "value_id": "averaging_or_pooling",
+                  "label": "Averaging or pooling",
+                  "definition": "reduce many inputs to one summary"
+                },
+                {
+                  "value_id": "voting_or_consensus",
+                  "label": "Voting or consensus",
+                  "definition": "combine judgments into one collective choice"
+                },
+                {
+                  "value_id": "stacking_or_concatenation",
+                  "label": "Stacking or concatenation",
+                  "definition": "retain inputs by placing them side by side"
+                }
+              ]
+            },
+            {
+              "value_id": "weighted_fusion",
+              "label": "Weighted Fusion",
+              "tag": "Differential Contribution",
+              "definition": "Fuse by assigning differential weights across inputs.",
+              "children": [
+                {
+                  "value_id": "reliability_weighting",
+                  "label": "Reliability weighting",
+                  "definition": "weight by confidence, uncertainty, or trust"
+                },
+                {
+                  "value_id": "relevance_or_attention_weighting",
+                  "label": "Relevance or attention weighting",
+                  "definition": "weight by salience, importance, or context"
+                },
+                {
+                  "value_id": "adaptive_or_learned_weighting",
+                  "label": "Adaptive or learned weighting",
+                  "definition": "learn or update weights from data or feedback"
+                }
+              ]
+            },
+            {
+              "value_id": "alignment_based_fusion",
+              "label": "Alignment-Based Fusion",
+              "tag": "Compatibility Mapping",
+              "definition": "Fuse by making inputs compatible before integration.",
+              "children": [
+                {
+                  "value_id": "matching_based_alignment",
+                  "label": "Matching-based alignment",
+                  "definition": "align by pairwise, soft, or transport-based correspondence"
+                },
+                {
+                  "value_id": "shared_space_projection",
+                  "label": "Shared-space projection",
+                  "definition": "align by projecting inputs into a common space"
+                },
+                {
+                  "value_id": "objective_induced_alignment",
+                  "label": "Objective-induced alignment",
+                  "definition": "align by optimizing agreement or consistency objectives"
+                }
+              ]
+            },
+            {
+              "value_id": "constraint_guided_fusion",
+              "label": "Constraint-Guided Fusion",
+              "tag": "Controlled Integration",
+              "definition": "Fuse under explicit rules or constraints that govern entry, integration, or conflict resolution.",
+              "children": [
+                {
+                  "value_id": "admissibility_filtering",
+                  "label": "Admissibility filtering",
+                  "definition": "Screen what may enter fusion by explicit admissibility or entry conditions."
+                },
+                {
+                  "value_id": "constraint_regularized_fusion",
+                  "label": "Constraint-regularized fusion",
+                  "definition": "impose feasibility, consistency, or structure during fusion"
+                },
+                {
+                  "value_id": "rule_based_arbitration",
+                  "label": "Rule-based arbitration",
+                  "definition": "Resolve fusion conflicts by explicit precedence, exceptions, or rule-governed choices."
+                }
+              ]
+            },
+            {
+              "value_id": "joint_objective_fusion",
+              "label": "Joint-Objective Fusion",
+              "tag": "Shared Solution",
+              "definition": "Fuse by solving a shared estimation or optimization problem across inputs.",
+              "children": [
+                {
+                  "value_id": "joint_estimation",
+                  "label": "Joint estimation",
+                  "definition": "estimate shared states, parameters, or assignments"
+                },
+                {
+                  "value_id": "shared_latent_modeling",
+                  "label": "Shared-latent modeling",
+                  "definition": "infer a latent structure from multiple inputs"
+                },
+                {
+                  "value_id": "coupled_optimization",
+                  "label": "Coupled optimization",
+                  "definition": "optimize one coupled objective across inputs"
+                }
+              ]
+            },
+            {
+              "value_id": "compositional_fusion",
+              "label": "Compositional Fusion",
+              "tag": "Relational Composition",
+              "definition": "Fuse by forming a whole whose properties depend on relations among the parts.",
+              "children": [
+                {
+                  "value_id": "configurational_composition",
+                  "label": "Configurational composition",
+                  "definition": "parts remain distinct; arrangement is decisive"
+                },
+                {
+                  "value_id": "coupled_composition",
+                  "label": "Coupled composition",
+                  "definition": "parts remain distinct; interaction is decisive"
+                },
+                {
+                  "value_id": "transformative_composition",
+                  "label": "Transformative composition",
+                  "definition": "parts are altered or reconstituted in composition"
+                }
+              ]
+            }
+          ],
+          "selection_semantics": "Hybrid integration strategies are common.",
+          "stability_level": "stable_core",
+          "definition": "How separate sources, models, methods, or stages are integrated."
+        }
+      ],
+      "definition": "Integrate multiple sources, models, methods, or perspectives into a coherent or explicitly plural whole with managed conflict and provenance.",
+      "label": "Fusion-based Methodology",
+      "short_code": "FUSION",
+      "thinking_label": "Integrative Thinking",
+      "trigger_cue": "When evidence is fragmented or conflicting.",
+      "summary_tag": "Coherent Integration",
+      "semantic_tags": [
+        "integration",
+        "coherence",
+        "provenance"
+      ],
+      "scope_notes": "Cross-domain; includes input-, representation-, method-, workflow-, decision-, and conceptual-level fusion."
+    },
+    {
+      "paradigm_id": "UM.PARADIGM.SIMULATION",
+      "aligned_to": "Simulation Compass",
+      "dimensions": [
+        {
+          "dimension_id": "UM.DIM.SIMULATION.PURPOSE",
+          "label": "Simulation Purpose",
+          "kind": "multi_categorical",
+          "tag": "Simulation Purpose",
+          "options": [
+            {
+              "value_id": "explore",
+              "label": "Explore",
+              "tag": "Regime Discovery",
+              "definition": "Use simulation to probe mechanisms and regime boundaries across scenarios, emphasizing breadth and contrast over pointwise fitting."
+            },
+            {
+              "value_id": "predict",
+              "label": "Predict",
+              "tag": "Forward Projection",
+              "definition": "Use simulation as a forward model to project outcomes under specified inputs and assumptions, emphasizing fidelity and repeatability."
+            },
+            {
+              "value_id": "calibrate",
+              "label": "Calibrate",
+              "tag": "Fit to Evidence",
+              "definition": "Use data and constraints to fit parameters or state variables, emphasizing model-data agreement, residual error, and uncertainty."
+            },
+            {
+              "value_id": "decide",
+              "label": "Decide",
+              "tag": "Design & Control",
+              "definition": "Use simulation to compare interventions and select designs or policies under constraints, emphasizing robustness and decision utility."
+            }
+          ],
+          "selection_semantics": "A simulation route may explore, predict, calibrate, and decide in combination.",
+          "stability_level": "stable_core",
+          "definition": "Why simulation is introduced."
+        },
+        {
+          "dimension_id": "UM.DIM.SIMULATION.WORLD_MODELING_APPROACH",
+          "label": "World Modeling Approach",
+          "kind": "composite",
+          "tag": "World Modeling Approach",
+          "subdimensions": [
+            {
+              "dimension_id": "UM.DIM.SIMULATION.PRIMARY_FORMALISMS",
+              "label": "Primary Formalisms",
+              "kind": "categorical",
+              "tag": "Primary Formalisms",
+              "options": [
+                {
+                  "value_id": "equation_based_modeling",
+                  "label": "Equation-Based Modeling",
+                  "tag": "Mechanistic Equations",
+                  "definition": "Represent system change with explicit equations and constraints, whose solutions define dynamics in time and, when relevant, in space.",
+                  "children": [
+                    {
+                      "value_id": "lumped_parameter_dynamics",
+                      "label": "Lumped-parameter dynamics",
+                      "definition": "few aggregated state variables; no explicit spatial resolution"
+                    },
+                    {
+                      "value_id": "spatial_field_dynamics",
+                      "label": "Spatial field dynamics",
+                      "definition": "Represent space-resolved transport, diffusion, wave, or field dynamics across an explicit spatial domain."
+                    },
+                    {
+                      "value_id": "stochastic_dynamics",
+                      "label": "Stochastic dynamics",
+                      "definition": "intrinsic randomness via noise or random-jump processes"
+                    }
+                  ]
+                },
+                {
+                  "value_id": "discrete_event_modeling",
+                  "label": "Discrete-Event Modeling",
+                  "tag": "Event-Driven Processes",
+                  "definition": "Represent system change as event-triggered state transitions on an event schedule, capturing queues, resources, and operational constraints.",
+                  "children": [
+                    {
+                      "value_id": "service_and_queueing_systems",
+                      "label": "Service and queueing systems",
+                      "definition": "Represent waiting, contention, capacity, and service dynamics in event-driven systems."
+                    },
+                    {
+                      "value_id": "workflow_and_resource_processes",
+                      "label": "Workflow and resource processes",
+                      "definition": "Represent routing, buffers, synchronization, and resource flow in operational processes."
+                    },
+                    {
+                      "value_id": "discrete_mode_control_logic",
+                      "label": "Discrete-mode control logic",
+                      "definition": "Represent event-driven switching, supervisory logic, or discrete operating modes."
+                    }
+                  ]
+                },
+                {
+                  "value_id": "agent_based_modeling",
+                  "label": "Agent-Based Modeling",
+                  "tag": "Micro-to-Macro Emergence",
+                  "definition": "Represent the system as interacting entities with local rules or policies; macro behavior emerges from micro decisions and interactions.",
+                  "children": [
+                    {
+                      "value_id": "heterogeneous_populations",
+                      "label": "Heterogeneous populations",
+                      "definition": "Model many interacting entities with heterogeneous attributes, roles, or contact structures."
+                    },
+                    {
+                      "value_id": "strategic_decision_agents",
+                      "label": "Strategic decision agents",
+                      "definition": "Model interacting agents whose local choices are driven by incentives, games, or strategic reasoning."
+                    },
+                    {
+                      "value_id": "local_interaction_swarms",
+                      "label": "Local-interaction swarms",
+                      "definition": "Model emergent collective behavior from simple local interaction rules."
+                    }
+                  ]
+                }
+              ],
+              "stability_level": "stable_core",
+              "definition": "Primary formalism used to represent the modeled world."
+            },
+            {
+              "dimension_id": "UM.DIM.SIMULATION.EMULATION_LAYER",
+              "label": "Emulation Layer",
+              "kind": "activatable_layer",
+              "tag": "Emulation Layer",
+              "options": [
+                {
+                  "value_id": "surrogate_modeling",
+                  "label": "Surrogate Modeling",
+                  "tag": "Fast Emulators",
+                  "definition": "Replace an expensive simulator with a fast emulator that maps inputs to outputs, optionally producing uncertainty estimates for risk-aware analysis and decision-making.",
+                  "children": [
+                    {
+                      "value_id": "reduced_order_models",
+                      "label": "Reduced-order models",
+                      "definition": "Use a compressed low-dimensional state or basis that preserves the simulator behavior most relevant to the task."
+                    },
+                    {
+                      "value_id": "statistical_response_surrogates",
+                      "label": "Statistical response surrogates",
+                      "definition": "Approximate simulator responses with statistical or regression-style surrogates, often with uncertainty estimates."
+                    },
+                    {
+                      "value_id": "learned_emulators",
+                      "label": "Learned emulators",
+                      "definition": "Approximate simulator input–output behavior with a learned data-driven emulator or operator."
+                    }
+                  ]
+                }
+              ],
+              "selection_semantics": "Activate only when a surrogate or emulator is explicitly inserted for speed.",
+              "activation_mode": "optional_module",
+              "stability_level": "stable_core",
+              "definition": "Optional fast-emulator layer used to accelerate a more expensive simulator."
+            },
+            {
+              "dimension_id": "UM.DIM.SIMULATION.COMPOSITION_LAYER",
+              "label": "Composition Layer",
+              "kind": "activatable_layer",
+              "tag": "Composition Layer",
+              "options": [
+                {
+                  "value_id": "hybrid_coupled_modeling",
+                  "label": "Hybrid Coupled Modeling",
+                  "tag": "Coupled Models",
+                  "definition": "Couple multiple component models across formalisms or scales via explicit interfaces exchanging state or events, capturing mixed discrete-continuous behavior.",
+                  "children": [
+                    {
+                      "value_id": "co_simulation_coupling",
+                      "label": "Co-simulation coupling",
+                      "definition": "Couple separate simulators that exchange state or events under explicit synchronization."
+                    },
+                    {
+                      "value_id": "multi_physics_composition",
+                      "label": "Multi-physics composition",
+                      "definition": "Compose interacting physical subsystems governed by different but coupled formalisms."
+                    },
+                    {
+                      "value_id": "multi_scale_coupling",
+                      "label": "Multi-scale coupling",
+                      "definition": "micro ? macro linking; hierarchical nesting"
+                    }
+                  ]
+                }
+              ],
+              "selection_semantics": "Activate only when multiple component models are coupled or composed.",
+              "activation_mode": "optional_module",
+              "stability_level": "stable_core",
+              "definition": "Optional coupled-model layer used when multiple models must be composed for scope."
+            }
+          ],
+          "stability_level": "stable_core",
+          "definition": "How the model world is represented, accelerated, or composed."
+        },
+        {
+          "dimension_id": "UM.DIM.SIMULATION.EXECUTION_PROTOCOL",
+          "label": "Execution Protocol",
+          "kind": "multi_categorical",
+          "tag": "Execution Protocol",
+          "options": [
+            {
+              "value_id": "scenario_runs",
+              "label": "Scenario Runs",
+              "tag": "What-if Comparison",
+              "definition": "Run a small, named set of scenarios to compare outcomes and attribute effects to interventions or assumptions."
+            },
+            {
+              "value_id": "structured_sweep",
+              "label": "Structured Sweep",
+              "tag": "Response Mapping",
+              "definition": "Run a structured sweep over parameters, scenarios, or boundary conditions to map response patterns and trade-offs."
+            },
+            {
+              "value_id": "uncertainty_propagation",
+              "label": "Uncertainty Propagation",
+              "tag": "Risk Distribution",
+              "definition": "Propagate input uncertainty through simulation to obtain output distributions, intervals, and risk measures."
+            },
+            {
+              "value_id": "sensitivity_scan",
+              "label": "Sensitivity Scan",
+              "tag": "Driver Ranking",
+              "definition": "Perturb inputs locally or globally to rank influential drivers and detect fragile parameters or assumptions."
+            },
+            {
+              "value_id": "calibration_loop",
+              "label": "Calibration Loop",
+              "tag": "Fit & Update",
+              "definition": "Iteratively update parameters or state variables to match observations under an explicit error model until residuals stabilize."
+            },
+            {
+              "value_id": "closed_loop_decisions",
+              "label": "Closed Loop Decisions",
+              "tag": "Sim-in-the-loop",
+              "definition": "Embed simulation in optimization, planning, control, or learning loops to improve actions or policies over trajectories."
+            }
+          ],
+          "selection_semantics": "Execution protocols can be combined in one simulation program.",
+          "stability_level": "stable_core",
+          "definition": "How the model world is interrogated or used operationally."
+        }
+      ],
+      "definition": "Construct and execute an explicit model world to explore scenarios, project outcomes, calibrate to evidence, or support decisions when direct experimentation is costly or infeasible.",
+      "label": "Simulation-based Methodology",
+      "short_code": "SIMULATION",
+      "thinking_label": "Model-Based Thinking",
+      "trigger_cue": "When real experiments are infeasible or costly.",
+      "summary_tag": "Scenario Exploration",
+      "semantic_tags": [
+        "world-model",
+        "scenario",
+        "counterfactual"
+      ],
+      "scope_notes": "Cross-domain; includes equation-based, discrete-event, agent-based, surrogate, and hybrid coupled simulations."
+    },
+    {
+      "paradigm_id": "UM.PARADIGM.EVOLUTIONARY",
+      "aligned_to": "Evolutionary Compass",
+      "dimensions": [
+        {
+          "dimension_id": "UM.DIM.EVOLUTIONARY.ROLE",
+          "label": "Evolutionary Role",
+          "kind": "categorical",
+          "tag": "Evolutionary Role",
+          "options": [
+            {
+              "value_id": "refine",
+              "label": "Refine",
+              "tag": "Quality Gain",
+              "definition": "Improve an existing solution toward better fit, efficiency, or performance."
+            },
+            {
+              "value_id": "adapt",
+              "label": "Adapt",
+              "tag": "Context Fit",
+              "definition": "Adapt to new tasks, environments, operating conditions, or drift."
+            },
+            {
+              "value_id": "explore",
+              "label": "Explore",
+              "tag": "Space Discovery",
+              "definition": "Search for novel variants, broaden possible directions, or support open-ended discovery."
+            }
+          ],
+          "stability_level": "stable_core",
+          "definition": "What evolutionary/adaptive iteration primarily does."
+        },
+        {
+          "dimension_id": "UM.DIM.EVOLUTIONARY.UPDATE_ARCHITECTURE",
+          "label": "Update Architecture",
+          "kind": "composite",
+          "tag": "Update Architecture",
+          "subdimensions": [
+            {
+              "dimension_id": "UM.DIM.EVOLUTIONARY.UPDATE_TARGET",
+              "label": "Update Target",
+              "kind": "categorical",
+              "tag": "Update Target",
+              "options": [
+                {
+                  "value_id": "parameters_traits",
+                  "label": "Parameters / Traits",
+                  "tag": "Adjustable Values",
+                  "definition": "Parameters, thresholds, traits, or other directly adjustable values."
+                },
+                {
+                  "value_id": "structures",
+                  "label": "Structures",
+                  "tag": "System Form",
+                  "definition": "Update the system by changing components, architectures, topologies, or compositional structure."
+                },
+                {
+                  "value_id": "strategies_policies",
+                  "label": "Strategies / Policies",
+                  "tag": "Action Logic",
+                  "definition": "Decision, control, routing, or interaction policies."
+                },
+                {
+                  "value_id": "knowledge_representations",
+                  "label": "Knowledge / Representations",
+                  "tag": "Internal Content",
+                  "definition": "Rules, prototypes, memories, latent features, or internal schemas."
+                }
+              ],
+              "stability_level": "stable_core",
+              "definition": "What part of the system is being updated."
+            },
+            {
+              "dimension_id": "UM.DIM.EVOLUTIONARY.UPDATE_REGIME",
+              "label": "Update Regime",
+              "kind": "categorical",
+              "tag": "Update Regime",
+              "options": [
+                {
+                  "value_id": "episodic",
+                  "label": "Episodic",
+                  "tag": "Isolated Episodes",
+                  "definition": "Updates occur in isolated episodes or one-off rounds."
+                },
+                {
+                  "value_id": "cyclical",
+                  "label": "Cyclical",
+                  "tag": "Recurring Cycles",
+                  "definition": "Updates occur in staged rounds, batches, or recurring loops."
+                },
+                {
+                  "value_id": "continual",
+                  "label": "Continual",
+                  "tag": "Rolling Updates",
+                  "definition": "Updates accumulate sequentially without full reset."
+                },
+                {
+                  "value_id": "real_time",
+                  "label": "Real-Time",
+                  "tag": "Immediate Response",
+                  "definition": "Updates occur under streaming or immediate-response conditions."
+                }
+              ],
+              "stability_level": "stable_core",
+              "definition": "How often and on what schedule updates occur."
+            },
+            {
+              "dimension_id": "UM.DIM.EVOLUTIONARY.UPDATE_MECHANISM",
+              "label": "Update Mechanism",
+              "kind": "multi_categorical",
+              "tag": "Update Mechanism",
+              "options": [
+                {
+                  "value_id": "in_place_adjustment",
+                  "label": "In-Place Adjustment",
+                  "tag": "Direct Revision",
+                  "definition": "Adjust the current system directly while preserving its existing structure.",
+                  "children": [
+                    {
+                      "value_id": "calibration",
+                      "label": "Calibration",
+                      "definition": "re-anchor the current system to a new reference or baseline"
+                    },
+                    {
+                      "value_id": "tuning",
+                      "label": "Tuning",
+                      "definition": "adjust existing parameters or controls to improve fit, responsiveness, or performance"
+                    },
+                    {
+                      "value_id": "correction",
+                      "label": "Correction",
+                      "definition": "counteract a detected bias, drift, disturbance, or local mismatch"
+                    }
+                  ]
+                },
+                {
+                  "value_id": "structural_reconfiguration",
+                  "label": "Structural Reconfiguration",
+                  "tag": "Structural Change",
+                  "definition": "Change the structure of the current system or the organization among its parts.",
+                  "children": [
+                    {
+                      "value_id": "augmentation",
+                      "label": "Augmentation",
+                      "definition": "attach a new component, stage, or module"
+                    },
+                    {
+                      "value_id": "pruning",
+                      "label": "Pruning",
+                      "definition": "remove or simplify existing structural components"
+                    },
+                    {
+                      "value_id": "substitution",
+                      "label": "Substitution",
+                      "definition": "replace a component while preserving its functional slot"
+                    },
+                    {
+                      "value_id": "rewiring",
+                      "label": "Rewiring",
+                      "definition": "reconfigure dependencies, interfaces, or order among retained parts"
+                    }
+                  ]
+                },
+                {
+                  "value_id": "candidate_replacement",
+                  "label": "Candidate Replacement",
+                  "tag": "Compete-and-Replace",
+                  "definition": "Update the current system by generating rival candidates and adopting one according to a separate feedback signal.",
+                  "children": [
+                    {
+                      "value_id": "perturbation_based_replacement",
+                      "label": "Perturbation-based replacement",
+                      "definition": "replace with a candidate produced by local perturbation of the current solution"
+                    },
+                    {
+                      "value_id": "recombination_based_replacement",
+                      "label": "Recombination-based replacement",
+                      "definition": "replace with a candidate assembled from parts of existing candidates"
+                    },
+                    {
+                      "value_id": "proposal_based_replacement",
+                      "label": "Proposal-based replacement",
+                      "definition": "replace with a candidate produced by an explicit proposal mechanism"
+                    }
+                  ]
+                },
+                {
+                  "value_id": "transfer",
+                  "label": "Transfer",
+                  "tag": "External Reuse",
+                  "definition": "Update the current system by drawing on externally available models, knowledge, or artifacts.",
+                  "children": [
+                    {
+                      "value_id": "warm_start",
+                      "label": "Warm-start",
+                      "definition": "initialize from an existing model, policy, solution, or prior state"
+                    },
+                    {
+                      "value_id": "distillation",
+                      "label": "Distillation",
+                      "definition": "transfer by compressing or imitating a richer source"
+                    },
+                    {
+                      "value_id": "importation",
+                      "label": "Importation",
+                      "definition": "bring an externally developed artifact into the current system"
+                    },
+                    {
+                      "value_id": "transfer_adaptation",
+                      "label": "Transfer adaptation",
+                      "definition": "adapt transferred content for use in the target system"
+                    }
+                  ]
+                },
+                {
+                  "value_id": "meta_adaptation",
+                  "label": "Meta-Adaptation",
+                  "tag": "Updater Change",
+                  "definition": "Update the system by modifying the updater, the internal basis that supports later adaptation, or the governance of future updates.",
+                  "children": [
+                    {
+                      "value_id": "meta_initialization",
+                      "label": "Meta-initialization",
+                      "definition": "learn starting states or priors optimized for rapid later adaptation"
+                    },
+                    {
+                      "value_id": "update_operator_learning",
+                      "label": "Update-operator learning",
+                      "definition": "learn how feedback or history should be transformed into updates"
+                    },
+                    {
+                      "value_id": "adaptation_governance",
+                      "label": "Adaptation governance",
+                      "definition": "adapt the scope, scheduling, or control settings that govern future updates"
+                    },
+                    {
+                      "value_id": "adaptation_scaffolding",
+                      "label": "Adaptation scaffolding",
+                      "definition": "provide a stable internal basis that makes later adaptation easier"
+                    }
+                  ]
+                }
+              ],
+              "selection_semantics": "Multiple update mechanisms may be combined in one adaptive regime.",
+              "stability_level": "stable_core",
+              "definition": "How the current state is revised, replaced, or extended."
+            },
+            {
+              "dimension_id": "UM.DIM.EVOLUTIONARY.FEEDBACK_SIGNAL",
+              "label": "Feedback Signal",
+              "kind": "multi_categorical",
+              "tag": "Feedback Signal",
+              "options": [
+                {
+                  "value_id": "environmental_interaction",
+                  "label": "Environmental / Interaction",
+                  "tag": "World Feedback",
+                  "definition": "Reward, deployment response, closed-loop interaction, or streaming outcomes."
+                },
+                {
+                  "value_id": "objective",
+                  "label": "Objective",
+                  "tag": "Metric Feedback",
+                  "definition": "Loss, fitness, utility, or other explicit objective-based evaluation."
+                },
+                {
+                  "value_id": "comparative",
+                  "label": "Comparative",
+                  "tag": "Relative Judgment",
+                  "definition": "Pairwise ranking, relative comparison, tournament, or adversarial comparison."
+                },
+                {
+                  "value_id": "human_social_institutional",
+                  "label": "Human / Social / Institutional",
+                  "tag": "Appraisal Feedback",
+                  "definition": "Expert judgment, user preference, social uptake, market acceptance, or institutional endorsement."
+                }
+              ],
+              "selection_semantics": "Multiple feedback signals may be combined.",
+              "stability_level": "stable_core",
+              "definition": "What signal governs selection or revision."
+            }
+          ],
+          "stability_level": "stable_core",
+          "definition": "How updates are targeted, scheduled, and enacted over time."
+        },
+        {
+          "dimension_id": "UM.DIM.EVOLUTIONARY.CARRYOVER_LOGIC",
+          "label": "Carryover Logic",
+          "kind": "multi_categorical",
+          "tag": "Carryover Logic",
+          "options": [
+            {
+              "value_id": "selective_retention",
+              "label": "Selective Retention",
+              "tag": "Keep Winners",
+              "definition": "Preserve selected high-performing or validated variants as the primary basis for subsequent rounds."
+            },
+            {
+              "value_id": "diversity_preservation",
+              "label": "Diversity Preservation",
+              "tag": "Keep Alternatives",
+              "definition": "Retain multiple viable variants to preserve adaptive breadth and avoid premature collapse."
+            },
+            {
+              "value_id": "forgetting_refresh",
+              "label": "Forgetting / Refresh",
+              "tag": "Clear Stale State",
+              "definition": "Remove, decay, or reset outdated variants, states, or routines under drift or overload."
+            },
+            {
+              "value_id": "transmission_exchange",
+              "label": "Transmission / Exchange",
+              "tag": "Propagation Paths",
+              "definition": "Transmit retained variants, traits, modules, or practices into later rounds or other contexts."
+            }
+          ],
+          "selection_semantics": "Carryover policies are often combined.",
+          "stability_level": "stable_core",
+          "definition": "How information or structure persists across update rounds."
+        }
+      ],
+      "definition": "Iterate with feedback through variation, selection, retention, and adaptation to refine, adapt, or explore over time.",
+      "label": "Evolutionary-based Methodology",
+      "short_code": "EVOLUTIONARY",
+      "thinking_label": "Evolutionary-Adaptive Thinking",
+      "trigger_cue": "When objectives or context keep shifting.",
+      "summary_tag": "Adaptive Iteration",
+      "semantic_tags": [
+        "adaptation",
+        "variation-selection",
+        "carryover"
+      ],
+      "scope_notes": "Cross-domain; includes continual adaptation, transfer, replacement, structural change, and meta-adaptation."
+    }
+  ],
+  "design_notes": [
+    "Compass seed is the canonical Layer-2 semantic source for paradigm-internal methodological structure. Stable public dimensions live in Layer 1; value spaces, option families, and leaf bullet families live here.",
+    "Top-level paradigm anchor semantics are governed by layer1_ontology/um_paradigms_ontology.v1.json; the mirrored top-level fields here are included for local readability and seed self-containment, while the paradigm-internal design space lives in this Compass seed.",
+    "Defaults and records should reference compass option paths when they need to commit below the stable dimension level.",
+    "Tags are expected for paradigms, dimensions, and stable option families when the human-facing framework supplies a concise subtitle. Leaf bullet options may omit tags when label plus definition is already sufficient.",
+    "Leaf bullet families are required to carry definitions; tags remain optional at that depth when the theoretical framework supplies only a concise definitional phrase."
+  ]
+}

@@ -1,0 +1,916 @@
+{
+  "package": {
+    "name": "Universal Methodology Meta-Control Interface",
+    "short_name": "UM-MCI",
+    "package_semver": "0.1.0",
+    "schema_major_version": 1,
+    "generated_utc": "2026-04-21T09:21:33Z",
+    "package_name": "UM_MetaControl_Interface_Core_Semantic_Package"
+  },
+  "paradigm_defaults": [
+    {
+      "paradigm_id": "UM.PARADIGM.SIMULATION",
+      "required_dimension_ids": [
+        "UM.DIM.SIMULATION.PURPOSE",
+        "UM.DIM.SIMULATION.PRIMARY_FORMALISMS",
+        "UM.DIM.SIMULATION.EXECUTION_PROTOCOL"
+      ],
+      "user_must_confirm_dimension_ids": [
+        "UM.DIM.SIMULATION.PURPOSE"
+      ],
+      "starter_profiles": [
+        {
+          "profile_id": "starter_baseline",
+          "label": "Starter baseline",
+          "definition": "Conservative simulation baseline for forward projection with a single primary formalism and simple scenario runs.",
+          "bundle_status": "seed_default",
+          "source_basis": [
+            "compass_semantics",
+            "seed_governance_judgment"
+          ],
+          "confidence": "moderate",
+          "override_allowed": true,
+          "review_trigger": [
+            "context_mismatch",
+            "validator_failure",
+            "major_tension_non_improvement"
+          ],
+          "dimension_selections": [
+            {
+              "dimension_id": "UM.DIM.SIMULATION.EXECUTION_PROTOCOL",
+              "selected_option_paths": [
+                [
+                  "scenario_runs"
+                ]
+              ]
+            },
+            {
+              "dimension_id": "UM.DIM.SIMULATION.PRIMARY_FORMALISMS",
+              "selected_option_paths": [
+                [
+                  "equation_based_modeling",
+                  "lumped_parameter_dynamics"
+                ]
+              ]
+            },
+            {
+              "dimension_id": "UM.DIM.SIMULATION.PURPOSE",
+              "selected_option_paths": [
+                [
+                  "predict"
+                ]
+              ]
+            }
+          ],
+          "machine_control_settings": [
+            {
+              "control_id": "UM.CTRL.SIMULATION.VALIDATION_STRICTNESS",
+              "selected_value_id": "standard"
+            }
+          ],
+          "base_artifact_requirements": {
+            "must": [
+              "UM.ART.MODEL.WORLD_MODEL",
+              "UM.ART.EVIDENCE.EXECUTION_TRACES",
+              "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+            ],
+            "should": [
+              "UM.ART.SPEC.ASSUMPTIONS_SCOPE",
+              "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+              "UM.ART.PROVENANCE.PROVENANCE_LOG"
+            ]
+          },
+          "base_validation_requirements": {
+            "must": [
+              "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+              "UM.VP.PROVENANCE_CHECK"
+            ],
+            "should": [
+              "UM.VP.SOLVER_STABILITY_SMOKE_TEST",
+              "UM.VP.CONSISTENCY_CHECK"
+            ]
+          },
+          "default_support_edge_shortlist": [
+            "UM.EDGE_FAMILY.TRACTABILITY_ACCELERATION.TRANSFORMATION__TO__SIMULATION.COARSE_GRAIN_OR_SURROGATE_TO_ACCELERATE_SIMULATION",
+            "UM.EDGE_FAMILY.UNCERTAINTY_WEIGHTING_OR_PROPAGATION.PROBABILISTIC__TO__SIMULATION.UNCERTAINTY_PROPAGATION_AND_RISK_BOUNDING"
+          ],
+          "notes": [
+            "Reference-only starter. Confirm purpose and formalism against task scope before execution.",
+            "Advisory starter only: confirm fit against current task, context, and validators before execution."
+          ]
+        }
+      ]
+    },
+    {
+      "paradigm_id": "UM.PARADIGM.OPTIMIZATION",
+      "required_dimension_ids": [
+        "UM.DIM.OPTIMIZATION.ROLE",
+        "UM.DIM.OPTIMIZATION.OPTIMIZATION_STANCE",
+        "UM.DIM.OPTIMIZATION.FEASIBILITY_STRUCTURE",
+        "UM.DIM.OPTIMIZATION.DECISION_OBJECT",
+        "UM.DIM.OPTIMIZATION.VARIABLE_TYPE",
+        "UM.DIM.OPTIMIZATION.EVALUATION_ACCESS",
+        "UM.DIM.OPTIMIZATION.TEMPORAL_COMMITMENT",
+        "UM.DIM.OPTIMIZATION.SOLUTION_LOGIC"
+      ],
+      "user_must_confirm_dimension_ids": [
+        "UM.DIM.OPTIMIZATION.ROLE",
+        "UM.DIM.OPTIMIZATION.DECISION_OBJECT",
+        "UM.DIM.OPTIMIZATION.SOLUTION_LOGIC"
+      ],
+      "starter_profiles": [
+        {
+          "profile_id": "starter_baseline",
+          "label": "Starter baseline",
+          "definition": "Conservative optimization baseline for one-shot continuous design or calibration problems with analytic evaluation and local refinement.",
+          "bundle_status": "seed_default",
+          "source_basis": [
+            "compass_semantics",
+            "seed_governance_judgment"
+          ],
+          "confidence": "moderate",
+          "override_allowed": true,
+          "review_trigger": [
+            "context_mismatch",
+            "validator_failure",
+            "major_tension_non_improvement"
+          ],
+          "dimension_selections": [
+            {
+              "dimension_id": "UM.DIM.OPTIMIZATION.DECISION_OBJECT",
+              "selected_option_paths": [
+                [
+                  "parameters_configurations"
+                ]
+              ]
+            },
+            {
+              "dimension_id": "UM.DIM.OPTIMIZATION.EVALUATION_ACCESS",
+              "selected_option_paths": [
+                [
+                  "direct_analytic"
+                ]
+              ]
+            },
+            {
+              "dimension_id": "UM.DIM.OPTIMIZATION.FEASIBILITY_STRUCTURE",
+              "selected_option_paths": [
+                [
+                  "absolute_bounds"
+                ]
+              ]
+            },
+            {
+              "dimension_id": "UM.DIM.OPTIMIZATION.OPTIMIZATION_STANCE",
+              "selected_option_paths": [
+                [
+                  "extremum_seeking"
+                ]
+              ]
+            },
+            {
+              "dimension_id": "UM.DIM.OPTIMIZATION.ROLE",
+              "selected_option_paths": [
+                [
+                  "design_configure"
+                ]
+              ]
+            },
+            {
+              "dimension_id": "UM.DIM.OPTIMIZATION.SOLUTION_LOGIC",
+              "selected_option_paths": [
+                [
+                  "local_refinement",
+                  "directional_stepping"
+                ]
+              ]
+            },
+            {
+              "dimension_id": "UM.DIM.OPTIMIZATION.TEMPORAL_COMMITMENT",
+              "selected_option_paths": [
+                [
+                  "one_shot"
+                ]
+              ]
+            },
+            {
+              "dimension_id": "UM.DIM.OPTIMIZATION.VARIABLE_TYPE",
+              "selected_option_paths": [
+                [
+                  "continuous"
+                ]
+              ]
+            }
+          ],
+          "machine_control_settings": [
+            {
+              "control_id": "UM.CTRL.OPTIMIZATION.VALIDATION_STRICTNESS",
+              "selected_value_id": "standard"
+            }
+          ],
+          "base_artifact_requirements": {
+            "must": [
+              "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS",
+              "UM.ART.DECISION.CANDIDATE_SOLUTION"
+            ],
+            "should": [
+              "UM.ART.SPEC.ASSUMPTIONS_SCOPE",
+              "UM.ART.EVALUATION.TRACTABILITY_REPORT",
+              "UM.ART.PROVENANCE.PROVENANCE_LOG"
+            ]
+          },
+          "base_validation_requirements": {
+            "must": [
+              "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+              "UM.VP.PROVENANCE_CHECK",
+              "UM.VP.CONSTRAINT_SATISFACTION"
+            ],
+            "should": [
+              "UM.VP.TRACTABILITY_CONDITIONING_CHECK",
+              "UM.VP.SOLVER_STABILITY_SMOKE_TEST"
+            ]
+          },
+          "default_support_edge_shortlist": [
+            "UM.EDGE_FAMILY.REFORMULATION.TRANSFORMATION__TO__OPTIMIZATION.REPARAMETERIZE_OR_RELAX_CONSTRAINTS_TO_IMPROVE_TRACTABILITY",
+            "UM.EDGE_FAMILY.ADAPTIVE_SEARCH_OR_UPDATE.EVOLUTIONARY__TO__OPTIMIZATION.GLOBAL_GRADIENT_FREE_SEARCH_FOR_NONCONVEX_OBJECTIVES"
+          ],
+          "notes": [
+            "Reference-only starter. Role, decision object, and solution logic should almost always be reviewed explicitly.",
+            "Advisory starter only: confirm fit against current task, context, and validators before execution."
+          ]
+        }
+      ]
+    },
+    {
+      "paradigm_id": "UM.PARADIGM.PROBABILISTIC",
+      "required_dimension_ids": [
+        "UM.DIM.PROBABILISTIC.PURPOSE",
+        "UM.DIM.PROBABILISTIC.PROBABILITY_REPRESENTATION",
+        "UM.DIM.PROBABILISTIC.DEPENDENCE_STRUCTURE",
+        "UM.DIM.PROBABILISTIC.INFERENCE_APPROACH",
+        "UM.DIM.PROBABILISTIC.INFERENCE_ENGINE"
+      ],
+      "user_must_confirm_dimension_ids": [
+        "UM.DIM.PROBABILISTIC.PURPOSE",
+        "UM.DIM.PROBABILISTIC.DEPENDENCE_STRUCTURE"
+      ],
+      "starter_profiles": [
+        {
+          "profile_id": "starter_baseline",
+          "label": "Starter baseline",
+          "definition": "Conservative probabilistic baseline for estimating unknowns with a parametric belief model, conjugate Bayesian updating, and analytical inference where available.",
+          "bundle_status": "seed_default",
+          "source_basis": [
+            "compass_semantics",
+            "seed_governance_judgment"
+          ],
+          "confidence": "moderate",
+          "override_allowed": true,
+          "review_trigger": [
+            "context_mismatch",
+            "validator_failure",
+            "major_tension_non_improvement"
+          ],
+          "dimension_selections": [
+            {
+              "dimension_id": "UM.DIM.PROBABILISTIC.DEPENDENCE_STRUCTURE",
+              "selected_option_paths": [
+                [
+                  "independent"
+                ]
+              ]
+            },
+            {
+              "dimension_id": "UM.DIM.PROBABILISTIC.INFERENCE_APPROACH",
+              "selected_option_paths": [
+                [
+                  "bayesian",
+                  "conjugate_bayesian_inference"
+                ]
+              ]
+            },
+            {
+              "dimension_id": "UM.DIM.PROBABILISTIC.INFERENCE_ENGINE",
+              "selected_option_paths": [
+                [
+                  "analytical"
+                ]
+              ]
+            },
+            {
+              "dimension_id": "UM.DIM.PROBABILISTIC.PROBABILITY_REPRESENTATION",
+              "selected_option_paths": [
+                [
+                  "parametric"
+                ]
+              ]
+            },
+            {
+              "dimension_id": "UM.DIM.PROBABILISTIC.PURPOSE",
+              "selected_option_paths": [
+                [
+                  "estimate"
+                ]
+              ]
+            }
+          ],
+          "machine_control_settings": [
+            {
+              "control_id": "UM.CTRL.PROBABILISTIC.VALIDATION_STRICTNESS",
+              "selected_value_id": "standard"
+            }
+          ],
+          "base_artifact_requirements": {
+            "must": [
+              "UM.ART.MODEL.BELIEF_MODEL",
+              "UM.ART.EVIDENCE.UNCERTAINTY_POSTERIOR"
+            ],
+            "should": [
+              "UM.ART.EVIDENCE.DATASET",
+              "UM.ART.SPEC.ASSUMPTIONS_SCOPE",
+              "UM.ART.PROVENANCE.PROVENANCE_LOG"
+            ]
+          },
+          "base_validation_requirements": {
+            "must": [
+              "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+              "UM.VP.PROVENANCE_CHECK"
+            ],
+            "should": [
+              "UM.VP.UNCERTAINTY_CALIBRATION_CHECK",
+              "UM.VP.POSTERIOR_PREDICTIVE_CHECK"
+            ]
+          },
+          "default_support_edge_shortlist": [
+            "UM.EDGE_FAMILY.REFORMULATION.TRANSFORMATION__TO__PROBABILISTIC.FACTORIZE_OR_DECORRELATE_TO_SIMPLIFY_INFERENCE_AND_SAMPLING",
+            "UM.EDGE_FAMILY.SCENARIO_EVALUATION.SIMULATION__TO__PROBABILISTIC.SAMPLE_BASED_SIMULATION_FOR_TAIL_RISK_AND_UNCERTAINTY"
+          ],
+          "notes": [
+            "Reference-only starter. Dependence structure and inference engine often require task-specific revision.",
+            "Advisory starter only: confirm fit against current task, context, and validators before execution."
+          ]
+        }
+      ]
+    },
+    {
+      "paradigm_id": "UM.PARADIGM.INVERSION",
+      "required_dimension_ids": [
+        "UM.DIM.INVERSION.TARGET",
+        "UM.DIM.INVERSION.SOLUTION_FORM",
+        "UM.DIM.INVERSION.FORWARD_CLASS",
+        "UM.DIM.INVERSION.STABILIZATION",
+        "UM.DIM.INVERSION.APPROACH"
+      ],
+      "user_must_confirm_dimension_ids": [
+        "UM.DIM.INVERSION.TARGET",
+        "UM.DIM.INVERSION.STABILIZATION",
+        "UM.DIM.INVERSION.APPROACH"
+      ],
+      "starter_profiles": [
+        {
+          "profile_id": "starter_baseline",
+          "label": "Starter baseline",
+          "definition": "Conservative inversion baseline for point recovery of parameters or properties under an explicit nonlinear forward model.",
+          "bundle_status": "seed_default",
+          "source_basis": [
+            "compass_semantics",
+            "seed_governance_judgment"
+          ],
+          "confidence": "moderate",
+          "override_allowed": true,
+          "review_trigger": [
+            "context_mismatch",
+            "validator_failure",
+            "major_tension_non_improvement"
+          ],
+          "dimension_selections": [
+            {
+              "dimension_id": "UM.DIM.INVERSION.APPROACH",
+              "selected_option_paths": [
+                [
+                  "optimization_based"
+                ]
+              ]
+            },
+            {
+              "dimension_id": "UM.DIM.INVERSION.FORWARD_CLASS",
+              "selected_option_paths": [
+                [
+                  "nonlinear_operator"
+                ]
+              ]
+            },
+            {
+              "dimension_id": "UM.DIM.INVERSION.SOLUTION_FORM",
+              "selected_option_paths": [
+                [
+                  "point"
+                ]
+              ]
+            },
+            {
+              "dimension_id": "UM.DIM.INVERSION.STABILIZATION",
+              "selected_option_paths": [
+                [
+                  "structural_restriction",
+                  "smoothness_regularization"
+                ]
+              ]
+            },
+            {
+              "dimension_id": "UM.DIM.INVERSION.TARGET",
+              "selected_option_paths": [
+                [
+                  "parameter_property"
+                ]
+              ]
+            }
+          ],
+          "machine_control_settings": [
+            {
+              "control_id": "UM.CTRL.INVERSION.VALIDATION_STRICTNESS",
+              "selected_value_id": "standard"
+            }
+          ],
+          "base_artifact_requirements": {
+            "must": [
+              "UM.ART.MODEL.FORWARD_MODEL",
+              "UM.ART.MODEL.INVERSE_SOLUTION",
+              "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+            ],
+            "should": [
+              "UM.ART.EVIDENCE.EXECUTION_TRACES",
+              "UM.ART.EVALUATION.TRACTABILITY_REPORT",
+              "UM.ART.PROVENANCE.PROVENANCE_LOG"
+            ]
+          },
+          "base_validation_requirements": {
+            "must": [
+              "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+              "UM.VP.PROVENANCE_CHECK"
+            ],
+            "should": [
+              "UM.VP.FORWARD_SIMULATION_CONSISTENCY",
+              "UM.VP.SOLVER_STABILITY_SMOKE_TEST"
+            ]
+          },
+          "default_support_edge_shortlist": [
+            "UM.EDGE_FAMILY.REFORMULATION.TRANSFORMATION__TO__INVERSION.TRANSFORM_TO_A_SPARSE_OR_DECORRELATED_BASIS_FOR_STABLE_INVERSION",
+            "UM.EDGE_FAMILY.UNCERTAINTY_MODELING.PROBABILISTIC__TO__INVERSION.USE_PRIORS_AND_NOISE_MODELS_TO_STABILIZE_INVERSE_SOLUTIONS"
+          ],
+          "notes": [
+            "Reference-only starter. The best inversion approach depends strongly on uncertainty requirements and forward-model access.",
+            "Advisory starter only: confirm fit against current task, context, and validators before execution."
+          ]
+        }
+      ]
+    },
+    {
+      "paradigm_id": "UM.PARADIGM.TRANSFORMATION",
+      "required_dimension_ids": [
+        "UM.DIM.TRANSFORMATION.PURPOSE",
+        "UM.DIM.TRANSFORMATION.OBJECT",
+        "UM.DIM.TRANSFORMATION.APPROACH",
+        "UM.DIM.TRANSFORMATION.PRESERVATION_COMMITMENT"
+      ],
+      "user_must_confirm_dimension_ids": [
+        "UM.DIM.TRANSFORMATION.APPROACH",
+        "UM.DIM.TRANSFORMATION.PRESERVATION_COMMITMENT"
+      ],
+      "starter_profiles": [
+        {
+          "profile_id": "starter_baseline",
+          "label": "Starter baseline",
+          "definition": "Conservative transformation baseline that rewrites a representation for simplicity while retaining a bounded preservation commitment.",
+          "bundle_status": "seed_default",
+          "source_basis": [
+            "compass_semantics",
+            "seed_governance_judgment"
+          ],
+          "confidence": "moderate",
+          "override_allowed": true,
+          "review_trigger": [
+            "context_mismatch",
+            "validator_failure",
+            "major_tension_non_improvement"
+          ],
+          "dimension_selections": [
+            {
+              "dimension_id": "UM.DIM.TRANSFORMATION.APPROACH",
+              "selected_option_paths": [
+                [
+                  "representation_rewrite",
+                  "canonicalization_normalization"
+                ]
+              ]
+            },
+            {
+              "dimension_id": "UM.DIM.TRANSFORMATION.OBJECT",
+              "selected_option_paths": [
+                [
+                  "data_feature_representation"
+                ]
+              ]
+            },
+            {
+              "dimension_id": "UM.DIM.TRANSFORMATION.PRESERVATION_COMMITMENT",
+              "selected_option_paths": [
+                [
+                  "controlled_approximation"
+                ]
+              ]
+            },
+            {
+              "dimension_id": "UM.DIM.TRANSFORMATION.PURPOSE",
+              "selected_option_paths": [
+                [
+                  "simplicity"
+                ]
+              ]
+            }
+          ],
+          "machine_control_settings": [
+            {
+              "control_id": "UM.CTRL.TRANSFORMATION.VALIDATION_STRICTNESS",
+              "selected_value_id": "standard"
+            }
+          ],
+          "base_artifact_requirements": {
+            "must": [
+              "UM.ART.MODEL.REPRESENTATION_MAP",
+              "UM.ART.CLAIM.PRESERVATION_CLAIM",
+              "UM.ART.EVALUATION.TRACTABILITY_REPORT"
+            ],
+            "should": [
+              "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS",
+              "UM.ART.SPEC.ASSUMPTIONS_SCOPE",
+              "UM.ART.PROVENANCE.PROVENANCE_LOG"
+            ]
+          },
+          "base_validation_requirements": {
+            "must": [
+              "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+              "UM.VP.PROVENANCE_CHECK"
+            ],
+            "should": [
+              "UM.VP.PRESERVATION_CHECK",
+              "UM.VP.TRACTABILITY_CONDITIONING_CHECK"
+            ]
+          },
+          "default_support_edge_shortlist": [
+            "UM.EDGE_FAMILY.CONSTRAINT_INJECTION.RULE__TO__TRANSFORMATION.USE_INVARIANTS_AND_CONSTRAINTS_TO_RESTRICT_ADMISSIBLE_TRANSFORMS",
+            "UM.EDGE_FAMILY.INTEGRATION_OR_COUPLING.FUSION__TO__TRANSFORMATION.COMPOSE_CROSS_DOMAIN_TRANSFORMS_INTO_A_COHERENT_MAPPING_SET"
+          ],
+          "notes": [
+            "Reference-only starter. Transformation routes require explicit review of what is preserved.",
+            "Advisory starter only: confirm fit against current task, context, and validators before execution."
+          ]
+        }
+      ]
+    },
+    {
+      "paradigm_id": "UM.PARADIGM.FUSION",
+      "required_dimension_ids": [
+        "UM.DIM.FUSION.PURPOSE",
+        "UM.DIM.FUSION.INTEGRATION_LOGIC"
+      ],
+      "user_must_confirm_dimension_ids": [
+        "UM.DIM.FUSION.PURPOSE",
+        "UM.DIM.FUSION.INTEGRATION_LOGIC"
+      ],
+      "starter_profiles": [
+        {
+          "profile_id": "starter_baseline",
+          "label": "Starter baseline",
+          "definition": "Conservative fusion baseline that reconciles representations through alignment-based fusion with standard provenance retention.",
+          "bundle_status": "seed_default",
+          "source_basis": [
+            "compass_semantics",
+            "seed_governance_judgment"
+          ],
+          "confidence": "moderate",
+          "override_allowed": true,
+          "review_trigger": [
+            "context_mismatch",
+            "validator_failure",
+            "major_tension_non_improvement"
+          ],
+          "dimension_selections": [
+            {
+              "dimension_id": "UM.DIM.FUSION.INTEGRATION_LOGIC",
+              "selected_option_paths": [
+                [
+                  "alignment_based_fusion",
+                  "shared_space_projection"
+                ]
+              ]
+            },
+            {
+              "dimension_id": "UM.DIM.FUSION.PURPOSE",
+              "selected_option_paths": [
+                [
+                  "reconcile"
+                ]
+              ]
+            },
+            {
+              "dimension_id": "UM.DIM.FUSION.REPRESENTATION_LAYER",
+              "selected_option_paths": [
+                [
+                  "representation"
+                ]
+              ]
+            }
+          ],
+          "machine_control_settings": [
+            {
+              "control_id": "UM.CTRL.FUSION.PROVENANCE_MODE",
+              "selected_value_id": "standard"
+            },
+            {
+              "control_id": "UM.CTRL.FUSION.VALIDATION_STRICTNESS",
+              "selected_value_id": "standard"
+            }
+          ],
+          "base_artifact_requirements": {
+            "must": [
+              "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS",
+              "UM.ART.SPEC.INTERFACE_COMPOSITION_CONTRACT",
+              "UM.ART.PROVENANCE.PROVENANCE_LOG"
+            ],
+            "should": [
+              "UM.ART.DECISION.CANDIDATE_SOLUTION",
+              "UM.ART.MODEL.BELIEF_MODEL",
+              "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT"
+            ]
+          },
+          "base_validation_requirements": {
+            "must": [
+              "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+              "UM.VP.PROVENANCE_CHECK",
+              "UM.VP.INTERFACE_COMPATIBILITY_CHECK"
+            ],
+            "should": [
+              "UM.VP.CONFLICT_DETECTION",
+              "UM.VP.CONSISTENCY_CHECK"
+            ]
+          },
+          "default_support_edge_shortlist": [
+            "UM.EDGE_FAMILY.ALIGNMENT_OR_MAPPING.TRANSFORMATION__TO__FUSION.ALIGN_NORMALIZE_AND_SEMANTICALLY_MAP_INTO_A_SHARED_SPACE",
+            "UM.EDGE_FAMILY.GATING_OR_ARBITRATION.RULE__TO__FUSION.RULE_BASED_GATING_OR_ARBITRATION_TO_MANAGE_CONFLICTS"
+          ],
+          "notes": [
+            "Reference-only starter. At least one fusion locus should be explicitly activated.",
+            "Advisory starter only: confirm fit against current task, context, and validators before execution."
+          ]
+        }
+      ],
+      "selection_constraints": [
+        {
+          "constraint_type": "at_least_one_dimension_selected",
+          "dimension_ids": [
+            "UM.DIM.FUSION.INPUT_LAYER",
+            "UM.DIM.FUSION.REPRESENTATION_LAYER",
+            "UM.DIM.FUSION.OPERATIONAL_LAYER",
+            "UM.DIM.FUSION.RESOLUTION_LAYER"
+          ],
+          "definition": "At least one fusion locus layer must be selected in every valid fusion route."
+        }
+      ]
+    },
+    {
+      "paradigm_id": "UM.PARADIGM.RULE",
+      "required_dimension_ids": [
+        "UM.DIM.RULE.FUNCTION",
+        "UM.DIM.RULE.TYPE",
+        "UM.DIM.RULE.REPRESENTATION",
+        "UM.DIM.RULE.EXECUTION_PATTERN"
+      ],
+      "user_must_confirm_dimension_ids": [
+        "UM.DIM.RULE.FUNCTION",
+        "UM.DIM.RULE.REPRESENTATION",
+        "UM.DIM.RULE.EXECUTION_PATTERN"
+      ],
+      "starter_profiles": [
+        {
+          "profile_id": "starter_baseline",
+          "label": "Starter baseline",
+          "definition": "Conservative rule baseline focused on explicit constraints with rule-guided search and traceable execution.",
+          "bundle_status": "seed_default",
+          "source_basis": [
+            "compass_semantics",
+            "seed_governance_judgment"
+          ],
+          "confidence": "moderate",
+          "override_allowed": true,
+          "review_trigger": [
+            "context_mismatch",
+            "validator_failure",
+            "major_tension_non_improvement"
+          ],
+          "dimension_selections": [
+            {
+              "dimension_id": "UM.DIM.RULE.EXECUTION_PATTERN",
+              "selected_option_paths": [
+                [
+                  "rule_guided_search",
+                  "feasibility_pruning"
+                ]
+              ]
+            },
+            {
+              "dimension_id": "UM.DIM.RULE.FUNCTION",
+              "selected_option_paths": [
+                [
+                  "constrain"
+                ]
+              ]
+            },
+            {
+              "dimension_id": "UM.DIM.RULE.REPRESENTATION",
+              "selected_option_paths": [
+                [
+                  "constraint_encoding",
+                  "bound_imposition"
+                ]
+              ]
+            },
+            {
+              "dimension_id": "UM.DIM.RULE.TYPE",
+              "selected_option_paths": [
+                [
+                  "strict"
+                ]
+              ]
+            }
+          ],
+          "machine_control_settings": [
+            {
+              "control_id": "UM.CTRL.RULE.VALIDATION_STRICTNESS",
+              "selected_value_id": "standard"
+            }
+          ],
+          "base_artifact_requirements": {
+            "must": [
+              "UM.ART.POLICY.RULESET",
+              "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+            ],
+            "should": [
+              "UM.ART.SPEC.ASSUMPTIONS_SCOPE",
+              "UM.ART.PROVENANCE.PROVENANCE_LOG"
+            ]
+          },
+          "base_validation_requirements": {
+            "must": [
+              "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+              "UM.VP.PROVENANCE_CHECK"
+            ],
+            "should": [
+              "UM.VP.CONSTRAINT_SATISFACTION",
+              "UM.VP.CONFLICT_DETECTION",
+              "UM.VP.CONSISTENCY_CHECK"
+            ]
+          },
+          "default_support_edge_shortlist": [
+            "UM.EDGE_FAMILY.INTEGRATION_OR_COUPLING.FUSION__TO__RULE.MERGE_RULE_BASES_RESOLVE_CONFLICTS_VIA_PRIORITIES_AND_EXCEPTIONS",
+            "UM.EDGE_FAMILY.OBJECTIVE_DRIVEN_OPTIMIZATION.OPTIMIZATION__TO__RULE.INDUCE_RULES_BY_OPTIMIZING_COVERAGE_VERSUS_COMPLEXITY"
+          ],
+          "notes": [
+            "Reference-only starter. Rule representation and execution pattern should be chosen with audit requirements in mind.",
+            "Advisory starter only: confirm fit against current task, context, and validators before execution."
+          ]
+        }
+      ]
+    },
+    {
+      "paradigm_id": "UM.PARADIGM.EVOLUTIONARY",
+      "required_dimension_ids": [
+        "UM.DIM.EVOLUTIONARY.ROLE",
+        "UM.DIM.EVOLUTIONARY.UPDATE_TARGET",
+        "UM.DIM.EVOLUTIONARY.UPDATE_REGIME",
+        "UM.DIM.EVOLUTIONARY.UPDATE_MECHANISM",
+        "UM.DIM.EVOLUTIONARY.FEEDBACK_SIGNAL",
+        "UM.DIM.EVOLUTIONARY.CARRYOVER_LOGIC"
+      ],
+      "user_must_confirm_dimension_ids": [
+        "UM.DIM.EVOLUTIONARY.UPDATE_REGIME",
+        "UM.DIM.EVOLUTIONARY.UPDATE_MECHANISM",
+        "UM.DIM.EVOLUTIONARY.FEEDBACK_SIGNAL"
+      ],
+      "starter_profiles": [
+        {
+          "profile_id": "starter_baseline",
+          "label": "Starter baseline",
+          "definition": "Conservative evolutionary baseline for continual refinement of policies under objective feedback while preserving diversity.",
+          "bundle_status": "seed_default",
+          "source_basis": [
+            "compass_semantics",
+            "seed_governance_judgment"
+          ],
+          "confidence": "moderate",
+          "override_allowed": true,
+          "review_trigger": [
+            "context_mismatch",
+            "validator_failure",
+            "major_tension_non_improvement"
+          ],
+          "dimension_selections": [
+            {
+              "dimension_id": "UM.DIM.EVOLUTIONARY.CARRYOVER_LOGIC",
+              "selected_option_paths": [
+                [
+                  "diversity_preservation"
+                ]
+              ]
+            },
+            {
+              "dimension_id": "UM.DIM.EVOLUTIONARY.FEEDBACK_SIGNAL",
+              "selected_option_paths": [
+                [
+                  "objective"
+                ]
+              ]
+            },
+            {
+              "dimension_id": "UM.DIM.EVOLUTIONARY.ROLE",
+              "selected_option_paths": [
+                [
+                  "refine"
+                ]
+              ]
+            },
+            {
+              "dimension_id": "UM.DIM.EVOLUTIONARY.UPDATE_MECHANISM",
+              "selected_option_paths": [
+                [
+                  "in_place_adjustment",
+                  "tuning"
+                ]
+              ]
+            },
+            {
+              "dimension_id": "UM.DIM.EVOLUTIONARY.UPDATE_REGIME",
+              "selected_option_paths": [
+                [
+                  "continual"
+                ]
+              ]
+            },
+            {
+              "dimension_id": "UM.DIM.EVOLUTIONARY.UPDATE_TARGET",
+              "selected_option_paths": [
+                [
+                  "strategies_policies"
+                ]
+              ]
+            }
+          ],
+          "machine_control_settings": [
+            {
+              "control_id": "UM.CTRL.EVOLUTIONARY.VALIDATION_STRICTNESS",
+              "selected_value_id": "standard"
+            }
+          ],
+          "base_artifact_requirements": {
+            "must": [
+              "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS",
+              "UM.ART.DECISION.CANDIDATE_SOLUTION",
+              "UM.ART.EVIDENCE.EXECUTION_TRACES"
+            ],
+            "should": [
+              "UM.ART.PROVENANCE.PROVENANCE_LOG",
+              "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT"
+            ]
+          },
+          "base_validation_requirements": {
+            "must": [
+              "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+              "UM.VP.PROVENANCE_CHECK"
+            ],
+            "should": [
+              "UM.VP.DIVERSITY_CHECK",
+              "UM.VP.CONSTRAINT_SATISFACTION",
+              "UM.VP.SOLVER_STABILITY_SMOKE_TEST"
+            ]
+          },
+          "default_support_edge_shortlist": [
+            "UM.EDGE_FAMILY.OBJECTIVE_DRIVEN_OPTIMIZATION.OPTIMIZATION__TO__EVOLUTIONARY.USE_OPTIMIZATION_FOR_LOCAL_REFINEMENT_WITHIN_EVOLUTION",
+            "UM.EDGE_FAMILY.REPRESENTATION_SHAPING.TRANSFORMATION__TO__EVOLUTIONARY.SHAPE_REPRESENTATIONS_ENCODE_INVARIANCES_FOR_FEASIBLE_VARIATION"
+          ],
+          "notes": [
+            "Reference-only starter. Update regime and feedback signal are especially context-sensitive.",
+            "Advisory starter only: confirm fit against current task, context, and validators before execution."
+          ]
+        }
+      ]
+    }
+  ],
+  "design_notes": [
+    "Starter defaults are defeasible seed bundles, not mandatory truth. They should be treated as conservative starting points that downstream planners or users may refine.",
+    "Dimension selections are expressed against compass option paths. A selection path may stop at a stable option family or descend into a leaf bullet family when the default needs a more specific methodological prior.",
+    "Required dimensions identify what must be resolved for a minimally valid route. Concrete profiles may still require downstream confirmation or local specialization.",
+    "Base artifact and validation requirements are starter-contract expectations, not universal guarantees of sufficiency or optimality.",
+    "A downstream planner should confirm the route against current task context before execution. If a must-item is dropped, it should normally be recorded as a waiver or explicit override.",
+    "Defaults are intended to reduce first-move ambiguity; they are not intended to eliminate later refinement, support-edge selection, or profile replacement."
+  ]
+}

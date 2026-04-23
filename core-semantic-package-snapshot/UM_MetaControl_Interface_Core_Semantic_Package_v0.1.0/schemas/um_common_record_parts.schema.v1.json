@@ -1,0 +1,443 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://um-mci.local/schemas/um_common_record_parts.schema.v1.json",
+  "title": "UM Common Record Parts",
+  "type": "object",
+  "$defs": {
+    "version_pin": {
+      "type": "object",
+      "properties": {
+        "package_name": {
+          "type": "string"
+        },
+        "package_semver": {
+          "type": "string"
+        },
+        "layer1_registry_version": {
+          "type": "string"
+        },
+        "layer2_seed_version": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "artifact_ref": {
+      "type": "object",
+      "required": [
+        "artifact_type_id",
+        "semantic_label"
+      ],
+      "properties": {
+        "artifact_id": {
+          "type": "string"
+        },
+        "artifact_type_id": {
+          "type": "string",
+          "pattern": "^UM\\.ART\\."
+        },
+        "semantic_label": {
+          "type": "string"
+        },
+        "pointer": {
+          "type": "string"
+        },
+        "hash": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "extensions": {
+          "type": "object",
+          "patternProperties": {
+            "^[A-Za-z0-9_.:-]+$": {
+              "type": [
+                "object",
+                "array",
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "validation_result": {
+      "type": "object",
+      "required": [
+        "vp_id",
+        "result"
+      ],
+      "properties": {
+        "vp_id": {
+          "type": "string",
+          "pattern": "^UM\\.VP\\."
+        },
+        "hook_id": {
+          "type": "string"
+        },
+        "verifier_id": {
+          "type": "string"
+        },
+        "result": {
+          "type": "string",
+          "enum": [
+            "pass",
+            "fail",
+            "warn",
+            "skip"
+          ]
+        },
+        "metrics_pointer": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "severity": {
+          "type": "string",
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "waived": {
+          "type": "boolean"
+        },
+        "extensions": {
+          "type": "object",
+          "patternProperties": {
+            "^[A-Za-z0-9_.:-]+$": {
+              "type": [
+                "object",
+                "array",
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "edge_instance": {
+      "type": "object",
+      "required": [
+        "edge_family_id"
+      ],
+      "properties": {
+        "edge_family_id": {
+          "type": "string",
+          "pattern": "^UM\\.EDGE_FAMILY\\."
+        },
+        "edge_slot_id": {
+          "type": "string",
+          "pattern": "^UM\\.EDGE_SLOT\\."
+        },
+        "order": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "scope": {
+          "type": "string"
+        },
+        "local_settings": {
+          "type": "object"
+        },
+        "activation_reason": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "extensions": {
+          "type": "object",
+          "patternProperties": {
+            "^[A-Za-z0-9_.:-]+$": {
+              "type": [
+                "object",
+                "array",
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "edge_role_in_stage": {
+          "type": "string",
+          "enum": [
+            "incoming_support",
+            "outgoing_preparation",
+            "internal_composition",
+            "cross_stage_link"
+          ],
+          "description": "Role of this edge in the current stage: incoming support to the current base route, outgoing preparation for a downstream stage, internal composition, or primarily a route-graph link."
+        }
+      },
+      "additionalProperties": false
+    },
+    "reqset": {
+      "type": "object",
+      "properties": {
+        "must": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "should": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "may": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "waived": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "resolution_snapshot": {
+      "type": "object",
+      "properties": {
+        "source_profile_id": {
+          "type": "string"
+        },
+        "contract_profile": {
+          "type": "string",
+          "enum": [
+            "light",
+            "standard",
+            "strict"
+          ]
+        },
+        "artifact_requirements": {
+          "$ref": "#/$defs/reqset"
+        },
+        "validation_requirements": {
+          "$ref": "#/$defs/reqset"
+        },
+        "applied_edge_families": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^UM\\.EDGE_FAMILY\\."
+          }
+        },
+        "applied_waivers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "notes": {
+          "type": "string"
+        },
+        "applied_dimension_selections": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/dimension_selection"
+          }
+        },
+        "applied_machine_controls": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/machine_control_setting"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "failure_localization": {
+      "type": "object",
+      "properties": {
+        "failure_type": {
+          "type": "string",
+          "enum": [
+            "none",
+            "artifact_contract_incomplete",
+            "validation_failed",
+            "tension_not_improved",
+            "context_violation",
+            "unknown"
+          ]
+        },
+        "failure_signatures": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "signals": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "outcome": {
+      "type": "object",
+      "required": [
+        "status"
+      ],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "success",
+            "failure",
+            "partial"
+          ]
+        },
+        "summary": {
+          "type": "string"
+        },
+        "utility_estimate": {
+          "type": "number"
+        },
+        "external_score": {
+          "type": "number"
+        },
+        "accepted_by_user": {
+          "type": "boolean"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "extensions": {
+          "type": "object",
+          "patternProperties": {
+            "^[A-Za-z0-9_.:-]+$": {
+              "type": [
+                "object",
+                "array",
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "dimension_selection": {
+      "type": "object",
+      "required": [
+        "dimension_id",
+        "selected_option_paths"
+      ],
+      "properties": {
+        "dimension_id": {
+          "type": "string",
+          "pattern": "^UM\\.DIM\\."
+        },
+        "selected_option_paths": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/option_path"
+          },
+          "minItems": 1
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "machine_control_setting": {
+      "type": "object",
+      "required": [
+        "control_id",
+        "selected_value_id"
+      ],
+      "properties": {
+        "control_id": {
+          "type": "string",
+          "pattern": "^UM\\.CTRL\\."
+        },
+        "selected_value_id": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "stage_link": {
+      "type": "object",
+      "required": [
+        "from_stage_id",
+        "to_stage_id",
+        "relation"
+      ],
+      "properties": {
+        "from_stage_id": {
+          "type": "string"
+        },
+        "to_stage_id": {
+          "type": "string"
+        },
+        "relation": {
+          "type": "string",
+          "enum": [
+            "precedes",
+            "feeds",
+            "branches_to",
+            "merges_into",
+            "refines",
+            "revises",
+            "calls"
+          ]
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "option_path": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    }
+  },
+  "additionalProperties": false
+}

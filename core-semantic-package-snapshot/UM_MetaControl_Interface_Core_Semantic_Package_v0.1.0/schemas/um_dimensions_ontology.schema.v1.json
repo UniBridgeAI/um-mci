@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UM-MCI dimensions ontology",
+  "type": "object",
+  "required": [
+    "package",
+    "dimensions"
+  ],
+  "properties": {
+    "package": {
+      "type": "object"
+    },
+    "dimensions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/dimension"
+      }
+    },
+    "design_notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "$defs": {
+    "dimension": {
+      "type": "object",
+      "required": [
+        "dimension_id",
+        "paradigm_id",
+        "label",
+        "kind",
+        "hierarchy_role",
+        "definition",
+        "value_space_location"
+      ],
+      "properties": {
+        "dimension_id": {
+          "type": "string",
+          "pattern": "^UM\\.DIM\\."
+        },
+        "paradigm_id": {
+          "type": "string",
+          "pattern": "^UM\\.PARADIGM\\."
+        },
+        "label": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "parent_dimension_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "hierarchy_role": {
+          "type": "string"
+        },
+        "definition": {
+          "type": "string"
+        },
+        "selection_semantics": {
+          "type": "string"
+        },
+        "activation_mode": {
+          "type": "string"
+        },
+        "value_space_location": {
+          "type": "string"
+        },
+        "tag": {
+          "type": "string"
+        },
+        "selection_constraints": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/selection_constraint"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "selection_constraint": {
+      "type": "object",
+      "required": [
+        "constraint_type",
+        "definition"
+      ],
+      "properties": {
+        "constraint_type": {
+          "type": "string"
+        },
+        "subdimension_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^UM\\.DIM\\."
+          }
+        },
+        "dimension_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^UM\\.DIM\\."
+          }
+        },
+        "definition": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

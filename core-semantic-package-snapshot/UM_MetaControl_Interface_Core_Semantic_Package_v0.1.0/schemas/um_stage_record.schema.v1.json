@@ -1,0 +1,149 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://um-mci.local/schemas/um_stage_record.schema.v1.json",
+  "title": "UM Stage Record",
+  "type": "object",
+  "required": [
+    "stage_id",
+    "base_paradigm_id",
+    "route",
+    "artifacts",
+    "validations",
+    "tension_pre",
+    "tension_post",
+    "outcome"
+  ],
+  "properties": {
+    "stage_id": {
+      "type": "string"
+    },
+    "stage_label": {
+      "type": "string"
+    },
+    "stage_order": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "package_version_pin": {
+      "$ref": "um_common_record_parts.schema.v1.json#/$defs/version_pin"
+    },
+    "base_paradigm_id": {
+      "type": "string",
+      "pattern": "^UM\\.PARADIGM\\."
+    },
+    "goal_summary": {
+      "type": "string"
+    },
+    "route": {
+      "type": "object",
+      "required": [
+        "dimension_selections"
+      ],
+      "properties": {
+        "base_profile_id": {
+          "type": "string"
+        },
+        "dimension_selections": {
+          "type": "array",
+          "items": {
+            "$ref": "um_common_record_parts.schema.v1.json#/$defs/dimension_selection"
+          }
+        },
+        "machine_control_settings": {
+          "type": "array",
+          "items": {
+            "$ref": "um_common_record_parts.schema.v1.json#/$defs/machine_control_setting"
+          }
+        },
+        "supporting_edge_instances": {
+          "type": "array",
+          "items": {
+            "$ref": "um_common_record_parts.schema.v1.json#/$defs/edge_instance"
+          }
+        },
+        "motif_id": {
+          "type": "string"
+        },
+        "resolution_policy_id": {
+          "type": "string"
+        },
+        "route_notes": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "$ref": "um_common_record_parts.schema.v1.json#/$defs/artifact_ref"
+      }
+    },
+    "validations": {
+      "type": "array",
+      "items": {
+        "$ref": "um_common_record_parts.schema.v1.json#/$defs/validation_result"
+      }
+    },
+    "validation_plan": {
+      "$ref": "um_common_record_parts.schema.v1.json#/$defs/reqset"
+    },
+    "stop_conditions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tension_pre": {
+      "$ref": "um_tension_belief_instance.schema.v1.json"
+    },
+    "tension_post": {
+      "$ref": "um_tension_belief_instance.schema.v1.json"
+    },
+    "governance_context_override": {
+      "$ref": "um_governance_context_instance.schema.v1.json"
+    },
+    "affordance_context_override": {
+      "$ref": "um_affordance_context_instance.schema.v1.json"
+    },
+    "resolution_snapshot": {
+      "$ref": "um_common_record_parts.schema.v1.json#/$defs/resolution_snapshot"
+    },
+    "failure_localization": {
+      "$ref": "um_common_record_parts.schema.v1.json#/$defs/failure_localization"
+    },
+    "costs": {
+      "type": "object"
+    },
+    "outcome": {
+      "$ref": "um_common_record_parts.schema.v1.json#/$defs/outcome"
+    },
+    "proposals": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "notes": {
+      "type": "string"
+    },
+    "extensions": {
+      "type": "object",
+      "description": "Optional local/vendor extensions. Place non-core fields here and namespace them by team, vendor, or project to preserve interoperability.",
+      "patternProperties": {
+        "^[A-Za-z0-9_.:-]+$": {
+          "type": [
+            "object",
+            "array",
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

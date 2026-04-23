@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UM-MCI namespaces registry",
+  "type": "object",
+  "required": [
+    "package",
+    "conventions",
+    "namespaces"
+  ],
+  "properties": {
+    "package": {
+      "type": "object"
+    },
+    "conventions": {
+      "type": "object",
+      "required": [
+        "id_style",
+        "stability",
+        "registration_policy"
+      ],
+      "properties": {
+        "id_style": {
+          "type": "string"
+        },
+        "stability": {
+          "type": "string"
+        },
+        "registration_policy": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "namespaces": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "prefix",
+          "meaning",
+          "examples"
+        ],
+        "properties": {
+          "prefix": {
+            "type": "string"
+          },
+          "meaning": {
+            "type": "string"
+          },
+          "examples": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

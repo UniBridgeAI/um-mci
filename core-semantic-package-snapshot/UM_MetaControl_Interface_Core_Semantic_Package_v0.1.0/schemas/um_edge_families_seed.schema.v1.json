@@ -1,0 +1,168 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UM-MCI edge families seed",
+  "type": "object",
+  "required": [
+    "package",
+    "edge_families"
+  ],
+  "properties": {
+    "package": {
+      "type": "object"
+    },
+    "edge_families": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/edge_family"
+      }
+    },
+    "design_notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "$defs": {
+    "typed_contract": {
+      "type": "object",
+      "properties": {
+        "requires_artifact_types": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^UM\\.ART\\."
+          }
+        },
+        "produces_artifact_types": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^UM\\.ART\\."
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "cost_model": {
+      "type": "object",
+      "properties": {
+        "relative_cost": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "edge_family": {
+      "type": "object",
+      "required": [
+        "edge_family_id",
+        "edge_slot_id",
+        "relation_role",
+        "operator_family",
+        "operator_family_code",
+        "mechanism_summary",
+        "typed_contract"
+      ],
+      "properties": {
+        "edge_family_id": {
+          "type": "string",
+          "pattern": "^UM\\.EDGE_FAMILY\\."
+        },
+        "edge_slot_id": {
+          "type": "string",
+          "pattern": "^UM\\.EDGE_SLOT\\."
+        },
+        "relation_role": {
+          "type": "string"
+        },
+        "operator_family": {
+          "type": "string"
+        },
+        "operator_family_code": {
+          "type": "string"
+        },
+        "mechanism_summary": {
+          "type": "string"
+        },
+        "typed_contract": {
+          "$ref": "#/$defs/typed_contract"
+        },
+        "default_validation_primitives": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/validation_ref"
+          }
+        },
+        "typical_failure_modes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "trigger_conditions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "anti_triggers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "cost_model": {
+          "$ref": "#/$defs/cost_model"
+        },
+        "effect_tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "seed_status": {
+          "type": "string"
+        },
+        "source_basis": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "confidence": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "validation_ref": {
+      "type": "object",
+      "required": [
+        "vp_id"
+      ],
+      "properties": {
+        "vp_id": {
+          "type": "string",
+          "pattern": "^UM\\.VP\\."
+        },
+        "requirement": {
+          "type": "string",
+          "enum": [
+            "must",
+            "should",
+            "may"
+          ]
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

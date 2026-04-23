@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UM-MCI edge slots ontology",
+  "type": "object",
+  "required": [
+    "package",
+    "direction_semantics",
+    "slot_id_rule",
+    "edge_slots"
+  ],
+  "properties": {
+    "package": {
+      "type": "object"
+    },
+    "direction_semantics": {
+      "type": "string"
+    },
+    "slot_id_rule": {
+      "type": "string"
+    },
+    "edge_slots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "edge_slot_id",
+          "from_paradigm_id",
+          "to_paradigm_id"
+        ],
+        "properties": {
+          "edge_slot_id": {
+            "type": "string",
+            "pattern": "^UM\\.EDGE_SLOT\\."
+          },
+          "from_paradigm_id": {
+            "type": "string",
+            "pattern": "^UM\\.PARADIGM\\."
+          },
+          "to_paradigm_id": {
+            "type": "string",
+            "pattern": "^UM\\.PARADIGM\\."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "invariants": {
+      "type": "object",
+      "required": [
+        "notes",
+        "count"
+      ],
+      "properties": {
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "count": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "notes": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

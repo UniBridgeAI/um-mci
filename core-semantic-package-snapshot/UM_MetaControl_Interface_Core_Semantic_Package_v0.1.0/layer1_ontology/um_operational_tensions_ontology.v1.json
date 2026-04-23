@@ -1,0 +1,217 @@
+{
+  "package": {
+    "name": "Universal Methodology Meta-Control Interface",
+    "short_name": "UM-MCI",
+    "package_semver": "0.1.0",
+    "schema_major_version": 1,
+    "generated_utc": "2026-04-21T09:21:33Z",
+    "package_name": "UM_MetaControl_Interface_Core_Semantic_Package"
+  },
+  "tension_dimensions": [
+    {
+      "dimension_id": "UM.OT.AMBIGUITY",
+      "label": "Objective / Spec Ambiguity",
+      "description": "Ambiguity in goals, constraints, terms, or acceptance criteria. This is a run-state pressure, not a permanent task essence: it may be reduced by clarification, scoping, formalization, or better specification.",
+      "scale": {
+        "type": "ordinal",
+        "levels": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "anchors": {
+        "0": "Success criteria and constraints are explicit; key terms are defined; minimal open questions.",
+        "1": "Mostly specified, but 1–2 critical boundary conditions or definitions remain unclear.",
+        "2": "Direction is clear but operationalization is incomplete; multiple key slots are unbound or conflicting.",
+        "3": "No reliable acceptance criteria; key terms undefined; any route would be unauditable without clarification."
+      },
+      "evidence_proxies": [
+        "count_unbound_slots_in_objective_constraints_spec",
+        "presence_of_explicit_acceptance_criteria",
+        "count_conflicting_requirements"
+      ],
+      "typical_relief_channels": [
+        "clarification",
+        "scope_restriction",
+        "rule_or_specification_formalization",
+        "transformation_of_problem_formulation"
+      ],
+      "record_guidance": "Log this tension when unclear specification materially affects route choice or acceptance criteria. Do not create a standalone stage for a trivial clarification unless it becomes a substantial episode."
+    },
+    {
+      "dimension_id": "UM.OT.UNCERTAINTY",
+      "label": "Residual Uncertainty Pressure",
+      "description": "Uncertainty that remains even with a clear specification, such as stochasticity, incomplete observability, or model uncertainty. This pressure is often reduced by probabilistic treatment, robustness analysis, or additional evidence rather than by clarification alone.",
+      "scale": {
+        "type": "ordinal",
+        "levels": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "anchors": {
+        "0": "Deterministic or negligible uncertainty; precise prediction/decision feasible.",
+        "1": "Manageable uncertainty; point solution ok with light sensitivity/robustness checks.",
+        "2": "Substantial uncertainty; probabilistic/robust treatment recommended; risk of brittle decisions.",
+        "3": "Dominant uncertainty; must model uncertainty explicitly; decision requires risk-aware or multi-hypothesis reasoning."
+      },
+      "evidence_proxies": [
+        "variance_or_noise_estimate",
+        "model_misspecification_indicators",
+        "need_for_multi_hypothesis_outputs"
+      ],
+      "typical_relief_channels": [
+        "probabilistic_modeling",
+        "robust_optimization_or_hedging",
+        "simulation_or_sensitivity",
+        "evidence_acquisition"
+      ],
+      "record_guidance": "Log this tension when uncertainty materially changes the route, validator choice, or output form (for example point estimate vs distribution)."
+    },
+    {
+      "dimension_id": "UM.OT.TRACTABILITY",
+      "label": "Tractability / Feasibility Pressure",
+      "description": "Pressure created when the current representation, coupling pattern, search space, or computational route is too large, stiff, unstable, or otherwise impractical to resolve reliably under the present methodological design. This is distinct from exogenous budget context: it concerns the internal manageability of the current route and can often be reduced by reformulation, decomposition, relaxation, emulation, or scope control.",
+      "scale": {
+        "type": "ordinal",
+        "levels": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "anchors": {
+        "0": "The current formulation and evaluation path are operationally manageable; no special tractability intervention is needed.",
+        "1": "Costs or conditioning issues are noticeable but still manageable with light simplification, caching, or modest local controls.",
+        "2": "The current route is expensive, brittle, or poorly conditioned enough that reformulation, decomposition, approximation, or stronger staging is advisable.",
+        "3": "The current route is effectively inoperable or unauditable at scale; a methodological change is needed before meaningful progress is likely."
+      },
+      "evidence_proxies": [
+        "timeout_or_budget_overrun_frequency",
+        "state_space_or_candidate_explosion",
+        "conditioning_or_solver_instability_indicators",
+        "need_for_surrogates_or_relaxations"
+      ],
+      "typical_relief_channels": [
+        "transformation_or_reformulation",
+        "decomposition_or_coarse_graining",
+        "surrogate_or_emulation",
+        "relaxation_or_scope_reduction"
+      ],
+      "record_guidance": "Log this tension when the current formulation or route is too costly, unstable, or unwieldy to carry forward without a nontrivial methodological adjustment."
+    },
+    {
+      "dimension_id": "UM.OT.HORIZON",
+      "label": "Horizon Pressure / Lookahead Burden",
+      "description": "Pressure created by unresolved future coupling, delayed feedback, or multi-stage dependency relative to the current route. It is not mere task length; it reflects how much long-range burden the current route still carries without sufficient staging, milestones, or lookahead structure.",
+      "scale": {
+        "type": "ordinal",
+        "levels": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "anchors": {
+        "0": "The current route is locally bounded; future coupling is already externalized or staged sufficiently.",
+        "1": "Some forward dependencies remain, but short lookahead and light milestone control appear sufficient.",
+        "2": "The current route still carries significant multi-stage coupling; stronger staging, milestone structure, or selective foresight is advisable.",
+        "3": "Long-range coupling dominates the current route; without staging, receding-horizon control, or simulation/lookahead support the route is likely to thrash or loop."
+      },
+      "evidence_proxies": [
+        "expected_number_of_stages",
+        "observed_replan_count",
+        "presence_of_intermediate_milestones"
+      ],
+      "typical_relief_channels": [
+        "decomposition_into_stages",
+        "receding_horizon_or_stage_wise_planning",
+        "simulation_or_lookahead",
+        "intermediate_milestones_and_artifacts"
+      ],
+      "record_guidance": "Log this tension when the current route is carrying too much unresolved future coupling or repeated replanning burden."
+    },
+    {
+      "dimension_id": "UM.OT.CONSISTENCY",
+      "label": "Cross-Artifact Consistency Tension",
+      "description": "Degree of contradiction or mismatch among current artifacts, assumptions, models, and evidence. The pressure may be reduced by transformation, fusion, arbitration, or new evidence.",
+      "scale": {
+        "type": "ordinal",
+        "levels": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "anchors": {
+        "0": "Artifacts align; no contradictions detected.",
+        "1": "Minor inconsistencies; fixable via edits/mapping.",
+        "2": "Multiple inconsistencies affecting decisions; requires transformation/fusion or constraint revision.",
+        "3": "Severe contradictions; cannot proceed without resolving conflicts or producing new evidence."
+      },
+      "evidence_proxies": [
+        "conflict_detection_count",
+        "inconsistent_entity_definitions",
+        "validator_failures_consistency_check"
+      ],
+      "typical_relief_channels": [
+        "transformation_and_mapping",
+        "fusion_or_reconciliation",
+        "rule_based_arbitration",
+        "evidence_acquisition"
+      ],
+      "record_guidance": "Log this tension when contradictions materially affect route validity, validator results, or downstream decisions."
+    },
+    {
+      "dimension_id": "UM.OT.EVIDENCE_GAP",
+      "label": "Evidence Gap",
+      "description": "Gap between the evidence required for the current claims or decisions and the evidence currently available. Relief may come from retrieval, measurement, acquisition, simulation-generated evidence, or deliberate scope reduction.",
+      "scale": {
+        "type": "ordinal",
+        "levels": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "anchors": {
+        "0": "Sufficient validated evidence is available for the current decision.",
+        "1": "Some missing evidence; can proceed with light checks and explicit caveats.",
+        "2": "Significant missing evidence; must generate/collect evidence or reduce scope.",
+        "3": "No reliable evidence; proceed would be speculative; must switch to evidence-generating paradigms."
+      },
+      "evidence_proxies": [
+        "count_missing_required_artifacts",
+        "validator_failures_evidence_related",
+        "ratio_of_claims_without_evidence"
+      ],
+      "typical_relief_channels": [
+        "retrieval_or_search",
+        "evidence_acquisition",
+        "simulation_or_synthetic_evidence",
+        "scope_reduction"
+      ],
+      "record_guidance": "Log this tension when the current route wants to make claims that its present evidence base cannot yet justify."
+    }
+  ],
+  "design_notes": [
+    "Tension entries in records are assessor beliefs (with confidence and evidence pointers), not ground-truth measurements; they may be produced by an agent, a human supervisor, or a hybrid assessment process.",
+    "Tensions are recorded as beliefs (ordinal level + confidence + evidence pointers), not as ground-truth measurements.",
+    "Operational tensions are route-relative diagnostic pressures, not immutable task descriptors.",
+    "Ambiguity and uncertainty remain intentionally distinct: ambiguity concerns under-specified goals, terms, or acceptance criteria; uncertainty remains even when the specification is clear.",
+    "Tractability / feasibility pressure is distinct from exogenous budget context: it concerns whether the current formulation and route are internally manageable, stable, and auditable.",
+    "Horizon pressure concerns unresolved future coupling and staging burden relative to the current route, not task length in the abstract.",
+    "Evidence gap concerns whether the current claims or decisions outrun the presently available evidence base.",
+    "Consistency tension concerns contradictions or mismatch across current artifacts, assumptions, models, or evidence.",
+    "Tensions should normally be updated at stage boundaries or other meaningful checkpoints, not after every microstep.",
+    "Trivial clarification, one-off retrieval, or tiny tool calls should usually remain in provenance unless they become nontrivial locally auditable episodes."
+  ]
+}

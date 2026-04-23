@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UM-MCI validation primitives registry",
+  "type": "object",
+  "required": [
+    "package",
+    "validation_primitives"
+  ],
+  "properties": {
+    "package": {
+      "type": "object"
+    },
+    "validation_primitives": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "validation_primitive_id",
+          "label",
+          "checks",
+          "outputs_produced",
+          "strength",
+          "cost_class",
+          "realization_modalities"
+        ],
+        "properties": {
+          "validation_primitive_id": {
+            "type": "string",
+            "pattern": "^UM\\.VP\\."
+          },
+          "label": {
+            "type": "string"
+          },
+          "checks": {
+            "type": "string"
+          },
+          "inputs_required": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "typical_inputs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "outputs_produced": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "strength": {
+            "type": "string"
+          },
+          "cost_class": {
+            "type": "string"
+          },
+          "realization_modalities": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "design_notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

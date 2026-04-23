@@ -1,0 +1,231 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UM-MCI paradigm compass seed",
+  "type": "object",
+  "required": [
+    "package",
+    "paradigm_compass_seeds"
+  ],
+  "properties": {
+    "package": {
+      "type": "object"
+    },
+    "paradigm_compass_seeds": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/paradigm_seed"
+      }
+    },
+    "design_notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "$defs": {
+    "option": {
+      "type": "object",
+      "required": [
+        "value_id",
+        "label",
+        "definition"
+      ],
+      "properties": {
+        "value_id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "definition": {
+          "type": "string"
+        },
+        "tag": {
+          "type": "string"
+        },
+        "children": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/option"
+          }
+        },
+        "comparison_cells": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "dimension": {
+      "type": "object",
+      "required": [
+        "dimension_id",
+        "label",
+        "kind",
+        "definition"
+      ],
+      "properties": {
+        "dimension_id": {
+          "type": "string",
+          "pattern": "^UM\\.DIM\\."
+        },
+        "label": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "definition": {
+          "type": "string"
+        },
+        "tag": {
+          "type": "string"
+        },
+        "selection_semantics": {
+          "type": "string"
+        },
+        "stability_level": {
+          "type": "string"
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/option"
+          }
+        },
+        "subdimensions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/dimension"
+          }
+        },
+        "associated_axes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/dimension"
+          }
+        },
+        "layer_modules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/dimension"
+          }
+        },
+        "activation_mode": {
+          "type": "string"
+        },
+        "comparison_axes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "selection_constraints": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/selection_constraint"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "paradigm_seed": {
+      "type": "object",
+      "required": [
+        "paradigm_id",
+        "aligned_to",
+        "label",
+        "short_code",
+        "thinking_label",
+        "definition",
+        "trigger_cue",
+        "summary_tag",
+        "semantic_tags",
+        "dimensions"
+      ],
+      "properties": {
+        "paradigm_id": {
+          "type": "string",
+          "pattern": "^UM\\.PARADIGM\\."
+        },
+        "aligned_to": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "short_code": {
+          "type": "string"
+        },
+        "thinking_label": {
+          "type": "string"
+        },
+        "definition": {
+          "type": "string"
+        },
+        "trigger_cue": {
+          "type": "string"
+        },
+        "summary_tag": {
+          "type": "string"
+        },
+        "semantic_tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "scope_notes": {
+          "type": "string"
+        },
+        "dimensions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/dimension"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "selection_constraint": {
+      "type": "object",
+      "required": [
+        "constraint_type",
+        "definition"
+      ],
+      "properties": {
+        "constraint_type": {
+          "type": "string"
+        },
+        "subdimension_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^UM\\.DIM\\."
+          }
+        },
+        "dimension_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^UM\\.DIM\\."
+          }
+        },
+        "definition": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

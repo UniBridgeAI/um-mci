@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UM-MCI artifact types registry",
+  "type": "object",
+  "required": [
+    "package",
+    "artifact_types"
+  ],
+  "properties": {
+    "package": {
+      "type": "object"
+    },
+    "artifact_types": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "artifact_type_id",
+          "label",
+          "description"
+        ],
+        "properties": {
+          "artifact_type_id": {
+            "type": "string",
+            "pattern": "^UM\\.ART\\."
+          },
+          "label": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "design_notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

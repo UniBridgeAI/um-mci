@@ -1,0 +1,401 @@
+{
+  "package": {
+    "name": "Universal Methodology Meta-Control Interface",
+    "short_name": "UM-MCI",
+    "package_semver": "0.1.0",
+    "schema_major_version": 1,
+    "generated_utc": "2026-04-21T09:21:33Z",
+    "package_name": "UM_MetaControl_Interface_Core_Semantic_Package"
+  },
+  "validation_primitives": [
+    {
+      "validation_primitive_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+      "label": "Artifact Contract Completeness",
+      "checks": "Required artifact families for the current stage contract, paradigm default, and active edge families are present and minimally populated.",
+      "inputs_required": [
+        "UM.ART.PROVENANCE.PROVENANCE_LOG"
+      ],
+      "typical_inputs": [
+        "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS",
+        "UM.ART.SPEC.ASSUMPTIONS_SCOPE"
+      ],
+      "outputs_produced": [
+        "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT"
+      ],
+      "strength": "strong",
+      "cost_class": "cheap",
+      "realization_modalities": [
+        "deterministic_check",
+        "schema_validation",
+        "human_review",
+        "llm_rubric",
+        "contract_resolver"
+      ]
+    },
+    {
+      "validation_primitive_id": "UM.VP.PROVENANCE_CHECK",
+      "label": "Provenance Check",
+      "checks": "Artifacts cite sources, tools, versions, and lineage sufficient for audit and reproduction.",
+      "inputs_required": [
+        "UM.ART.PROVENANCE.PROVENANCE_LOG"
+      ],
+      "typical_inputs": [
+        "UM.ART.EVIDENCE.EXECUTION_TRACES",
+        "UM.ART.SPEC.ASSUMPTIONS_SCOPE"
+      ],
+      "outputs_produced": [
+        "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT"
+      ],
+      "strength": "medium",
+      "cost_class": "cheap",
+      "realization_modalities": [
+        "deterministic_check",
+        "llm_rubric",
+        "human_review"
+      ]
+    },
+    {
+      "validation_primitive_id": "UM.VP.CONSTRAINT_SATISFACTION",
+      "label": "Constraint Satisfaction",
+      "checks": "Candidate solution satisfies declared hard constraints (or reports violations explicitly).",
+      "inputs_required": [
+        "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS",
+        "UM.ART.DECISION.CANDIDATE_SOLUTION"
+      ],
+      "typical_inputs": [
+        "UM.ART.MODEL.WORLD_MODEL",
+        "UM.ART.MODEL.FORWARD_MODEL"
+      ],
+      "outputs_produced": [
+        "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT"
+      ],
+      "strength": "strong",
+      "cost_class": "cheap",
+      "realization_modalities": [
+        "deterministic_check",
+        "unit_test",
+        "simulation_check",
+        "human_review"
+      ]
+    },
+    {
+      "validation_primitive_id": "UM.VP.CONSISTENCY_CHECK",
+      "label": "Cross-Artifact Consistency Check",
+      "checks": "Artifacts agree on shared entities/variables (units, names, assumptions, constraints) and do not contradict each other.",
+      "inputs_required": [
+        "UM.ART.SPEC.ASSUMPTIONS_SCOPE"
+      ],
+      "typical_inputs": [
+        "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS",
+        "UM.ART.MODEL.REPRESENTATION_MAP",
+        "UM.ART.POLICY.RULESET"
+      ],
+      "outputs_produced": [
+        "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT"
+      ],
+      "strength": "medium",
+      "cost_class": "cheap",
+      "realization_modalities": [
+        "deterministic_check",
+        "llm_rubric",
+        "human_review"
+      ]
+    },
+    {
+      "validation_primitive_id": "UM.VP.INVARIANCE_CHECK",
+      "label": "Invariance Check",
+      "checks": "A strict preservation check for exact invariance claims under a transformation or composition step.",
+      "inputs_required": [
+        "UM.ART.MODEL.REPRESENTATION_MAP",
+        "UM.ART.CLAIM.INVARIANCE_CLAIM"
+      ],
+      "typical_inputs": [
+        "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS",
+        "UM.ART.CLAIM.PRESERVATION_CLAIM"
+      ],
+      "outputs_produced": [
+        "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT"
+      ],
+      "strength": "strong",
+      "cost_class": "medium",
+      "realization_modalities": [
+        "deterministic_check",
+        "unit_test",
+        "property_based_test",
+        "human_review",
+        "llm_rubric"
+      ]
+    },
+    {
+      "validation_primitive_id": "UM.VP.TRACTABILITY_CONDITIONING_CHECK",
+      "label": "Tractability / Conditioning Check",
+      "checks": "Tractability is improved (or not degraded) relative to baseline: conditioning, convexity proxies, identifiability heuristics, complexity bounds.",
+      "inputs_required": [
+        "UM.ART.EVALUATION.TRACTABILITY_REPORT"
+      ],
+      "typical_inputs": [
+        "UM.ART.MODEL.REPRESENTATION_MAP",
+        "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+      ],
+      "outputs_produced": [
+        "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT"
+      ],
+      "strength": "medium",
+      "cost_class": "medium",
+      "realization_modalities": [
+        "statistical_test",
+        "deterministic_check",
+        "human_review",
+        "llm_rubric"
+      ]
+    },
+    {
+      "validation_primitive_id": "UM.VP.FORWARD_SIMULATION_CONSISTENCY",
+      "label": "Forward Simulation Consistency",
+      "checks": "Running the forward model with inferred/optimized inputs reproduces observations within tolerance (or reports mismatch).",
+      "inputs_required": [
+        "UM.ART.MODEL.FORWARD_MODEL",
+        "UM.ART.MODEL.INVERSE_SOLUTION"
+      ],
+      "typical_inputs": [
+        "UM.ART.EVIDENCE.EXECUTION_TRACES"
+      ],
+      "outputs_produced": [
+        "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT"
+      ],
+      "strength": "strong",
+      "cost_class": "expensive",
+      "realization_modalities": [
+        "simulation_check",
+        "statistical_test",
+        "unit_test"
+      ]
+    },
+    {
+      "validation_primitive_id": "UM.VP.CALIBRATION_RESIDUAL_CHECK",
+      "label": "Calibration Residual Check",
+      "checks": "Calibration residuals meet thresholds; includes overfitting / leakage warnings when applicable.",
+      "inputs_required": [
+        "UM.ART.EVIDENCE.EXECUTION_TRACES",
+        "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+      ],
+      "typical_inputs": [
+        "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT"
+      ],
+      "outputs_produced": [
+        "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT"
+      ],
+      "strength": "strong",
+      "cost_class": "medium",
+      "realization_modalities": [
+        "statistical_test",
+        "simulation_check",
+        "human_review"
+      ]
+    },
+    {
+      "validation_primitive_id": "UM.VP.UNCERTAINTY_CALIBRATION_CHECK",
+      "label": "Uncertainty Calibration Check",
+      "checks": "Uncertainty estimates are calibrated (coverage/reliability curves; posterior predictive calibration).",
+      "inputs_required": [
+        "UM.ART.EVIDENCE.UNCERTAINTY_POSTERIOR"
+      ],
+      "typical_inputs": [
+        "UM.ART.EVIDENCE.EXECUTION_TRACES",
+        "UM.ART.EVIDENCE.DATASET"
+      ],
+      "outputs_produced": [
+        "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT"
+      ],
+      "strength": "medium",
+      "cost_class": "medium",
+      "realization_modalities": [
+        "statistical_test",
+        "simulation_check",
+        "human_review"
+      ]
+    },
+    {
+      "validation_primitive_id": "UM.VP.POSTERIOR_PREDICTIVE_CHECK",
+      "label": "Posterior Predictive Check",
+      "checks": "Posterior predictive distribution explains observed data and highlights systematic misfit.",
+      "inputs_required": [
+        "UM.ART.MODEL.BELIEF_MODEL",
+        "UM.ART.EVIDENCE.UNCERTAINTY_POSTERIOR"
+      ],
+      "typical_inputs": [
+        "UM.ART.EVIDENCE.EXECUTION_TRACES"
+      ],
+      "outputs_produced": [
+        "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT"
+      ],
+      "strength": "medium",
+      "cost_class": "medium",
+      "realization_modalities": [
+        "statistical_test",
+        "simulation_check",
+        "human_review"
+      ]
+    },
+    {
+      "validation_primitive_id": "UM.VP.SENSITIVITY_SMOKE_TEST",
+      "label": "Sensitivity Smoke Test",
+      "checks": "A cheap sensitivity check to detect brittle dependence on assumptions/parameters.",
+      "inputs_required": [
+        "UM.ART.MODEL.WORLD_MODEL"
+      ],
+      "typical_inputs": [
+        "UM.ART.EVIDENCE.EXECUTION_TRACES"
+      ],
+      "outputs_produced": [
+        "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT"
+      ],
+      "strength": "weak",
+      "cost_class": "medium",
+      "realization_modalities": [
+        "simulation_check",
+        "statistical_test"
+      ]
+    },
+    {
+      "validation_primitive_id": "UM.VP.SOLVER_STABILITY_SMOKE_TEST",
+      "label": "Solver Stability Smoke Test",
+      "checks": "Detects solver instability: divergence, chaotic sensitivity, non-reproducible convergence, or invalid outputs.",
+      "inputs_required": [
+        "UM.ART.EVIDENCE.EXECUTION_TRACES"
+      ],
+      "typical_inputs": [
+        "UM.ART.MODEL.WORLD_MODEL",
+        "UM.ART.DECISION.CANDIDATE_SOLUTION"
+      ],
+      "outputs_produced": [
+        "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT"
+      ],
+      "strength": "weak",
+      "cost_class": "cheap",
+      "realization_modalities": [
+        "deterministic_check",
+        "unit_test",
+        "statistical_test"
+      ]
+    },
+    {
+      "validation_primitive_id": "UM.VP.CONFLICT_DETECTION",
+      "label": "Conflict Detection",
+      "checks": "Detects conflicts among sources/models/rules; produces an explicit conflict report rather than silently averaging.",
+      "inputs_required": [
+        "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+      ],
+      "typical_inputs": [
+        "UM.ART.POLICY.RULESET",
+        "UM.ART.MODEL.BELIEF_MODEL"
+      ],
+      "outputs_produced": [
+        "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT"
+      ],
+      "strength": "medium",
+      "cost_class": "cheap",
+      "realization_modalities": [
+        "deterministic_check",
+        "llm_rubric",
+        "human_review"
+      ]
+    },
+    {
+      "validation_primitive_id": "UM.VP.DIVERSITY_CHECK",
+      "label": "Diversity Check",
+      "checks": "Ensures an evolutionary population (or candidate set) maintains diversity rather than collapsing prematurely.",
+      "inputs_required": [
+        "UM.ART.DECISION.CANDIDATE_SOLUTION"
+      ],
+      "typical_inputs": [
+        "UM.ART.EVIDENCE.EXECUTION_TRACES"
+      ],
+      "outputs_produced": [
+        "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT"
+      ],
+      "strength": "weak",
+      "cost_class": "cheap",
+      "realization_modalities": [
+        "deterministic_check",
+        "statistical_test"
+      ]
+    },
+    {
+      "validation_primitive_id": "UM.VP.PRESERVATION_CHECK",
+      "label": "Preservation Check",
+      "checks": "Checks declared preservation commitments such as recoverability, structural preservation, semantic preservation, task preservation, or controlled approximation bounds.",
+      "inputs_required": [
+        "UM.ART.CLAIM.PRESERVATION_CLAIM"
+      ],
+      "typical_inputs": [
+        "UM.ART.MODEL.REPRESENTATION_MAP",
+        "UM.ART.SPEC.ASSUMPTIONS_SCOPE"
+      ],
+      "outputs_produced": [
+        "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT"
+      ],
+      "strength": "strong",
+      "cost_class": "cheap",
+      "realization_modalities": [
+        "deterministic_check",
+        "simulation_check",
+        "human_review",
+        "llm_rubric"
+      ]
+    },
+    {
+      "validation_primitive_id": "UM.VP.GOVERNANCE_ADMISSIBILITY_CHECK",
+      "label": "Governance Admissibility Check",
+      "checks": "Checks whether the proposed stage, artifacts, validators, and actions satisfy the active governance regime, including permissions, reversibility, and audit requirements.",
+      "inputs_required": [
+        "UM.ART.PROVENANCE.PROVENANCE_LOG"
+      ],
+      "typical_inputs": [
+        "UM.ART.SPEC.ASSUMPTIONS_SCOPE",
+        "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+      ],
+      "outputs_produced": [
+        "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT"
+      ],
+      "strength": "strong",
+      "cost_class": "cheap",
+      "realization_modalities": [
+        "deterministic_check",
+        "policy_engine",
+        "human_review"
+      ]
+    },
+    {
+      "validation_primitive_id": "UM.VP.INTERFACE_COMPATIBILITY_CHECK",
+      "label": "Interface Compatibility Check",
+      "checks": "Checks whether composed models, stages, artifacts, or paradigms are compatible in schema, timing, state semantics, units, and declared handoff contracts.",
+      "inputs_required": [
+        "UM.ART.SPEC.INTERFACE_COMPOSITION_CONTRACT"
+      ],
+      "typical_inputs": [
+        "UM.ART.MODEL.REPRESENTATION_MAP",
+        "UM.ART.SPEC.ASSUMPTIONS_SCOPE"
+      ],
+      "outputs_produced": [
+        "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT"
+      ],
+      "strength": "strong",
+      "cost_class": "medium",
+      "realization_modalities": [
+        "deterministic_check",
+        "simulation_check",
+        "human_review",
+        "llm_rubric"
+      ]
+    }
+  ],
+  "design_notes": [
+    "Validation primitives define what property is being checked, not a single fixed solver or implementation. Realization modalities list admissible families of implementation, not an exhaustive or exclusive solver menu.",
+    "Layer-2 seeds may recommend default validation bundles, but downstream systems may strengthen, relax, or replace validators as long as the checked property remains clear.",
+    "The registry is organized around cross-paradigm claim burdens such as completeness, consistency, preservation, admissibility, calibration, robustness, compatibility, and provenance.",
+    "Validation primitives are reusable property checks, not a claim that every primitive should be run at every step.",
+    "Use validation strictness, stakes, and budget context to decide how many should/may validators to realize in a given run.",
+    "The primitive registry defines what can be checked in a stable shared language; downstream systems decide when and how strongly to realize those checks."
+  ]
+}

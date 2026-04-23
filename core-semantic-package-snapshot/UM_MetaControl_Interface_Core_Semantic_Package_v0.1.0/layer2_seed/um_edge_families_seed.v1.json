@@ -1,0 +1,3555 @@
+{
+  "package": {
+    "name": "Universal Methodology Meta-Control Interface",
+    "short_name": "UM-MCI",
+    "package_semver": "0.1.0",
+    "schema_major_version": 1,
+    "generated_utc": "2026-04-21T09:21:33Z",
+    "package_name": "UM_MetaControl_Interface_Core_Semantic_Package"
+  },
+  "edge_families": [
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.REFORMULATION.TRANSFORMATION__TO__OPTIMIZATION.REPARAMETERIZE_OR_RELAX_CONSTRAINTS_TO_IMPROVE_TRACTABILITY",
+      "edge_slot_id": "UM.EDGE_SLOT.TRANSFORMATION__TO__OPTIMIZATION",
+      "relation_role": "reformulation",
+      "operator_family": "Reparameterize or relax constraints to improve tractability",
+      "operator_family_code": "REPARAMETERIZE_OR_RELAX_CONSTRAINTS_TO_IMPROVE_TRACTABILITY",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: reparameterize or relax constraints to improve tractability. Use when transformation supports optimization through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.MODEL.REPRESENTATION_MAP",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS",
+          "UM.ART.CLAIM.PRESERVATION_CLAIM"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.EVALUATION.TRACTABILITY_REPORT",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.PRESERVATION_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.TRACTABILITY_CONDITIONING_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "relaxation_changes_optimum_or_decision_semantics",
+        "information_loss_or_semantic_drift_in_mapping",
+        "conditioning_worsens_or_introduces_numerical_instability"
+      ],
+      "trigger_conditions": [
+        "Current formulation or representation is making the target paradigm brittle or unnecessarily expensive.",
+        "A change of variables, basis, frame, or conceptual map could improve tractability, alignment, or feasibility.",
+        "Preservation commitments can be stated explicitly enough to audit the transformation."
+      ],
+      "anti_triggers": [
+        "Do not transform when preservation commitments cannot be stated or checked.",
+        "Avoid gratuitous reformulation if the target route is already tractable and interpretable."
+      ],
+      "cost_model": {
+        "relative_cost": "medium"
+      },
+      "effect_tags": [
+        "reformulate_or_align",
+        "reformulation",
+        "optimization"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.REFORMULATION.TRANSFORMATION__TO__PROBABILISTIC.FACTORIZE_OR_DECORRELATE_TO_SIMPLIFY_INFERENCE_AND_SAMPLING",
+      "edge_slot_id": "UM.EDGE_SLOT.TRANSFORMATION__TO__PROBABILISTIC",
+      "relation_role": "reformulation",
+      "operator_family": "Factorize or decorrelate to simplify inference and sampling",
+      "operator_family_code": "FACTORIZE_OR_DECORRELATE_TO_SIMPLIFY_INFERENCE_AND_SAMPLING",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: factorize or decorrelate to simplify inference and sampling. Use when transformation supports probabilistic through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.DECISION.CANDIDATE_SOLUTION",
+          "UM.ART.EVIDENCE.UNCERTAINTY_POSTERIOR",
+          "UM.ART.CLAIM.PRESERVATION_CLAIM"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.MODEL.INVERSE_SOLUTION",
+          "UM.ART.MODEL.REPRESENTATION_MAP",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.CONSISTENCY_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.PRESERVATION_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "false_independence_assumption_introduces_bias",
+        "lossy_transform_hides_tail_risk_or_rare_modes",
+        "decorrelation_is_context_specific_and_breaks_under_shift"
+      ],
+      "trigger_conditions": [
+        "Current formulation or representation is making the target paradigm brittle or unnecessarily expensive.",
+        "A change of variables, basis, frame, or conceptual map could improve tractability, alignment, or feasibility.",
+        "Preservation commitments can be stated explicitly enough to audit the transformation."
+      ],
+      "anti_triggers": [
+        "Do not transform when preservation commitments cannot be stated or checked.",
+        "Avoid gratuitous reformulation if the target route is already tractable and interpretable."
+      ],
+      "cost_model": {
+        "relative_cost": "medium"
+      },
+      "effect_tags": [
+        "reformulate_or_align",
+        "reformulation",
+        "probabilistic"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.REFORMULATION.TRANSFORMATION__TO__INVERSION.TRANSFORM_TO_A_SPARSE_OR_DECORRELATED_BASIS_FOR_STABLE_INVERSION",
+      "edge_slot_id": "UM.EDGE_SLOT.TRANSFORMATION__TO__INVERSION",
+      "relation_role": "reformulation",
+      "operator_family": "Transform to a sparse or decorrelated basis for stable inversion",
+      "operator_family_code": "TRANSFORM_TO_A_SPARSE_OR_DECORRELATED_BASIS_FOR_STABLE_INVERSION",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: transform to a sparse or decorrelated basis for stable inversion. Use when transformation supports inversion through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.DECISION.CANDIDATE_SOLUTION",
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.MODEL.FORWARD_MODEL",
+          "UM.ART.CLAIM.PRESERVATION_CLAIM"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.EVALUATION.TRACTABILITY_REPORT",
+          "UM.ART.MODEL.REPRESENTATION_MAP",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.TRACTABILITY_CONDITIONING_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.CONSISTENCY_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.PRESERVATION_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "basis_mismatch (sparsity_not_real_or_wrong_basis)",
+        "transform_not_invertible_or_back_map_is_unstable",
+        "stability_gain_only_local_and_fails_on_edge_cases"
+      ],
+      "trigger_conditions": [
+        "Current formulation or representation is making the target paradigm brittle or unnecessarily expensive.",
+        "A change of variables, basis, frame, or conceptual map could improve tractability, alignment, or feasibility.",
+        "Preservation commitments can be stated explicitly enough to audit the transformation."
+      ],
+      "anti_triggers": [
+        "Do not transform when preservation commitments cannot be stated or checked.",
+        "Avoid gratuitous reformulation if the target route is already tractable and interpretable."
+      ],
+      "cost_model": {
+        "relative_cost": "medium"
+      },
+      "effect_tags": [
+        "reformulate_or_align",
+        "reformulation",
+        "inversion"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.REFORMULATION.TRANSFORMATION__TO__RULE.MAP_CONCEPTS_INTO_RULE_AND_CONSTRAINT_SCHEMAS",
+      "edge_slot_id": "UM.EDGE_SLOT.TRANSFORMATION__TO__RULE",
+      "relation_role": "reformulation",
+      "operator_family": "Map concepts into rule and constraint schemas",
+      "operator_family_code": "MAP_CONCEPTS_INTO_RULE_AND_CONSTRAINT_SCHEMAS",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: map concepts into rule and constraint schemas. Use when transformation supports rule through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.SPEC.ASSUMPTIONS_SCOPE",
+          "UM.ART.CLAIM.PRESERVATION_CLAIM",
+          "UM.ART.SPEC.INTERFACE_COMPOSITION_CONTRACT"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.MODEL.REPRESENTATION_MAP",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.UNCERTAINTY_CALIBRATION_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.CONSISTENCY_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.PRESERVATION_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.INTERFACE_COMPATIBILITY_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "semantic_misalignment_between_concepts_and_rules",
+        "overgeneralized_rules_missing_exceptions",
+        "rule_schema_too_coarse_to_be_actionable"
+      ],
+      "trigger_conditions": [
+        "Current formulation or representation is making the target paradigm brittle or unnecessarily expensive.",
+        "A change of variables, basis, frame, or conceptual map could improve tractability, alignment, or feasibility.",
+        "Preservation commitments can be stated explicitly enough to audit the transformation."
+      ],
+      "anti_triggers": [
+        "Do not transform when preservation commitments cannot be stated or checked.",
+        "Avoid gratuitous reformulation if the target route is already tractable and interpretable."
+      ],
+      "cost_model": {
+        "relative_cost": "medium"
+      },
+      "effect_tags": [
+        "reformulate_or_align",
+        "reformulation",
+        "rule"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.ALIGNMENT_OR_MAPPING.TRANSFORMATION__TO__FUSION.ALIGN_NORMALIZE_AND_SEMANTICALLY_MAP_INTO_A_SHARED_SPACE",
+      "edge_slot_id": "UM.EDGE_SLOT.TRANSFORMATION__TO__FUSION",
+      "relation_role": "alignment_or_mapping",
+      "operator_family": "Align normalize and semantically map into a shared space",
+      "operator_family_code": "ALIGN_NORMALIZE_AND_SEMANTICALLY_MAP_INTO_A_SHARED_SPACE",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: align normalize and semantically map into a shared space. Use when transformation supports fusion through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.DECISION.CANDIDATE_SOLUTION",
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.MODEL.REPRESENTATION_MAP",
+          "UM.ART.CLAIM.PRESERVATION_CLAIM",
+          "UM.ART.SPEC.INTERFACE_COMPOSITION_CONTRACT"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.MODEL.REPRESENTATION_MAP",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.PRESERVATION_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.CONSISTENCY_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.INTERFACE_COMPATIBILITY_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "misalignment_or_wrong_correspondence_pairs",
+        "semantic_drift_due_to_overaggressive_normalization",
+        "mapping_is_not_stable_across_contexts (domain_shift)"
+      ],
+      "trigger_conditions": [
+        "Current formulation or representation is making the target paradigm brittle or unnecessarily expensive.",
+        "A change of variables, basis, frame, or conceptual map could improve tractability, alignment, or feasibility.",
+        "Preservation commitments can be stated explicitly enough to audit the transformation."
+      ],
+      "anti_triggers": [
+        "Do not transform when preservation commitments cannot be stated or checked.",
+        "Avoid gratuitous reformulation if the target route is already tractable and interpretable."
+      ],
+      "cost_model": {
+        "relative_cost": "medium"
+      },
+      "effect_tags": [
+        "reformulate_or_align",
+        "alignment_or_mapping",
+        "fusion"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.TRACTABILITY_ACCELERATION.TRANSFORMATION__TO__SIMULATION.COARSE_GRAIN_OR_SURROGATE_TO_ACCELERATE_SIMULATION",
+      "edge_slot_id": "UM.EDGE_SLOT.TRANSFORMATION__TO__SIMULATION",
+      "relation_role": "tractability_acceleration",
+      "operator_family": "Coarse grain or surrogate to accelerate simulation",
+      "operator_family_code": "COARSE_GRAIN_OR_SURROGATE_TO_ACCELERATE_SIMULATION",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: coarse grain or surrogate to accelerate simulation. Use when transformation supports simulation through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.MODEL.REPRESENTATION_MAP",
+          "UM.ART.MODEL.WORLD_MODEL",
+          "UM.ART.CLAIM.PRESERVATION_CLAIM"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.EVIDENCE.EXECUTION_TRACES",
+          "UM.ART.MODEL.INVERSE_SOLUTION",
+          "UM.ART.MODEL.SURROGATE_MODEL"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.PRESERVATION_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "information_loss_changes_decision",
+        "surrogate_extrapolation_failure",
+        "conditioning_worsens_in_some_regimes"
+      ],
+      "trigger_conditions": [
+        "Current formulation or representation is making the target paradigm brittle or unnecessarily expensive.",
+        "A change of variables, basis, frame, or conceptual map could improve tractability, alignment, or feasibility.",
+        "Preservation commitments can be stated explicitly enough to audit the transformation."
+      ],
+      "anti_triggers": [
+        "Do not transform when preservation commitments cannot be stated or checked.",
+        "Avoid gratuitous reformulation if the target route is already tractable and interpretable."
+      ],
+      "cost_model": {
+        "relative_cost": "expensive"
+      },
+      "effect_tags": [
+        "reformulate_or_align",
+        "tractability_acceleration",
+        "simulation"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.REPRESENTATION_SHAPING.TRANSFORMATION__TO__EVOLUTIONARY.SHAPE_REPRESENTATIONS_ENCODE_INVARIANCES_FOR_FEASIBLE_VARIATION",
+      "edge_slot_id": "UM.EDGE_SLOT.TRANSFORMATION__TO__EVOLUTIONARY",
+      "relation_role": "representation_shaping",
+      "operator_family": "Shape representations encode invariances for feasible variation",
+      "operator_family_code": "SHAPE_REPRESENTATIONS_ENCODE_INVARIANCES_FOR_FEASIBLE_VARIATION",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: shape representations encode invariances for feasible variation. Use when transformation supports evolutionary through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS",
+          "UM.ART.CLAIM.PRESERVATION_CLAIM"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.PRESERVATION_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.DIVERSITY_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "encoding_overconstrains_and_blocks_novelty",
+        "representation_brittleness_causes_invalid_offspring",
+        "invariance_constraints_are_wrong_or_incomplete"
+      ],
+      "trigger_conditions": [
+        "Current formulation or representation is making the target paradigm brittle or unnecessarily expensive.",
+        "A change of variables, basis, frame, or conceptual map could improve tractability, alignment, or feasibility.",
+        "Preservation commitments can be stated explicitly enough to audit the transformation."
+      ],
+      "anti_triggers": [
+        "Do not transform when preservation commitments cannot be stated or checked.",
+        "Avoid gratuitous reformulation if the target route is already tractable and interpretable."
+      ],
+      "cost_model": {
+        "relative_cost": "medium"
+      },
+      "effect_tags": [
+        "reformulate_or_align",
+        "representation_shaping",
+        "evolutionary"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.TUNING_OR_CALIBRATION.OPTIMIZATION__TO__TRANSFORMATION.USE_OBJECTIVES_TO_TUNE_AND_SELECT_TRANSFORMS",
+      "edge_slot_id": "UM.EDGE_SLOT.OPTIMIZATION__TO__TRANSFORMATION",
+      "relation_role": "tuning_or_calibration",
+      "operator_family": "Use objectives to tune and select transforms",
+      "operator_family_code": "USE_OBJECTIVES_TO_TUNE_AND_SELECT_TRANSFORMS",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: use objectives to tune and select transforms. Use when optimization supports transformation through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.MODEL.REPRESENTATION_MAP",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS",
+          "UM.ART.CLAIM.PRESERVATION_CLAIM"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.MODEL.REPRESENTATION_MAP",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.PRESERVATION_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "objective_misspecification_selects_wrong_transform",
+        "transform_overfits_to_proxy_metric",
+        "search_cost_explosion_or_poor_convergence"
+      ],
+      "trigger_conditions": [
+        "A usable objective or mismatch criterion can be specified for the target route.",
+        "Candidate choices can be evaluated analytically, experimentally, by simulation, or through a proxy.",
+        "The target paradigm needs tuning, calibration, selection, or controlled trade-off management."
+      ],
+      "anti_triggers": [
+        "Avoid optimization support when no stable objective, evaluable criterion, or feasible search space is available.",
+        "Do not over-optimize a route whose main bottleneck is ambiguity or missing evidence."
+      ],
+      "cost_model": {
+        "relative_cost": "medium"
+      },
+      "effect_tags": [
+        "objective_driven_tuning",
+        "tuning_or_calibration",
+        "transformation"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.OBJECTIVE_DRIVEN_OPTIMIZATION.OPTIMIZATION__TO__PROBABILISTIC.OPTIMIZE_APPROXIMATE_INFERENCE_OBJECTIVES_FOR_EFFICIENCY",
+      "edge_slot_id": "UM.EDGE_SLOT.OPTIMIZATION__TO__PROBABILISTIC",
+      "relation_role": "objective_driven_optimization",
+      "operator_family": "Optimize approximate inference objectives for efficiency",
+      "operator_family_code": "OPTIMIZE_APPROXIMATE_INFERENCE_OBJECTIVES_FOR_EFFICIENCY",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: optimize approximate inference objectives for efficiency. Use when optimization supports probabilistic through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.EVIDENCE.UNCERTAINTY_POSTERIOR"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.DECISION.CANDIDATE_SOLUTION",
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.POSTERIOR_PREDICTIVE_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.CALIBRATION_RESIDUAL_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "variational_bias_or_mode_drop",
+        "converges_to_bad_local_optimum",
+        "overconfident_beliefs_due_to_surrogate_objective"
+      ],
+      "trigger_conditions": [
+        "A usable objective or mismatch criterion can be specified for the target route.",
+        "Candidate choices can be evaluated analytically, experimentally, by simulation, or through a proxy.",
+        "The target paradigm needs tuning, calibration, selection, or controlled trade-off management."
+      ],
+      "anti_triggers": [
+        "Avoid optimization support when no stable objective, evaluable criterion, or feasible search space is available.",
+        "Do not over-optimize a route whose main bottleneck is ambiguity or missing evidence."
+      ],
+      "cost_model": {
+        "relative_cost": "medium"
+      },
+      "effect_tags": [
+        "objective_driven_tuning",
+        "objective_driven_optimization",
+        "probabilistic"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.OBJECTIVE_DRIVEN_OPTIMIZATION.OPTIMIZATION__TO__INVERSION.SOLVE_INVERSION_AS_CONSTRAINED_OPTIMIZATION_WITH_REGULARIZERS",
+      "edge_slot_id": "UM.EDGE_SLOT.OPTIMIZATION__TO__INVERSION",
+      "relation_role": "objective_driven_optimization",
+      "operator_family": "Solve inversion as constrained optimization with regularizers",
+      "operator_family_code": "SOLVE_INVERSION_AS_CONSTRAINED_OPTIMIZATION_WITH_REGULARIZERS",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: solve inversion as constrained optimization with regularizers. Use when optimization supports inversion through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.MODEL.FORWARD_MODEL",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.MODEL.INVERSE_SOLUTION",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.FORWARD_SIMULATION_CONSISTENCY",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.TRACTABILITY_CONDITIONING_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.CONSTRAINT_SATISFACTION",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "local_minima_or_nonconvex_trap",
+        "regularizer_mis_specification (over/under smoothing)",
+        "constraint_incomplete_or_inconsistent"
+      ],
+      "trigger_conditions": [
+        "A usable objective or mismatch criterion can be specified for the target route.",
+        "Candidate choices can be evaluated analytically, experimentally, by simulation, or through a proxy.",
+        "The target paradigm needs tuning, calibration, selection, or controlled trade-off management."
+      ],
+      "anti_triggers": [
+        "Avoid optimization support when no stable objective, evaluable criterion, or feasible search space is available.",
+        "Do not over-optimize a route whose main bottleneck is ambiguity or missing evidence."
+      ],
+      "cost_model": {
+        "relative_cost": "medium"
+      },
+      "effect_tags": [
+        "objective_driven_tuning",
+        "objective_driven_optimization",
+        "inversion"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.OBJECTIVE_DRIVEN_OPTIMIZATION.OPTIMIZATION__TO__RULE.INDUCE_RULES_BY_OPTIMIZING_COVERAGE_VERSUS_COMPLEXITY",
+      "edge_slot_id": "UM.EDGE_SLOT.OPTIMIZATION__TO__RULE",
+      "relation_role": "objective_driven_optimization",
+      "operator_family": "Induce rules by optimizing coverage versus complexity",
+      "operator_family_code": "INDUCE_RULES_BY_OPTIMIZING_COVERAGE_VERSUS_COMPLEXITY",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: induce rules by optimizing coverage versus complexity. Use when optimization supports rule through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.DECISION.CANDIDATE_SOLUTION",
+          "UM.ART.EVALUATION.TRACTABILITY_REPORT",
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.DECISION.CANDIDATE_SOLUTION",
+          "UM.ART.EVALUATION.TRACTABILITY_REPORT",
+          "UM.ART.POLICY.RULESET"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.UNCERTAINTY_CALIBRATION_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.CONSISTENCY_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "rules_overfit_spurious_correlations",
+        "objective_tradeoff_mis_specification (coverage dominates)",
+        "rule_set_explodes_and_becomes_unusable"
+      ],
+      "trigger_conditions": [
+        "A usable objective or mismatch criterion can be specified for the target route.",
+        "Candidate choices can be evaluated analytically, experimentally, by simulation, or through a proxy.",
+        "The target paradigm needs tuning, calibration, selection, or controlled trade-off management."
+      ],
+      "anti_triggers": [
+        "Avoid optimization support when no stable objective, evaluable criterion, or feasible search space is available.",
+        "Do not over-optimize a route whose main bottleneck is ambiguity or missing evidence."
+      ],
+      "cost_model": {
+        "relative_cost": "medium"
+      },
+      "effect_tags": [
+        "objective_driven_tuning",
+        "objective_driven_optimization",
+        "rule"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.OBJECTIVE_DRIVEN_OPTIMIZATION.OPTIMIZATION__TO__FUSION.CAST_FUSION_AS_MULTI_CRITERIA_OPTIMIZATION",
+      "edge_slot_id": "UM.EDGE_SLOT.OPTIMIZATION__TO__FUSION",
+      "relation_role": "objective_driven_optimization",
+      "operator_family": "Cast fusion as multi criteria optimization",
+      "operator_family_code": "CAST_FUSION_AS_MULTI_CRITERIA_OPTIMIZATION",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: cast fusion as multi criteria optimization. Use when optimization supports fusion through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.PROVENANCE.PROVENANCE_LOG",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS",
+          "UM.ART.SPEC.INTERFACE_COMPOSITION_CONTRACT"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.DECISION.CANDIDATE_SOLUTION",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.CONSISTENCY_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.INTERFACE_COMPATIBILITY_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "weight_collapse_to_single_source",
+        "objective_misspecification_hides_conflict",
+        "overconfidence_from_averaging"
+      ],
+      "trigger_conditions": [
+        "A usable objective or mismatch criterion can be specified for the target route.",
+        "Candidate choices can be evaluated analytically, experimentally, by simulation, or through a proxy.",
+        "The target paradigm needs tuning, calibration, selection, or controlled trade-off management."
+      ],
+      "anti_triggers": [
+        "Avoid optimization support when no stable objective, evaluable criterion, or feasible search space is available.",
+        "Do not over-optimize a route whose main bottleneck is ambiguity or missing evidence."
+      ],
+      "cost_model": {
+        "relative_cost": "medium"
+      },
+      "effect_tags": [
+        "objective_driven_tuning",
+        "objective_driven_optimization",
+        "fusion"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.TUNING_OR_CALIBRATION.OPTIMIZATION__TO__SIMULATION.SIMULATOR_CALIBRATION_BY_MISMATCH_MINIMIZATION",
+      "edge_slot_id": "UM.EDGE_SLOT.OPTIMIZATION__TO__SIMULATION",
+      "relation_role": "tuning_or_calibration",
+      "operator_family": "Simulator calibration by mismatch minimization",
+      "operator_family_code": "SIMULATOR_CALIBRATION_BY_MISMATCH_MINIMIZATION",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: simulator calibration by mismatch minimization. Use when optimization supports simulation through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.MODEL.WORLD_MODEL",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.CONSTRAINT_SATISFACTION",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.SENSITIVITY_SMOKE_TEST",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "objective_misspecification",
+        "overfitting_to_calibration_data",
+        "local_minima_or_identifiability_issue"
+      ],
+      "trigger_conditions": [
+        "A usable objective or mismatch criterion can be specified for the target route.",
+        "Candidate choices can be evaluated analytically, experimentally, by simulation, or through a proxy.",
+        "The target paradigm needs tuning, calibration, selection, or controlled trade-off management."
+      ],
+      "anti_triggers": [
+        "Avoid optimization support when no stable objective, evaluable criterion, or feasible search space is available.",
+        "Do not over-optimize a route whose main bottleneck is ambiguity or missing evidence."
+      ],
+      "cost_model": {
+        "relative_cost": "medium"
+      },
+      "effect_tags": [
+        "objective_driven_tuning",
+        "tuning_or_calibration",
+        "simulation"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.OBJECTIVE_DRIVEN_OPTIMIZATION.OPTIMIZATION__TO__EVOLUTIONARY.USE_OPTIMIZATION_FOR_LOCAL_REFINEMENT_WITHIN_EVOLUTION",
+      "edge_slot_id": "UM.EDGE_SLOT.OPTIMIZATION__TO__EVOLUTIONARY",
+      "relation_role": "objective_driven_optimization",
+      "operator_family": "Use optimization for local refinement within evolution",
+      "operator_family_code": "USE_OPTIMIZATION_FOR_LOCAL_REFINEMENT_WITHIN_EVOLUTION",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: use optimization for local refinement within evolution. Use when optimization supports evolutionary through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.DECISION.CANDIDATE_SOLUTION",
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.DIVERSITY_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "premature_convergence_due_to_overexploitation",
+        "local_optima_trap_masks_global_better_modes",
+        "refinement_cost_explosion"
+      ],
+      "trigger_conditions": [
+        "A usable objective or mismatch criterion can be specified for the target route.",
+        "Candidate choices can be evaluated analytically, experimentally, by simulation, or through a proxy.",
+        "The target paradigm needs tuning, calibration, selection, or controlled trade-off management."
+      ],
+      "anti_triggers": [
+        "Avoid optimization support when no stable objective, evaluable criterion, or feasible search space is available.",
+        "Do not over-optimize a route whose main bottleneck is ambiguity or missing evidence."
+      ],
+      "cost_model": {
+        "relative_cost": "medium"
+      },
+      "effect_tags": [
+        "objective_driven_tuning",
+        "objective_driven_optimization",
+        "evolutionary"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.UNCERTAINTY_MODELING.PROBABILISTIC__TO__TRANSFORMATION.CHOOSE_TRANSFORMS_BY_EXPECTED_GAIN_UNDER_UNCERTAINTY",
+      "edge_slot_id": "UM.EDGE_SLOT.PROBABILISTIC__TO__TRANSFORMATION",
+      "relation_role": "uncertainty_modeling",
+      "operator_family": "Choose transforms by expected gain under uncertainty",
+      "operator_family_code": "CHOOSE_TRANSFORMS_BY_EXPECTED_GAIN_UNDER_UNCERTAINTY",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: choose transforms by expected gain under uncertainty. Use when probabilistic supports transformation through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.EVIDENCE.UNCERTAINTY_POSTERIOR",
+          "UM.ART.MODEL.REPRESENTATION_MAP",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS",
+          "UM.ART.CLAIM.PRESERVATION_CLAIM"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.MODEL.REPRESENTATION_MAP"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.SENSITIVITY_SMOKE_TEST",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.PRESERVATION_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "miscalibrated_uncertainty_misleads_selection",
+        "expected_gain_overfits_to_model_assumptions",
+        "analysis_paralysis_due_to_overly_complex_uncertainty_model"
+      ],
+      "trigger_conditions": [
+        "Uncertainty, risk, or multi-hypothesis reasoning materially affects route quality.",
+        "Noise models, confidence weights, or posterior summaries would improve decisions or interpretations.",
+        "The target route benefits from explicit uncertainty propagation rather than point estimates alone."
+      ],
+      "anti_triggers": [
+        "Avoid uncertainty machinery when uncertainty is negligible and the added burden is not justified.",
+        "Do not pretend to quantify uncertainty when assumptions or calibration checks are unavailable."
+      ],
+      "cost_model": {
+        "relative_cost": "medium"
+      },
+      "effect_tags": [
+        "uncertainty_modeling_or_weighting",
+        "uncertainty_modeling",
+        "transformation"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.UNCERTAINTY_MODELING.PROBABILISTIC__TO__OPTIMIZATION.OPTIMIZE_EXPECTED_UTILITY_WITH_STOCHASTIC_OBJECTIVES_AND_SAMPLING",
+      "edge_slot_id": "UM.EDGE_SLOT.PROBABILISTIC__TO__OPTIMIZATION",
+      "relation_role": "uncertainty_modeling",
+      "operator_family": "Optimize expected utility with stochastic objectives and sampling",
+      "operator_family_code": "OPTIMIZE_EXPECTED_UTILITY_WITH_STOCHASTIC_OBJECTIVES_AND_SAMPLING",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: optimize expected utility with stochastic objectives and sampling. Use when probabilistic supports optimization through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.EVIDENCE.UNCERTAINTY_POSTERIOR",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.CONSTRAINT_SATISFACTION",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.CALIBRATION_RESIDUAL_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "high_variance_estimates_break_optimization",
+        "noise_model_misspecification_underestimates_risk",
+        "sampling_budget_too_small_for_tail_events"
+      ],
+      "trigger_conditions": [
+        "Uncertainty, risk, or multi-hypothesis reasoning materially affects route quality.",
+        "Noise models, confidence weights, or posterior summaries would improve decisions or interpretations.",
+        "The target route benefits from explicit uncertainty propagation rather than point estimates alone."
+      ],
+      "anti_triggers": [
+        "Avoid uncertainty machinery when uncertainty is negligible and the added burden is not justified.",
+        "Do not pretend to quantify uncertainty when assumptions or calibration checks are unavailable."
+      ],
+      "cost_model": {
+        "relative_cost": "medium"
+      },
+      "effect_tags": [
+        "uncertainty_modeling_or_weighting",
+        "uncertainty_modeling",
+        "optimization"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.UNCERTAINTY_MODELING.PROBABILISTIC__TO__INVERSION.USE_PRIORS_AND_NOISE_MODELS_TO_STABILIZE_INVERSE_SOLUTIONS",
+      "edge_slot_id": "UM.EDGE_SLOT.PROBABILISTIC__TO__INVERSION",
+      "relation_role": "uncertainty_modeling",
+      "operator_family": "Use priors and noise models to stabilize inverse solutions",
+      "operator_family_code": "USE_PRIORS_AND_NOISE_MODELS_TO_STABILIZE_INVERSE_SOLUTIONS",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: use priors and noise models to stabilize inverse solutions. Use when probabilistic supports inversion through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.EVIDENCE.DATASET",
+          "UM.ART.MODEL.BELIEF_MODEL",
+          "UM.ART.MODEL.FORWARD_MODEL"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.MODEL.REPRESENTATION_MAP",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.POSTERIOR_PREDICTIVE_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.CONSISTENCY_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.SENSITIVITY_SMOKE_TEST",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "prior_likelihood_mismatch (posterior nonsense)",
+        "overconfident_posterior_from_miscalibration",
+        "inference_cost_or_intractability_explosion"
+      ],
+      "trigger_conditions": [
+        "Uncertainty, risk, or multi-hypothesis reasoning materially affects route quality.",
+        "Noise models, confidence weights, or posterior summaries would improve decisions or interpretations.",
+        "The target route benefits from explicit uncertainty propagation rather than point estimates alone."
+      ],
+      "anti_triggers": [
+        "Avoid uncertainty machinery when uncertainty is negligible and the added burden is not justified.",
+        "Do not pretend to quantify uncertainty when assumptions or calibration checks are unavailable."
+      ],
+      "cost_model": {
+        "relative_cost": "medium"
+      },
+      "effect_tags": [
+        "uncertainty_modeling_or_weighting",
+        "uncertainty_modeling",
+        "inversion"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.UNCERTAINTY_MODELING.PROBABILISTIC__TO__RULE.ATTACH_UNCERTAINTY_TO_SOFT_OR_DEFEASIBLE_RULES",
+      "edge_slot_id": "UM.EDGE_SLOT.PROBABILISTIC__TO__RULE",
+      "relation_role": "uncertainty_modeling",
+      "operator_family": "Attach uncertainty to soft or defeasible rules",
+      "operator_family_code": "ATTACH_UNCERTAINTY_TO_SOFT_OR_DEFEASIBLE_RULES",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: attach uncertainty to soft or defeasible rules. Use when probabilistic supports rule through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.DECISION.CANDIDATE_SOLUTION",
+          "UM.ART.EVIDENCE.UNCERTAINTY_POSTERIOR",
+          "UM.ART.POLICY.RULESET"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.POLICY.RULESET"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.CONSISTENCY_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.CONFLICT_DETECTION",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.CALIBRATION_RESIDUAL_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "confidence_miscalibration_creates_false_certainty",
+        "rule_set_becomes_uninterpretable_due_to_weights",
+        "inconsistent_weighting_breaks reasoning"
+      ],
+      "trigger_conditions": [
+        "Uncertainty, risk, or multi-hypothesis reasoning materially affects route quality.",
+        "Noise models, confidence weights, or posterior summaries would improve decisions or interpretations.",
+        "The target route benefits from explicit uncertainty propagation rather than point estimates alone."
+      ],
+      "anti_triggers": [
+        "Avoid uncertainty machinery when uncertainty is negligible and the added burden is not justified.",
+        "Do not pretend to quantify uncertainty when assumptions or calibration checks are unavailable."
+      ],
+      "cost_model": {
+        "relative_cost": "medium"
+      },
+      "effect_tags": [
+        "uncertainty_modeling_or_weighting",
+        "uncertainty_modeling",
+        "rule"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.UNCERTAINTY_WEIGHTING_OR_PROPAGATION.PROBABILISTIC__TO__FUSION.WEIGHT_SOURCES_BY_UNCERTAINTY_KEEP_MULTIPLE_HYPOTHESES",
+      "edge_slot_id": "UM.EDGE_SLOT.PROBABILISTIC__TO__FUSION",
+      "relation_role": "uncertainty_weighting_or_propagation",
+      "operator_family": "Weight sources by uncertainty keep multiple hypotheses",
+      "operator_family_code": "WEIGHT_SOURCES_BY_UNCERTAINTY_KEEP_MULTIPLE_HYPOTHESES",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: weight sources by uncertainty keep multiple hypotheses. Use when probabilistic supports fusion through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.EVIDENCE.UNCERTAINTY_POSTERIOR",
+          "UM.ART.SPEC.INTERFACE_COMPOSITION_CONTRACT"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.EVIDENCE.UNCERTAINTY_POSTERIOR"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.CONFLICT_DETECTION",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.CALIBRATION_RESIDUAL_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.DIVERSITY_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.INTERFACE_COMPATIBILITY_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "source_misweighting_amplifies_bad_source",
+        "hypothesis_explosion_exceeds_budget",
+        "overconfidence_from_incorrectly_combined_uncertainties"
+      ],
+      "trigger_conditions": [
+        "Uncertainty, risk, or multi-hypothesis reasoning materially affects route quality.",
+        "Noise models, confidence weights, or posterior summaries would improve decisions or interpretations.",
+        "The target route benefits from explicit uncertainty propagation rather than point estimates alone."
+      ],
+      "anti_triggers": [
+        "Avoid uncertainty machinery when uncertainty is negligible and the added burden is not justified.",
+        "Do not pretend to quantify uncertainty when assumptions or calibration checks are unavailable."
+      ],
+      "cost_model": {
+        "relative_cost": "medium"
+      },
+      "effect_tags": [
+        "uncertainty_modeling_or_weighting",
+        "uncertainty_weighting_or_propagation",
+        "fusion"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.UNCERTAINTY_WEIGHTING_OR_PROPAGATION.PROBABILISTIC__TO__SIMULATION.UNCERTAINTY_PROPAGATION_AND_RISK_BOUNDING",
+      "edge_slot_id": "UM.EDGE_SLOT.PROBABILISTIC__TO__SIMULATION",
+      "relation_role": "uncertainty_weighting_or_propagation",
+      "operator_family": "Uncertainty propagation and risk bounding",
+      "operator_family_code": "UNCERTAINTY_PROPAGATION_AND_RISK_BOUNDING",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: uncertainty propagation and risk bounding. Use when probabilistic supports simulation through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.EVIDENCE.UNCERTAINTY_POSTERIOR",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.EVIDENCE.UNCERTAINTY_POSTERIOR",
+          "UM.ART.MODEL.INVERSE_SOLUTION"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.POSTERIOR_PREDICTIVE_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.CALIBRATION_RESIDUAL_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "miscalibrated_uncertainty",
+        "sampling_bias_or_nonconvergence",
+        "false_confidence_due_to_model_error"
+      ],
+      "trigger_conditions": [
+        "Uncertainty, risk, or multi-hypothesis reasoning materially affects route quality.",
+        "Noise models, confidence weights, or posterior summaries would improve decisions or interpretations.",
+        "The target route benefits from explicit uncertainty propagation rather than point estimates alone."
+      ],
+      "anti_triggers": [
+        "Avoid uncertainty machinery when uncertainty is negligible and the added burden is not justified.",
+        "Do not pretend to quantify uncertainty when assumptions or calibration checks are unavailable."
+      ],
+      "cost_model": {
+        "relative_cost": "expensive"
+      },
+      "effect_tags": [
+        "uncertainty_modeling_or_weighting",
+        "uncertainty_weighting_or_propagation",
+        "simulation"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.UNCERTAINTY_WEIGHTING_OR_PROPAGATION.PROBABILISTIC__TO__EVOLUTIONARY.STOCHASTIC_VARIATION_AND_SELECTION_FOR_MULTIMODAL_EXPLORATION",
+      "edge_slot_id": "UM.EDGE_SLOT.PROBABILISTIC__TO__EVOLUTIONARY",
+      "relation_role": "uncertainty_weighting_or_propagation",
+      "operator_family": "Stochastic variation and selection for multimodal exploration",
+      "operator_family_code": "STOCHASTIC_VARIATION_AND_SELECTION_FOR_MULTIMODAL_EXPLORATION",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: stochastic variation and selection for multimodal exploration. Use when probabilistic supports evolutionary through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.UNCERTAINTY_CALIBRATION_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.DIVERSITY_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "noise_too_high_causes_random_walk",
+        "selection_bias_causes_mode_collapse",
+        "uncertainty_model_misguides_variation"
+      ],
+      "trigger_conditions": [
+        "Uncertainty, risk, or multi-hypothesis reasoning materially affects route quality.",
+        "Noise models, confidence weights, or posterior summaries would improve decisions or interpretations.",
+        "The target route benefits from explicit uncertainty propagation rather than point estimates alone."
+      ],
+      "anti_triggers": [
+        "Avoid uncertainty machinery when uncertainty is negligible and the added burden is not justified.",
+        "Do not pretend to quantify uncertainty when assumptions or calibration checks are unavailable."
+      ],
+      "cost_model": {
+        "relative_cost": "medium"
+      },
+      "effect_tags": [
+        "uncertainty_modeling_or_weighting",
+        "uncertainty_weighting_or_propagation",
+        "evolutionary"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.INVERSE_STRUCTURING.INVERSION__TO__TRANSFORMATION.DERIVE_BASIS_AND_WHITENING_FROM_FORWARD_MODEL_AND_NOISE",
+      "edge_slot_id": "UM.EDGE_SLOT.INVERSION__TO__TRANSFORMATION",
+      "relation_role": "inverse_structuring",
+      "operator_family": "Derive basis and whitening from forward model and noise",
+      "operator_family_code": "DERIVE_BASIS_AND_WHITENING_FROM_FORWARD_MODEL_AND_NOISE",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: derive basis and whitening from forward model and noise. Use when inversion supports transformation through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.EVIDENCE.DATASET",
+          "UM.ART.MODEL.FORWARD_MODEL",
+          "UM.ART.CLAIM.PRESERVATION_CLAIM"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.MODEL.REPRESENTATION_MAP",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.TRACTABILITY_CONDITIONING_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.CONSISTENCY_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.PRESERVATION_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "wrong_noise_model_leads_to_bad_whitening",
+        "preconditioner_instability_or_overwhitening",
+        "transform_not_stable_under_distribution_shift"
+      ],
+      "trigger_conditions": [
+        "Effects are observable but key causes, states, parameters, or structures remain hidden.",
+        "A forward model or residual notion exists so candidate causes can be checked backward.",
+        "The target route benefits from backward recovery rather than only forward design."
+      ],
+      "anti_triggers": [
+        "Avoid inverse support when no meaningful forward relation or residual signal exists.",
+        "Do not force inversion when target causes are not identifiable even approximately."
+      ],
+      "cost_model": {
+        "relative_cost": "medium"
+      },
+      "effect_tags": [
+        "backward_recovery_or_calibration",
+        "inverse_structuring",
+        "transformation"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.INVERSE_STRUCTURING.INVERSION__TO__OPTIMIZATION.TRANSLATE_INVERSE_STRUCTURE_INTO_OBJECTIVES_AND_REGULARIZERS",
+      "edge_slot_id": "UM.EDGE_SLOT.INVERSION__TO__OPTIMIZATION",
+      "relation_role": "inverse_structuring",
+      "operator_family": "Translate inverse structure into objectives and regularizers",
+      "operator_family_code": "TRANSLATE_INVERSE_STRUCTURE_INTO_OBJECTIVES_AND_REGULARIZERS",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: translate inverse structure into objectives and regularizers. Use when inversion supports optimization through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.MODEL.FORWARD_MODEL",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.EVIDENCE.DATASET",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.CONSTRAINT_SATISFACTION",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.CONSISTENCY_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.SENSITIVITY_SMOKE_TEST",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "regularizer_mis_specification_hides_true_solution",
+        "objective_nonconvexity_causes_instability",
+        "ill_posedness_not_resolved (non_identifiable)"
+      ],
+      "trigger_conditions": [
+        "Effects are observable but key causes, states, parameters, or structures remain hidden.",
+        "A forward model or residual notion exists so candidate causes can be checked backward.",
+        "The target route benefits from backward recovery rather than only forward design."
+      ],
+      "anti_triggers": [
+        "Avoid inverse support when no meaningful forward relation or residual signal exists.",
+        "Do not force inversion when target causes are not identifiable even approximately."
+      ],
+      "cost_model": {
+        "relative_cost": "medium"
+      },
+      "effect_tags": [
+        "backward_recovery_or_calibration",
+        "inverse_structuring",
+        "optimization"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.INVERSE_STRUCTURING.INVERSION__TO__PROBABILISTIC.ENCODE_INVERSE_STRUCTURE_AS_PRIORS_AND_LIKELIHOOD_MODELS",
+      "edge_slot_id": "UM.EDGE_SLOT.INVERSION__TO__PROBABILISTIC",
+      "relation_role": "inverse_structuring",
+      "operator_family": "Encode inverse structure as priors and likelihood models",
+      "operator_family_code": "ENCODE_INVERSE_STRUCTURE_AS_PRIORS_AND_LIKELIHOOD_MODELS",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: encode inverse structure as priors and likelihood models. Use when inversion supports probabilistic through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.DECISION.CANDIDATE_SOLUTION",
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.EVIDENCE.UNCERTAINTY_POSTERIOR",
+          "UM.ART.MODEL.BELIEF_MODEL",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.TRACTABILITY_CONDITIONING_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.POSTERIOR_PREDICTIVE_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "prior_too_strong_or_misaligned (posterior collapses)",
+        "model_misspecification_breaks uncertainty meaning",
+        "inference_intractable_or_unstable"
+      ],
+      "trigger_conditions": [
+        "Effects are observable but key causes, states, parameters, or structures remain hidden.",
+        "A forward model or residual notion exists so candidate causes can be checked backward.",
+        "The target route benefits from backward recovery rather than only forward design."
+      ],
+      "anti_triggers": [
+        "Avoid inverse support when no meaningful forward relation or residual signal exists.",
+        "Do not force inversion when target causes are not identifiable even approximately."
+      ],
+      "cost_model": {
+        "relative_cost": "medium"
+      },
+      "effect_tags": [
+        "backward_recovery_or_calibration",
+        "inverse_structuring",
+        "probabilistic"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.INVERSE_STRUCTURING.INVERSION__TO__RULE.EXTRACT_FEASIBILITY_CONSTRAINTS_CODIFY_AS_EXPLICIT_RULES",
+      "edge_slot_id": "UM.EDGE_SLOT.INVERSION__TO__RULE",
+      "relation_role": "inverse_structuring",
+      "operator_family": "Extract feasibility constraints codify as explicit rules",
+      "operator_family_code": "EXTRACT_FEASIBILITY_CONSTRAINTS_CODIFY_AS_EXPLICIT_RULES",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: extract feasibility constraints codify as explicit rules. Use when inversion supports rule through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.SPEC.ASSUMPTIONS_SCOPE",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.POLICY.RULESET",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.CONSISTENCY_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "constraints_incomplete_or_miss_key_cases",
+        "constraints_too_strict_yield_no_feasible_solution",
+        "wrong_feasibility_assumption_from_bad_inverse_model"
+      ],
+      "trigger_conditions": [
+        "Effects are observable but key causes, states, parameters, or structures remain hidden.",
+        "A forward model or residual notion exists so candidate causes can be checked backward.",
+        "The target route benefits from backward recovery rather than only forward design."
+      ],
+      "anti_triggers": [
+        "Avoid inverse support when no meaningful forward relation or residual signal exists.",
+        "Do not force inversion when target causes are not identifiable even approximately."
+      ],
+      "cost_model": {
+        "relative_cost": "medium"
+      },
+      "effect_tags": [
+        "backward_recovery_or_calibration",
+        "inverse_structuring",
+        "rule"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.LATENT_RECOVERY_OR_INVERSE_COUPLING.INVERSION__TO__FUSION.JOINTLY_INVERT_MODALITIES_VIA_SHARED_LATENT_STATE",
+      "edge_slot_id": "UM.EDGE_SLOT.INVERSION__TO__FUSION",
+      "relation_role": "latent_recovery_or_inverse_coupling",
+      "operator_family": "Jointly invert modalities via shared latent state",
+      "operator_family_code": "JOINTLY_INVERT_MODALITIES_VIA_SHARED_LATENT_STATE",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: jointly invert modalities via shared latent state. Use when inversion supports fusion through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.MODEL.FORWARD_MODEL",
+          "UM.ART.MODEL.INVERSE_SOLUTION",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS",
+          "UM.ART.SPEC.INTERFACE_COMPOSITION_CONTRACT"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.FORWARD_SIMULATION_CONSISTENCY",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.TRACTABILITY_CONDITIONING_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.CONSISTENCY_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.INTERFACE_COMPATIBILITY_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "latent_misalignment_or_modality_bias",
+        "error_cascade_across_modalities",
+        "computational_blowup_or_nonconvergence"
+      ],
+      "trigger_conditions": [
+        "Effects are observable but key causes, states, parameters, or structures remain hidden.",
+        "A forward model or residual notion exists so candidate causes can be checked backward.",
+        "The target route benefits from backward recovery rather than only forward design."
+      ],
+      "anti_triggers": [
+        "Avoid inverse support when no meaningful forward relation or residual signal exists.",
+        "Do not force inversion when target causes are not identifiable even approximately."
+      ],
+      "cost_model": {
+        "relative_cost": "medium"
+      },
+      "effect_tags": [
+        "backward_recovery_or_calibration",
+        "latent_recovery_or_inverse_coupling",
+        "fusion"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.LATENT_RECOVERY_OR_INVERSE_COUPLING.INVERSION__TO__SIMULATION.INFER_LATENT_PARAMETERS_OR_INITIAL_STATES_FOR_CALIBRATION",
+      "edge_slot_id": "UM.EDGE_SLOT.INVERSION__TO__SIMULATION",
+      "relation_role": "latent_recovery_or_inverse_coupling",
+      "operator_family": "Infer latent parameters or initial states for calibration",
+      "operator_family_code": "INFER_LATENT_PARAMETERS_OR_INITIAL_STATES_FOR_CALIBRATION",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: infer latent parameters or initial states for calibration. Use when inversion supports simulation through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.EVIDENCE.DATASET",
+          "UM.ART.MODEL.REPRESENTATION_MAP",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.EVALUATION.TRACTABILITY_REPORT",
+          "UM.ART.MODEL.FORWARD_MODEL",
+          "UM.ART.MODEL.INVERSE_SOLUTION"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.FORWARD_SIMULATION_CONSISTENCY",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.CONSISTENCY_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.SENSITIVITY_SMOKE_TEST",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "non_uniqueness_or_ill_posedness",
+        "noise_amplification",
+        "inferred_states_not_physically_feasible"
+      ],
+      "trigger_conditions": [
+        "Effects are observable but key causes, states, parameters, or structures remain hidden.",
+        "A forward model or residual notion exists so candidate causes can be checked backward.",
+        "The target route benefits from backward recovery rather than only forward design."
+      ],
+      "anti_triggers": [
+        "Avoid inverse support when no meaningful forward relation or residual signal exists.",
+        "Do not force inversion when target causes are not identifiable even approximately."
+      ],
+      "cost_model": {
+        "relative_cost": "medium"
+      },
+      "effect_tags": [
+        "backward_recovery_or_calibration",
+        "latent_recovery_or_inverse_coupling",
+        "simulation"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.LATENT_RECOVERY_OR_INVERSE_COUPLING.INVERSION__TO__EVOLUTIONARY.SCORE_CANDIDATES_BY_FORWARD_RESIDUALS_AS_EVOLUTIONARY_FITNESS",
+      "edge_slot_id": "UM.EDGE_SLOT.INVERSION__TO__EVOLUTIONARY",
+      "relation_role": "latent_recovery_or_inverse_coupling",
+      "operator_family": "Score candidates by forward residuals as evolutionary fitness",
+      "operator_family_code": "SCORE_CANDIDATES_BY_FORWARD_RESIDUALS_AS_EVOLUTIONARY_FITNESS",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: score candidates by forward residuals as evolutionary fitness. Use when inversion supports evolutionary through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.DECISION.CANDIDATE_SOLUTION",
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.MODEL.FORWARD_MODEL"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.DECISION.CANDIDATE_SOLUTION",
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.MODEL.FORWARD_MODEL"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.PRESERVATION_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "residual_mis_specified_creates_deceptive_fitness",
+        "reward_hacking_exploits_residual_loopholes",
+        "evaluation_cost_too_high_for_population"
+      ],
+      "trigger_conditions": [
+        "Effects are observable but key causes, states, parameters, or structures remain hidden.",
+        "A forward model or residual notion exists so candidate causes can be checked backward.",
+        "The target route benefits from backward recovery rather than only forward design."
+      ],
+      "anti_triggers": [
+        "Avoid inverse support when no meaningful forward relation or residual signal exists.",
+        "Do not force inversion when target causes are not identifiable even approximately."
+      ],
+      "cost_model": {
+        "relative_cost": "medium"
+      },
+      "effect_tags": [
+        "backward_recovery_or_calibration",
+        "latent_recovery_or_inverse_coupling",
+        "evolutionary"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.CONSTRAINT_INJECTION.RULE__TO__TRANSFORMATION.USE_INVARIANTS_AND_CONSTRAINTS_TO_RESTRICT_ADMISSIBLE_TRANSFORMS",
+      "edge_slot_id": "UM.EDGE_SLOT.RULE__TO__TRANSFORMATION",
+      "relation_role": "constraint_injection",
+      "operator_family": "Use invariants and constraints to restrict admissible transforms",
+      "operator_family_code": "USE_INVARIANTS_AND_CONSTRAINTS_TO_RESTRICT_ADMISSIBLE_TRANSFORMS",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: use invariants and constraints to restrict admissible transforms. Use when rule supports transformation through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.MODEL.REPRESENTATION_MAP",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS",
+          "UM.ART.CLAIM.PRESERVATION_CLAIM"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.MODEL.REPRESENTATION_MAP",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.UNCERTAINTY_CALIBRATION_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.PRESERVATION_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "overconstrained_transform_space_blocks_progress",
+        "incorrect_invariants_remove_valid_solutions",
+        "constraints_conflict_or_are_incomplete"
+      ],
+      "trigger_conditions": [
+        "Hard admissibility, precedence, or traceability constraints must remain explicit.",
+        "The target route would benefit from explicit gating, conflict handling, or policy control.",
+        "Auditability requires rule-level justification rather than only implicit heuristics."
+      ],
+      "anti_triggers": [
+        "Avoid hard rule injection when the route requires flexible adaptation and no stable rules are defensible.",
+        "Do not use rules as a substitute for unresolved evidence or broken representations."
+      ],
+      "cost_model": {
+        "relative_cost": "cheap"
+      },
+      "effect_tags": [
+        "constraint_or_arbitration",
+        "constraint_injection",
+        "transformation"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.CONSTRAINT_INJECTION.RULE__TO__OPTIMIZATION.INJECT_LOGIC_CONSTRAINTS_AND_EXPERT_HEURISTICS_INTO_SEARCH",
+      "edge_slot_id": "UM.EDGE_SLOT.RULE__TO__OPTIMIZATION",
+      "relation_role": "constraint_injection",
+      "operator_family": "Inject logic constraints and expert heuristics into search",
+      "operator_family_code": "INJECT_LOGIC_CONSTRAINTS_AND_EXPERT_HEURISTICS_INTO_SEARCH",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: inject logic constraints and expert heuristics into search. Use when rule supports optimization through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.EVIDENCE.EXECUTION_TRACES",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.CONSTRAINT_SATISFACTION",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.CONSISTENCY_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "infeasible_constraints_yield_no_solution",
+        "heuristics_bias_search_to_local_region",
+        "constraint_conflicts_or_unhandled_exceptions"
+      ],
+      "trigger_conditions": [
+        "Hard admissibility, precedence, or traceability constraints must remain explicit.",
+        "The target route would benefit from explicit gating, conflict handling, or policy control.",
+        "Auditability requires rule-level justification rather than only implicit heuristics."
+      ],
+      "anti_triggers": [
+        "Avoid hard rule injection when the route requires flexible adaptation and no stable rules are defensible.",
+        "Do not use rules as a substitute for unresolved evidence or broken representations."
+      ],
+      "cost_model": {
+        "relative_cost": "cheap"
+      },
+      "effect_tags": [
+        "constraint_or_arbitration",
+        "constraint_injection",
+        "optimization"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.CONSTRAINT_INJECTION.RULE__TO__PROBABILISTIC.ENCODE_EXPERT_KNOWLEDGE_AS_PRIORS_AND_VALIDITY_CONSTRAINTS",
+      "edge_slot_id": "UM.EDGE_SLOT.RULE__TO__PROBABILISTIC",
+      "relation_role": "constraint_injection",
+      "operator_family": "Encode expert knowledge as priors and validity constraints",
+      "operator_family_code": "ENCODE_EXPERT_KNOWLEDGE_AS_PRIORS_AND_VALIDITY_CONSTRAINTS",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: encode expert knowledge as priors and validity constraints. Use when rule supports probabilistic through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.EVIDENCE.DATASET",
+          "UM.ART.MODEL.REPRESENTATION_MAP",
+          "UM.ART.POLICY.RULESET"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.MODEL.REPRESENTATION_MAP",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.POSTERIOR_PREDICTIVE_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.CONSISTENCY_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.CALIBRATION_RESIDUAL_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "prior_mis_specification_bakes_in_wrong_bias",
+        "rule_to_prob_mapping_breaks semantics",
+        "posterior_overconfidence_due_to_strong_prior"
+      ],
+      "trigger_conditions": [
+        "Hard admissibility, precedence, or traceability constraints must remain explicit.",
+        "The target route would benefit from explicit gating, conflict handling, or policy control.",
+        "Auditability requires rule-level justification rather than only implicit heuristics."
+      ],
+      "anti_triggers": [
+        "Avoid hard rule injection when the route requires flexible adaptation and no stable rules are defensible.",
+        "Do not use rules as a substitute for unresolved evidence or broken representations."
+      ],
+      "cost_model": {
+        "relative_cost": "cheap"
+      },
+      "effect_tags": [
+        "constraint_or_arbitration",
+        "constraint_injection",
+        "probabilistic"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.CONSTRAINT_INJECTION.RULE__TO__INVERSION.CONSTRAIN_INVERSION_WITH_PHYSICAL_OR_SEMANTIC_RULES",
+      "edge_slot_id": "UM.EDGE_SLOT.RULE__TO__INVERSION",
+      "relation_role": "constraint_injection",
+      "operator_family": "Constrain inversion with physical or semantic rules",
+      "operator_family_code": "CONSTRAIN_INVERSION_WITH_PHYSICAL_OR_SEMANTIC_RULES",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: constrain inversion with physical or semantic rules. Use when rule supports inversion through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.MODEL.FORWARD_MODEL",
+          "UM.ART.MODEL.INVERSE_SOLUTION",
+          "UM.ART.POLICY.RULESET"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.DECISION.CANDIDATE_SOLUTION",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.TRACTABILITY_CONDITIONING_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.CONSTRAINT_SATISFACTION",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.CONSISTENCY_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "rules_wrong_or_incomplete_block_true_solution",
+        "no_solution_due_to_overstrict_rules",
+        "constraint_leakage (rules not enforced consistently)"
+      ],
+      "trigger_conditions": [
+        "Hard admissibility, precedence, or traceability constraints must remain explicit.",
+        "The target route would benefit from explicit gating, conflict handling, or policy control.",
+        "Auditability requires rule-level justification rather than only implicit heuristics."
+      ],
+      "anti_triggers": [
+        "Avoid hard rule injection when the route requires flexible adaptation and no stable rules are defensible.",
+        "Do not use rules as a substitute for unresolved evidence or broken representations."
+      ],
+      "cost_model": {
+        "relative_cost": "cheap"
+      },
+      "effect_tags": [
+        "constraint_or_arbitration",
+        "constraint_injection",
+        "inversion"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.GATING_OR_ARBITRATION.RULE__TO__FUSION.RULE_BASED_GATING_OR_ARBITRATION_TO_MANAGE_CONFLICTS",
+      "edge_slot_id": "UM.EDGE_SLOT.RULE__TO__FUSION",
+      "relation_role": "gating_or_arbitration",
+      "operator_family": "Rule based gating or arbitration to manage conflicts",
+      "operator_family_code": "RULE_BASED_GATING_OR_ARBITRATION_TO_MANAGE_CONFLICTS",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: rule based gating or arbitration to manage conflicts. Use when rule supports fusion through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.EVIDENCE.DATASET",
+          "UM.ART.MODEL.BELIEF_MODEL",
+          "UM.ART.POLICY.RULESET",
+          "UM.ART.SPEC.INTERFACE_COMPOSITION_CONTRACT"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.EVIDENCE.EXECUTION_TRACES",
+          "UM.ART.POLICY.RULESET"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.CONSISTENCY_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.CONFLICT_DETECTION",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.PROVENANCE_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.INTERFACE_COMPATIBILITY_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "wrong_arbitration_silences_true_signal",
+        "hidden_conflicts_not_detected",
+        "rule_brittleness_under_domain_shift"
+      ],
+      "trigger_conditions": [
+        "Hard admissibility, precedence, or traceability constraints must remain explicit.",
+        "The target route would benefit from explicit gating, conflict handling, or policy control.",
+        "Auditability requires rule-level justification rather than only implicit heuristics."
+      ],
+      "anti_triggers": [
+        "Avoid hard rule injection when the route requires flexible adaptation and no stable rules are defensible.",
+        "Do not use rules as a substitute for unresolved evidence or broken representations."
+      ],
+      "cost_model": {
+        "relative_cost": "cheap"
+      },
+      "effect_tags": [
+        "constraint_or_arbitration",
+        "gating_or_arbitration",
+        "fusion"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.GATING_OR_ARBITRATION.RULE__TO__SIMULATION.IF_THEN_EVENT_LOGIC_FOR_SIMULATION_CONTROL",
+      "edge_slot_id": "UM.EDGE_SLOT.RULE__TO__SIMULATION",
+      "relation_role": "gating_or_arbitration",
+      "operator_family": "If then event logic for simulation control",
+      "operator_family_code": "IF_THEN_EVENT_LOGIC_FOR_SIMULATION_CONTROL",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: if then event logic for simulation control. Use when rule supports simulation through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.MODEL.BELIEF_MODEL",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.EVIDENCE.EXECUTION_TRACES",
+          "UM.ART.POLICY.RULESET",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.CONSISTENCY_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "rule_conflicts_or_incomplete_coverage",
+        "overly_rigid_rules_block_needed_behaviors",
+        "hidden_exceptions_not_encoded"
+      ],
+      "trigger_conditions": [
+        "Hard admissibility, precedence, or traceability constraints must remain explicit.",
+        "The target route would benefit from explicit gating, conflict handling, or policy control.",
+        "Auditability requires rule-level justification rather than only implicit heuristics."
+      ],
+      "anti_triggers": [
+        "Avoid hard rule injection when the route requires flexible adaptation and no stable rules are defensible.",
+        "Do not use rules as a substitute for unresolved evidence or broken representations."
+      ],
+      "cost_model": {
+        "relative_cost": "expensive"
+      },
+      "effect_tags": [
+        "constraint_or_arbitration",
+        "gating_or_arbitration",
+        "simulation"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.GATING_OR_ARBITRATION.RULE__TO__EVOLUTIONARY.CONSTRAIN_SEARCH_SPACE_GUIDE_EXPLORATION_WITH_RULES",
+      "edge_slot_id": "UM.EDGE_SLOT.RULE__TO__EVOLUTIONARY",
+      "relation_role": "gating_or_arbitration",
+      "operator_family": "Constrain search space guide exploration with rules",
+      "operator_family_code": "CONSTRAIN_SEARCH_SPACE_GUIDE_EXPLORATION_WITH_RULES",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: constrain search space guide exploration with rules. Use when rule supports evolutionary through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.MODEL.BELIEF_MODEL",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.POLICY.RULESET",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.CONFLICT_DETECTION",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.DIVERSITY_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "premature_convergence_due_to_overpruning",
+        "inconsistent_rules_break evolution loop",
+        "constraint_overreach_eliminates novelty"
+      ],
+      "trigger_conditions": [
+        "Hard admissibility, precedence, or traceability constraints must remain explicit.",
+        "The target route would benefit from explicit gating, conflict handling, or policy control.",
+        "Auditability requires rule-level justification rather than only implicit heuristics."
+      ],
+      "anti_triggers": [
+        "Avoid hard rule injection when the route requires flexible adaptation and no stable rules are defensible.",
+        "Do not use rules as a substitute for unresolved evidence or broken representations."
+      ],
+      "cost_model": {
+        "relative_cost": "cheap"
+      },
+      "effect_tags": [
+        "constraint_or_arbitration",
+        "gating_or_arbitration",
+        "evolutionary"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.INTEGRATION_OR_COUPLING.FUSION__TO__TRANSFORMATION.COMPOSE_CROSS_DOMAIN_TRANSFORMS_INTO_A_COHERENT_MAPPING_SET",
+      "edge_slot_id": "UM.EDGE_SLOT.FUSION__TO__TRANSFORMATION",
+      "relation_role": "integration_or_coupling",
+      "operator_family": "Compose cross domain transforms into a coherent mapping set",
+      "operator_family_code": "COMPOSE_CROSS_DOMAIN_TRANSFORMS_INTO_A_COHERENT_MAPPING_SET",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: compose cross domain transforms into a coherent mapping set. Use when fusion supports transformation through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.MODEL.REPRESENTATION_MAP",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS",
+          "UM.ART.CLAIM.PRESERVATION_CLAIM",
+          "UM.ART.SPEC.INTERFACE_COMPOSITION_CONTRACT"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.MODEL.REPRESENTATION_MAP",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.CONSISTENCY_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.PRESERVATION_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.INTERFACE_COMPATIBILITY_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "composition_incoherence_or_cycles",
+        "error_accumulation_across_transform_chain",
+        "mapping_not_transportable_under_shift"
+      ],
+      "trigger_conditions": [
+        "Multiple partial sources, models, or methods must be brought into one coherent route.",
+        "No single source is sufficient on its own and composition or alignment is required.",
+        "A shared latent state, aligned space, or coupled whole is needed for the target paradigm."
+      ],
+      "anti_triggers": [
+        "Avoid fusion when components are incommensurable and no interface or alignment contract can be made explicit.",
+        "Do not fuse merely to add complexity without increasing coverage, robustness, coherence, or scope."
+      ],
+      "cost_model": {
+        "relative_cost": "medium"
+      },
+      "effect_tags": [
+        "integration_or_coupling",
+        "transformation"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.INTEGRATION_OR_COUPLING.FUSION__TO__OPTIMIZATION.STRUCTURE_MULTI_LEVEL_OBJECTIVES_FROM_INTEGRATED_SUBPROBLEMS",
+      "edge_slot_id": "UM.EDGE_SLOT.FUSION__TO__OPTIMIZATION",
+      "relation_role": "integration_or_coupling",
+      "operator_family": "Structure multi level objectives from integrated subproblems",
+      "operator_family_code": "STRUCTURE_MULTI_LEVEL_OBJECTIVES_FROM_INTEGRATED_SUBPROBLEMS",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: structure multi level objectives from integrated subproblems. Use when fusion supports optimization through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS",
+          "UM.ART.SPEC.INTERFACE_COMPOSITION_CONTRACT"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.CONSTRAINT_SATISFACTION",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.CONSISTENCY_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.INTERFACE_COMPATIBILITY_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "double_counting_or_inconsistent_objectives",
+        "unstable_weighting_causes_oscillation",
+        "optimization_becomes_intractable_due_to_complexity"
+      ],
+      "trigger_conditions": [
+        "Multiple partial sources, models, or methods must be brought into one coherent route.",
+        "No single source is sufficient on its own and composition or alignment is required.",
+        "A shared latent state, aligned space, or coupled whole is needed for the target paradigm."
+      ],
+      "anti_triggers": [
+        "Avoid fusion when components are incommensurable and no interface or alignment contract can be made explicit.",
+        "Do not fuse merely to add complexity without increasing coverage, robustness, coherence, or scope."
+      ],
+      "cost_model": {
+        "relative_cost": "medium"
+      },
+      "effect_tags": [
+        "integration_or_coupling",
+        "optimization"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.INTEGRATION_OR_COUPLING.FUSION__TO__PROBABILISTIC.USE_MIXTURE_OR_HIERARCHICAL_DISTRIBUTIONS_FOR_HETEROGENEOUS_SOURCES",
+      "edge_slot_id": "UM.EDGE_SLOT.FUSION__TO__PROBABILISTIC",
+      "relation_role": "integration_or_coupling",
+      "operator_family": "Use mixture or hierarchical distributions for heterogeneous sources",
+      "operator_family_code": "USE_MIXTURE_OR_HIERARCHICAL_DISTRIBUTIONS_FOR_HETEROGENEOUS_SOURCES",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: use mixture or hierarchical distributions for heterogeneous sources. Use when fusion supports probabilistic through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.PROVENANCE.PROVENANCE_LOG",
+          "UM.ART.SPEC.ASSUMPTIONS_SCOPE",
+          "UM.ART.SPEC.INTERFACE_COMPOSITION_CONTRACT"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.MODEL.INVERSE_SOLUTION",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.TRACTABILITY_CONDITIONING_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.POSTERIOR_PREDICTIVE_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.INTERFACE_COMPATIBILITY_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "component_collapse_or_label_switching",
+        "overfitting_due_to_too_many_components",
+        "inference_cost_explosion"
+      ],
+      "trigger_conditions": [
+        "Multiple partial sources, models, or methods must be brought into one coherent route.",
+        "No single source is sufficient on its own and composition or alignment is required.",
+        "A shared latent state, aligned space, or coupled whole is needed for the target paradigm."
+      ],
+      "anti_triggers": [
+        "Avoid fusion when components are incommensurable and no interface or alignment contract can be made explicit.",
+        "Do not fuse merely to add complexity without increasing coverage, robustness, coherence, or scope."
+      ],
+      "cost_model": {
+        "relative_cost": "medium"
+      },
+      "effect_tags": [
+        "integration_or_coupling",
+        "probabilistic"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.INTEGRATION_OR_COUPLING.FUSION__TO__INVERSION.COUPLE_INVERSES_VIA_SHARED_RECONSTRUCTION_PIPELINES",
+      "edge_slot_id": "UM.EDGE_SLOT.FUSION__TO__INVERSION",
+      "relation_role": "integration_or_coupling",
+      "operator_family": "Couple inverses via shared reconstruction pipelines",
+      "operator_family_code": "COUPLE_INVERSES_VIA_SHARED_RECONSTRUCTION_PIPELINES",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: couple inverses via shared reconstruction pipelines. Use when fusion supports inversion through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.MODEL.INVERSE_SOLUTION",
+          "UM.ART.SPEC.INTERFACE_COMPOSITION_CONTRACT"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.FORWARD_SIMULATION_CONSISTENCY",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.CONSISTENCY_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.INTERFACE_COMPATIBILITY_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "error_cascade_across_pipeline",
+        "inconsistent_constraints_across inverses",
+        "computational_blowup_or_nonconvergence"
+      ],
+      "trigger_conditions": [
+        "Multiple partial sources, models, or methods must be brought into one coherent route.",
+        "No single source is sufficient on its own and composition or alignment is required.",
+        "A shared latent state, aligned space, or coupled whole is needed for the target paradigm."
+      ],
+      "anti_triggers": [
+        "Avoid fusion when components are incommensurable and no interface or alignment contract can be made explicit.",
+        "Do not fuse merely to add complexity without increasing coverage, robustness, coherence, or scope."
+      ],
+      "cost_model": {
+        "relative_cost": "medium"
+      },
+      "effect_tags": [
+        "integration_or_coupling",
+        "inversion"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.INTEGRATION_OR_COUPLING.FUSION__TO__RULE.MERGE_RULE_BASES_RESOLVE_CONFLICTS_VIA_PRIORITIES_AND_EXCEPTIONS",
+      "edge_slot_id": "UM.EDGE_SLOT.FUSION__TO__RULE",
+      "relation_role": "integration_or_coupling",
+      "operator_family": "Merge rule bases resolve conflicts via priorities and exceptions",
+      "operator_family_code": "MERGE_RULE_BASES_RESOLVE_CONFLICTS_VIA_PRIORITIES_AND_EXCEPTIONS",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: merge rule bases resolve conflicts via priorities and exceptions. Use when fusion supports rule through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.DECISION.CANDIDATE_SOLUTION",
+          "UM.ART.MODEL.BELIEF_MODEL",
+          "UM.ART.POLICY.RULESET",
+          "UM.ART.SPEC.INTERFACE_COMPOSITION_CONTRACT"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.DECISION.CANDIDATE_SOLUTION",
+          "UM.ART.MODEL.BELIEF_MODEL",
+          "UM.ART.POLICY.RULESET"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.UNCERTAINTY_CALIBRATION_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.CONSISTENCY_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.CONFLICT_DETECTION",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.INTERFACE_COMPATIBILITY_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "priority_inversion_or_unhandled_exceptions",
+        "rule_explosion_becomes_unmaintainable",
+        "silent_conflicts_due_to ambiguous merge"
+      ],
+      "trigger_conditions": [
+        "Multiple partial sources, models, or methods must be brought into one coherent route.",
+        "No single source is sufficient on its own and composition or alignment is required.",
+        "A shared latent state, aligned space, or coupled whole is needed for the target paradigm."
+      ],
+      "anti_triggers": [
+        "Avoid fusion when components are incommensurable and no interface or alignment contract can be made explicit.",
+        "Do not fuse merely to add complexity without increasing coverage, robustness, coherence, or scope."
+      ],
+      "cost_model": {
+        "relative_cost": "medium"
+      },
+      "effect_tags": [
+        "integration_or_coupling",
+        "rule"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.INTEGRATION_OR_COUPLING.FUSION__TO__SIMULATION.CO_SIMULATION_UNDER_UNIFIED_SCENARIOS",
+      "edge_slot_id": "UM.EDGE_SLOT.FUSION__TO__SIMULATION",
+      "relation_role": "integration_or_coupling",
+      "operator_family": "Co simulation under unified scenarios",
+      "operator_family_code": "CO_SIMULATION_UNDER_UNIFIED_SCENARIOS",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: co simulation under unified scenarios. Use when fusion supports simulation through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.CLAIM.INVARIANCE_CLAIM",
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.MODEL.REPRESENTATION_MAP",
+          "UM.ART.SPEC.INTERFACE_COMPOSITION_CONTRACT"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.EVIDENCE.EXECUTION_TRACES"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.PRESERVATION_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.CONSISTENCY_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.INTERFACE_COMPATIBILITY_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "interface_mismatch_or_time_sync_errors",
+        "error_propagation_amplified_by_coupling",
+        "inconsistent_assumptions_between_submodels"
+      ],
+      "trigger_conditions": [
+        "Multiple partial sources, models, or methods must be brought into one coherent route.",
+        "No single source is sufficient on its own and composition or alignment is required.",
+        "A shared latent state, aligned space, or coupled whole is needed for the target paradigm."
+      ],
+      "anti_triggers": [
+        "Avoid fusion when components are incommensurable and no interface or alignment contract can be made explicit.",
+        "Do not fuse merely to add complexity without increasing coverage, robustness, coherence, or scope."
+      ],
+      "cost_model": {
+        "relative_cost": "expensive"
+      },
+      "effect_tags": [
+        "integration_or_coupling",
+        "simulation"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.INTEGRATION_OR_COUPLING.FUSION__TO__EVOLUTIONARY.HYBRIDIZE_OPERATORS_COMBINE_LOCAL_SEARCH_WITH_EVOLUTION",
+      "edge_slot_id": "UM.EDGE_SLOT.FUSION__TO__EVOLUTIONARY",
+      "relation_role": "integration_or_coupling",
+      "operator_family": "Hybridize operators combine local search with evolution",
+      "operator_family_code": "HYBRIDIZE_OPERATORS_COMBINE_LOCAL_SEARCH_WITH_EVOLUTION",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: hybridize operators combine local search with evolution. Use when fusion supports evolutionary through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS",
+          "UM.ART.SPEC.INTERFACE_COMPOSITION_CONTRACT"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.EVIDENCE.EXECUTION_TRACES"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.DIVERSITY_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.INTERFACE_COMPATIBILITY_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "operator_interference_causes regressions",
+        "overexploitation_reduces exploration",
+        "compute_budget_explosion"
+      ],
+      "trigger_conditions": [
+        "Multiple partial sources, models, or methods must be brought into one coherent route.",
+        "No single source is sufficient on its own and composition or alignment is required.",
+        "A shared latent state, aligned space, or coupled whole is needed for the target paradigm."
+      ],
+      "anti_triggers": [
+        "Avoid fusion when components are incommensurable and no interface or alignment contract can be made explicit.",
+        "Do not fuse merely to add complexity without increasing coverage, robustness, coherence, or scope."
+      ],
+      "cost_model": {
+        "relative_cost": "medium"
+      },
+      "effect_tags": [
+        "integration_or_coupling",
+        "evolutionary"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.SCENARIO_EVALUATION.SIMULATION__TO__TRANSFORMATION.USE_SENSITIVITY_RUNS_TO_SELECT_INFORMATIVE_TRANSFORMS",
+      "edge_slot_id": "UM.EDGE_SLOT.SIMULATION__TO__TRANSFORMATION",
+      "relation_role": "scenario_evaluation",
+      "operator_family": "Use sensitivity runs to select informative transforms",
+      "operator_family_code": "USE_SENSITIVITY_RUNS_TO_SELECT_INFORMATIVE_TRANSFORMS",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: use sensitivity runs to select informative transforms. Use when simulation supports transformation through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.EVIDENCE.EXECUTION_TRACES",
+          "UM.ART.MODEL.REPRESENTATION_MAP",
+          "UM.ART.CLAIM.PRESERVATION_CLAIM"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.MODEL.REPRESENTATION_MAP"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.PRESERVATION_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "simulator_bias_misleads_sensitivity",
+        "insufficient_runs_produce_noisy_importance",
+        "high_compute_cost_exceeds_budget"
+      ],
+      "trigger_conditions": [
+        "Real-world evaluation is costly, risky, or infeasible, but a model world can be run instead.",
+        "The target route needs scenario evidence, rollouts, synthetic data, or sim-in-the-loop evaluation.",
+        "Forward execution can expose failure modes or consequences that static analysis misses."
+      ],
+      "anti_triggers": [
+        "Avoid simulation support when no credible model world or executable surrogate is available.",
+        "Do not rely on simulation evidence when execution semantics are unvalidated."
+      ],
+      "cost_model": {
+        "relative_cost": "expensive"
+      },
+      "effect_tags": [
+        "scenario_evaluation_or_generation",
+        "scenario_evaluation",
+        "transformation"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.SCENARIO_EVALUATION.SIMULATION__TO__OPTIMIZATION.SIMULATION_IN_THE_LOOP_EVALUATION_TO_OPTIMIZE_DECISIONS",
+      "edge_slot_id": "UM.EDGE_SLOT.SIMULATION__TO__OPTIMIZATION",
+      "relation_role": "scenario_evaluation",
+      "operator_family": "Simulation in the loop evaluation to optimize decisions",
+      "operator_family_code": "SIMULATION_IN_THE_LOOP_EVALUATION_TO_OPTIMIZE_DECISIONS",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: simulation in the loop evaluation to optimize decisions. Use when simulation supports optimization through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.EVIDENCE.EXECUTION_TRACES",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.DECISION.CANDIDATE_SOLUTION",
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        }
+      ],
+      "typical_failure_modes": [
+        "sim_to_real_gap_turns_optimized_policy_wrong",
+        "compute_cost_explosion_from_many_rollouts",
+        "nonstationary_simulator_or changing assumptions"
+      ],
+      "trigger_conditions": [
+        "Real-world evaluation is costly, risky, or infeasible, but a model world can be run instead.",
+        "The target route needs scenario evidence, rollouts, synthetic data, or sim-in-the-loop evaluation.",
+        "Forward execution can expose failure modes or consequences that static analysis misses."
+      ],
+      "anti_triggers": [
+        "Avoid simulation support when no credible model world or executable surrogate is available.",
+        "Do not rely on simulation evidence when execution semantics are unvalidated."
+      ],
+      "cost_model": {
+        "relative_cost": "expensive"
+      },
+      "effect_tags": [
+        "scenario_evaluation_or_generation",
+        "scenario_evaluation",
+        "optimization"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.SCENARIO_EVALUATION.SIMULATION__TO__PROBABILISTIC.SAMPLE_BASED_SIMULATION_FOR_TAIL_RISK_AND_UNCERTAINTY",
+      "edge_slot_id": "UM.EDGE_SLOT.SIMULATION__TO__PROBABILISTIC",
+      "relation_role": "scenario_evaluation",
+      "operator_family": "Sample based simulation for tail risk and uncertainty",
+      "operator_family_code": "SAMPLE_BASED_SIMULATION_FOR_TAIL_RISK_AND_UNCERTAINTY",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: sample based simulation for tail risk and uncertainty. Use when simulation supports probabilistic through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.EVIDENCE.UNCERTAINTY_POSTERIOR"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.CALIBRATION_RESIDUAL_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "insufficient_samples_miss_tail_events",
+        "sampling_bias_or_importance_weight_collapse",
+        "simulator_misspecification_gives_false_risk"
+      ],
+      "trigger_conditions": [
+        "Real-world evaluation is costly, risky, or infeasible, but a model world can be run instead.",
+        "The target route needs scenario evidence, rollouts, synthetic data, or sim-in-the-loop evaluation.",
+        "Forward execution can expose failure modes or consequences that static analysis misses."
+      ],
+      "anti_triggers": [
+        "Avoid simulation support when no credible model world or executable surrogate is available.",
+        "Do not rely on simulation evidence when execution semantics are unvalidated."
+      ],
+      "cost_model": {
+        "relative_cost": "expensive"
+      },
+      "effect_tags": [
+        "scenario_evaluation_or_generation",
+        "scenario_evaluation",
+        "probabilistic"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.SCENARIO_EVALUATION.SIMULATION__TO__INVERSION.FORWARD_ROLLOUTS_VALIDATE_CANDIDATE_CAUSES_OR_PARAMETERS",
+      "edge_slot_id": "UM.EDGE_SLOT.SIMULATION__TO__INVERSION",
+      "relation_role": "scenario_evaluation",
+      "operator_family": "Forward rollouts validate candidate causes or parameters",
+      "operator_family_code": "FORWARD_ROLLOUTS_VALIDATE_CANDIDATE_CAUSES_OR_PARAMETERS",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: forward rollouts validate candidate causes or parameters. Use when simulation supports inversion through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.EVIDENCE.EXECUTION_TRACES",
+          "UM.ART.MODEL.INVERSE_SOLUTION"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.DECISION.CANDIDATE_SOLUTION",
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.EVIDENCE.EXECUTION_TRACES"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.TRACTABILITY_CONDITIONING_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.UNCERTAINTY_CALIBRATION_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.CONSISTENCY_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "sim_to_real_gap_masks true parameters",
+        "overfitting_candidate_to_simulated_scenarios",
+        "rollout_cost_too_high_to validate enough"
+      ],
+      "trigger_conditions": [
+        "Real-world evaluation is costly, risky, or infeasible, but a model world can be run instead.",
+        "The target route needs scenario evidence, rollouts, synthetic data, or sim-in-the-loop evaluation.",
+        "Forward execution can expose failure modes or consequences that static analysis misses."
+      ],
+      "anti_triggers": [
+        "Avoid simulation support when no credible model world or executable surrogate is available.",
+        "Do not rely on simulation evidence when execution semantics are unvalidated."
+      ],
+      "cost_model": {
+        "relative_cost": "expensive"
+      },
+      "effect_tags": [
+        "scenario_evaluation_or_generation",
+        "scenario_evaluation",
+        "inversion"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.SCENARIO_EVALUATION.SIMULATION__TO__RULE.STRESS_TEST_RULES_ACROSS_SCENARIOS_EXPOSE_CONTRADICTIONS",
+      "edge_slot_id": "UM.EDGE_SLOT.SIMULATION__TO__RULE",
+      "relation_role": "scenario_evaluation",
+      "operator_family": "Stress test rules across scenarios expose contradictions",
+      "operator_family_code": "STRESS_TEST_RULES_ACROSS_SCENARIOS_EXPOSE_CONTRADICTIONS",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: stress test rules across scenarios expose contradictions. Use when simulation supports rule through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.POLICY.RULESET"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.POLICY.RULESET"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.UNCERTAINTY_CALIBRATION_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.CONSISTENCY_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "scenario_space_incomplete_hides failures",
+        "model_bias_creates_false_contradictions",
+        "rule_overfitting_to_test_scenarios"
+      ],
+      "trigger_conditions": [
+        "Real-world evaluation is costly, risky, or infeasible, but a model world can be run instead.",
+        "The target route needs scenario evidence, rollouts, synthetic data, or sim-in-the-loop evaluation.",
+        "Forward execution can expose failure modes or consequences that static analysis misses."
+      ],
+      "anti_triggers": [
+        "Avoid simulation support when no credible model world or executable surrogate is available.",
+        "Do not rely on simulation evidence when execution semantics are unvalidated."
+      ],
+      "cost_model": {
+        "relative_cost": "expensive"
+      },
+      "effect_tags": [
+        "scenario_evaluation_or_generation",
+        "scenario_evaluation",
+        "rule"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.EVIDENCE_GENERATION_OR_EVALUATION.SIMULATION__TO__FUSION.GENERATE_CONTROLLED_SYNTHETIC_DATA_TO_BENCHMARK_FUSION",
+      "edge_slot_id": "UM.EDGE_SLOT.SIMULATION__TO__FUSION",
+      "relation_role": "evidence_generation_or_evaluation",
+      "operator_family": "Generate controlled synthetic data to benchmark fusion",
+      "operator_family_code": "GENERATE_CONTROLLED_SYNTHETIC_DATA_TO_BENCHMARK_FUSION",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: generate controlled synthetic data to benchmark fusion. Use when simulation supports fusion through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.EVIDENCE.DATASET",
+          "UM.ART.MODEL.REPRESENTATION_MAP",
+          "UM.ART.SPEC.INTERFACE_COMPOSITION_CONTRACT"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.EVIDENCE.DATASET",
+          "UM.ART.MODEL.REPRESENTATION_MAP"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.CONSISTENCY_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.INTERFACE_COMPATIBILITY_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "synthetic_data_unrealistic_misleads fusion design",
+        "label_leakage_or overly clean data inflates results",
+        "benchmark_overfits_to simulator quirks"
+      ],
+      "trigger_conditions": [
+        "Real-world evaluation is costly, risky, or infeasible, but a model world can be run instead.",
+        "The target route needs scenario evidence, rollouts, synthetic data, or sim-in-the-loop evaluation.",
+        "Forward execution can expose failure modes or consequences that static analysis misses."
+      ],
+      "anti_triggers": [
+        "Avoid simulation support when no credible model world or executable surrogate is available.",
+        "Do not rely on simulation evidence when execution semantics are unvalidated."
+      ],
+      "cost_model": {
+        "relative_cost": "expensive"
+      },
+      "effect_tags": [
+        "scenario_evaluation_or_generation",
+        "evidence_generation_or_evaluation",
+        "fusion"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.EVIDENCE_GENERATION_OR_EVALUATION.SIMULATION__TO__EVOLUTIONARY.PROVIDE_EVALUATION_ENVIRONMENT_FOR_EVOLVING_SOLUTIONS",
+      "edge_slot_id": "UM.EDGE_SLOT.SIMULATION__TO__EVOLUTIONARY",
+      "relation_role": "evidence_generation_or_evaluation",
+      "operator_family": "Provide evaluation environment for evolving solutions",
+      "operator_family_code": "PROVIDE_EVALUATION_ENVIRONMENT_FOR_EVOLVING_SOLUTIONS",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: provide evaluation environment for evolving solutions. Use when simulation supports evolutionary through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.MODEL.WORLD_MODEL"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.DIVERSITY_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "fitness_leak_or loopholes in environment",
+        "environment_misspecification_guides wrong evolution",
+        "compute_cost_explosion_from evaluations"
+      ],
+      "trigger_conditions": [
+        "Real-world evaluation is costly, risky, or infeasible, but a model world can be run instead.",
+        "The target route needs scenario evidence, rollouts, synthetic data, or sim-in-the-loop evaluation.",
+        "Forward execution can expose failure modes or consequences that static analysis misses."
+      ],
+      "anti_triggers": [
+        "Avoid simulation support when no credible model world or executable surrogate is available.",
+        "Do not rely on simulation evidence when execution semantics are unvalidated."
+      ],
+      "cost_model": {
+        "relative_cost": "expensive"
+      },
+      "effect_tags": [
+        "scenario_evaluation_or_generation",
+        "evidence_generation_or_evaluation",
+        "evolutionary"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.ADAPTIVE_SEARCH_OR_UPDATE.EVOLUTIONARY__TO__TRANSFORMATION.ADAPTIVELY_TUNE_TRANSFORMS_AND_REPRESENTATIONS",
+      "edge_slot_id": "UM.EDGE_SLOT.EVOLUTIONARY__TO__TRANSFORMATION",
+      "relation_role": "adaptive_search_or_update",
+      "operator_family": "Adaptively tune transforms and representations",
+      "operator_family_code": "ADAPTIVELY_TUNE_TRANSFORMS_AND_REPRESENTATIONS",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: adaptively tune transforms and representations. Use when evolutionary supports transformation through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.MODEL.REPRESENTATION_MAP",
+          "UM.ART.CLAIM.PRESERVATION_CLAIM"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.EVIDENCE.EXECUTION_TRACES",
+          "UM.ART.MODEL.REPRESENTATION_MAP"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.PRESERVATION_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.TRACTABILITY_CONDITIONING_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "representation_drift_breaks semantics",
+        "bloat_or_uncontrolled_complexity_growth",
+        "catastrophic_forgetting_of useful transforms"
+      ],
+      "trigger_conditions": [
+        "The search landscape is rugged, gradients are weak, or objectives/context may drift.",
+        "The target route benefits from iterative adaptation, diversity preservation, or candidate replacement.",
+        "Repeated improvement over time is more realistic than a single closed-form commitment."
+      ],
+      "anti_triggers": [
+        "Avoid evolutionary support when stable direct methods dominate and exploratory variation adds little value.",
+        "Do not run adaptive search without a usable feedback signal or carryover policy."
+      ],
+      "cost_model": {
+        "relative_cost": "expensive"
+      },
+      "effect_tags": [
+        "adaptive_search_or_update",
+        "transformation"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.ADAPTIVE_SEARCH_OR_UPDATE.EVOLUTIONARY__TO__OPTIMIZATION.GLOBAL_GRADIENT_FREE_SEARCH_FOR_NONCONVEX_OBJECTIVES",
+      "edge_slot_id": "UM.EDGE_SLOT.EVOLUTIONARY__TO__OPTIMIZATION",
+      "relation_role": "adaptive_search_or_update",
+      "operator_family": "Global gradient free search for nonconvex objectives",
+      "operator_family_code": "GLOBAL_GRADIENT_FREE_SEARCH_FOR_NONCONVEX_OBJECTIVES",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: global gradient free search for nonconvex objectives. Use when evolutionary supports optimization through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.DECISION.CANDIDATE_SOLUTION",
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.CONSTRAINT_SATISFACTION",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.DIVERSITY_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "premature_convergence_to_suboptimal_mode",
+        "compute_cost_too_high_for budget",
+        "noisy_objective_misleads selection"
+      ],
+      "trigger_conditions": [
+        "The search landscape is rugged, gradients are weak, or objectives/context may drift.",
+        "The target route benefits from iterative adaptation, diversity preservation, or candidate replacement.",
+        "Repeated improvement over time is more realistic than a single closed-form commitment."
+      ],
+      "anti_triggers": [
+        "Avoid evolutionary support when stable direct methods dominate and exploratory variation adds little value.",
+        "Do not run adaptive search without a usable feedback signal or carryover policy."
+      ],
+      "cost_model": {
+        "relative_cost": "expensive"
+      },
+      "effect_tags": [
+        "adaptive_search_or_update",
+        "optimization"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.ADAPTIVE_SEARCH_OR_UPDATE.EVOLUTIONARY__TO__PROBABILISTIC.POPULATION_BASED_SAMPLING_FOR_MULTIMODAL_UNCERTAINTY",
+      "edge_slot_id": "UM.EDGE_SLOT.EVOLUTIONARY__TO__PROBABILISTIC",
+      "relation_role": "adaptive_search_or_update",
+      "operator_family": "Population based sampling for multimodal uncertainty",
+      "operator_family_code": "POPULATION_BASED_SAMPLING_FOR_MULTIMODAL_UNCERTAINTY",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: population based sampling for multimodal uncertainty. Use when evolutionary supports probabilistic through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.EVIDENCE.UNCERTAINTY_POSTERIOR",
+          "UM.ART.MODEL.REPRESENTATION_MAP"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.EVIDENCE.UNCERTAINTY_POSTERIOR",
+          "UM.ART.MODEL.BELIEF_MODEL",
+          "UM.ART.MODEL.INVERSE_SOLUTION"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.UNCERTAINTY_CALIBRATION_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.CALIBRATION_RESIDUAL_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.DIVERSITY_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "particle_degeneracy_or_sample_impoverishment",
+        "mode_collapse_due_to_selection_pressure",
+        "computational_cost_explosion_with many particles"
+      ],
+      "trigger_conditions": [
+        "The search landscape is rugged, gradients are weak, or objectives/context may drift.",
+        "The target route benefits from iterative adaptation, diversity preservation, or candidate replacement.",
+        "Repeated improvement over time is more realistic than a single closed-form commitment."
+      ],
+      "anti_triggers": [
+        "Avoid evolutionary support when stable direct methods dominate and exploratory variation adds little value.",
+        "Do not run adaptive search without a usable feedback signal or carryover policy."
+      ],
+      "cost_model": {
+        "relative_cost": "expensive"
+      },
+      "effect_tags": [
+        "adaptive_search_or_update",
+        "probabilistic"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.ADAPTIVE_SEARCH_OR_UPDATE.EVOLUTIONARY__TO__INVERSION.GRADIENT_FREE_POPULATION_SEARCH_WHEN_GRADIENTS_ARE_UNAVAILABLE",
+      "edge_slot_id": "UM.EDGE_SLOT.EVOLUTIONARY__TO__INVERSION",
+      "relation_role": "adaptive_search_or_update",
+      "operator_family": "Gradient free population search when gradients are unavailable",
+      "operator_family_code": "GRADIENT_FREE_POPULATION_SEARCH_WHEN_GRADIENTS_ARE_UNAVAILABLE",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: gradient free population search when gradients are unavailable. Use when evolutionary supports inversion through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.MODEL.FORWARD_MODEL",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.EVIDENCE.EXECUTION_TRACES",
+          "UM.ART.PROVENANCE.PROVENANCE_LOG"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.TRACTABILITY_CONDITIONING_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.CONSTRAINT_SATISFACTION",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.CONSISTENCY_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "search_stagnation_or premature convergence",
+        "ill_posedness_yields many equivalent solutions",
+        "compute_cost_too_high_for repeated forward evals"
+      ],
+      "trigger_conditions": [
+        "The search landscape is rugged, gradients are weak, or objectives/context may drift.",
+        "The target route benefits from iterative adaptation, diversity preservation, or candidate replacement.",
+        "Repeated improvement over time is more realistic than a single closed-form commitment."
+      ],
+      "anti_triggers": [
+        "Avoid evolutionary support when stable direct methods dominate and exploratory variation adds little value.",
+        "Do not run adaptive search without a usable feedback signal or carryover policy."
+      ],
+      "cost_model": {
+        "relative_cost": "expensive"
+      },
+      "effect_tags": [
+        "adaptive_search_or_update",
+        "inversion"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.ADAPTIVE_SEARCH_OR_UPDATE.EVOLUTIONARY__TO__RULE.MUTATE_AND_RECOMBINE_RULE_SETS_SELECT_BY_PERFORMANCE",
+      "edge_slot_id": "UM.EDGE_SLOT.EVOLUTIONARY__TO__RULE",
+      "relation_role": "adaptive_search_or_update",
+      "operator_family": "Mutate and recombine rule sets select by performance",
+      "operator_family_code": "MUTATE_AND_RECOMBINE_RULE_SETS_SELECT_BY_PERFORMANCE",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: mutate and recombine rule sets select by performance. Use when evolutionary supports rule through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.MODEL.REPRESENTATION_MAP",
+          "UM.ART.POLICY.RULESET",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.POLICY.RULESET"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.TRACTABILITY_CONDITIONING_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.UNCERTAINTY_CALIBRATION_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.CONSISTENCY_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "rule_bloat_and loss_of_interpretability",
+        "spurious_rules_selected_due_to noisy metric",
+        "unsafe_rule_mutations_violate constraints"
+      ],
+      "trigger_conditions": [
+        "The search landscape is rugged, gradients are weak, or objectives/context may drift.",
+        "The target route benefits from iterative adaptation, diversity preservation, or candidate replacement.",
+        "Repeated improvement over time is more realistic than a single closed-form commitment."
+      ],
+      "anti_triggers": [
+        "Avoid evolutionary support when stable direct methods dominate and exploratory variation adds little value.",
+        "Do not run adaptive search without a usable feedback signal or carryover policy."
+      ],
+      "cost_model": {
+        "relative_cost": "expensive"
+      },
+      "effect_tags": [
+        "adaptive_search_or_update",
+        "rule"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.ADAPTIVE_SEARCH_OR_UPDATE.EVOLUTIONARY__TO__FUSION.EVOLVE_FUSION_ARCHITECTURES_OR_WEIGHTS_FOR_ROBUSTNESS",
+      "edge_slot_id": "UM.EDGE_SLOT.EVOLUTIONARY__TO__FUSION",
+      "relation_role": "adaptive_search_or_update",
+      "operator_family": "Evolve fusion architectures or weights for robustness",
+      "operator_family_code": "EVOLVE_FUSION_ARCHITECTURES_OR_WEIGHTS_FOR_ROBUSTNESS",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: evolve fusion architectures or weights for robustness. Use when evolutionary supports fusion through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS",
+          "UM.ART.SPEC.INTERFACE_COMPOSITION_CONTRACT"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        },
+        {
+          "vp_id": "UM.VP.DIVERSITY_CHECK",
+          "requirement": "should"
+        },
+        {
+          "vp_id": "UM.VP.INTERFACE_COMPATIBILITY_CHECK",
+          "requirement": "should"
+        }
+      ],
+      "typical_failure_modes": [
+        "weight_collapse_or overreliance_on_one_source",
+        "overfitting_to_testbed_scenarios",
+        "compute_cost_explosion_for evaluation"
+      ],
+      "trigger_conditions": [
+        "The search landscape is rugged, gradients are weak, or objectives/context may drift.",
+        "The target route benefits from iterative adaptation, diversity preservation, or candidate replacement.",
+        "Repeated improvement over time is more realistic than a single closed-form commitment."
+      ],
+      "anti_triggers": [
+        "Avoid evolutionary support when stable direct methods dominate and exploratory variation adds little value.",
+        "Do not run adaptive search without a usable feedback signal or carryover policy."
+      ],
+      "cost_model": {
+        "relative_cost": "expensive"
+      },
+      "effect_tags": [
+        "adaptive_search_or_update",
+        "fusion"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "edge_family_id": "UM.EDGE_FAMILY.ADAPTIVE_SEARCH_OR_UPDATE.EVOLUTIONARY__TO__SIMULATION.EVOLUTIONARY_CALIBRATION_OR_STRUCTURE_SEARCH_FOR_BLACK_BOX_SIMULATORS",
+      "edge_slot_id": "UM.EDGE_SLOT.EVOLUTIONARY__TO__SIMULATION",
+      "relation_role": "adaptive_search_or_update",
+      "operator_family": "Evolutionary calibration or structure search for black box simulators",
+      "operator_family_code": "EVOLUTIONARY_CALIBRATION_OR_STRUCTURE_SEARCH_FOR_BLACK_BOX_SIMULATORS",
+      "mechanism_summary": "Figure-2 recurrent interaction pattern: evolutionary calibration or structure search for black box simulators. Use when evolutionary supports simulation through this recurrent interaction pattern.",
+      "typed_contract": {
+        "requires_artifact_types": [
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT"
+        ],
+        "produces_artifact_types": [
+          "UM.ART.DECISION.CANDIDATE_SOLUTION",
+          "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+          "UM.ART.PROVENANCE.PROVENANCE_LOG"
+        ]
+      },
+      "default_validation_primitives": [
+        {
+          "vp_id": "UM.VP.ARTIFACT_CONTRACT_COMPLETENESS",
+          "requirement": "must"
+        }
+      ],
+      "typical_failure_modes": [
+        "reward_hacking_or_overfitting_to_score",
+        "premature_convergence",
+        "unbounded_compute_use_without_progress"
+      ],
+      "trigger_conditions": [
+        "The search landscape is rugged, gradients are weak, or objectives/context may drift.",
+        "The target route benefits from iterative adaptation, diversity preservation, or candidate replacement.",
+        "Repeated improvement over time is more realistic than a single closed-form commitment."
+      ],
+      "anti_triggers": [
+        "Avoid evolutionary support when stable direct methods dominate and exploratory variation adds little value.",
+        "Do not run adaptive search without a usable feedback signal or carryover policy."
+      ],
+      "cost_model": {
+        "relative_cost": "expensive"
+      },
+      "effect_tags": [
+        "adaptive_search_or_update",
+        "simulation"
+      ],
+      "seed_status": "seed_default",
+      "source_basis": [
+        "figure2_cell",
+        "compass_semantics",
+        "alignment_review"
+      ],
+      "confidence": "moderate"
+    }
+  ],
+  "design_notes": [
+    "Edge families are governed composition seeds derived from the pairwise Paradigm Interaction Matrix. They express recurrent cross-paradigm operator roles, not an exhaustive closed inventory of every future interaction.",
+    "The relation_role field is intentionally coarse. It classifies the structural role of the interaction; the operator_family and operator_family_code fields carry the more specific mechanism family for that edge slot.",
+    "The requires/provides artifact types and default validation requirements are seed-level expectations that help downstream users start from a coherent contract. They may need strengthening, narrowing, or adaptation in concrete tasks.",
+    "The relation_role vocabulary is governed but revisable across releases. It is a current coarse structural classification, not an exhaustive permanent inventory. The operator_family field carries the more specific recurrent mechanism seed and is likewise open to revision through governance."
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://um-mci.local/schemas/um_governance_context_instance.schema.v1.json",
+  "title": "UM Governance Context Instance",
+  "type": "object",
+  "properties": {
+    "UM.GOV.RISK_STAKES_LEVEL": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 3
+    },
+    "UM.GOV.REVERSIBILITY_CLASS": {
+      "type": "string",
+      "enum": [
+        "reversible",
+        "partially_reversible",
+        "irreversible"
+      ]
+    },
+    "UM.GOV.AUDIT_REQUIREMENT": {
+      "type": "string",
+      "enum": [
+        "none",
+        "minimal",
+        "strict"
+      ]
+    },
+    "UM.GOV.PERMISSION_FLAGS": {
+      "type": "object",
+      "properties": {
+        "can_access_internet": {
+          "type": "boolean"
+        },
+        "can_execute_code": {
+          "type": "boolean"
+        },
+        "can_write_external_systems": {
+          "type": "boolean"
+        },
+        "can_spend_money": {
+          "type": "boolean"
+        },
+        "can_delete_or_modify_external_data": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "extensions": {
+      "type": "object",
+      "description": "Optional local/vendor extensions. Place non-core context fields here and namespace them by team, vendor, or project to preserve interoperability.",
+      "patternProperties": {
+        "^[A-Za-z0-9_.:-]+$": {
+          "type": [
+            "object",
+            "array",
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

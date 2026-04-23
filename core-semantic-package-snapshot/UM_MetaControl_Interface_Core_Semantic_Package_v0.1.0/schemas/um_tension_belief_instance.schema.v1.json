@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://um-mci.local/schemas/um_tension_belief_instance.schema.v1.json",
+  "title": "UM Tension Belief Instance",
+  "type": "object",
+  "required": [
+    "beliefs"
+  ],
+  "properties": {
+    "assessor_kind": {
+      "type": "string",
+      "enum": [
+        "agent_self",
+        "human_supervisor",
+        "hybrid",
+        "external_metric_derived",
+        "unspecified"
+      ],
+      "default": "agent_self"
+    },
+    "assessment_basis": {
+      "type": "string"
+    },
+    "beliefs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "dimension_id",
+          "level"
+        ],
+        "properties": {
+          "dimension_id": {
+            "type": "string",
+            "pattern": "^UM\\.OT\\."
+          },
+          "level": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "evidence_pointers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "notes": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "summary": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

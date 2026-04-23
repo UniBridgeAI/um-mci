@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UM-MCI machine controls registry",
+  "type": "object",
+  "required": [
+    "package",
+    "machine_controls"
+  ],
+  "properties": {
+    "package": {
+      "type": "object"
+    },
+    "machine_controls": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/control"
+      }
+    },
+    "design_notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "$defs": {
+    "control": {
+      "type": "object",
+      "required": [
+        "control_id",
+        "paradigm_id",
+        "label",
+        "kind",
+        "definition",
+        "values",
+        "default",
+        "control_family"
+      ],
+      "properties": {
+        "control_id": {
+          "type": "string",
+          "pattern": "^UM\\.CTRL\\."
+        },
+        "paradigm_id": {
+          "type": "string",
+          "pattern": "^UM\\.PARADIGM\\."
+        },
+        "label": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "definition": {
+          "type": "string"
+        },
+        "selection_semantics": {
+          "type": "string"
+        },
+        "values": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "default": {
+          "type": "string"
+        },
+        "control_family": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

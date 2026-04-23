@@ -1,0 +1,305 @@
+{
+  "package": {
+    "name": "Universal Methodology Meta-Control Interface",
+    "short_name": "UM-MCI",
+    "package_semver": "0.1.0",
+    "schema_major_version": 1,
+    "generated_utc": "2026-04-21T09:21:33Z",
+    "package_name": "UM_MetaControl_Interface_Core_Semantic_Package"
+  },
+  "direction_semantics": "row -> column (directed inter-paradigm slot)",
+  "slot_id_rule": "UM.EDGE_SLOT.<ROW_SHORT_CODE>__TO__<COLUMN_SHORT_CODE>",
+  "edge_slots": [
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.SIMULATION__TO__OPTIMIZATION",
+      "from_paradigm_id": "UM.PARADIGM.SIMULATION",
+      "to_paradigm_id": "UM.PARADIGM.OPTIMIZATION"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.SIMULATION__TO__PROBABILISTIC",
+      "from_paradigm_id": "UM.PARADIGM.SIMULATION",
+      "to_paradigm_id": "UM.PARADIGM.PROBABILISTIC"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.SIMULATION__TO__INVERSION",
+      "from_paradigm_id": "UM.PARADIGM.SIMULATION",
+      "to_paradigm_id": "UM.PARADIGM.INVERSION"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.SIMULATION__TO__TRANSFORMATION",
+      "from_paradigm_id": "UM.PARADIGM.SIMULATION",
+      "to_paradigm_id": "UM.PARADIGM.TRANSFORMATION"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.SIMULATION__TO__FUSION",
+      "from_paradigm_id": "UM.PARADIGM.SIMULATION",
+      "to_paradigm_id": "UM.PARADIGM.FUSION"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.SIMULATION__TO__RULE",
+      "from_paradigm_id": "UM.PARADIGM.SIMULATION",
+      "to_paradigm_id": "UM.PARADIGM.RULE"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.SIMULATION__TO__EVOLUTIONARY",
+      "from_paradigm_id": "UM.PARADIGM.SIMULATION",
+      "to_paradigm_id": "UM.PARADIGM.EVOLUTIONARY"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.OPTIMIZATION__TO__SIMULATION",
+      "from_paradigm_id": "UM.PARADIGM.OPTIMIZATION",
+      "to_paradigm_id": "UM.PARADIGM.SIMULATION"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.OPTIMIZATION__TO__PROBABILISTIC",
+      "from_paradigm_id": "UM.PARADIGM.OPTIMIZATION",
+      "to_paradigm_id": "UM.PARADIGM.PROBABILISTIC"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.OPTIMIZATION__TO__INVERSION",
+      "from_paradigm_id": "UM.PARADIGM.OPTIMIZATION",
+      "to_paradigm_id": "UM.PARADIGM.INVERSION"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.OPTIMIZATION__TO__TRANSFORMATION",
+      "from_paradigm_id": "UM.PARADIGM.OPTIMIZATION",
+      "to_paradigm_id": "UM.PARADIGM.TRANSFORMATION"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.OPTIMIZATION__TO__FUSION",
+      "from_paradigm_id": "UM.PARADIGM.OPTIMIZATION",
+      "to_paradigm_id": "UM.PARADIGM.FUSION"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.OPTIMIZATION__TO__RULE",
+      "from_paradigm_id": "UM.PARADIGM.OPTIMIZATION",
+      "to_paradigm_id": "UM.PARADIGM.RULE"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.OPTIMIZATION__TO__EVOLUTIONARY",
+      "from_paradigm_id": "UM.PARADIGM.OPTIMIZATION",
+      "to_paradigm_id": "UM.PARADIGM.EVOLUTIONARY"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.PROBABILISTIC__TO__SIMULATION",
+      "from_paradigm_id": "UM.PARADIGM.PROBABILISTIC",
+      "to_paradigm_id": "UM.PARADIGM.SIMULATION"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.PROBABILISTIC__TO__OPTIMIZATION",
+      "from_paradigm_id": "UM.PARADIGM.PROBABILISTIC",
+      "to_paradigm_id": "UM.PARADIGM.OPTIMIZATION"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.PROBABILISTIC__TO__INVERSION",
+      "from_paradigm_id": "UM.PARADIGM.PROBABILISTIC",
+      "to_paradigm_id": "UM.PARADIGM.INVERSION"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.PROBABILISTIC__TO__TRANSFORMATION",
+      "from_paradigm_id": "UM.PARADIGM.PROBABILISTIC",
+      "to_paradigm_id": "UM.PARADIGM.TRANSFORMATION"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.PROBABILISTIC__TO__FUSION",
+      "from_paradigm_id": "UM.PARADIGM.PROBABILISTIC",
+      "to_paradigm_id": "UM.PARADIGM.FUSION"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.PROBABILISTIC__TO__RULE",
+      "from_paradigm_id": "UM.PARADIGM.PROBABILISTIC",
+      "to_paradigm_id": "UM.PARADIGM.RULE"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.PROBABILISTIC__TO__EVOLUTIONARY",
+      "from_paradigm_id": "UM.PARADIGM.PROBABILISTIC",
+      "to_paradigm_id": "UM.PARADIGM.EVOLUTIONARY"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.INVERSION__TO__SIMULATION",
+      "from_paradigm_id": "UM.PARADIGM.INVERSION",
+      "to_paradigm_id": "UM.PARADIGM.SIMULATION"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.INVERSION__TO__OPTIMIZATION",
+      "from_paradigm_id": "UM.PARADIGM.INVERSION",
+      "to_paradigm_id": "UM.PARADIGM.OPTIMIZATION"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.INVERSION__TO__PROBABILISTIC",
+      "from_paradigm_id": "UM.PARADIGM.INVERSION",
+      "to_paradigm_id": "UM.PARADIGM.PROBABILISTIC"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.INVERSION__TO__TRANSFORMATION",
+      "from_paradigm_id": "UM.PARADIGM.INVERSION",
+      "to_paradigm_id": "UM.PARADIGM.TRANSFORMATION"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.INVERSION__TO__FUSION",
+      "from_paradigm_id": "UM.PARADIGM.INVERSION",
+      "to_paradigm_id": "UM.PARADIGM.FUSION"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.INVERSION__TO__RULE",
+      "from_paradigm_id": "UM.PARADIGM.INVERSION",
+      "to_paradigm_id": "UM.PARADIGM.RULE"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.INVERSION__TO__EVOLUTIONARY",
+      "from_paradigm_id": "UM.PARADIGM.INVERSION",
+      "to_paradigm_id": "UM.PARADIGM.EVOLUTIONARY"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.TRANSFORMATION__TO__SIMULATION",
+      "from_paradigm_id": "UM.PARADIGM.TRANSFORMATION",
+      "to_paradigm_id": "UM.PARADIGM.SIMULATION"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.TRANSFORMATION__TO__OPTIMIZATION",
+      "from_paradigm_id": "UM.PARADIGM.TRANSFORMATION",
+      "to_paradigm_id": "UM.PARADIGM.OPTIMIZATION"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.TRANSFORMATION__TO__PROBABILISTIC",
+      "from_paradigm_id": "UM.PARADIGM.TRANSFORMATION",
+      "to_paradigm_id": "UM.PARADIGM.PROBABILISTIC"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.TRANSFORMATION__TO__INVERSION",
+      "from_paradigm_id": "UM.PARADIGM.TRANSFORMATION",
+      "to_paradigm_id": "UM.PARADIGM.INVERSION"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.TRANSFORMATION__TO__FUSION",
+      "from_paradigm_id": "UM.PARADIGM.TRANSFORMATION",
+      "to_paradigm_id": "UM.PARADIGM.FUSION"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.TRANSFORMATION__TO__RULE",
+      "from_paradigm_id": "UM.PARADIGM.TRANSFORMATION",
+      "to_paradigm_id": "UM.PARADIGM.RULE"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.TRANSFORMATION__TO__EVOLUTIONARY",
+      "from_paradigm_id": "UM.PARADIGM.TRANSFORMATION",
+      "to_paradigm_id": "UM.PARADIGM.EVOLUTIONARY"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.FUSION__TO__SIMULATION",
+      "from_paradigm_id": "UM.PARADIGM.FUSION",
+      "to_paradigm_id": "UM.PARADIGM.SIMULATION"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.FUSION__TO__OPTIMIZATION",
+      "from_paradigm_id": "UM.PARADIGM.FUSION",
+      "to_paradigm_id": "UM.PARADIGM.OPTIMIZATION"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.FUSION__TO__PROBABILISTIC",
+      "from_paradigm_id": "UM.PARADIGM.FUSION",
+      "to_paradigm_id": "UM.PARADIGM.PROBABILISTIC"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.FUSION__TO__INVERSION",
+      "from_paradigm_id": "UM.PARADIGM.FUSION",
+      "to_paradigm_id": "UM.PARADIGM.INVERSION"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.FUSION__TO__TRANSFORMATION",
+      "from_paradigm_id": "UM.PARADIGM.FUSION",
+      "to_paradigm_id": "UM.PARADIGM.TRANSFORMATION"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.FUSION__TO__RULE",
+      "from_paradigm_id": "UM.PARADIGM.FUSION",
+      "to_paradigm_id": "UM.PARADIGM.RULE"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.FUSION__TO__EVOLUTIONARY",
+      "from_paradigm_id": "UM.PARADIGM.FUSION",
+      "to_paradigm_id": "UM.PARADIGM.EVOLUTIONARY"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.RULE__TO__SIMULATION",
+      "from_paradigm_id": "UM.PARADIGM.RULE",
+      "to_paradigm_id": "UM.PARADIGM.SIMULATION"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.RULE__TO__OPTIMIZATION",
+      "from_paradigm_id": "UM.PARADIGM.RULE",
+      "to_paradigm_id": "UM.PARADIGM.OPTIMIZATION"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.RULE__TO__PROBABILISTIC",
+      "from_paradigm_id": "UM.PARADIGM.RULE",
+      "to_paradigm_id": "UM.PARADIGM.PROBABILISTIC"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.RULE__TO__INVERSION",
+      "from_paradigm_id": "UM.PARADIGM.RULE",
+      "to_paradigm_id": "UM.PARADIGM.INVERSION"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.RULE__TO__TRANSFORMATION",
+      "from_paradigm_id": "UM.PARADIGM.RULE",
+      "to_paradigm_id": "UM.PARADIGM.TRANSFORMATION"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.RULE__TO__FUSION",
+      "from_paradigm_id": "UM.PARADIGM.RULE",
+      "to_paradigm_id": "UM.PARADIGM.FUSION"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.RULE__TO__EVOLUTIONARY",
+      "from_paradigm_id": "UM.PARADIGM.RULE",
+      "to_paradigm_id": "UM.PARADIGM.EVOLUTIONARY"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.EVOLUTIONARY__TO__SIMULATION",
+      "from_paradigm_id": "UM.PARADIGM.EVOLUTIONARY",
+      "to_paradigm_id": "UM.PARADIGM.SIMULATION"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.EVOLUTIONARY__TO__OPTIMIZATION",
+      "from_paradigm_id": "UM.PARADIGM.EVOLUTIONARY",
+      "to_paradigm_id": "UM.PARADIGM.OPTIMIZATION"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.EVOLUTIONARY__TO__PROBABILISTIC",
+      "from_paradigm_id": "UM.PARADIGM.EVOLUTIONARY",
+      "to_paradigm_id": "UM.PARADIGM.PROBABILISTIC"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.EVOLUTIONARY__TO__INVERSION",
+      "from_paradigm_id": "UM.PARADIGM.EVOLUTIONARY",
+      "to_paradigm_id": "UM.PARADIGM.INVERSION"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.EVOLUTIONARY__TO__TRANSFORMATION",
+      "from_paradigm_id": "UM.PARADIGM.EVOLUTIONARY",
+      "to_paradigm_id": "UM.PARADIGM.TRANSFORMATION"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.EVOLUTIONARY__TO__FUSION",
+      "from_paradigm_id": "UM.PARADIGM.EVOLUTIONARY",
+      "to_paradigm_id": "UM.PARADIGM.FUSION"
+    },
+    {
+      "edge_slot_id": "UM.EDGE_SLOT.EVOLUTIONARY__TO__RULE",
+      "from_paradigm_id": "UM.PARADIGM.EVOLUTIONARY",
+      "to_paradigm_id": "UM.PARADIGM.RULE"
+    }
+  ],
+  "invariants": {
+    "notes": [
+      "Edge slots are purely structural anchors (directed pairs). Do not encode semantic roles (augment/repair/extend/…) into slot IDs.",
+      "Edge slot IDs should not be deprecated under normal evolution. Semantic evolution happens at the edge family layer (layer 2).",
+      "Adding/removing paradigms would change the slot set; avoid doing so except via a major schema revision."
+    ],
+    "count": 56
+  },
+  "notes": {
+    "redundancy_policy": "Edge slots are enumerated for ease-of-use. Slot semantics are defined at the ontology level; individual slots vary only by row/column paradigms."
+  }
+}

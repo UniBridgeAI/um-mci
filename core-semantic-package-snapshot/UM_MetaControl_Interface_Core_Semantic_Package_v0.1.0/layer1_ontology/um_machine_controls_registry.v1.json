@@ -1,0 +1,152 @@
+{
+  "package": {
+    "name": "Universal Methodology Meta-Control Interface",
+    "short_name": "UM-MCI",
+    "package_semver": "0.1.0",
+    "schema_major_version": 1,
+    "generated_utc": "2026-04-21T09:21:33Z",
+    "package_name": "UM_MetaControl_Interface_Core_Semantic_Package"
+  },
+  "machine_controls": [
+    {
+      "control_id": "UM.CTRL.TRANSFORMATION.VALIDATION_STRICTNESS",
+      "paradigm_id": "UM.PARADIGM.TRANSFORMATION",
+      "label": "Validation Strictness",
+      "kind": "machine_control",
+      "selection_semantics": "Reference-only machine control; downstream runtimes may compile their own strictness profiles.",
+      "values": [
+        "light",
+        "standard",
+        "strict"
+      ],
+      "default": "standard",
+      "control_family": "validation_strictness",
+      "definition": "How strongly preservation, consistency, and tractability claims are validated before a transformation is accepted."
+    },
+    {
+      "control_id": "UM.CTRL.OPTIMIZATION.VALIDATION_STRICTNESS",
+      "paradigm_id": "UM.PARADIGM.OPTIMIZATION",
+      "label": "Validation Strictness",
+      "kind": "machine_control",
+      "selection_semantics": "Reference-only machine control.",
+      "values": [
+        "light",
+        "standard",
+        "strict"
+      ],
+      "default": "standard",
+      "control_family": "validation_strictness",
+      "definition": "How strongly feasibility, tractability, and solution-quality claims are validated before optimization outputs are accepted."
+    },
+    {
+      "control_id": "UM.CTRL.PROBABILISTIC.VALIDATION_STRICTNESS",
+      "paradigm_id": "UM.PARADIGM.PROBABILISTIC",
+      "label": "Validation Strictness",
+      "kind": "machine_control",
+      "selection_semantics": "Reference-only machine control.",
+      "values": [
+        "light",
+        "standard",
+        "strict"
+      ],
+      "default": "standard",
+      "control_family": "validation_strictness",
+      "definition": "How strongly calibration, predictive adequacy, and uncertainty claims are validated."
+    },
+    {
+      "control_id": "UM.CTRL.INVERSION.VALIDATION_STRICTNESS",
+      "paradigm_id": "UM.PARADIGM.INVERSION",
+      "label": "Validation Strictness",
+      "kind": "machine_control",
+      "selection_semantics": "Reference-only machine control.",
+      "values": [
+        "light",
+        "standard",
+        "strict"
+      ],
+      "default": "standard",
+      "control_family": "validation_strictness",
+      "definition": "How strongly identifiability, forward-consistency, and stabilization claims are validated."
+    },
+    {
+      "control_id": "UM.CTRL.RULE.VALIDATION_STRICTNESS",
+      "paradigm_id": "UM.PARADIGM.RULE",
+      "label": "Validation Strictness",
+      "kind": "machine_control",
+      "selection_semantics": "Reference-only machine control.",
+      "values": [
+        "light",
+        "standard",
+        "strict"
+      ],
+      "default": "standard",
+      "control_family": "validation_strictness",
+      "definition": "How strongly rule correctness, conflict handling, and traceability are validated."
+    },
+    {
+      "control_id": "UM.CTRL.FUSION.PROVENANCE_MODE",
+      "paradigm_id": "UM.PARADIGM.FUSION",
+      "label": "Provenance Mode",
+      "kind": "machine_control",
+      "selection_semantics": "Reference-only machine control.",
+      "values": [
+        "relaxed",
+        "standard",
+        "strict"
+      ],
+      "default": "standard",
+      "control_family": "provenance_mode",
+      "definition": "How aggressively provenance is retained and exposed when fusion reconciles or aggregates multiple sources."
+    },
+    {
+      "control_id": "UM.CTRL.FUSION.VALIDATION_STRICTNESS",
+      "paradigm_id": "UM.PARADIGM.FUSION",
+      "label": "Validation Strictness",
+      "kind": "machine_control",
+      "selection_semantics": "Reference-only machine control.",
+      "values": [
+        "light",
+        "standard",
+        "strict"
+      ],
+      "default": "standard",
+      "control_family": "validation_strictness",
+      "definition": "How strongly coherence, conflict, and interface claims are validated in fused outputs."
+    },
+    {
+      "control_id": "UM.CTRL.SIMULATION.VALIDATION_STRICTNESS",
+      "paradigm_id": "UM.PARADIGM.SIMULATION",
+      "label": "Validation Strictness",
+      "kind": "machine_control",
+      "selection_semantics": "Reference-only machine control.",
+      "values": [
+        "light",
+        "standard",
+        "strict"
+      ],
+      "default": "standard",
+      "control_family": "validation_strictness",
+      "definition": "How strongly model fidelity, calibration, interface, and execution stability are validated."
+    },
+    {
+      "control_id": "UM.CTRL.EVOLUTIONARY.VALIDATION_STRICTNESS",
+      "paradigm_id": "UM.PARADIGM.EVOLUTIONARY",
+      "label": "Validation Strictness",
+      "kind": "machine_control",
+      "selection_semantics": "Reference-only machine control.",
+      "values": [
+        "light",
+        "standard",
+        "strict"
+      ],
+      "default": "standard",
+      "control_family": "validation_strictness",
+      "definition": "How strongly update quality, diversity, and carryover claims are validated."
+    }
+  ],
+  "design_notes": [
+    "Machine controls are not paradigm semantics. They govern validation strictness, provenance exposure, and related execution policy choices that should stay separate from the ontology itself.",
+    "Validation strictness is published for every paradigm because downstream systems commonly need a shared handle for how much evidence they demand before accepting a stage result.",
+    "Fusion additionally exposes Provenance Mode because reconciliation and aggregation across multiple sources often require an explicit policy for how source lineage is retained or surfaced; other paradigms may still record provenance artifacts, but they do not usually need a paradigm-specific provenance-mode control."
+  ]
+}

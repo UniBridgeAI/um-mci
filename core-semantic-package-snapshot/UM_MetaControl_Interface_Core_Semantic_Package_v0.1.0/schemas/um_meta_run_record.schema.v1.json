@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://um-mci.local/schemas/um_meta_run_record.schema.v1.json",
+  "title": "UM Meta Run Record",
+  "type": "object",
+  "required": [
+    "run_id",
+    "created_utc",
+    "stages"
+  ],
+  "properties": {
+    "run_id": {
+      "type": "string"
+    },
+    "created_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "package_version_pin": {
+      "$ref": "um_common_record_parts.schema.v1.json#/$defs/version_pin"
+    },
+    "governance_context": {
+      "$ref": "um_governance_context_instance.schema.v1.json"
+    },
+    "affordance_context": {
+      "$ref": "um_affordance_context_instance.schema.v1.json"
+    },
+    "initial_tension_belief": {
+      "$ref": "um_tension_belief_instance.schema.v1.json"
+    },
+    "route_compilation_policy_id": {
+      "type": "string"
+    },
+    "stages": {
+      "type": "array",
+      "items": {
+        "$ref": "um_stage_record.schema.v1.json"
+      }
+    },
+    "final_outputs": {
+      "type": "array",
+      "items": {
+        "$ref": "um_common_record_parts.schema.v1.json#/$defs/artifact_ref"
+      }
+    },
+    "aggregate_costs": {
+      "type": "object"
+    },
+    "learning_targets": {
+      "type": "object"
+    },
+    "proposals": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "notes": {
+      "type": "string"
+    },
+    "stage_links": {
+      "type": "array",
+      "items": {
+        "$ref": "um_common_record_parts.schema.v1.json#/$defs/stage_link"
+      }
+    },
+    "extensions": {
+      "type": "object",
+      "description": "Optional local/vendor extensions. Place non-core fields here and namespace them by team, vendor, or project to preserve interoperability.",
+      "patternProperties": {
+        "^[A-Za-z0-9_.:-]+$": {
+          "type": [
+            "object",
+            "array",
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

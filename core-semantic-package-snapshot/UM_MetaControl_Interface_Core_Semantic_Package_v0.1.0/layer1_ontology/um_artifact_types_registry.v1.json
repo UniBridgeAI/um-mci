@@ -1,0 +1,119 @@
+{
+  "package": {
+    "name": "Universal Methodology Meta-Control Interface",
+    "short_name": "UM-MCI",
+    "package_semver": "0.1.0",
+    "schema_major_version": 1,
+    "generated_utc": "2026-04-21T09:21:33Z",
+    "package_name": "UM_MetaControl_Interface_Core_Semantic_Package"
+  },
+  "artifact_types": [
+    {
+      "artifact_type_id": "UM.ART.SPEC.OBJECTIVE_CONSTRAINTS",
+      "label": "Objective & Constraints Spec",
+      "description": "A structured specification of goals, constraints, acceptance criteria, and key trade-offs."
+    },
+    {
+      "artifact_type_id": "UM.ART.SPEC.ASSUMPTIONS_SCOPE",
+      "label": "Assumptions & Scope",
+      "description": "Explicit assumptions, scope boundaries, and non-goals; includes what is held fixed."
+    },
+    {
+      "artifact_type_id": "UM.ART.MODEL.REPRESENTATION_MAP",
+      "label": "Representation Map",
+      "description": "A mapping between representations (before/after), including variables, units, correspondences, encodings, and transformation steps."
+    },
+    {
+      "artifact_type_id": "UM.ART.CLAIM.INVARIANCE_CLAIM",
+      "label": "Invariance Claim",
+      "description": "A strict preservation claim about what properties remain invariant under a method, representation change, or composition step."
+    },
+    {
+      "artifact_type_id": "UM.ART.EVALUATION.TRACTABILITY_REPORT",
+      "label": "Tractability Report",
+      "description": "An analysis of computational/optimization/inference tractability (complexity, conditioning, identifiability) before/after a change."
+    },
+    {
+      "artifact_type_id": "UM.ART.MODEL.WORLD_MODEL",
+      "label": "World Model (Runnable)",
+      "description": "A runnable simulation model or executable system specification, including state, dynamics, and parameters."
+    },
+    {
+      "artifact_type_id": "UM.ART.EVIDENCE.DATASET",
+      "label": "Dataset / Observations",
+      "description": "A dataset or observation set used for modeling, calibration, inference, or evaluation."
+    },
+    {
+      "artifact_type_id": "UM.ART.EVIDENCE.EXECUTION_TRACES",
+      "label": "Execution Traces",
+      "description": "Traces/logs produced by executing a model or procedure (simulation runs, rollouts, traces, seeds)."
+    },
+    {
+      "artifact_type_id": "UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT",
+      "label": "Verification & Validation Report",
+      "description": "Evidence and results of verification/validation checks (V&V), including what was tested and outcomes."
+    },
+    {
+      "artifact_type_id": "UM.ART.MODEL.BELIEF_MODEL",
+      "label": "Belief Model",
+      "description": "A probabilistic belief representation (distributional family, parameters, graphical structure, priors)."
+    },
+    {
+      "artifact_type_id": "UM.ART.EVIDENCE.UNCERTAINTY_POSTERIOR",
+      "label": "Uncertainty / Posterior Summary",
+      "description": "Posterior/predictive summaries, uncertainty intervals, calibration curves, or risk bounds."
+    },
+    {
+      "artifact_type_id": "UM.ART.MODEL.FORWARD_MODEL",
+      "label": "Forward Model / Simulator Interface",
+      "description": "A forward model or simulator interface that maps inputs, states, or parameters to observable effects."
+    },
+    {
+      "artifact_type_id": "UM.ART.MODEL.INVERSE_SOLUTION",
+      "label": "Inverse Solution",
+      "description": "An inferred set of parameters/states/causes/structures solving an inverse problem (point/posterior/set-valued)."
+    },
+    {
+      "artifact_type_id": "UM.ART.DECISION.CANDIDATE_SOLUTION",
+      "label": "Candidate Solution / Decision",
+      "description": "A proposed solution/decision (e.g., optimized parameters, chosen policy), with links to objective and constraints."
+    },
+    {
+      "artifact_type_id": "UM.ART.POLICY.RULESET",
+      "label": "Policy / Ruleset",
+      "description": "Explicit rules, constraints, or decision policy used to govern execution or enforce invariants."
+    },
+    {
+      "artifact_type_id": "UM.ART.PROVENANCE.PROVENANCE_LOG",
+      "label": "Provenance Log",
+      "description": "Traceable provenance for artifacts (sources, tools, versions, assumptions, lineage)."
+    },
+    {
+      "artifact_type_id": "UM.ART.STATE.TENSION_BELIEF",
+      "label": "Operational Tension Belief",
+      "description": "A structured belief state over operational tensions, including levels and evidence pointers."
+    },
+    {
+      "artifact_type_id": "UM.ART.CLAIM.PRESERVATION_CLAIM",
+      "label": "Preservation Claim",
+      "description": "A claim about what is preserved, recoverable, bounded, or intentionally altered by a transformation or composite route; invariance claims are a strict subtype."
+    },
+    {
+      "artifact_type_id": "UM.ART.SPEC.INTERFACE_COMPOSITION_CONTRACT",
+      "label": "Interface / Composition Contract",
+      "description": "A specification of interfaces, alignment conditions, handoff semantics, synchronization assumptions, and compatibility constraints when composing stages, models, or paradigms."
+    },
+    {
+      "artifact_type_id": "UM.ART.MODEL.SURROGATE_MODEL",
+      "label": "Surrogate / Emulator Model",
+      "description": "A reduced-order, statistical, or learned proxy model introduced to emulate a more expensive forward or world model."
+    }
+  ],
+  "design_notes": [
+    "Artifact types are global and cross-paradigm. They should be coarse enough to remain stable, and fine-grained details should be expressed via artifact subtype/labels, not new global IDs.",
+    "Paradigm- or edge-specific documents are expressed as instances of these artifact types plus semantic labels (e.g., 'Calibration report' as a subtype of UM.ART.EVALUATION.VERIFICATION_VALIDATION_REPORT).",
+    "Layer-1 artifact families are keyed to route-level functional roles rather than domain file names.",
+    "Preservation Claim generalizes Invariance Claim; exact invariance remains available as a narrower specialized artifact family.",
+    "Interface / Composition Contract exists because cross-paradigm composition introduces interface burdens not reducible to ordinary assumptions or representation maps."
+  ]
+}

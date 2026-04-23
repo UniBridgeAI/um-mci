@@ -1,0 +1,264 @@
+{
+  "package_name": "UM_MetaControl_Interface_Core_Semantic_Package",
+  "package_version": "0.1.0",
+  "archive_root": "UM_MetaControl_Interface_Core_Semantic_Package_v0.1.0",
+  "notes": "Generated release manifest. MANIFEST.json is excluded from the hashed file list to avoid self-referential hashing.",
+  "layer1_registry_version": "v1",
+  "layer2_seed_version": "v1",
+  "doi": "10.5281/zenodo.19676079",
+  "license": "Apache-2.0",
+  "release_date": "2026-04-21",
+  "generated_utc": "2026-04-21T11:39:19Z",
+  "files": [
+    {
+      "path": "CITATION.cff",
+      "size_bytes": 726,
+      "sha256": "7a5eb385cae327d87d98b09db593272623c3d7ba8da2cbe6797756c6753c8d16"
+    },
+    {
+      "path": "LICENSE",
+      "size_bytes": 11354,
+      "sha256": "0e0d64c82830d89c2acfe1b8b04f872bf9cfbf2f26005d0dcb52d541e047c71e"
+    },
+    {
+      "path": "README.md",
+      "size_bytes": 5142,
+      "sha256": "2851f84e822425300cfbbe88080713d8b166cdc342ba93be7bb4e39d036a0bc2"
+    },
+    {
+      "path": "docs/contract_resolution_spec.md",
+      "size_bytes": 1701,
+      "sha256": "a70aa05280ea71c312c559db672b75f74f8d5de6f97e44504ecd409dec2ecb0e"
+    },
+    {
+      "path": "docs/core_validation.md",
+      "size_bytes": 1357,
+      "sha256": "3cb1c963bfc0fa900e1984e104ec2204b02672a9468a7e8263dc44a2f39e49f8"
+    },
+    {
+      "path": "docs/defaults_and_validation_usage.md",
+      "size_bytes": 5484,
+      "sha256": "3b8d5f2d22681f8252bfa6fff4e946c0503ac9eeebd6e1e23c6422bb68516e0e"
+    },
+    {
+      "path": "docs/edge_family_governance.md",
+      "size_bytes": 3925,
+      "sha256": "500cfc43a5294ba9a9fd751e1f67900a949c062128d4a0b1bf6580bac4366811"
+    },
+    {
+      "path": "docs/glossary.md",
+      "size_bytes": 5579,
+      "sha256": "f2d8cd7366d03efb08fa130d8669f221477aef8549d38f3b188413e183b745cd"
+    },
+    {
+      "path": "docs/manifest_and_release_integrity.md",
+      "size_bytes": 1882,
+      "sha256": "aa96480bf9228567ca49eae3175cdc892b5f4d71a44f4fbafff3fc793dfec8d0"
+    },
+    {
+      "path": "docs/mapping_shell.md",
+      "size_bytes": 4338,
+      "sha256": "c8652d78f6cc5e525b2158a553037fbd207194b828275d368d5e07d8ba88584f"
+    },
+    {
+      "path": "docs/ontology_extension_governance.md",
+      "size_bytes": 2229,
+      "sha256": "6fddca3b6c2cbf7e27ae464840873ca426cca9d84db7b163f0852f908c290f9d"
+    },
+    {
+      "path": "docs/operational_tension_guidance.md",
+      "size_bytes": 3421,
+      "sha256": "d8c0ae746133d32562e45d3af94821cac38cf1601759c2eb9f1d9a20391c13e0"
+    },
+    {
+      "path": "docs/release_scope_and_governance.md",
+      "size_bytes": 4018,
+      "sha256": "267351b25bae820123a69bab12a67d901984ecce1051db2c1ac96ea40266dca7"
+    },
+    {
+      "path": "docs/stage_record_guidance.md",
+      "size_bytes": 6066,
+      "sha256": "4b81899e376acb67913717ffbb539d1e5c0e18ee533d81588e5ba2d2fdc5b7b9"
+    },
+    {
+      "path": "docs/theory_and_package_map.md",
+      "size_bytes": 5095,
+      "sha256": "4f57025202604b068c02f3d4baee0e3f0644e0df0520aaef38a3682d4a576665"
+    },
+    {
+      "path": "layer1_ontology/um_artifact_types_registry.v1.json",
+      "size_bytes": 6131,
+      "sha256": "39a50834910aa4719ed47226831a7d0fd9a5a36a8430dff06406c87a47a2d2ab"
+    },
+    {
+      "path": "layer1_ontology/um_context_ontology.v1.json",
+      "size_bytes": 9088,
+      "sha256": "2a57e4aab00e28404aef9c4bd6fc1af26ab49057d8afbd258d23e1f5959c54a2"
+    },
+    {
+      "path": "layer1_ontology/um_dimensions_ontology.v1.json",
+      "size_bytes": 27619,
+      "sha256": "397a2af9d6a7e599809f7d1b7be721924bb3b5afa10bead22a89bdc4db2db6d1"
+    },
+    {
+      "path": "layer1_ontology/um_edge_slots_ontology.v1.json",
+      "size_bytes": 11120,
+      "sha256": "0262457b5be6f33c706e8fb5cb200f43656282c54c1af2d7bf54bf4c21d2939a"
+    },
+    {
+      "path": "layer1_ontology/um_machine_controls_registry.v1.json",
+      "size_bytes": 5921,
+      "sha256": "0f72daff173ea4161728da811480889f5588fdb89d0410598266dc971b424f74"
+    },
+    {
+      "path": "layer1_ontology/um_namespaces.v1.json",
+      "size_bytes": 4115,
+      "sha256": "b46a2a4c8331c50af9d9521e790307a58fc6a5d89ed7004f555b82b4ea1820ec"
+    },
+    {
+      "path": "layer1_ontology/um_operational_tensions_ontology.v1.json",
+      "size_bytes": 11218,
+      "sha256": "a8f8387486a173ca7f5e1e2beb29870a05c53f0bd1662a7f070cd74f3a35206f"
+    },
+    {
+      "path": "layer1_ontology/um_paradigms_ontology.v1.json",
+      "size_bytes": 6320,
+      "sha256": "f1da9199e2c030e62d10295d3cb003f7d048ee754891c2885c2c8d9d66ad163c"
+    },
+    {
+      "path": "layer1_ontology/um_validation_primitives_registry.v1.json",
+      "size_bytes": 13986,
+      "sha256": "c9058d4d5841dc44e28205011bbf6d42a52b9f6d50c288c5622412d45ba0acda"
+    },
+    {
+      "path": "layer2_seed/um_edge_families_seed.v1.json",
+      "size_bytes": 146898,
+      "sha256": "0e2a70729d1e8bd948ee894dd2b86a35bead26a086087e3139c166ffec75f5ec"
+    },
+    {
+      "path": "layer2_seed/um_paradigm_compass_seed.v1.json",
+      "size_bytes": 128237,
+      "sha256": "ace92f90394484005b3c8e6c1100f2f34f659b5063580028fee00460b382160d"
+    },
+    {
+      "path": "layer2_seed/um_paradigm_defaults_seed.v1.json",
+      "size_bytes": 32619,
+      "sha256": "2bb8b5dccc58743d515083790324dc633bc238e76cf29f8a057458a932ac01dc"
+    },
+    {
+      "path": "requirements-minimal.txt",
+      "size_bytes": 20,
+      "sha256": "9984fa6ad6d35d2468011c4c278583e9bb4983d83be6bb3f5aabcef9c99b19b7"
+    },
+    {
+      "path": "schemas/um_affordance_context_instance.schema.v1.json",
+      "size_bytes": 2262,
+      "sha256": "03a3f1c0b253a05e39b8e574710a1408808decab2d2711806faa54fef4309917"
+    },
+    {
+      "path": "schemas/um_artifact_types_registry.schema.v1.json",
+      "size_bytes": 917,
+      "sha256": "c24a107730723f5c1210e91eb36b0892a520775af2a47578ef4ff83666c5f1da"
+    },
+    {
+      "path": "schemas/um_common_record_parts.schema.v1.json",
+      "size_bytes": 9936,
+      "sha256": "d6e7d816761f665237a9bce285ad3c895b241dcf84f597f009b4facbaf53b450"
+    },
+    {
+      "path": "schemas/um_context_ontology.schema.v1.json",
+      "size_bytes": 7622,
+      "sha256": "94ebbe7ee98ac5d748ea26f4057c0048e5235331789805cfd5cf69a3e219442d"
+    },
+    {
+      "path": "schemas/um_dimensions_ontology.schema.v1.json",
+      "size_bytes": 2467,
+      "sha256": "6568fe27385e3b0ffd2e493b19505f67c1b23f5b3c2f92b16ad2ddc75e79b57f"
+    },
+    {
+      "path": "schemas/um_edge_families_seed.schema.v1.json",
+      "size_bytes": 3611,
+      "sha256": "a57c1e00d9c5e68a8d011737aeaa8627334ad1917dbd959e7968b39e42a279a6"
+    },
+    {
+      "path": "schemas/um_edge_slots_ontology.schema.v1.json",
+      "size_bytes": 1542,
+      "sha256": "8d100ae757f0f3fee6092156c20cf761019ea9bdd0c293e9ad2407dbae95c836"
+    },
+    {
+      "path": "schemas/um_governance_context_instance.schema.v1.json",
+      "size_bytes": 1688,
+      "sha256": "9450b33a3fbb3b06c8d54269c3935f6af2cd5d100ae015fcc6476d61fb6d2e0a"
+    },
+    {
+      "path": "schemas/um_governance_proposal.schema.v1.json",
+      "size_bytes": 1765,
+      "sha256": "6e6492d2bb597c460542ae7e85e41d80741f591212e4b4223d8d03756468ae97"
+    },
+    {
+      "path": "schemas/um_machine_controls_registry.schema.v1.json",
+      "size_bytes": 1526,
+      "sha256": "d899058bf5184e73c109eaf31b4d9cff917a41cf3804ba25ba3ddd3b76f0f921"
+    },
+    {
+      "path": "schemas/um_meta_run_record.schema.v1.json",
+      "size_bytes": 2076,
+      "sha256": "90d84ed64a00fa8be74aef0101c72083e38a8ea1e777b9ccbd8a8fd004889f4a"
+    },
+    {
+      "path": "schemas/um_namespaces.schema.v1.json",
+      "size_bytes": 1334,
+      "sha256": "057a8d1538c4cf7a559bae6e1d55f92faf4c0c854a0ca2db53950e58cf11c34c"
+    },
+    {
+      "path": "schemas/um_operational_tensions_ontology.schema.v1.json",
+      "size_bytes": 2012,
+      "sha256": "e8886ee65846a5cba63f8bcbf0dc4a89e476017edfd3526114073c7c280932ff"
+    },
+    {
+      "path": "schemas/um_paradigm_compass_seed.schema.v1.json",
+      "size_bytes": 4864,
+      "sha256": "d5224720c410a88d6c6c829f71c8b388ffc3fc124aee290bf994dd1d80c5db97"
+    },
+    {
+      "path": "schemas/um_paradigm_defaults_seed.schema.v1.json",
+      "size_bytes": 5365,
+      "sha256": "195901bdc63246f63efb0003e217d6280b181ddfa78f7243077a44ad7cb65d34"
+    },
+    {
+      "path": "schemas/um_paradigms_ontology.schema.v1.json",
+      "size_bytes": 1635,
+      "sha256": "c431125699065a1bb06fbdccd8b021d8af59fe5215a776b01de39a58f464dab2"
+    },
+    {
+      "path": "schemas/um_stage_record.schema.v1.json",
+      "size_bytes": 3752,
+      "sha256": "b57d92a8ce8241c20dd761575a71e979786448d8af83c52229c4d34cb86fce03"
+    },
+    {
+      "path": "schemas/um_tension_belief_instance.schema.v1.json",
+      "size_bytes": 1432,
+      "sha256": "d68a825684d2748e8c0a31dc36c769868b9fe5707b6d9051e07db1d12ffd9bf4"
+    },
+    {
+      "path": "schemas/um_validation_primitives_registry.schema.v1.json",
+      "size_bytes": 1758,
+      "sha256": "ed9378c55c905b102c30135dc2c2e93e42d054a84c3bc3e2ebbbc58fd65cc8e2"
+    },
+    {
+      "path": "scripts/generate_manifest.py",
+      "size_bytes": 2979,
+      "sha256": "f9ed839af4e5c7d35ca3d24e250f88bfca21b5d53e5d8b54f792dac9b6f97fb7"
+    },
+    {
+      "path": "scripts/validate_core_package.py",
+      "size_bytes": 12821,
+      "sha256": "a91a1f23207e91adb3b19058b9bcf08a325fa29cda3d1caa3dbd74998035434d"
+    },
+    {
+      "path": "scripts/verify_manifest_hashes.py",
+      "size_bytes": 2934,
+      "sha256": "f9c25db7fccea44d3e0a931f2501556b4620cea87c7c26b2a61c60237fea0279"
+    }
+  ]
+}

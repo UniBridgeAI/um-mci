@@ -1,0 +1,253 @@
+{
+  "package": {
+    "name": "Universal Methodology Meta-Control Interface",
+    "short_name": "UM-MCI",
+    "package_semver": "0.1.0",
+    "schema_major_version": 1,
+    "generated_utc": "2026-04-21T09:21:33Z",
+    "package_name": "UM_MetaControl_Interface_Core_Semantic_Package"
+  },
+  "governance_context_dimensions": [
+    {
+      "dimension_id": "UM.GOV.RISK_STAKES_LEVEL",
+      "label": "Risk / Stakes Level",
+      "description": "Consequences of error and required safety margin.",
+      "type": "ordinal",
+      "levels": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "anchors": {
+        "0": "Low stakes; errors are cheap and reversible.",
+        "1": "Moderate stakes; errors cost time/money but are manageable.",
+        "2": "High stakes; errors have significant external impact; stricter validation required.",
+        "3": "Critical; safety/ethics/legal constraints dominate; only conservative routes allowed."
+      }
+    },
+    {
+      "dimension_id": "UM.GOV.REVERSIBILITY_CLASS",
+      "label": "Reversibility Class",
+      "description": "How reversible actions and outputs are (especially external side effects).",
+      "type": "enum",
+      "values": [
+        "reversible",
+        "partially_reversible",
+        "irreversible"
+      ],
+      "default": "reversible"
+    },
+    {
+      "dimension_id": "UM.GOV.AUDIT_REQUIREMENT",
+      "label": "Audit Requirement",
+      "description": "How strict auditability/provenance must be.",
+      "type": "enum",
+      "values": [
+        "none",
+        "minimal",
+        "strict"
+      ],
+      "default": "minimal"
+    },
+    {
+      "dimension_id": "UM.GOV.PERMISSION_FLAGS",
+      "label": "Permission Flags",
+      "description": "Hard constraints on what actions are allowed.",
+      "type": "object",
+      "fields": {
+        "can_access_internet": {
+          "type": "boolean",
+          "default": false
+        },
+        "can_execute_code": {
+          "type": "boolean",
+          "default": true
+        },
+        "can_write_external_systems": {
+          "type": "boolean",
+          "default": false
+        },
+        "can_spend_money": {
+          "type": "boolean",
+          "default": false
+        },
+        "can_delete_or_modify_external_data": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    }
+  ],
+  "affordance_context_dimensions": [
+    {
+      "dimension_id": "UM.AFF.BUDGET_PROFILE",
+      "label": "Budget profile (soft)",
+      "type": "enum",
+      "values": [
+        {
+          "value_id": "UM.AFF.BUDGET_PROFILE.MINIMAL",
+          "label": "Minimal",
+          "description": "Severely constrained resources; prefer cheap validations and short stages."
+        },
+        {
+          "value_id": "UM.AFF.BUDGET_PROFILE.STANDARD",
+          "label": "Standard",
+          "description": "Typical research/engineering budget; balanced cost vs evidence."
+        },
+        {
+          "value_id": "UM.AFF.BUDGET_PROFILE.EXPANSIVE",
+          "label": "Expansive",
+          "description": "Ample resources; can afford stronger validators, sweeps, and redundancy."
+        }
+      ],
+      "notes": "This is an affordance context (resource regime). It does not encode legal/ethical permissions."
+    },
+    {
+      "dimension_id": "UM.AFF.BUDGET_PRESSURE",
+      "label": "Budget pressure (dynamic)",
+      "type": "ordinal",
+      "scale": {
+        "min": 0,
+        "max": 3,
+        "labels": {
+          "0": "Low (ample remaining)",
+          "1": "Moderate",
+          "2": "High",
+          "3": "Critical (near exhaustion)"
+        }
+      },
+      "anchors": [
+        {
+          "level": 0,
+          "description": "Plenty of budget remains; use evidence‑seeking moves freely."
+        },
+        {
+          "level": 1,
+          "description": "Budget is noticeable; prefer cheap validators; avoid very expensive exploration unless justified."
+        },
+        {
+          "level": 2,
+          "description": "Budget is tight; prioritize moves with high expected information gain per cost."
+        },
+        {
+          "level": 3,
+          "description": "Budget nearly exhausted; use minimal must‑gates and stop conditions; consider 'satisficing'."
+        }
+      ],
+      "notes": "This can change during a run as budget is consumed; record updates per stage if available."
+    },
+    {
+      "dimension_id": "UM.AFF.TOOL_ENVIRONMENT",
+      "label": "Tool environment (availability/reliability)",
+      "description": "Availability and reliability of tools/skills (APIs, simulators, compilers, search tools). This is treated as context because it constrains feasibility and expected cost/variance of routes.",
+      "type": "object",
+      "fields": {
+        "tool_profiles": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "fields": {
+              "tool_name": {
+                "type": "string"
+              },
+              "availability": {
+                "type": "enum",
+                "values": [
+                  "available",
+                  "unavailable",
+                  "rate_limited"
+                ],
+                "default": "available"
+              },
+              "reliability_level": {
+                "type": "ordinal",
+                "levels": [
+                  0,
+                  1,
+                  2,
+                  3
+                ],
+                "default": 2,
+                "anchors": {
+                  "0": "Frequently fails; outputs not trustworthy.",
+                  "1": "Unreliable; frequent retries needed.",
+                  "2": "Mostly reliable; occasional errors.",
+                  "3": "Highly reliable; deterministic or well-tested."
+                }
+              },
+              "cost_class": {
+                "type": "enum",
+                "values": [
+                  "cheap",
+                  "medium",
+                  "expensive"
+                ],
+                "default": "medium"
+              }
+            }
+          }
+        }
+      },
+      "notes": "Affordance context: describes the runtime tool/infra reliability and availability. It is not a 'tension' because it is mostly exogenous; the agent can compensate via redundancy and validator choices."
+    },
+    {
+      "dimension_id": "UM.AFF.NONSTATIONARITY_LEVEL",
+      "label": "Non-stationarity / drift level",
+      "type": "ordinal",
+      "scale": {
+        "min": 0,
+        "max": 3,
+        "labels": {
+          "0": "Stationary",
+          "1": "Slow drift",
+          "2": "Moderate drift",
+          "3": "Rapid drift / adversarially changing"
+        }
+      },
+      "anchors": [
+        {
+          "level": 0,
+          "description": "Environment/data/goal is stable over the planning horizon."
+        },
+        {
+          "level": 1,
+          "description": "Slow drift; periodic recalibration/monitoring is sufficient."
+        },
+        {
+          "level": 2,
+          "description": "Drift likely within run; prefer adaptive/evolutionary moves and frequent validation."
+        },
+        {
+          "level": 3,
+          "description": "Rapid drift or adversarial changes; prefer robust and reversible actions; tighten audit/rollback."
+        }
+      ]
+    }
+  ],
+  "design_notes": [
+    "Context is partitioned into governance context and affordance context. Governance context expresses normative, permission, safety, audit, and reversibility constraints; affordance context expresses resource, tool, and environmental regimes.",
+    "Operational tensions are kept separate because they are endogenous run-state beliefs that may be reduced or shifted by methodological action, whereas governance and affordance contexts are mostly exogenous.",
+    "The corresponding instance schemas are published so downstream stage and meta-run records can encode context consistently.",
+    "A purely exogenous clarification or retrieval event should usually be logged as provenance or support action inside a stage unless it becomes substantial enough to form its own locally auditable episode."
+  ],
+  "distinction_rules": [
+    {
+      "rule_id": "CTX.RULE.TENSION_VS_CONTEXT",
+      "summary": "Operational tensions are endogenous and reducible by actions; governance/affordance contexts are mostly exogenous and define feasibility/cost regimes.",
+      "tension_criteria": [
+        "Expected to decrease as the agent makes progress (endogenous).",
+        "Directly targets the problem structure (ambiguity, evidence gap, inconsistency, etc.).",
+        "Can be improved by choosing different methodological moves."
+      ],
+      "governance_criteria": [
+        "Normative or permission constraints (safety, legal, audit, reversibility).",
+        "Defines hard feasibility gates: actions outside the regime are not allowed."
+      ],
+      "affordance_criteria": [
+        "Resource/tool/infra constraints (budget, tool reliability, drift).",
+        "Shapes expected cost/variance and suggests validator profiles, but does not define the task semantics."
+      ]
+    }
+  ]
+}

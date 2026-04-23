@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UM Governance Proposal",
+  "type": "object",
+  "required": [
+    "proposal_id",
+    "proposal_type",
+    "created_utc",
+    "rationale",
+    "evidence_pointers"
+  ],
+  "properties": {
+    "proposal_id": {
+      "type": "string"
+    },
+    "proposal_type": {
+      "type": "string"
+    },
+    "created_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "target_kind": {
+      "type": "string"
+    },
+    "targets": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "payload": {
+      "type": "object"
+    },
+    "rationale": {
+      "type": "string"
+    },
+    "evidence_pointers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "submitted",
+        "accepted",
+        "rejected"
+      ],
+      "default": "draft"
+    },
+    "package_version_pin": {
+      "$ref": "um_common_record_parts.schema.v1.json#/$defs/version_pin"
+    },
+    "review_notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "decision_rationale": {
+      "type": "string"
+    },
+    "extensions": {
+      "type": "object",
+      "description": "Optional local/vendor extensions. Place non-core fields here and namespace them by team, vendor, or project to preserve interoperability.",
+      "patternProperties": {
+        "^[A-Za-z0-9_.:-]+$": {
+          "type": [
+            "object",
+            "array",
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

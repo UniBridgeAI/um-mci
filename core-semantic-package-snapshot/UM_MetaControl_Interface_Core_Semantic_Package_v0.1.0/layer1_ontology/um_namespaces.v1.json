@@ -1,0 +1,115 @@
+{
+  "package": {
+    "name": "Universal Methodology Meta-Control Interface",
+    "short_name": "UM-MCI",
+    "package_semver": "0.1.0",
+    "schema_major_version": 1,
+    "generated_utc": "2026-04-21T09:21:33Z",
+    "package_name": "UM_MetaControl_Interface_Core_Semantic_Package"
+  },
+  "conventions": {
+    "id_style": "Uppercase namespace segments separated by dots; stable public IDs do not embed package-release version numbers.",
+    "stability": "Layer-1 registry IDs are the slow-changing public vocabulary. Layer-2 seed IDs are public within a release but may evolve across governed releases.",
+    "registration_policy": "Only IDs declared under a registered namespace in this file belong to the Core Semantic Package vocabulary. Unregistered additions are local or provisional until promoted in a later governed release."
+  },
+  "namespaces": [
+    {
+      "prefix": "UM.PARADIGM.",
+      "meaning": "Paradigm identifiers (8 universal methodologies).",
+      "examples": [
+        "UM.PARADIGM.SIMULATION"
+      ]
+    },
+    {
+      "prefix": "UM.EDGE_SLOT.",
+      "meaning": "Structural directed slots between paradigms (row→column).",
+      "examples": [
+        "UM.EDGE_SLOT.OPTIMIZATION__TO__SIMULATION"
+      ]
+    },
+    {
+      "prefix": "UM.EDGE_FAMILY.",
+      "meaning": "Governed cross-paradigm operator-family identifiers that inhabit an edge slot.",
+      "examples": [
+        "UM.EDGE_FAMILY.REFORMULATION.TRANSFORMATION__TO__OPTIMIZATION.REPARAMETERIZE_OR_RELAX_CONSTRAINTS_TO_IMPROVE_TRACTABILITY"
+      ]
+    },
+    {
+      "prefix": "UM.ART.",
+      "meaning": "Artifact type registry identifiers (global, cross-paradigm).",
+      "examples": [
+        "UM.ART.MODEL.REPRESENTATION_MAP"
+      ]
+    },
+    {
+      "prefix": "UM.VP.",
+      "meaning": "Validation primitive identifiers (global, cross-paradigm).",
+      "examples": [
+        "UM.VP.INVARIANCE_CHECK"
+      ]
+    },
+    {
+      "prefix": "UM.OT.",
+      "meaning": "Operational tension dimension identifiers (belief state).",
+      "examples": [
+        "UM.OT.AMBIGUITY",
+        "UM.OT.TRACTABILITY"
+      ]
+    },
+    {
+      "prefix": "UM.GOV.",
+      "meaning": "Governance context dimension identifiers (action-space constraints).",
+      "examples": [
+        "UM.GOV.REVERSIBILITY_CLASS"
+      ]
+    },
+    {
+      "prefix": "UM.AFF.",
+      "meaning": "Affordance context dimension identifiers (resources/tools/environment regime).",
+      "examples": [
+        "UM.AFF.BUDGET_PRESSURE"
+      ]
+    },
+    {
+      "prefix": "UM.DIM.",
+      "meaning": "Canonical Compass dimension identifiers (Layer 1 semantic hierarchy aligned to the eight Compasses).",
+      "examples": [
+        "UM.DIM.OPTIMIZATION.PROBLEM_ARCHITECTURE"
+      ]
+    },
+    {
+      "prefix": "UM.CTRL.",
+      "meaning": "Canonical machine-control identifiers (validation strictness, provenance mode, and similar non-semantic controls).",
+      "examples": [
+        "UM.CTRL.FUSION.PROVENANCE_MODE"
+      ]
+    },
+    {
+      "prefix": "UM.RUN.",
+      "meaning": "Run record identifiers.",
+      "examples": [
+        "UM.RUN.2026-03-04T000000Z.ABC123"
+      ]
+    },
+    {
+      "prefix": "UM.STAGE.",
+      "meaning": "Stage record identifiers.",
+      "examples": [
+        "UM.STAGE.01"
+      ]
+    },
+    {
+      "prefix": "UM.PROP.",
+      "meaning": "Governance proposal identifiers.",
+      "examples": [
+        "UM.PROP.EDGE_ALIAS.0001"
+      ]
+    }
+  ],
+  "notes": [
+    "Registered namespaces define the shared public vocabulary of the Core Semantic Package.",
+    "If a downstream user introduces a new local field, family, or runtime handle that is not registered here, it should be treated as local/provisional rather than as part of the canonical ontology.",
+    "Edge slot IDs are purely structural directed pairs. Edge-family IDs add semantic operator roles and may evolve across releases through governance.",
+    "This Core Semantic Package intentionally does not register runtime-projection namespaces such as knob trees or auto-recognition signatures; those belong in faster-moving companion materials."
+  ]
+}

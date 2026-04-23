@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UM-MCI paradigms ontology",
+  "type": "object",
+  "required": [
+    "package",
+    "paradigms"
+  ],
+  "properties": {
+    "package": {
+      "type": "object"
+    },
+    "paradigms": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "paradigm_id",
+          "label",
+          "short_code",
+          "thinking_label",
+          "definition",
+          "trigger_cue",
+          "summary_tag",
+          "semantic_tags",
+          "scope_notes"
+        ],
+        "properties": {
+          "paradigm_id": {
+            "type": "string",
+            "pattern": "^UM\\.PARADIGM\\."
+          },
+          "label": {
+            "type": "string"
+          },
+          "short_code": {
+            "type": "string"
+          },
+          "thinking_label": {
+            "type": "string"
+          },
+          "definition": {
+            "type": "string"
+          },
+          "trigger_cue": {
+            "type": "string"
+          },
+          "summary_tag": {
+            "type": "string"
+          },
+          "semantic_tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "scope_notes": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "design_notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "invariants": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

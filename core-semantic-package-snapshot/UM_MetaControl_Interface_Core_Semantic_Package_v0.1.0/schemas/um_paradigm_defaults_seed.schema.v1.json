@@ -1,0 +1,246 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UM-MCI paradigm defaults seed",
+  "type": "object",
+  "required": [
+    "package",
+    "paradigm_defaults"
+  ],
+  "properties": {
+    "package": {
+      "type": "object"
+    },
+    "paradigm_defaults": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/paradigm_default"
+      }
+    },
+    "design_notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "$defs": {
+    "dimension_selection": {
+      "type": "object",
+      "required": [
+        "dimension_id",
+        "selected_option_paths"
+      ],
+      "properties": {
+        "dimension_id": {
+          "type": "string",
+          "pattern": "^UM\\.DIM\\."
+        },
+        "selected_option_paths": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/option_path"
+          },
+          "minItems": 1
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "machine_control_setting": {
+      "type": "object",
+      "required": [
+        "control_id",
+        "selected_value_id"
+      ],
+      "properties": {
+        "control_id": {
+          "type": "string",
+          "pattern": "^UM\\.CTRL\\."
+        },
+        "selected_value_id": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "reqset": {
+      "type": "object",
+      "properties": {
+        "must": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "should": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "may": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "waived": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "starter_profile": {
+      "type": "object",
+      "required": [
+        "profile_id",
+        "label",
+        "definition",
+        "dimension_selections"
+      ],
+      "properties": {
+        "profile_id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "definition": {
+          "type": "string"
+        },
+        "bundle_status": {
+          "type": "string"
+        },
+        "source_basis": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "confidence": {
+          "type": "string"
+        },
+        "override_allowed": {
+          "type": "boolean"
+        },
+        "review_trigger": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "dimension_selections": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/dimension_selection"
+          }
+        },
+        "machine_control_settings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/machine_control_setting"
+          }
+        },
+        "base_artifact_requirements": {
+          "$ref": "#/$defs/reqset"
+        },
+        "base_validation_requirements": {
+          "$ref": "#/$defs/reqset"
+        },
+        "default_support_edge_shortlist": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^UM\\.EDGE_FAMILY\\."
+          }
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "paradigm_default": {
+      "type": "object",
+      "required": [
+        "paradigm_id",
+        "starter_profiles"
+      ],
+      "properties": {
+        "paradigm_id": {
+          "type": "string",
+          "pattern": "^UM\\.PARADIGM\\."
+        },
+        "required_dimension_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^UM\\.DIM\\."
+          }
+        },
+        "user_must_confirm_dimension_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^UM\\.DIM\\."
+          }
+        },
+        "starter_profiles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/starter_profile"
+          }
+        },
+        "selection_constraints": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/selection_constraint"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "option_path": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "selection_constraint": {
+      "type": "object",
+      "required": [
+        "constraint_type",
+        "definition"
+      ],
+      "properties": {
+        "constraint_type": {
+          "type": "string"
+        },
+        "dimension_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^UM\\.DIM\\."
+          }
+        },
+        "definition": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
